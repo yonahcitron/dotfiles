@@ -144,9 +144,11 @@ HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
 
+# Activate vim keybindings.
 bindkey -v
 
-
+# Remap keys to exit insert mode without having to hit esc.
+bindkey -M viins 'jk' vi-cmd-mode
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
