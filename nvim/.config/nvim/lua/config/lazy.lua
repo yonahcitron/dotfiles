@@ -27,7 +27,7 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   install = { colorscheme = { "tokyonight", "habamax" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { enabled = true, notify = false, frequency = 86400 }, -- automatically check for plugin updates, don't pop up window at startup though. Only check every 24hrs (86400 seconds).
   performance = {
     rtp = {
       -- disable some rtp plugins

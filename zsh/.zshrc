@@ -131,6 +131,18 @@ else
     fi
 fi
 unset __conda_setup
+
+# Automatically enable particular conda env for configured vscode workspaces
+if [ $ACTIVATED_VSCODE_WORKSPACE_AUTOMATE_THREAT_INTELLIGENCE = "true" ]; then
+    # Format it nicely to say we're activating the conda env, and state the command is being run from the .zshrc file
+    echo "**************************************************************************************"
+    echo "Activating conda env 'auto-threat-intelligence' for the AUTOMATE_THREAT_INTELLIGENCE vscode workspace."
+    echo "This is set in the ~/.zshrc file, due to the presence of the ACTIVATED_VSCODE_WORKSPACE_AUTOMATE_THREAT_INTELLIGENCE environment variable (with a value 'true')."
+    echo "This variable was set by the .code-workspace file in the automate_threat_intelligence repository."
+    echo "**************************************************************************************"
+    conda activate auto_threat_intelligence
+fi 
+
 # <<< conda initialize <<<
 export HISTFILE=~/.zsh_history
 export HISTFILESIZE=1000000000
