@@ -19,7 +19,8 @@
 #		  native git folder. This function allows me to access it globally (also maybe make a global $dotfiles variable
 #		  at startup in bash). Maybe can also deal with syncing issues, but make sure that I can handle conflicts
 #		  manually if needs be. 
-
+# TODO: Move the location of arch-setup.sh BACK to just the dotfiles root (i.e. so it's not stowed).
+#	Instead I SHOULD stow the dependencies file for pacman and yay (whatever I decide to call it!!).
 # This script can be run from the live arch install environment.
 # Take the following steps:
 #    - Connect to the internet with iwctl.
