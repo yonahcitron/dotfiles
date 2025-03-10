@@ -1,0 +1,4 @@
+zsh
+ohmyzsh
+nvim
+hyprland

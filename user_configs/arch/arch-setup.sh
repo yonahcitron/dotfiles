@@ -34,3 +34,10 @@
 # Install yay to download packages from AUR.
 # TODO: Add code here later.
 # TODO: Install logiops also.
+
+SCRIPT_RESOLVED="$(readlink -f "${BASH_SOURCE[0]}")"
+echo $SCRIPT_RESOLVED
+SCRIPT_DIR="$(realpath -s -- "$(dirname -- "$SCRIPT_RESOLVED")")"
+echo $SCRIPT_DIR
+PACKAGES_FILE=$SCRIPT_DIR/../../packages.txt
+cat $PACKAGES_FILE
