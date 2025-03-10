@@ -9,3 +9,4 @@ zsh-theme-powerlevel10k-git
 upower
 interception-tools
 interception-dual-function-keys
+wl-clipboard

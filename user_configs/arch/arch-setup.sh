@@ -1,4 +1,5 @@
 set -e
+# TODO: Add relative line-numbers to vim and nvim. Start using nvim more as I configure it more and more. 
 # TODO: Separate all arch / AUR package installs into a SEPARATE file.
 # TODO: Then, in the actual system config file, make a *function* like "pacman-add" and "yay-add" that try to
 #	install the file, passing ALL flags that I do, and, if successful, afterwards add it to my pacman and yay
@@ -8,6 +9,10 @@ set -e
 #	continuing. This might have happened for example if there was no internet at startup - it ensures everything
 #       is in sync.
 #       Make the git message have something to show it's auto-generated from my custom "pacman-add" / "yay-add" function.
+# TODO: Add the .p10k file in the root of my pc to my dotfiles repo and stow. This will get my custom configs here!
+#       Check that the theme is also working on the laptop, as well as the files and that everything looks the same.
+#       Make the background of the windows etc more transparent.
+# TODO: Make the whole setup with a shortcut to the battery display and header bar with some stats (like wifi etc), that also simultaneously opens the quick one-time command prompt for running little things like `power` etc.
 # TODO: Set a script at startup to see if there have been any changes to my dotfiles remote.
 #	Make it check whether there's internet first, and display a
 #	Make it run in the HYPRLAND main login terminal, so I can see exactly what's going on and what's being downloaded.

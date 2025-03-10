@@ -14,8 +14,17 @@ fi
 # Won't be in home dir if installed using yay. 
 if [ -d "$HOME/.oh-my-zsh" ]; then
     export ZSH="$HOME/.oh-my-zsh"
+
 elif [ -d "/usr/share/oh-my-zsh" ]; then
     export ZSH="/usr/share/oh-my-zsh"
+    # Link so that zsh can find it
+    if [ -L "/usr/share/oh-my-zsh/custom/themes/powerlevel10k" ]; then
+        echo "Symlink already exists."
+    else
+        sudo ln -s /usr/share/zsh-theme-powerlevel10k /usr/share/oh-my-zsh/custom/themes/powerlevel10k
+        echo "Symlink created."
+    fi
+
 else
     echo "Warning: Oh My Zsh not found! Install it manually."
 fi
@@ -24,14 +33,13 @@ fi
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
