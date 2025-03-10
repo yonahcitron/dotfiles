@@ -5,6 +5,7 @@ MAKE A NOTE THAT IN ORDER FOR THINGS IN /ETC TO WORK I.E. STASHING THERE, i NEED
 
 
 ##Todo
+- In my .bashrc, I have some instructions about a quick dotfiles applet that I wanna make... make that quickly when I have time...
 - REALLY work out the window management thing. Currently I don't have the possibility move windows how I want them.
 	- For example, if I have a big window taking up top half and two below them, I don't know how to 'raise up' one of the small ones so IT becomes the left half of the screen and the big one at the top shrinks to now take up a quarter. THAT'S the functionality that I want to implement.
 - Make an install / bootstrap script for everything if possible.

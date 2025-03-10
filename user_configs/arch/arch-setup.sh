@@ -1,3 +1,4 @@
+set -e
 # TODO: Separate all arch / AUR package installs into a SEPARATE file.
 # TODO: Then, in the actual system config file, make a *function* like "pacman-add" and "yay-add" that try to
 #	install the file, passing ALL flags that I do, and, if successful, afterwards add it to my pacman and yay
@@ -35,16 +36,17 @@
 # TODO: Add code here later.
 # TODO: Install logiops also.
 
-if ! command -v yay &> /dev/null; then
-  SCRIPT_RESOLVED="$(readlink -f "${BASH_SOURCE[0]}")"
-  echo $SCRIPT_RESOLVED
-  SCRIPT_DIR="$(realpath -s -- "$(dirname -- "$SCRIPT_RESOLVED")")"
-  echo $SCRIPT_DIR
-  PACKAGES_FILE=$SCRIPT_DIR/../../packages.txt
-  cat $PACKAGES_FILE
+
+SCRIPT_RESOLVED="$(readlink -f "${BASH_SOURCE[0]}")"
+echo $SCRIPT_RESOLVED
+SCRIPT_DIR="$(realpath -s -- "$(dirname -- "$SCRIPT_RESOLVED")")"
+echo $SCRIPT_DIR
+PACKAGES_FILE=$SCRIPT_DIR/../../packages.txt
+cat $PACKAGES_FILE
   
+if ! command -v yay &> /dev/null; then
   # Install yay to access AUR packages
-  sudo pacman --no-confirm -S --needed base-devel git
+  sudo pacman -S --noconfirm --needed base-devel git
   git clone https://aur.archlinux.org/yay-bin.git
   cd yay-bin
   makepkg -si
@@ -55,10 +57,35 @@ if ! command -v yay &> /dev/null; then
 else
   echo "yay is already installed."
 fi  
+
 # Install all packages
-sudo yay -S --needed - < $PACKAGES_FILE
+yay -Syyu --noconfirm
+sudo yay -S --noconfirm --needed - < $PACKAGES_FILE
 
 
 # TODO: Set up good system font etc. Currently I am downlaoding one from yay.
 #       Set up jetbrains mono for the terminal etc, and maybe something different for chrome?
 #       Although anyways I think it by default has a different font, double-check on this though.
+
+
+# Get the full path of zsh
+ZSH_PATH=$(which zsh)
+
+# Change the default shell for the current user
+if [[ "$SHELL" != "$ZSH_PATH" ]]; then
+    echo "Changing default shell to zsh..."
+    sudo chsh -s "$ZSH_PATH" "$USER"
+fi
+
+# Check if the change was successful
+if [[ "$(getent passwd "$USER" | cut -d: -f7)" == "$ZSH_PATH" ]]; then
+    echo "Default shell successfully changed to zsh."
+else
+    echo "Failed to change default shell."
+fi
+
+# Optional: Start zsh immediately
+if [[ "$SHELL" != "$ZSH_PATH" ]]; then
+    echo "Starting zsh..."
+    exec zsh
+fi

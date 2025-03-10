@@ -1,5 +1,7 @@
-google-chrome
 zsh
 ohmyzsh
 neovim
 hyprland
+kitty
+google-chrome
+oh-my-zsh-git
