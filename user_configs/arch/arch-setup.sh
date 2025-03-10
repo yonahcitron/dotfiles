@@ -1,4 +1,5 @@
 set -e
+# TODO: Take away the prompt, if it persists, that asks everytime if I wanna exit zsh when I click super +c. 
 # TODO: Add relative line-numbers to vim and nvim. Start using nvim more as I configure it more and more. 
 # TODO: Separate all arch / AUR package installs into a SEPARATE file.
 # TODO: Then, in the actual system config file, make a *function* like "pacman-add" and "yay-add" that try to
