@@ -1,4 +1,6 @@
 set -e
+# TODO: Implement this for using the same keybindings between nvim and hyprland: https://www.reddit.com/r/hyprland/comments/1blmxcm/tmux_hyprland_and_neovim_windowpane_navigation/
+# TODO: I've been really liking the simplicity of black background etc that vim provides out the box. Set up as many as I can of the configs in the vimrc itself, make sure that I import / use them in my nvim configs, and only put things in the nvim configs that can't be done in vim itself. This means depending on my mood I can use either vim or nvim easily, and I can always configure nvim to be more simple with time... just depends on what I'm feeling etc.
 # TODO: Take away the prompt, if it persists, that asks everytime if I wanna exit zsh when I click super +c. 
 # TODO: Add relative line-numbers to vim and nvim. Start using nvim more as I configure it more and more. 
 # TODO: Separate all arch / AUR package installs into a SEPARATE file.
