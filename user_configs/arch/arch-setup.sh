@@ -35,12 +35,30 @@
 # TODO: Add code here later.
 # TODO: Install logiops also.
 
-SCRIPT_RESOLVED="$(readlink -f "${BASH_SOURCE[0]}")"
-echo $SCRIPT_RESOLVED
-SCRIPT_DIR="$(realpath -s -- "$(dirname -- "$SCRIPT_RESOLVED")")"
-echo $SCRIPT_DIR
-PACKAGES_FILE=$SCRIPT_DIR/../../packages.txt
-cat $PACKAGES_FILE
-
+if ! command -v yay &> /dev/null; then
+  SCRIPT_RESOLVED="$(readlink -f "${BASH_SOURCE[0]}")"
+  echo $SCRIPT_RESOLVED
+  SCRIPT_DIR="$(realpath -s -- "$(dirname -- "$SCRIPT_RESOLVED")")"
+  echo $SCRIPT_DIR
+  PACKAGES_FILE=$SCRIPT_DIR/../../packages.txt
+  cat $PACKAGES_FILE
+  
+  # Install yay to access AUR packages
+  sudo pacman --no-confirm -S --needed base-devel git
+  git clone https://aur.archlinux.org/yay-bin.git
+  cd yay-bin
+  makepkg -si
+  yay --version
+  cd ..
+  rm -rf yay-bin
+  echo "yay installed successfully!"
+else
+  echo "yay is already installed."
+fi  
 # Install all packages
-sudo pacman -S --needed - < $PACKAGES_FILE
+sudo yay -S --needed - < $PACKAGES_FILE
+
+
+# TODO: Set up good system font etc. Currently I am downlaoding one from yay.
+#       Set up jetbrains mono for the terminal etc, and maybe something different for chrome?
+#       Although anyways I think it by default has a different font, double-check on this though.
