@@ -5,3 +5,4 @@ hyprland
 kitty
 google-chrome
 oh-my-zsh-git
+upower
