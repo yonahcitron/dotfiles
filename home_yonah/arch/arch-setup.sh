@@ -28,6 +28,8 @@
 #    - Install git and cd into a new directory in the home directory called `repos`.
 #    - Run `git clone https://github.com/yonahcitron/dotfiles.git`.
 #    - Run this script.
+# TODO: Things to install - nvim, todoist-appimage (with yay)
+
 
 # Install yay to download packages from AUR.
 # TODO: Add code here later.
