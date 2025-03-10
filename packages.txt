@@ -5,4 +5,7 @@ hyprland
 kitty
 google-chrome
 oh-my-zsh-git
+zsh-theme-powerlevel10k-git
 upower
+interception-tools
+interception-dual-function-keys

@@ -66,7 +66,7 @@ sudo yay -S --noconfirm --needed - < $PACKAGES_FILE
 # TODO: Set up good system font etc. Currently I am downlaoding one from yay.
 #       Set up jetbrains mono for the terminal etc, and maybe something different for chrome?
 #       Although anyways I think it by default has a different font, double-check on this though.
-
+# TODO: Maybe implement some keybinding (also maybe in hyprland.conf) to open a quick central command popup window to run single short quick commandd, rather than having to go to a whole terminal... e.g. 'power' just to see quick status of battery etc..
 
 # Get the full path of zsh
 ZSH_PATH=$(which zsh)
