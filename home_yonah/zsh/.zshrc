@@ -5,25 +5,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Avoid SSL issues
-export CERT_PATH=~/certs/shell.pem
-export SSL_CERT_FILE=${CERT_PATH}
-export REQUESTS_CA_BUNDLE=${CERT_PATH}
-
-# Folder shortcuts
-export onedrive=/Users/yonah.citron/Library/CloudStorage/OneDrive-Shell
-
-# aliases
-alias onedrive="cd $onedrive"
-
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -56,6 +45,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -102,59 +92,23 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source $(brew --prefix nvm)/nvm.sh
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/yonah.citron/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/yonah.citron/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/yonah.citron/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/yonah.citron/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-# Automatically enable particular conda env for configured vscode workspaces
-if [ $ACTIVATED_VSCODE_WORKSPACE_AUTOMATE_THREAT_INTELLIGENCE = "true" ]; then
-    # Format it nicely to say we're activating the conda env, and state the command is being run from the .zshrc file
-    echo "**************************************************************************************"
-    echo "Activating conda env 'auto-threat-intelligence' for the AUTOMATE_THREAT_INTELLIGENCE vscode workspace."
-    echo "This is set in the ~/.zshrc file, due to the presence of the ACTIVATED_VSCODE_WORKSPACE_AUTOMATE_THREAT_INTELLIGENCE environment variable (with a value 'true')."
-    echo "This variable was set by the .code-workspace file in the automate_threat_intelligence repository."
-    echo "**************************************************************************************"
-    conda activate auto_threat_intelligence
-fi 
-
-# <<< conda initialize <<<
-export HISTFILE=~/.zsh_history
-export HISTFILESIZE=1000000000
-export HISTSIZE=1000000000
-setopt INC_APPEND_HISTORY
-export HISTTIMEFORMAT="[%F %T] "
-setopt EXTENDED_HISTORY
-setopt HIST_FIND_NO_DUPS
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=100000
-SAVEHIST=100000
 
 # Activate vim keybindings.
 bindkey -v

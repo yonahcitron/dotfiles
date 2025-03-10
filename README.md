@@ -10,5 +10,7 @@ MAKE A NOTE THAT IN ORDER FOR THINGS IN /ETC TO WORK I.E. STASHING THERE, i NEED
 - Make an install / bootstrap script for everything if possible.
 - Remember to only add dotfiles as and when I need them / configure them.
 - Remember to also have some script that run at setup, like when I stow the logid.cfg file, in the next step, I THEN need to actually do sudo systemctl start logid.service ... and also activate or something or enable.. check with chatgpt
+- Install logid, zsh, ohmyzsh,
+- Configure ohmyzsh to look nice...
 
 this is the link to help with documentation ... https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html
