@@ -3,7 +3,7 @@ MAKE A NOTE THAT IN ORDER FOR THINGS IN /ETC TO WORK I.E. STASHING THERE, i NEED
 # sudo chown root:root /etc/logid.cfg
 # sudo chmod 600 /etc/logid.cfg
 
-
+# In the startup file, I ALSO need to start all the services that I want to start e.g. logid and udevmon, depending on the device. This should be in the arch-setup.sh file.
 ##Todo
 - In my .bashrc, I have some instructions about a quick dotfiles applet that I wanna make... make that quickly when I have time...
 - Also see if there's a way to switch between adjacent windows in hyprland by simplying continue scrolling using super + l etc etc... like you just 'continue on to the next screen'... see if there a plugin or something for that?..
