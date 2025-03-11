@@ -1,8 +1,6 @@
 MAKE A NOTE THAT IN ORDER FOR THINGS IN /ETC TO WORK I.E. STASHING THERE, i NEED TO DO FOR EACH FILE:
 
-# sudo chown root:root /etc/logid.cfg
-# sudo chmod 600 /etc/logid.cfg
-
+# TODO: At some point make it that when I close my laptop lid it automatically hibernates it...
 # TODO: Keyboard remappings to do: on my various machines and keyboards, remap the same function keys to do the same things around volume, etc etc... also remap the caps lock key maybe to be esc when pressed once, and caps when pressed twice (maybe in the future make it control or something when held???)
 # In the startup file, I ALSO need to start all the services that I want to start e.g. logid and udevmon, depending on the device. This should be in the arch-setup.sh file.
 ##Todo
