@@ -70,7 +70,7 @@ fi
 
 # Install all packages
 yay -Syyu --noconfirm
-sudo yay -S --noconfirm --needed - < $PACKAGES_FILE
+yay -S --noconfirm --needed - < $PACKAGES_FILE
 
 
 # TODO: Set up good system font etc. Currently I am downlaoding one from yay.
