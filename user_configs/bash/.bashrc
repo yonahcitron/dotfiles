@@ -15,4 +15,4 @@ alias power="upower -i $(upower -e | grep battery) | awk '/percentage/ {print $2
 #############################################
 
 export dotfiles="$HOME/repos/dotfiles"
-echo "global 'dotfiles' variable set to: $dotfiles"
+# echo "global 'dotfiles' variable set to: $dotfiles"
