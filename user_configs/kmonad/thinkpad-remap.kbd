@@ -6,25 +6,21 @@
 )
 
 (defsrc
+  ;; Add function row here when I can be bothered.
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt                 spc            ralt rmet rctl   cmp
+  tab  q    w    e    r    t    y    u    i    o    p    [    ] 
+  caps a    s    d    f    g    h    j    k    l    ;    '   \   ret
+  lsft lsgt z    x    c    v    b    n    m    ,    .    /    rsft
+  wkup lctl lmet lalt            spc            ralt sys rctl   
+  pgup up pgdn left down right
+  nlck kp/ kp* kp- kp+ kprt kp. kp0 kp1 kp2 kp3 kp4 kp5 kp6 kp7 kp8 kp9
 )
-
 (deflayer main
-  ;; Left side
-  leftalt    leftmeta   
-  leftmeta   leftctrl  
-  leftctrl   leftalt    
-
-  ;; Right side
-  rightalt   rightmeta  
-  rightmeta  rightctrl 
-  rightctrl  rightalt  
-
-  ;; Everything else just passes through
-  _          _
-
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _ 
+  _    _    _    _    _    _    _    _    _    _    _    _    _    
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    lctl lmet lalt              spc            ralt sys rctl
+  _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
 )
