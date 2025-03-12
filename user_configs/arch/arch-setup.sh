@@ -2,6 +2,8 @@
 set -e
 source $HOME/.bashrc
 
+
+
 #####################
 #####  Todos  #######
 #####################
@@ -47,6 +49,85 @@ source $HOME/.bashrc
 #    - Run `git clone https://github.com/yonahcitron/dotfiles.git`.
 #    - Run this script.
 # TODO: Things to install - nvim, todoist-appimage (with yay)
+
+###########################
+######  Prerequisites #####
+###########################
+
+# - Install arch from the live usb
+#	- After chrooting into the drive, be sure to install iwd with pacman.
+
+###########################
+##### First-time setup ####
+###########################
+
+#!/bin/bash
+
+# Function to check if a package is installed
+check_installed() {
+    pacman -Q $1 &> /dev/null
+    return $?
+}
+
+# Check if iwd is installed
+if ! check_installed iwd; then
+    echo "[ERROR] 'iwd' is not installed. Please install it first using the live USB:"
+    echo "sudo pacman -S iwd"
+    exit 1
+fi
+
+# Ensure iwd and systemd-networkd are enabled and running
+for service in iwd systemd-networkd; do
+    if ! systemctl is-active --quiet $service; then
+        echo "[INFO] Enabling and starting $service..."
+        sudo systemctl enable --now $service
+    else
+        echo "[OK] $service is already running."
+    fi
+done
+
+# Ensure /etc/systemd/network/25-wireless.network exists
+NETWORK_CONF="/etc/systemd/network/25-wireless.network"
+if [ ! -f "$NETWORK_CONF" ]; then
+    echo "[INFO] Configuring network settings..."
+    sudo tee $NETWORK_CONF > /dev/null <<EOF
+[Match]
+Name=wlan0
+
+[Network]
+DHCP=yes
+EOF
+    sudo systemctl restart systemd-networkd
+fi
+
+# Check if WiFi is already connected
+if iwctl station wlan0 show | grep -q "connected"; then
+    echo "[INFO] WiFi is already connected. Skipping WiFi setup."
+else
+    # Scan for WiFi networks
+    echo "[INFO] Scanning for available WiFi networks..."
+    iwctl station wlan0 scan
+    sleep 2  # Give it time to scan
+
+    # Display available networks
+    echo "[INFO] Available networks:"
+    iwctl station wlan0 get-networks
+
+    # Prompt user for WiFi details
+    read -p "Enter WiFi SSID: " SSID
+    read -s -p "Enter WiFi Password: " PASSWORD
+
+    # Connect to the WiFi network
+    echo "\n[INFO] Connecting to $SSID..."
+    iwctl station wlan0 connect "$SSID" <<< "$PASSWORD"
+
+    # Check connection status
+    if iwctl station wlan0 show | grep -q "connected"; then
+        echo "[SUCCESS] Successfully connected to $SSID!"
+    else
+        echo "[ERROR] Failed to connect. Check your SSID and password."
+    fi
+fi
 
 ###########################
 #### Install Packages #####
@@ -103,10 +184,14 @@ if [[ "$SHELL" != "$ZSH_PATH" ]]; then
     exec zsh
 fi
 
+
+
+
 #############################
 #####  Systemd daemons  #####
 #############################
 
 sudo systemctl daemon-reload
 
-sudo systemctl enable kmonad.service && sudo systemctl start kmonad.service
+sudo systemctl enable --now kmonad.service
+
