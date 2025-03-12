@@ -1,4 +1,11 @@
+# Import global variables.
 set -e
+source $HOME/.bashrc
+
+#####################
+#####  Todos  #######
+#####################
+
 # TODO: Ensure that I install and load the uinput kernel module every time.
 # TODO: I think replace logid with kmonad as it's easier and more reliable.
 # TODO: Implement this for using the same keybindings between nvim and hyprland: https://www.reddit.com/r/hyprland/comments/1blmxcm/tmux_hyprland_and_neovim_windowpane_navigation/
@@ -41,17 +48,12 @@ set -e
 #    - Run this script.
 # TODO: Things to install - nvim, todoist-appimage (with yay)
 
+###########################
+#### Install Packages #####
+###########################
 
-# Install yay to download packages from AUR.
-# TODO: Add code here later.
-# TODO: Install logiops also.
-
-
-SCRIPT_RESOLVED="$(readlink -f "${BASH_SOURCE[0]}")"
-echo $SCRIPT_RESOLVED
-SCRIPT_DIR="$(realpath -s -- "$(dirname -- "$SCRIPT_RESOLVED")")"
-echo $SCRIPT_DIR
-PACKAGES_FILE=$SCRIPT_DIR/../../packages.txt
+PACKAGES_FILE=$dotfiles/packages.txt # $dotfiles is defined in .bashrc
+echo "Ensuring all the following packages are installed:"
 cat $PACKAGES_FILE
   
 if ! command -v yay &> /dev/null; then
@@ -87,9 +89,10 @@ if [[ "$SHELL" != "$ZSH_PATH" ]]; then
     sudo chsh -s "$ZSH_PATH" "$USER"
 fi
 
+echo "Confirming zsh is the default shell..."
 # Check if the change was successful
 if [[ "$(getent passwd "$USER" | cut -d: -f7)" == "$ZSH_PATH" ]]; then
-    echo "Default shell successfully changed to zsh."
+    echo "Confirmed zsh is the default shell."
 else
     echo "Failed to change default shell."
 fi
@@ -99,3 +102,11 @@ if [[ "$SHELL" != "$ZSH_PATH" ]]; then
     echo "Starting zsh..."
     exec zsh
 fi
+
+#############################
+#####  Systemd daemons  #####
+#############################
+
+sudo systemctl daemon-reload
+
+sudo systemctl enable kmonad.service && sudo systemctl start kmonad.service
