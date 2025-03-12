@@ -1,6 +1,6 @@
 (defcfg
   input  (device-file "/dev/input/event3")
-  output (uinput-sink "kmonad" "/dev/uinput")
+  output (uinput-sink "kmonad")
   fallthrough true
   allow-cmd false
 )
@@ -20,7 +20,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    lctl lmet lalt              spc            ralt sys rctl
+  _    lalt lctl lmet              spc            rmet rctl ralt
   _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _    _
 )
