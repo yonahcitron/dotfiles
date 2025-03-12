@@ -2,12 +2,11 @@
 set -e
 source $HOME/.bashrc
 
-
-
 #####################
 #####  Todos  #######
 #####################
 
+# TODO: Currently I'm symlinking .arch-setup.sh to home for ease of access. When I implement my little 'dotfiles' cmdlet, make a command like 'dotfiles install' or something that basicallly runs the script (from the dotfiles original repo itself), and this will remove the need to have the .arch-setup.sh script in the home dir at all. Just get the cmdlet working!
 # TODO: Ensure that I install and load the uinput kernel module every time.
 # TODO: I think replace logid with kmonad as it's easier and more reliable.
 # TODO: Implement this for using the same keybindings between nvim and hyprland: https://www.reddit.com/r/hyprland/comments/1blmxcm/tmux_hyprland_and_neovim_windowpane_navigation/
@@ -50,18 +49,17 @@ source $HOME/.bashrc
 #    - Run this script.
 # TODO: Things to install - nvim, todoist-appimage (with yay)
 
-###########################
-######  Prerequisites #####
-###########################
+##############################
+######  Prerequisites ########
+##############################
 
 # - Install arch from the live usb
 #	- After chrooting into the drive, be sure to install iwd with pacman.
-
+#       - Also be sure to make a user account called 'yonah' (some of the hard-coded installations depend on this) ... I think in future maybe make the start of the script check whether you're running in root, tell you you shouldn't if you are, and then use the user-account name as a param for the install!
 ###########################
 ##### First-time setup ####
 ###########################
 
-#!/bin/bash
 
 # Function to check if a package is installed
 check_installed() {
@@ -129,9 +127,53 @@ else
     fi
 fi
 
-###########################
-#### Install Packages #####
-###########################
+##############################
+###### Install Configs #######
+##############################
+
+WORKING_DIR=$(pwd)
+USER_ACCOUNT="yac"
+
+# Symlink this file to the home folder so I can easily re-run.
+if [ -L "/home/$USER_ACCOUNT/.arch-setup.sh" ]; then
+    echo "Symlink already exists: /home/$USER_ACCOUNT/.arch-setup.sh"
+elif [ -e "/home/$USER_ACCOUNT/.arch-setup.sh" ]; then
+    echo "A regular file or directory exists at the target location. Not creating symlink."
+else
+    ln -s "$dotfiles/arch-setup.sh" "/home/$USER_ACCOUNT/.arch-setup.sh"
+    echo "Symlink created: /home/$USER_ACCOUNT/.arch-setup.sh -> $dotfiles/arch-setup.sh"
+fi
+
+
+HOME_STOW_DIR=$dotfiles/user_configs
+GLOBAL_STOW_DIR=$dotfiles/global_configs
+HOME_TARGET="/home/$USER_ACCOUNT"
+GLOBAL_TARGET="/etc"
+
+echo "The pwd is: $WORKING_DIR"
+echo "The home stow dir is: $HOME_STOW_DIR"
+echo "The global stow dir is: $GLOBAL_STOW_DIR"
+echo "The home target is: $HOME_TARGET"
+echo "The global target is: $GLOBAL_TARGET"
+
+# In order to get the intended functionality of treating each of the subfolders of the stow dir as a module, and reacreate each of their substructures within the target dirs, rather than just dumping them in the target dir directly, we *must* use the cd approach. This is why we can specify the --dir directly for our command which would be more elegant.
+echo "Setting up user configs." 
+cd $HOME_STOW_DIR
+stow --target $HOME_TARGET */  # User configs.
+
+# Global configs.
+echo "Setting up global configs." 
+cd $GLOBAL_STOW_DIR
+sudo stow --target $GLOBAL_TARGET */
+
+cd $WORKING_DIR
+
+
+##############################
+#### Install Local files #####
+##############################
+
+# Install arch and aur files.
 
 PACKAGES_FILE=$dotfiles/packages.txt # $dotfiles is defined in .bashrc
 echo "Ensuring all the following packages are installed:"
