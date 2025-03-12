@@ -18,11 +18,8 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
 elif [ -d "/usr/share/oh-my-zsh" ]; then
     export ZSH="/usr/share/oh-my-zsh"
     # Link so that zsh can find it
-    if [ -L "/usr/share/oh-my-zsh/custom/themes/powerlevel10k" ]; then
-        echo "Symlink already exists."
-    else
+    if [ ! -L "/usr/share/oh-my-zsh/custom/themes/powerlevel10k" ]; then
         sudo ln -s /usr/share/zsh-theme-powerlevel10k /usr/share/oh-my-zsh/custom/themes/powerlevel10k
-        echo "Symlink created."
     fi
 
 else
