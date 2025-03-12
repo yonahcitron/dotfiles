@@ -1,0 +1,14 @@
+[Unit]
+Description=KMonad keyboard remapping service
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/kmonad /home/yac/.config/kmonad/thinkpad-remap.kbd
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
