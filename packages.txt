@@ -9,3 +9,4 @@ zsh-theme-powerlevel10k-git
 upower
 kmonad
 wl-clipboard
+brightnessctl
