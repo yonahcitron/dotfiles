@@ -9,3 +9,4 @@ ToDo today:
 # Other todos
 - Every time I run the arch-install script I get locale warnings.
 - Set these up to stop the warnings and would be a good thing to do anyways!
+- Make some sort of configuration file in 'dotfiles' to simplify?? Maybe like a config.json or a config.ini or something like that... this can also be used by the 'dotfiles' cmdlet, and will mean I can centralise any params that won't be used globally.
