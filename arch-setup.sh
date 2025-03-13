@@ -159,7 +159,7 @@ sudo stow --target /etc */
 echo "Setting up Yonah's cmdlet tools."
 cd $dotfiles
 mkdir -p tools
-stow --target $HOME_TARGET/tools tools
+stow --target /home/$USER_ACCOUNT/tools tools
 cd $WORKING_DIR
 
 

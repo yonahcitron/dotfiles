@@ -11,3 +11,9 @@ ToDo today:
 - Every time I run the arch-install script I get locale warnings.
 - Set these up to stop the warnings and would be a good thing to do anyways!
 - Make some sort of configuration file in 'dotfiles' to simplify?? Maybe like a config.json or a config.ini or something like that... this can also be used by the 'dotfiles' cmdlet, and will mean I can centralise any params that won't be used globally.
+- Somewhere in the arch setup script raise an error if the internet connection is not working.
+	- Find the most 'legit' way to test in a script whether things are actually working with your connection to the internet.
+- Make a separate script / cmdlet for connecting to wifi.
+- After hibernating for a while, systemd-networkd often stop working for some reason.
+	- Find out why this is.
+	- If there's no obvious reason, try make a post-hibernation hook that restarts it: `sudo systemctl restart systemd-networkd`
