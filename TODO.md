@@ -17,3 +17,7 @@ ToDo today:
 - After hibernating for a while, systemd-networkd often stop working for some reason.
 	- Find out why this is.
 	- If there's no obvious reason, try make a post-hibernation hook that restarts it: `sudo systemctl restart systemd-networkd`
+
+
+
+- Work out with tree-sitter how I can get it to recognise sentences for typing txt and md files, etc. This would be useful for jumping around sentences quickly.

@@ -20,3 +20,8 @@ MAKE A NOTE THAT IN ORDER FOR THINGS IN /ETC TO WORK I.E. STASHING THERE, i NEED
 	There may already be some plugins for the above, especially in nvim, so them up! Sure there are to be honest. Also ask chatgpt once I've defined 'sections' like that in e.g. a script, what the best ways there are to jump around in them from place to place.
 
 this is the link to help with documentation ... https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html
+
+
+
+
+NOTE: When adding config files to etc, they should be created in the dotfiles folder and then symlinked. This is because in the dotfiles folder (a git repository), they must be owned by the user in order to work with git. In the target folder /etc , however, they should be owned by root.

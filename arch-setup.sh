@@ -153,6 +153,8 @@ stow --target /home/$USER_ACCOUNT */  # User configs.
 # Global configs.
 echo "Setting up Yonah's global configs." 
 cd $dotfiles/global_configs
+# Stowing as root should give root ownership of the symlinks.
+# The files they link to should be user-owned, to not interfere with git.
 sudo stow --target /etc */
 
 # Tools.
