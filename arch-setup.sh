@@ -132,7 +132,7 @@ fi
 ##############################
 
 WORKING_DIR=$(pwd)
-USER_ACCOUNT="yac"
+USER_ACCOUNT="yonah"
 
 # Symlink this file to the home folder so I can easily re-run.
 if [ -L "/home/$USER_ACCOUNT/.arch-setup.sh" ]; then
