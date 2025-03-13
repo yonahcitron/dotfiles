@@ -1,6 +1,6 @@
 # Import global variables.
 set -e
-source $HOME/.bashrc
+source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 
 #####################
 #####  Todos  #######
