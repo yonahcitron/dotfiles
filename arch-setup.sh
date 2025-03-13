@@ -99,17 +99,17 @@ EOF
 fi
 
 # Check if WiFi is already connected
-if iwctl station wlan0 show | grep -q "connected"; then
+if sudo iwctl station wlan0 show | grep -q "connected"; then
     echo "[INFO] WiFi is already connected. Skipping WiFi setup."
 else
     # Scan for WiFi networks
     echo "[INFO] Scanning for available WiFi networks..."
-    iwctl station wlan0 scan
+    sudo iwctl station wlan0 scan
     sleep 2  # Give it time to scan
 
     # Display available networks
     echo "[INFO] Available networks:"
-    iwctl station wlan0 get-networks
+    sudo iwctl station wlan0 get-networks
 
     # Prompt user for WiFi details
     read -p "Enter WiFi SSID: " SSID
@@ -117,10 +117,10 @@ else
 
     # Connect to the WiFi network
     echo "\n[INFO] Connecting to $SSID..."
-    iwctl station wlan0 connect "$SSID" <<< "$PASSWORD"
+    sudo iwctl station wlan0 connect "$SSID" <<< "$PASSWORD"
 
     # Check connection status
-    if iwctl station wlan0 show | grep -q "connected"; then
+    if sudo iwctl station wlan0 show | grep -q "connected"; then
         echo "[SUCCESS] Successfully connected to $SSID!"
     else
         echo "[ERROR] Failed to connect. Check your SSID and password."
