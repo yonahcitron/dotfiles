@@ -53,13 +53,24 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 ######  Prerequisites ########
 ##############################
 
-# - Install arch from the live usb
-#	- After chrooting into the drive, be sure to install iwd with pacman.
-#       - Also be sure to make a user account called 'yonah' (some of the hard-coded installations depend on this) ... I think in future maybe make the start of the script check whether you're running in root, tell you you shouldn't if you are, and then use the user-account name as a param for the install!
+# - Install arch from the live usb.
+# 	- Allocate the main and swap partitions, and UEFI partition if one doesn't already exist.
+	- Mount the main filesystem to /mnt , and the boot (UEFI) parition to /mnt/boot .
+#	 run:
+#       ` pacstrap -K /mnt base linux linux-firmware `
+#       - Run `arch-chroot /mnt`, then:
+#             - `pacman --noconfirm -S iwd grub efibootmgr` # Wifi and boot systems
+#	      - `passwd` # Set password for root user
+#             - `useradd -m -G wheel yonah && passwd yonah` 
+#             - ` grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+#	      - grub-mkconfig -o /boot/grub/grub.cfg
+# Restart the system and boot into the new install.
+
 ###########################
 ##### First-time setup ####
 ###########################
 
+# TODO: HERE INSTALL ALL THE THINGS LISTED IN THE TO-DO.MD, still to be done!!
 
 # Function to check if a package is installed
 check_installed() {
