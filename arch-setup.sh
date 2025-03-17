@@ -5,7 +5,7 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 #####################
 #####  Todos  #######
 #####################
-
+# TODO: Make it that when I scroll vim on my thinkpad with the thinkpad button thing in red, the mouse goes like two thirds of the way to the bottom, and THEN starts scrolling.
 # TODO: Currently I'm symlinking .arch-setup.sh to home for ease of access. When I implement my little 'dotfiles' cmdlet, make a command like 'dotfiles install' or something that basicallly runs the script (from the dotfiles original repo itself), and this will remove the need to have the .arch-setup.sh script in the home dir at all. Just get the cmdlet working!
 # TODO: Ensure that I install and load the uinput kernel module every time.
 # TODO: I think replace logid with kmonad as it's easier and more reliable.
@@ -48,7 +48,7 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 #    - Run `git clone https://github.com/yonahcitron/dotfiles.git`.
 #    - Run this script.
 # TODO: Things to install - nvim, todoist-appimage (with yay)
-
+# TODO: Once I've remapped the escape key to the caps lock, be sure to undo the 'jk' keymappings I have set up in nvim etc. 
 ##############################
 ######  Prerequisites ########
 ##############################
@@ -71,6 +71,8 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 ###########################
 
 # TODO: HERE INSTALL ALL THE THINGS LISTED IN THE TO-DO.MD, still to be done!!
+
+# remove all the extraneous things here and just make it bullet points!!
 
 # Function to check if a package is installed
 check_installed() {

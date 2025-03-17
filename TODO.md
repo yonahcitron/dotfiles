@@ -30,5 +30,7 @@ ToDo today:
 	- Set up time zone
 	- localization
 	- network configuration (/etc/hostname)
-        - after connecting , download gh script and authenticate then run script...	
-        - Also make configuring the default faults for system, for hyprland, etc , part of the setup
+- Download my (public) dotfiles repo and run it.
+        - Also make configuring the default fonts for system, for hyprland, etc , part of the setup
+	- Configure hibernation for the system if I want it (maybe make an automated script that does so for me by printing each of the paritions and asking which one to use IF there is a swap partition mounted).
+	- Configure the logitech connection software thing (make sure is installed in pacman - also make the sure todoist image is installed).

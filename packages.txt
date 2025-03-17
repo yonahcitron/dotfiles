@@ -1,3 +1,4 @@
+git
 zsh
 ohmyzsh
 neovim
@@ -10,3 +11,5 @@ upower
 kmonad
 wl-clipboard
 brightnessctl
+todoist-appimage
+ltunify
