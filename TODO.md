@@ -6,7 +6,7 @@ ToDo today:
 - Store all my systemd files in my dotfiles repo as well?? see if that works and if it will automatically detect them and start them on a new machine?? maybe also add at the end of my arch-setup.sh that if it's the first time doing these things I should probably do a restart of the computer... ALSO CURRENTLY in my kmonad file in /etc/systemd/system/kmonad.service ... it's hard-coded to my username as 'yac'... I need to CHANGE both pc and laptop to have the same username (yonah), and differentiate them by their hostnames :: 'thinkpad' vs 'thinkcentre'
 - Remap the capslock to esc for once and capslock for twice (and maybe control for hold??)
 - Make my thinkbutton less sensitive!!
-
+- PRACTISE USING THE TEE COMMAND!
 # Other todos
 - Every time I run the arch-install script I get locale warnings.
 - Set these up to stop the warnings and would be a good thing to do anyways!
@@ -34,3 +34,4 @@ ToDo today:
         - Also make configuring the default fonts for system, for hyprland, etc , part of the setup
 	- Configure hibernation for the system if I want it (maybe make an automated script that does so for me by printing each of the paritions and asking which one to use IF there is a swap partition mounted).
 	- Configure the logitech connection software thing (make sure is installed in pacman - also make the sure todoist image is installed).
+- Separate out the functionalities of (some) of the different parts of the script so that I can re-use or whatever the parts that I want to.
