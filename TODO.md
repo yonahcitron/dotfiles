@@ -17,8 +17,8 @@ ToDo today:
 - After hibernating for a while, systemd-networkd often stop working for some reason.
 	- Find out why this is.
 	- If there's no obvious reason, try make a post-hibernation hook that restarts it: `sudo systemctl restart systemd-networkd`
-
-
+- There's a stage in my arch-setup that does NOT proceed without confirmation... find what stage this is (a yay install or something) and add the --noconfirm switch...
+- Find a way to do gh auth as automated as possible as well...
 
 - Work out with tree-sitter how I can get it to recognise sentences for typing txt and md files, etc. This would be useful for jumping around sentences quickly.
 - SET UP copy and paste shortcuts for control + shift + v ... change it for chrome so that it uses the same shortcuts?? bc currently it only works with control + c and control + v??

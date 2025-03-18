@@ -55,7 +55,7 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 
 # - Install arch from the live usb.
 # 	- Allocate the main and swap partitions, and UEFI partition if one doesn't already exist.
-	- Mount the main filesystem to /mnt , and the boot (UEFI) parition to /mnt/boot .
+#	- Mount the main filesystem to /mnt , and the boot (UEFI) parition to /mnt/boot .
 #	 run:
 #       ` pacstrap -K /mnt base linux linux-firmware `
 #       - Run `arch-chroot /mnt`, then:
@@ -67,12 +67,13 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 # IN THIS BOOTSTRAP SECTION, ALSO INSTALL VIM AND GIT!!
 # Also configure sudo-ers in the bootstrap section so that i don't need to manually do anything in root...
 # Restart the system and boot into the new install.
-
+# Also make sure to install stow in the bootstrap section and also sudo and edit the list of sudoers etc.
+# also set up git email and username so I don't have to configure it first time... for privacy, like the guy online said... don't actually give my REAL email, find the github anonymous email or whatever it's called... (look this up online!)
 ###########################
 ##### First-time setup ####
 ###########################
 # TODO: In general, in nvim, find a good way to make 'section headers' (maybe using some sort of autosyntax, to generate the above style uusing ### (the same as in hypr.conf)... and then find a good way to list them and navigate to them quickly in nvim...
-- Also make a way to do search using / in an case-insensitive way (although not by default... also make a way to do a add-commit-push git workflow with some automated message... for now could jsut be 'trivial change'... but in the future could use chatgpt for this or something... or copilot.. ?? look around what exists online
+#- Also make a way to do search using / in an case-insensitive way (although not by default... also make a way to do a add-commit-push git workflow with some automated message... for now could jsut be 'trivial change'... but in the future could use chatgpt for this or something... or copilot.. ?? look around what exists online
 
 # TODO: HERE INSTALL ALL THE THINGS LISTED IN THE TO-DO.MD, still to be done!!
 
@@ -152,6 +153,7 @@ WORKING_DIR=$(pwd)
 USER_ACCOUNT="yonah"
 
 # Symlink this file to the home folder so I can easily re-run.
+# TODO: Perhaps make this logic more clear and simple.
 if [ -L "/home/$USER_ACCOUNT/.arch-setup.sh" ]; then
     echo "Symlink already exists: /home/$USER_ACCOUNT/.arch-setup.sh"
 elif [ -e "/home/$USER_ACCOUNT/.arch-setup.sh" ]; then
@@ -161,6 +163,10 @@ else
     echo "Symlink created: /home/$USER_ACCOUNT/.arch-setup.sh -> $dotfiles/arch-setup.sh"
 fi
 
+if [ ! -L "/home/yonah/.bashrc" ]; then
+	echo "The .bashrc file is NOT a symlink, and hence is an auto-generated config template. Deleting."
+	rm /home/yonah/.bashrc
+fi
 
 # In order to get the intended functionality of treating each of the subfolders of the stow dir as a module, and reacreate each of their substructures within the target dirs, rather than just dumping them in the target dir directly, we *must* use the cd approach. This is why we can specify the --dir directly for our command which would be more elegant.
 echo "Setting up Yonah's user configs." 
