@@ -23,7 +23,6 @@ ToDo today:
 - Work out with tree-sitter how I can get it to recognise sentences for typing txt and md files, etc. This would be useful for jumping around sentences quickly.
 - SET UP copy and paste shortcuts for control + shift + v ... change it for chrome so that it uses the same shortcuts?? bc currently it only works with control + c and control + v??
 
-
 - As part of the initial setup, on first boot (check whether these things are installed and install them if they're not):
 	## These things are on the arch setup page
 	- Setting up fstab
