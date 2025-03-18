@@ -1,5 +1,7 @@
 ToDo today:
 
+- Zsh not working by default as startup shell on my computer from startup script.. find out why not..
+- I THINK ... switch super + c and super + q .... make opening the terminal be super + T, and make quitting a window be super + Q ... seems more sensible to me!!
 - thinkpad  still seems not have to have all fonts. Download some better fonts and set them to the system default.
 - Set up kmonad for some other things on my keyboard, e.g. the mouse button... press once for clicking, hold to scroll as currently...
 - Set up some function keys that I think would be useful for copy paste... maybe some volume functionality as well...
