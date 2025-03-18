@@ -1,5 +1,11 @@
 ToDo today:
-
+- Make it when that I switch between workspaces in hyprland, a little thing appears in the TOP-RIGHT corner showing which workspace I'm now in.
+	- Also make some nice little shortcut for navigating BETWEEN workspaces... like super + shift + hjkl.
+- Find a way to perform actions with selected text in vim (in visual mode). Make a shortcut at somepoint to quickly copy selected text to the clipboard.
+- There are lots of things I current DON'T like about my nvim setup that stops me using it I think.
+	- I arguable prefer the font on normal vim.
+	- Make the text wraparound.
+	- Find all the (visual) things I don't like an improve them asap!
 - Zsh not working by default as startup shell on my computer from startup script.. find out why not..
 - I THINK ... switch super + c and super + q .... make opening the terminal be super + T, and make quitting a window be super + Q ... seems more sensible to me!!
 - thinkpad  still seems not have to have all fonts. Download some better fonts and set them to the system default.
@@ -34,5 +40,5 @@ ToDo today:
 - Download my (public) dotfiles repo and run it.
         - Also make configuring the default fonts for system, for hyprland, etc , part of the setup
 	- Configure hibernation for the system if I want it (maybe make an automated script that does so for me by printing each of the paritions and asking which one to use IF there is a swap partition mounted).
-	- Configure the logitech connection software thing (make sure is installed in pacman - also make the sure todoist image is installed).
+	- also make the sure todoist image is installed).
 - Separate out the functionalities of (some) of the different parts of the script so that I can re-use or whatever the parts that I want to.

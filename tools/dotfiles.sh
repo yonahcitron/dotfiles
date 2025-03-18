@@ -4,3 +4,7 @@
 
 ########################
 - Copy over the tasks I want to do on this cmdlet from arch-setup.sh and also TODO.sh
+- In addition to all the above tasks, make a 'dotfiles edit' command, that allows you to pass as the next param the name of the file you want to open.
+	- It should recursively search through the user_config and global_config leaf files, and open it in edit mode if a match is found.
+	- Find also a good cli library (in bash, or maybe even in python), that enables tab autocomplete for this...
+		- So if I go `dotfiles edit hy` and then hit TAB, it will complete it by default if only one file is found, or list ALL options starting with hy- in the recursive folder structure if multiple are found. This will be very useful!!

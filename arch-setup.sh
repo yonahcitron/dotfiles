@@ -49,7 +49,7 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 #    - Run this script.
 # TODO: Things to install - nvim, todoist-appimage (with yay)
 # TODO: Once I've remapped the escape key to the caps lock, be sure to undo the 'jk' keymappings I have set up in nvim etc. 
-##############################
+#############################
 ######  Prerequisites ########
 ##############################
 
