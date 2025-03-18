@@ -65,11 +65,14 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 #             - ` grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 #	      - grub-mkconfig -o /boot/grub/grub.cfg
 # IN THIS BOOTSTRAP SECTION, ALSO INSTALL VIM AND GIT!!
+# Also configure sudo-ers in the bootstrap section so that i don't need to manually do anything in root...
 # Restart the system and boot into the new install.
 
 ###########################
 ##### First-time setup ####
 ###########################
+# TODO: In general, in nvim, find a good way to make 'section headers' (maybe using some sort of autosyntax, to generate the above style uusing ### (the same as in hypr.conf)... and then find a good way to list them and navigate to them quickly in nvim...
+- Also make a way to do search using / in an case-insensitive way (although not by default... also make a way to do a add-commit-push git workflow with some automated message... for now could jsut be 'trivial change'... but in the future could use chatgpt for this or something... or copilot.. ?? look around what exists online
 
 # TODO: HERE INSTALL ALL THE THINGS LISTED IN THE TO-DO.MD, still to be done!!
 
