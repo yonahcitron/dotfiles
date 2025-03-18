@@ -6,6 +6,7 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 #####  Todos  #######
 #####################
 # TODO: Make it that when I scroll vim on my thinkpad with the thinkpad button thing in red, the mouse goes like two thirds of the way to the bottom, and THEN starts scrolling.
+# TODO: Ensure that I install the VIM-ONLY plugins as a part of my arch-setup script.. basically just want the one ... that does vim-wayland stuff!!
 # TODO: Currently I'm symlinking .arch-setup.sh to home for ease of access. When I implement my little 'dotfiles' cmdlet, make a command like 'dotfiles install' or something that basicallly runs the script (from the dotfiles original repo itself), and this will remove the need to have the .arch-setup.sh script in the home dir at all. Just get the cmdlet working!
 # TODO: Ensure that I install and load the uinput kernel module every time.
 # TODO: I think replace logid with kmonad as it's easier and more reliable.
