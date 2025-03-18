@@ -56,3 +56,5 @@ ToDo today:
 - Make a section of my arch-install.sh script for checking if some of my vim packages are installed... and if not, installing them... e.g.vim wayland keyboard
 
 - MAKE THE THINK BUTTON RED THING ON MY THINKPAD LESS SENSITIVE!!! cURRENTLY IT's superrrr sensitive, which is a bit much and makes it hard to scroll and move the mouse around effectively without overshooting... definitely a way to configure this better :))
+
+- find out why when I do the super + control to either side of my keyboard, and try to switch between workspaces, it doesn't work!!! fix this..
