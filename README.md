@@ -28,3 +28,6 @@ NOTE: When adding config files to etc, they should be created in the dotfiles fo
  
 
 - READ UP ABOUT MAGIC WORKSPACES, UNDERSTAND WHAT THEY ARE , HOW PEOPLE USE THEM , WHAT THEY ARE FOR , ETC
+
+
+- At some point soon, completely wipe and reinstall the main partition on my laptop to see if everything works fresh out the box with my configurations, e.g. chrome not being blurry by default
