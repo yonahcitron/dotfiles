@@ -5,7 +5,7 @@
   allow-cmd false
 )
 
-(defsrc
+(defsrc :name thinkpad_inbuilt_keyboard
   ;; Add function row here when I can be bothered.
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ] 
@@ -15,7 +15,7 @@
   pgup up pgdn left down right
   nlck kp/ kp* kp- kp+ kprt kp. kp0 kp1 kp2 kp3 kp4 kp5 kp6 kp7 kp8 kp9
 )
-(deflayer main
+(deflayer thinkpad_inbuilt_keyboard_map :source thinkpad_inbuilt_keyboard
   _    _    _    _    _    _    _    _    _    _    _    _    _    _ 
   _    _    _    _    _    _    _    _    _    _    _    _    _    
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
