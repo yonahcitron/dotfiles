@@ -17,3 +17,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Store yanked text to the + (clipboard) register by default
+" Use the jasonccox/vim-wayland-clipboard plugin to automatically copy all text in the + register to the wl-clipboard.
+:set clipboard=unnamedplus

@@ -49,6 +49,50 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 #    - Run this script.
 # TODO: Things to install - nvim, todoist-appimage (with yay)
 # TODO: Once I've remapped the escape key to the caps lock, be sure to undo the 'jk' keymappings I have set up in nvim etc. 
+
+
+# TODO: Soon move my arch-install.sh into this folder, and call it arch-setup or something. I'll need to change the paths in it to where it's instaled new.
+# TODO: Document in THIS file that this one should be used whilst in the live usb, and should be manually copied to the live usb for first setup. The other one should be run (document it there) whenever I want to sync my system, or at first install, in my user shell. I think go and configure an env variable for first setup.
+
+#############################
+######  Prerequisites ########
+##############################
+
+# - Install arch from the live usb.
+# 	- Allocate the main and swap partitions, and UEFI partition if one doesn't already exist.
+#	- Mount the main filesystem to /mnt , and the boot (UEFI) parition to /mnt/boot .
+#	 run:
+#       ` pacstrap -K /mnt base linux linux-firmware `
+#       - Run `arch-chroot /mnt`, then:
+#             - `pacman --noconfirm -S iwd grub efibootmgr` # Wifi and boot systems
+#	      - `passwd` # Set password for root user
+#             - `useradd -m -G wheel yonah && passwd yonah` 
+#             - ` grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+#	      - grub-mkconfig -o /boot/grub/grub.cfg
+# IN THIS BOOTSTRAP SECTION, ALSO INSTALL VIM AND GIT!!
+# Also configure sudo-ers in the bootstrap section so that i don't need to manually do anything in root...
+# Restart the system and boot into the new install.
+# Also make sure to install stow in the bootstrap section and also sudo and edit the list of sudoers etc.
+# also set up git email and username so I don't have to configure it first time... for privacy, like the guy online said... don't actually give my REAL email, find the github anonymous email or whatever it's called... (look this up online!)
+#
+
+#### Other 
+# - As part of the initial setup, on first boot (check whether these things are installed and install them if they're not):
+	## These things are on the arch setup page
+##	- Setting up fstab
+#	- Set up time zone
+#	- localization
+#	- network configuration (/etc/hostname)
+#- Download my (public) dotfiles repo and run it.
+#        - Also make configuring the default fonts for system, for hyprland, etc , part of the setup
+#	- Configure hibernation for the system if I want it (maybe make an automated script that does so for me by printing each of the paritions and asking which one to use IF there is a swap partition mounted).
+#	- also make the sure todoist image is installed).
+#- Separate out the functionalities of (some) of the different parts of the script so that I can re-use or whatever the parts that I want to.
+#- Also make a thing that WHENEVER the super key in hyprland is held down, it automatically shows (in the top right) the workspace number! this would be very convenient..
+#	- Also potentially start giving workspace numbers fixed names... like "1: Chrome", "2: Tmux", "5: Whatsapp", etc etc... make them also print on the top right as well as the number!! so that I get a sense of WHERE I am in the workspace manager and what each workspace should be used for...
+#		This will also help teach me that if I'm opening too many tabs in a workspace not designed for that, I should create an ADDITIONAL workspace rather than trying to crowd one workspace with just that!!!!
+#
+
 #############################
 ######  Prerequisites ########
 ##############################

@@ -42,3 +42,17 @@ ToDo today:
 	- Configure hibernation for the system if I want it (maybe make an automated script that does so for me by printing each of the paritions and asking which one to use IF there is a swap partition mounted).
 	- also make the sure todoist image is installed).
 - Separate out the functionalities of (some) of the different parts of the script so that I can re-use or whatever the parts that I want to.
+
+
+##### OTHER STUFF ######
+- I've spoken somewhere above about adding a command to add a quick section header (like in hypr.conf) to vim files... I think the command should be 'nsec NEW_SECTION_NAME' ... also make a command 'sec' that lists all the sections...
+- To make vim nicer scrolling, when I do control + d or control + u , I actually don't like the fact that it just moves instantly, makes it hard to follow.... find a way to make it that it does a 'scrolling' animation, just a really really quick one... so I can still see the mvoement that has happened when I scrolled down, and keep track of where I am!!
+- I want a better way to use whatsapp on my machine... see if there's already some whatsapp app that allows you to use some sort of vim keybindings, and scrolling through chats without having to use the mouse... otherwise see if I can set one up... if I manage to , at some point could open source it! Add this to my open-source to do list of projects that I have on my todoist!!
+- I think I want to have BOTH the relative and absolute line numbers in vim... see if any other people have a good way of having both in a clear manner... like the absolute ones being left most and bolt, and then relative being to the right of them and in italics or something... look around other people's setups and see how they do it / if it's advisable...
+
+
+- Make a SEPARATE PARTITION FOR MY HOME/YONAH FOLDER(S) AND COPY JUST THEM TO MY ONEDRIVE... this way also I can quickly re-install the linux system and run my whole script etc without having to worry about files being persisted etc... Will make life easier methinks and is good practise!!!
+
+- Make a section of my arch-install.sh script for checking if some of my vim packages are installed... and if not, installing them... e.g.vim wayland keyboard
+
+- MAKE THE THINK BUTTON RED THING ON MY THINKPAD LESS SENSITIVE!!! cURRENTLY IT's superrrr sensitive, which is a bit much and makes it hard to scroll and move the mouse around effectively without overshooting... definitely a way to configure this better :))

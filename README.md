@@ -25,3 +25,6 @@ this is the link to help with documentation ... https://venthur.de/2021-12-19-ma
 
 
 NOTE: When adding config files to etc, they should be created in the dotfiles folder and then symlinked. This is because in the dotfiles folder (a git repository), they must be owned by the user in order to work with git. In the target folder /etc , however, they should be owned by root.
+ 
+
+- READ UP ABOUT MAGIC WORKSPACES, UNDERSTAND WHAT THEY ARE , HOW PEOPLE USE THEM , WHAT THEY ARE FOR , ETC
