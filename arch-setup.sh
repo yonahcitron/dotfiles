@@ -64,6 +64,7 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 #             - `useradd -m -G wheel yonah && passwd yonah` 
 #             - ` grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 #	      - grub-mkconfig -o /boot/grub/grub.cfg
+# IN THIS BOOTSTRAP SECTION, ALSO INSTALL VIM AND GIT!!
 # Restart the system and boot into the new install.
 
 ###########################
