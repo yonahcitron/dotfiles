@@ -1,4 +1,6 @@
 set number
+set relativenumber
+
 
 " Remap key to enter Normal Mode.
 inoremap jk <Esc>
