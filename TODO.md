@@ -1,4 +1,8 @@
 ToDo today:
+
+- Move my aliases to .zshenv so that they load when I run commands with ! in vim:
+      ```Telling Vim to always use an interactive shell can create problems. A better solution is to figure out what in your bash configuration sets up aliases and how you can move that to a place that is loaded even in non-interactive shells. For example, zshell only loads ~/.zshrc for interactive shells, but it loads ~/.zshenv for all shells, so I moved my alias setup there and it now works from within Vim. See man zsh (or your shell's man pages) for more.```
+
 - Work out how to save tmux sessions (and how it works with them running in the background or not? what if I just want to save the terminal history etc but don't want them to be constaltly running every time I wake up the terminal..?)... see how this works..
 - I completely disabled blink.cmp ... really , I do want the drop down suggestions, I just don't want the ugly grey suggestions to the right... see how I can do that instead??
 - look into obsidian.nvim 
