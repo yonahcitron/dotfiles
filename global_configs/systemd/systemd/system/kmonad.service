@@ -1,9 +1,9 @@
 [Unit]
-Description=KMonad keyboard remapping service
+Description=KMonad keyboard remapping service for %i
 After=multi-user.target
 
 [Service]
-ExecStart=/usr/bin/kmonad /home/yonah/.config/kmonad/thinkpad-remap.kbd
+ExecStart=/usr/bin/kmonad /home/yonah/.config/kmonad/%i.kbd
 Restart=always
 RestartSec=3
 StandardOutput=journal

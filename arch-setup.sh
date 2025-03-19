@@ -299,5 +299,7 @@ fi
 
 sudo systemctl daemon-reload
 
-sudo systemctl enable --now kmonad.service
+# Using a template service to enable multiple kmonad services for each device.
+# TODO: Use conditional per-device logic here to start the correct services.
+sudo systemctl enable --now kmonad@thinkpad-keyboard-remap.service
 

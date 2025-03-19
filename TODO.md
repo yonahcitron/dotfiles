@@ -59,3 +59,5 @@ ToDo today:
 - MAKE THE THINK BUTTON RED THING ON MY THINKPAD LESS SENSITIVE!!! cURRENTLY IT's superrrr sensitive, which is a bit much and makes it hard to scroll and move the mouse around effectively without overshooting... definitely a way to configure this better :))
 
 - find out why when I do the super + control to either side of my keyboard, and try to switch between workspaces, it doesn't work!!! fix this..
+
+- CONFIGURE HYPRLAND to have super + c be copy (NOT close -remove that from the config), and super + v be paste!!!!
