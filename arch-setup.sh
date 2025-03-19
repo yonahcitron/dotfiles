@@ -213,6 +213,9 @@ if [ ! -L "/home/yonah/.bashrc" ]; then
 	rm /home/yonah/.bashrc
 fi
 
+# Also symlink the todo.md for easy access
+ln -s "$dotfiles/TODO.md" "/home/$USER_ACCOUNT/TODO.md"
+
 # In order to get the intended functionality of treating each of the subfolders of the stow dir as a module, and reacreate each of their substructures within the target dirs, rather than just dumping them in the target dir directly, we *must* use the cd approach. This is why we can specify the --dir directly for our command which would be more elegant.
 echo "Setting up Yonah's user configs." 
 cd $dotfiles/user_configs
