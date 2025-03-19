@@ -1,4 +1,5 @@
 ToDo today:
+- Work out how to save tmux sessions (and how it works with them running in the background or not? what if I just want to save the terminal history etc but don't want them to be constaltly running every time I wake up the terminal..?)... see how this works..
 - I completely disabled blink.cmp ... really , I do want the drop down suggestions, I just don't want the ugly grey suggestions to the right... see how I can do that instead??
 - look into obsidian.nvim 
 - Follow up on my issue in the kmonad repo and see if I can come up with any fixes for it??j;
