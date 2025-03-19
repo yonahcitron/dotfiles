@@ -1,5 +1,8 @@
 ToDo today:
-
+- I completely disabled blink.cmp ... really , I do want the drop down suggestions, I just don't want the ugly grey suggestions to the right... see how I can do that instead??
+- look into obsidian.nvim 
+- Follow up on my issue in the kmonad repo and see if I can come up with any fixes for it??j;
+- Consider maybe getting a chatgpt api... and monitoring regularly how much I'm using / the cost... and then using it in the cli for various productivity hacks across my workload, as well as for q and a, rather than using the web interface which is less nice... for simpler tasks I can just use a simpler model... or potentially even use claude?? ... also have a look at clwrap... it SEEMS TO use copilot which actually should do most if not all of what I want to do ... so I think this should be a good solution!! practise using copilot in nvim etc so that I get good at that...
 - Consider remapping caps lock whilst holding to be ALT, and then then remap ALT + hjkl to remap to just the arrow keys for non-vim applications...
 - Test the installation of the arch-bootloader script etc using QEMU to recreate a "PC-VM"...
 - Fix todoist being blurry on my thinkpad, bc of wayland, see what the fix is...
@@ -74,5 +77,6 @@ ToDo today:
 - MAKE THE THINK BUTTON RED THING ON MY THINKPAD LESS SENSITIVE!!! cURRENTLY IT's superrrr sensitive, which is a bit much and makes it hard to scroll and move the mouse around effectively without overshooting... definitely a way to configure this better :))
 
 - find out why when I do the super + control to either side of my keyboard, and try to switch between workspaces, it doesn't work!!! fix this..
-
+- Look into mason-lspconfig.nvim .... and look into how dependency management works in pacman... I was getting an error bc I didn't have unzip installed... this should be an auto-installed dependency surely? or maybe this is more of the lazy.nvim thing (actually yeah I think it is..)... find out how this should be included in the install script or whatever, or how the error can be clearer and then speak to them about it and see what they can can do!!
 - CONFIGURE HYPRLAND to have super + c be copy (NOT close -remove that from the config), and super + v be paste!!!!
+- Make better shortcuts for nvim... such as an alternative to control + w, and generally a better shortcut to make windows thinner (instead of control + w, then <).

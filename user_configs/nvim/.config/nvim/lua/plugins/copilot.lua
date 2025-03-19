@@ -1,3 +1,3 @@
 return {
-  {"zbirenbaum/copilot.lua", enabled=true}
+  {"zbirenbaum/copilot.lua", enabled=false}
 }
