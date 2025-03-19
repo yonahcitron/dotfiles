@@ -31,3 +31,8 @@ NOTE: When adding config files to etc, they should be created in the dotfiles fo
 
 
 - At some point soon, completely wipe and reinstall the main partition on my laptop to see if everything works fresh out the box with my configurations, e.g. chrome not being blurry by default
+
+- For now just use hyprland as my windwo manager... but with time start using tmux for my terminal sessions.. like actually I should have ALL my terminal window in one workspace rather than confusingly dotted around as I've been doing recently.. keep things like terminal in known locations... the exception to this is my code workspace which should be running in nvim...
+	- I think in general I'll actually want the 'higher' workspace numbers to be fixed, as they're more ergonomic to read with my other hand when I'm holding down super + shift... so have like 0 be my browser(s), 9 be my IDE, 8 be my tmuxed termnials... 7 be my obsidian vault (in vim), 6 be my todoist + email, 5 be whatsapp (and maybe something else) ... 1 is just for gneeral random disorganised things like browsing things on chrome...  (oh also all of these should have their number and name appear when I navigate to them, on the top right)... and 2-4 most like differing chrome + chatgpt combinations
+	- Can even set these up so that when I go to that workspace, they open by default...
+		- I think to begin with have chat as like a dynamic thing on each screen, I can have it and then remove it again whenever I want... and the chatgpt instance should align with what I'm doing.. so in my ide, I could have (on the right) a thin bar with my terminal on the bottom and chatgpt below... if I have other random questiosn I wanna ask I could either put them in a bar on the left, or open another chat instance in 2-4

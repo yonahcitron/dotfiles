@@ -1,4 +1,5 @@
 ToDo today:
+- Remap my caps lock to esc... HOLDING DOWN remap to SUPER + SHIFT to switch between workspaces... and remap shift + caps to caps lock.. 
 - Make it when that I switch between workspaces in hyprland, a little thing appears in the TOP-RIGHT corner showing which workspace I'm now in.
 	- Also make some nice little shortcut for navigating BETWEEN workspaces... like super + shift + hjkl.
 - Find a way to perform actions with selected text in vim (in visual mode). Make a shortcut at somepoint to quickly copy selected text to the clipboard.
