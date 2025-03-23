@@ -1,5 +1,6 @@
 ToDo today:
 
+- In nvim, remap window resizing to sensible defaults, like control + alt + hjkl for sensible and quick window resizing of e.g. the terminal, windows I open in different places, etc etc!!!
 - Make functionality in nvim for some sort of easy sidebar to appear with an llm / chatgpt , IDEALLY with multiple tabs / conversations that I can have going on in tandem, and even more ideally associated with the current codebase that I'm using so that it 'remembers' the history of the chat for the session! and, similar to control + / to open the terminal, make it have obvious and easy to remember ways to open it??
 - Get rid of prompt when I quit zsh... every time it asks me if I want to close it which I don't want it to do!!
 - Use qutebrowser, make a shortcut to open the current page in chrome quickly (or actually maybe integrate everthing with firefox and set up the password manager I connected to with the firefox thing as well)... and then remap the chatgpt UI to open in that instead.. make super + F be firefox (it's mapped to something currently so change this back), and then make super + B be the browser (qutebrowser)
