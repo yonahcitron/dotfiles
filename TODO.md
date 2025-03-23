@@ -1,5 +1,6 @@
 ToDo today:
 
+- Work out how to close buffers etc properly... coz whenever I do wq it just seems to shut all buffers ... 
 - In nvim, remap window resizing to sensible defaults, like control + alt + hjkl for sensible and quick window resizing of e.g. the terminal, windows I open in different places, etc etc!!!
 - Make functionality in nvim for some sort of easy sidebar to appear with an llm / chatgpt , IDEALLY with multiple tabs / conversations that I can have going on in tandem, and even more ideally associated with the current codebase that I'm using so that it 'remembers' the history of the chat for the session! and, similar to control + / to open the terminal, make it have obvious and easy to remember ways to open it??
 - Get rid of prompt when I quit zsh... every time it asks me if I want to close it which I don't want it to do!!
@@ -101,3 +102,9 @@ ToDo today:
 - Look into mason-lspconfig.nvim .... and look into how dependency management works in pacman... I was getting an error bc I didn't have unzip installed... this should be an auto-installed dependency surely? or maybe this is more of the lazy.nvim thing (actually yeah I think it is..)... find out how this should be included in the install script or whatever, or how the error can be clearer and then speak to them about it and see what they can can do!!
 - CONFIGURE HYPRLAND to have super + c be copy (NOT close -remove that from the config), and super + v be paste!!!!
 - Make better shortcuts for nvim... such as an alternative to control + w, and generally a better shortcut to make windows thinner (instead of control + w, then <).
+- make a remove section for the files that I uninstalled on one machine so that they're auto-removed on another machine..
+
+
+- at some point try out a few different machine in qemu ... some for the apple 2, early dos computers, see what they were like!! is kinda cool to be able to do that!!
+
+- practise PASTING over text in vim (without having to delete it first and adding it to the null register...) .... the way to do this is by first visually selecting what I want to paste over, and then pasting it..
