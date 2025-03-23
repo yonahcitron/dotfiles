@@ -3,9 +3,14 @@ return {
   opts = {
     filesystem = {
       filtered_items = {
-        visible = true, -- Show hidden files by default
-        hide_dotfiles = false, -- `false` means show dotfiles
+        visible = true,
+        hide_dotfiles = false,
+        hide_gitignored = false, -- ✅ Show gitignored files
       },
+    },
+    window = {
+      width = 30,
+      auto_resize = true, -- ✅ Adaptive sizing
     },
   },
 }

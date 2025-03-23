@@ -15,3 +15,5 @@ brightnessctl
 todoist-appimage
 ltunify
 unzip
+fzf
+lazygit
