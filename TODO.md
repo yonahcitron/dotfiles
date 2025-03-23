@@ -1,6 +1,7 @@
 ToDo today:
 
 - Make functionality in nvim for some sort of easy sidebar to appear with an llm / chatgpt , IDEALLY with multiple tabs / conversations that I can have going on in tandem, and even more ideally associated with the current codebase that I'm using so that it 'remembers' the history of the chat for the session! and, similar to control + / to open the terminal, make it have obvious and easy to remember ways to open it??
+- Get rid of prompt when I quit zsh... every time it asks me if I want to close it which I don't want it to do!!
 - Use qutebrowser, make a shortcut to open the current page in chrome quickly (or actually maybe integrate everthing with firefox and set up the password manager I connected to with the firefox thing as well)... and then remap the chatgpt UI to open in that instead.. make super + F be firefox (it's mapped to something currently so change this back), and then make super + B be the browser (qutebrowser)
 - I think make switching between windows and with hjkl and also with numbers be super + shift... but then just remap the caps lock key to my functionality... for switching windows...
 - At some point when I stop using the gui for chatgpt, then remap the terminal loading shortcut on hyprland to super + enter, rather than super + space like I'm doing now... the only reason that I'm using super + space is because the super + enter is already taken for submitting text to the chatgpt gui....
