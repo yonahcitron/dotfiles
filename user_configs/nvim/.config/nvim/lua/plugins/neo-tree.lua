@@ -9,8 +9,7 @@ return {
       },
     },
     window = {
-      width = 30,
-      auto_resize = true, -- ✅ Adaptive sizing
+      width = 25,
     },
   },
 }
