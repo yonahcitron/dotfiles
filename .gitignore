@@ -2,3 +2,5 @@
 
 # ISO images
 images/
+.cache/
+.build/
