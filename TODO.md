@@ -4,6 +4,7 @@ ToDo today:
     - People make the point that setting tab in copilot to complete might get in the way with the other syntax highlighting syggestions... however, I should set THOSE to be different to accept, if I end up using them... like control tab or something
         - Moreover, when I get the remappings done for keys, I can remap either copilot complete or the other one to be done by clicking tab twice or something for ease... that can translate to control + tab or something along those lines...
 - Work out how to close buffers etc properly... coz whenever I do wq it just seems to shut all buffers ... 
+- Instead of having to use the arrow keys to resize vim windows, remap them to control + alt + hjkl
 - In nvim, remap window resizing to sensible defaults, like control + alt + hjkl for sensible and quick window resizing of e.g. the terminal, windows I open in different places, etc etc!!!
 - Make functionality in nvim for some sort of easy sidebar to appear with an llm / chatgpt , IDEALLY with multiple tabs / conversations that I can have going on in tandem, and even more ideally associated with the current codebase that I'm using so that it 'remembers' the history of the chat for the session! and, similar to control + / to open the terminal, make it have obvious and easy to remember ways to open it??
 - Get rid of prompt when I quit zsh... every time it asks me if I want to close it which I don't want it to do!!
