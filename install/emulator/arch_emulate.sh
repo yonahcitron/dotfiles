@@ -15,7 +15,7 @@ iso_dir="$emulator_dir/images"
 iso_path="$iso_dir/$iso_name"
 if [ ! -e $iso_path ]; then
   mkdir -p $iso_dir
-  wget -P $iso_path "https://london.mirror.pkgbuild.com/iso/latest/$iso_name"
+  wget -O $iso_path "https://london.mirror.pkgbuild.com/iso/latest/$iso_name"
 else
   echo "Arch ISO file found locally, skipping download."
 fi
@@ -38,7 +38,8 @@ qemu-system-x86_64 \
   -drive file=$disk_path,format=qcow2,if=virtio \
   -cdrom $iso_path \
   -boot d \
-  -nographic
+  -nographic \
+  -monitor stdio
 
 # In my .nvimrc, see how I can enable line-wraparound by default...
 # Also, as a matter of urgency (next thing bc is actually useful), make
