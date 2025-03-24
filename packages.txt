@@ -17,3 +17,10 @@ ltunify
 unzip
 fzf
 lazygit
+speedtest
+qemu-base
+qemu-tools
+qemu-system-x86
+bsdtar
+node-js
+npm

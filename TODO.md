@@ -108,3 +108,7 @@ ToDo today:
 - at some point try out a few different machine in qemu ... some for the apple 2, early dos computers, see what they were like!! is kinda cool to be able to do that!!
 
 - practise PASTING over text in vim (without having to delete it first and adding it to the null register...) .... the way to do this is by first visually selecting what I want to paste over, and then pasting it..
+
+- Make a command "df config XXXX" e.g. "df config hypr".... make a mapping file between a given name, and the config file used to config them... if one doesn't exist, it should prompt you to ask if you wanna create a new mapping... e.g. if you type "df config tmux" and you haven't yet mapped a config file to tmux, it should prompt you to ask if you want to provide a path to the file it should map to.. to store these, keep a json file in the $dotfiles root called .config_shortcuts.json or something ...
+
+- Doubt it's possible but see if there's a way to disable chatpt completions once you've inserted a comment like # ... so that it isn't suggesting annoying comments... or at least reject a suggestion once it gives one to clear the screen and make it easier to read/think...

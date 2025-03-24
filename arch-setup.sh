@@ -12,8 +12,8 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 # TODO: I think replace logid with kmonad as it's easier and more reliable.
 # TODO: Implement this for using the same keybindings between nvim and hyprland: https://www.reddit.com/r/hyprland/comments/1blmxcm/tmux_hyprland_and_neovim_windowpane_navigation/
 # TODO: I've been really liking the simplicity of black background etc that vim provides out the box. Set up as many as I can of the configs in the vimrc itself, make sure that I import / use them in my nvim configs, and only put things in the nvim configs that can't be done in vim itself. This means depending on my mood I can use either vim or nvim easily, and I can always configure nvim to be more simple with time... just depends on what I'm feeling etc.
-# TODO: Take away the prompt, if it persists, that asks everytime if I wanna exit zsh when I click super +c. 
-# TODO: Add relative line-numbers to vim and nvim. Start using nvim more as I configure it more and more. 
+# TODO: Take away the prompt, if it persists, that asks everytime if I wanna exit zsh when I click super +c.
+# TODO: Add relative line-numbers to vim and nvim. Start using nvim more as I configure it more and more.
 # TODO: Separate all arch / AUR package installs into a SEPARATE file.
 # TODO: Then, in the actual system config file, make a *function* like "pacman-add" and "yay-add" that try to
 #	install the file, passing ALL flags that I do, and, if successful, afterwards add it to my pacman and yay
@@ -33,12 +33,12 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 #	I can just start a new terminal session to the side if I need to do stuff if its taking a while.
 #		- Likely actually start it AFTER I've done my login... i.e. it's not the first thing that should happen;
 #		  first it should prompt me for login (soon I'll set this up with fingerprint hopefully), and only then
-#		  should it run the startup script to ensure that each computer is up-to-date with the other. 	
+#		  should it run the startup script to ensure that each computer is up-to-date with the other.
 # TODO: Make a "dotfiles-sync" bash function that allows me to update them to git from anywhere.
-#		- This is useful because I'll be editing many of the dotfiles via their symlinks, which are not in their 
+#		- This is useful because I'll be editing many of the dotfiles via their symlinks, which are not in their
 #		  native git folder. This function allows me to access it globally (also maybe make a global $dotfiles variable
 #		  at startup in bash). Maybe can also deal with syncing issues, but make sure that I can handle conflicts
-#		  manually if needs be. 
+#		  manually if needs be.
 # TODO: Move the location of arch-setup.sh BACK to just the dotfiles root (i.e. so it's not stowed).
 #	Instead I SHOULD stow the dependencies file for pacman and yay (whatever I decide to call it!!).
 # This script can be run from the live arch install environment.
@@ -49,8 +49,7 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 #    - Run `git clone https://github.com/yonahcitron/dotfiles.git`.
 #    - Run this script.
 # TODO: Things to install - nvim, todoist-appimage (with yay)
-# TODO: Once I've remapped the escape key to the caps lock, be sure to undo the 'jk' keymappings I have set up in nvim etc. 
-
+# TODO: Once I've remapped the escape key to the caps lock, be sure to undo the 'jk' keymappings I have set up in nvim etc.
 
 # TODO: Soon move my arch-install.sh into this folder, and call it arch-setup or something. I'll need to change the paths in it to where it's instaled new.
 # TODO: Document in THIS file that this one should be used whilst in the live usb, and should be manually copied to the live usb for first setup. The other one should be run (document it there) whenever I want to sync my system, or at first install, in my user shell. I think go and configure an env variable for first setup.
@@ -67,7 +66,7 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 #       - Run `arch-chroot /mnt`, then:
 #             - `pacman --noconfirm -S iwd grub efibootmgr` # Wifi and boot systems
 #	      - `passwd` # Set password for root user
-#             - `useradd -m -G wheel yonah && passwd yonah` 
+#             - `useradd -m -G wheel yonah && passwd yonah`
 #             - ` grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 #	      - grub-mkconfig -o /boot/grub/grub.cfg
 # IN THIS BOOTSTRAP SECTION, ALSO INSTALL VIM AND GIT!!
@@ -77,9 +76,9 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 # also set up git email and username so I don't have to configure it first time... for privacy, like the guy online said... don't actually give my REAL email, find the github anonymous email or whatever it's called... (look this up online!)
 #
 
-#### Other 
+#### Other
 # - As part of the initial setup, on first boot (check whether these things are installed and install them if they're not):
-	## These things are on the arch setup page
+## These things are on the arch setup page
 ##	- Setting up fstab
 #	- Set up time zone
 #	- localization
@@ -106,7 +105,7 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 #       - Run `arch-chroot /mnt`, then:
 #             - `pacman --noconfirm -S iwd grub efibootmgr` # Wifi and boot systems
 #	      - `passwd` # Set password for root user
-#             - `useradd -m -G wheel yonah && passwd yonah` 
+#             - `useradd -m -G wheel yonah && passwd yonah`
 #             - ` grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 #	      - grub-mkconfig -o /boot/grub/grub.cfg
 # IN THIS BOOTSTRAP SECTION, ALSO INSTALL VIM AND GIT!!
@@ -126,68 +125,68 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 
 # Function to check if a package is installed
 check_installed() {
-    pacman -Q $1 &> /dev/null
-    return $?
+  pacman -Q $1 &>/dev/null
+  return $?
 }
 
 # Check if iwd is installed
 if ! check_installed iwd; then
-    echo "[ERROR] 'iwd' is not installed. Please install it first using the live USB:"
-    echo "sudo pacman -S iwd"
-    exit 1
+  echo "[ERROR] 'iwd' is not installed. Please install it first using the live USB:"
+  echo "sudo pacman -S iwd"
+  exit 1
 fi
 
 # Ensure iwd and systemd-networkd are enabled and running
 for service in iwd systemd-networkd; do
-    if ! systemctl is-active --quiet $service; then
-        echo "[INFO] Enabling and starting $service..."
-        sudo systemctl enable --now $service
-    else
-        echo "[OK] $service is already running."
-    fi
+  if ! systemctl is-active --quiet $service; then
+    echo "[INFO] Enabling and starting $service..."
+    sudo systemctl enable --now $service
+  else
+    echo "[OK] $service is already running."
+  fi
 done
 
 # Ensure /etc/systemd/network/25-wireless.network exists
 NETWORK_CONF="/etc/systemd/network/25-wireless.network"
 if [ ! -f "$NETWORK_CONF" ]; then
-    echo "[INFO] Configuring network settings..."
-    sudo tee $NETWORK_CONF > /dev/null <<EOF
+  echo "[INFO] Configuring network settings..."
+  sudo tee $NETWORK_CONF >/dev/null <<EOF
 [Match]
 Name=wlan0
 
 [Network]
 DHCP=yes
 EOF
-    sudo systemctl restart systemd-networkd
+  sudo systemctl restart systemd-networkd
 fi
 
 # Check if WiFi is already connected
 if sudo iwctl station wlan0 show | grep -q "connected"; then
-    echo "[INFO] WiFi is already connected. Skipping WiFi setup."
+  echo "[INFO] WiFi is already connected. Skipping WiFi setup."
 else
-    # Scan for WiFi networks
-    echo "[INFO] Scanning for available WiFi networks..."
-    sudo iwctl station wlan0 scan
-    sleep 2  # Give it time to scan
+  # Scan for WiFi networks
+  echo "[INFO] Scanning for available WiFi networks..."
+  sudo iwctl station wlan0 scan
+  sleep 2 # Give it time to scan
 
-    # Display available networks
-    echo "[INFO] Available networks:"
-    sudo iwctl station wlan0 get-networks
+  # Display available networks
+  echo "[INFO] Available networks:"
+  sudo iwctl station wlan0 get-networks
 
-    # Prompt user for WiFi details
-    read -p "Enter WiFi SSID: " SSID
-    read -s -p "Enter WiFi Password: " PASSWORD
+  # Prompt user for WiFi details
+  read -p "Enter WiFi SSID: " SSID
+  read -s -p "Enter WiFi Password: " PASSWORD
 
-    # Connect to the WiFi network
-    echo "\n[INFO] Connecting to $SSID..."
-    sudo iwctl station wlan0 connect "$SSID" <<< "$PASSWORD"
+  # Connect to the WiFi network
+  echo "\n[INFO] Connecting to $SSID..."
+  sudo iwctl station wlan0 connect "$SSID" <<<"$PASSWORD"
 
-    # Check connection status
-    if sudo iwctl station wlan0 show | grep -q "connected"; then
-        echo "[SUCCESS] Successfully connected to $SSID!"
-    else
-        echo "[ERROR] Failed to connect. Check your SSID and password."
-    fi
+  # Check connection status
+  if sudo iwctl station wlan0 show | grep -q "connected"; then
+    echo "[SUCCESS] Successfully connected to $SSID!"
+  else
+    echo "[ERROR] Failed to connect. Check your SSID and password."
+  fi
 fi
 
 ##############################
@@ -197,32 +196,40 @@ fi
 WORKING_DIR=$(pwd)
 USER_ACCOUNT="yonah"
 
-# Symlink this file to the home folder so I can easily re-run.
-# TODO: Perhaps make this logic more clear and simple.
-if [ -L "/home/$USER_ACCOUNT/.arch-setup.sh" ]; then
-    echo "Symlink already exists: /home/$USER_ACCOUNT/.arch-setup.sh"
-elif [ -e "/home/$USER_ACCOUNT/.arch-setup.sh" ]; then
-    echo "A regular file or directory exists at the target location. Not creating symlink."
+# Also symlink the todo.md for easy access
+source_setup="$dotfiles/arch-setup.sh"
+symlink_setup="/home/$USER_ACCOUNT/.arch-setup.sh"
+if [ -L $symlink_setup ]; then
+  echo "Symlink already exists: $symlink_setup"
+elif [ -e "/home/$user_account/.arch-setup.sh" ]; then
+  echo "a regular file or directory exists at the target location. not creating symlink."
 else
-    ln -s "$dotfiles/arch-setup.sh" "/home/$USER_ACCOUNT/.arch-setup.sh"
-    echo "Symlink created: /home/$USER_ACCOUNT/.arch-setup.sh -> $dotfiles/arch-setup.sh"
+  ln -s "$source_setup $symlink_todo"
+  echo "Symlink created: $symlink_todo -> $source_setup"
 fi
 
 if [ ! -L "/home/yonah/.bashrc" ]; then
-	echo "The .bashrc file is NOT a symlink, and hence is an auto-generated config template. Deleting."
-	rm /home/yonah/.bashrc
+  echo "The .bashrc file is NOT a symlink, and hence is an auto-generated config template. Deleting."
+  rm /home/yonah/.bashrc
 fi
 
 # Also symlink the todo.md for easy access
-ln -s "$dotfiles/TODO.md" "/home/$USER_ACCOUNT/TODO.md"
+source_todo="$dotfiles/TODO.md"
+symlink_todo="/home/$USER_ACCOUNT/TODO.md"
+if [ -L $symlink_todo ]; then
+  echo "Symlink already exists: $symlink_todo"
+else
+  ln -s $source_todo $symlink_todo
+  echo "Symlink created: $symlink_todo -> $source_todo"
+fi
 
 # In order to get the intended functionality of treating each of the subfolders of the stow dir as a module, and reacreate each of their substructures within the target dirs, rather than just dumping them in the target dir directly, we *must* use the cd approach. This is why we can specify the --dir directly for our command which would be more elegant.
-echo "Setting up Yonah's user configs." 
+echo "Setting up Yonah's user configs."
 cd $dotfiles/user_configs
-stow --target /home/$USER_ACCOUNT */  # User configs.
+stow --target /home/$USER_ACCOUNT */ # User configs.
 
 # Global configs.
-echo "Setting up Yonah's global configs." 
+echo "Setting up Yonah's global configs."
 cd $dotfiles/global_configs
 # Stowing as root should give root ownership of the symlinks.
 # The files they link to should be user-owned, to not interfere with git.
@@ -235,7 +242,6 @@ mkdir -p tools
 stow --target /home/$USER_ACCOUNT/tools tools
 cd $WORKING_DIR
 
-
 ##############################
 #### Install Local files #####
 ##############################
@@ -245,8 +251,8 @@ cd $WORKING_DIR
 PACKAGES_FILE=$dotfiles/packages.txt # $dotfiles is defined in .bashrc
 echo "Ensuring all the following packages are installed:"
 cat $PACKAGES_FILE
-  
-if ! command -v yay &> /dev/null; then
+
+if ! command -v yay &>/dev/null; then
   # Install yay to access AUR packages
   sudo pacman -S --noconfirm --needed base-devel git
   git clone https://aur.archlinux.org/yay-bin.git
@@ -258,12 +264,11 @@ if ! command -v yay &> /dev/null; then
   echo "yay installed successfully!"
 else
   echo "yay is already installed."
-fi  
+fi
 
 # Install all packages
 yay -Syyu --noconfirm
-yay -S --noconfirm --needed - < $PACKAGES_FILE
-
+yay -S --noconfirm --needed - <$PACKAGES_FILE
 
 # TODO: Set up good system font etc. Currently I am downlaoding one from yay.
 #       Set up jetbrains mono for the terminal etc, and maybe something different for chrome?
@@ -275,26 +280,23 @@ ZSH_PATH=$(which zsh)
 
 # Change the default shell for the current user
 if [[ "$SHELL" != "$ZSH_PATH" ]]; then
-    echo "Changing default shell to zsh..."
-    sudo chsh -s "$ZSH_PATH" "$USER"
+  echo "Changing default shell to zsh..."
+  sudo chsh -s "$ZSH_PATH" "$USER"
 fi
 
 echo "Confirming zsh is the default shell..."
 # Check if the change was successful
 if [[ "$(getent passwd "$USER" | cut -d: -f7)" == "$ZSH_PATH" ]]; then
-    echo "Confirmed zsh is the default shell."
+  echo "Confirmed zsh is the default shell."
 else
-    echo "Failed to change default shell."
+  echo "Failed to change default shell."
 fi
 
 # Optional: Start zsh immediately
 if [[ "$SHELL" != "$ZSH_PATH" ]]; then
-    echo "Starting zsh..."
-    exec zsh
+  echo "Starting zsh..."
+  exec zsh
 fi
-
-
-
 
 #############################
 #####  Systemd daemons  #####
@@ -306,4 +308,3 @@ sudo systemctl daemon-reload
 # TODO: Use conditional per-device logic here to start the correct services.
 # REMEMBER: When enabling new remappings, be sure to test them first just using the kmonad cli, and only THEN add them as a service to make sure they work! Will save me time in the long run.
 sudo systemctl enable --now kmonad@thinkpad-keyboard-remap.service
-
