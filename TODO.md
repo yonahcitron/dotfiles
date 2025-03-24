@@ -1,5 +1,6 @@
 ToDo today:
 - At some point soon, really spend some time setting up copilot.lua, and understanding how best to use the workflow. Watch videos and read some stuff online to read optimise how I use the workflow... for now I guess just use it like I used to use it on vscode, but update that for a more optimised flow soon enough..
+    - Although I think it doesn't suggest if I'm not in insert mode... so I can just go to normal mode and it wont, which is really good! that's probably a good starting point for configuring it in such a way that it doesn't get in the way too much visually whilst I'm trying to think and code etc...
 - Work out how to close buffers etc properly... coz whenever I do wq it just seems to shut all buffers ... 
 - In nvim, remap window resizing to sensible defaults, like control + alt + hjkl for sensible and quick window resizing of e.g. the terminal, windows I open in different places, etc etc!!!
 - Make functionality in nvim for some sort of easy sidebar to appear with an llm / chatgpt , IDEALLY with multiple tabs / conversations that I can have going on in tandem, and even more ideally associated with the current codebase that I'm using so that it 'remembers' the history of the chat for the session! and, similar to control + / to open the terminal, make it have obvious and easy to remember ways to open it??
