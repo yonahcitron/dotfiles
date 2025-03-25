@@ -21,9 +21,8 @@ speedtest
 qemu-base
 qemu-tools
 qemu-system-x86
-bsdtar
 node-js
 npm
 yazi
-p7zip
 jq
+archiso

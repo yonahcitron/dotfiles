@@ -1,4 +1,11 @@
 ToDo today:
+- Remap 'll' to just do ls -a .... currently it does ls -la which I don't want...
+- Make it so then when you 'cd' in nvim, neo-tree or whatever file manager is installed automatically refreshes...
+- Make shortcut to run the current file and open the output in the terminal, in nvim...
+    - I think this shortcut is already built in ... try it ... I think it's space, b, 0
+- Find a feature, either directly in git or lazygit or both, that will detect when a file greater than a certain size has been newly added (say bigger than 20mb) and raise a warning if you try add it!!!
+- Get some program (with a keyboard shortcut) that automatically does all indentations for me... so that I don't need to manually re-indent everything myself every time I paste something with the wrong indentation...
+- In nvim, remap control + / to be super + / for consistency....
 - Very soon do the thing where I print which workspace I'm in and its name in the top right corner when I move between them.. set that up soon...
 - Make "arch-setup" an executable in ~/.local/bin
 - Make flag(s) in my arch setup to only do *some* of the functionality ... e.g. --stow flag to not do the whole packages update ... ask chatgpt if that's a usual api or if it's more normal to specify the things we aren't doing... e.g. --nosync
@@ -14,7 +21,7 @@ ToDo today:
         - Moreover, when I get the remappings done for keys, I can remap either copilot complete or the other one to be done by clicking tab twice or something for ease... that can translate to control + tab or something along those lines...
 - Work out how to close buffers etc properly... coz whenever I do wq it just seems to shut all buffers ... 
 - Instead of having to use the arrow keys to resize vim windows, remap them to control + alt + hjkl
-- In nvim, remap window resizing to sensible defaults, like control + alt + hjkl for sensible and quick window resizing of e.g. the terminal, windows I open in different places, etc etc!!!
+- In nvim, remap window resizing to sensible defaults, like control + alt + hjkl for sensible and quick window resizing of e.g. the terminal, windows I open in different places, etc etc!!! not the same as hyprland, currently for nvim windows I have to use the arrow keys which is annoying...
 - Make functionality in nvim for some sort of easy sidebar to appear with an llm / chatgpt , IDEALLY with multiple tabs / conversations that I can have going on in tandem, and even more ideally associated with the current codebase that I'm using so that it 'remembers' the history of the chat for the session! and, similar to control + / to open the terminal, make it have obvious and easy to remember ways to open it??
 - Configure 'noice.nvim' to make bigger popup windows when it prints stuff to the console so that I can see the errors more easily!!!
 - Get rid of prompt when I quit zsh... every time it asks me if I want to close it which I don't want it to do!!
@@ -85,18 +92,6 @@ ToDo today:
 
 - Work out with tree-sitter how I can get it to recognise sentences for typing txt and md files, etc. This would be useful for jumping around sentences quickly.
 - SET UP copy and paste shortcuts for control + shift + v ... change it for chrome so that it uses the same shortcuts?? bc currently it only works with control + c and control + v??
-
-- As part of the initial setup, on first boot (check whether these things are installed and install them if they're not):
-	## These things are on the arch setup page
-	- Setting up fstab
-	- Set up time zone
-	- localization
-	- network configuration (/etc/hostname)
-- Download my (public) dotfiles repo and run it.
-        - Also make configuring the default fonts for system, for hyprland, etc , part of the setup
-	- Configure hibernation for the system if I want it (maybe make an automated script that does so for me by printing each of the paritions and asking which one to use IF there is a swap partition mounted).
-	- also make the sure todoist image is installed).
-- Separate out the functionalities of (some) of the different parts of the script so that I can re-use or whatever the parts that I want to.
 
 
 ##### OTHER STUFF ######
