@@ -1,4 +1,5 @@
 ToDo today:
+- Very soon do the thing where I print which workspace I'm in and its name in the top right corner when I move between them.. set that up soon...
 - Make "arch-setup" an executable in ~/.local/bin
 - Make flag(s) in my arch setup to only do *some* of the functionality ... e.g. --stow flag to not do the whole packages update ... ask chatgpt if that's a usual api or if it's more normal to specify the things we aren't doing... e.g. --nosync
 - CONFIGURE a shell fzf-based fuzzy finder that INSERTS THE CHOSEN FILE PATH directly into the shell prompt (or if not possible, copies it to the clipboard)... get chatgpt to help with this!!
