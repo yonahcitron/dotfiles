@@ -235,11 +235,17 @@ cd $dotfiles/global_configs
 # The files they link to should be user-owned, to not interfere with git.
 sudo stow --target /etc */
 
-# Tools.
-echo "Setting up Yonah's cmdlet tools."
-cd $HOME
-mkdir -p tools
-stow --target /home/$USER_ACCOUNT/tools tools
+# Executable scripts etc.
+# This folder is added to the PATH in the .bashrc file.
+# Add the tools as binaries once they're installed.
+echo "Installing custom scripts as executables."
+cd $dotfiles
+mkdir -p $HOME/.local
+# Stow all folders within the tools directory.
+stow --target $HOME/.local tools
+if [ -d "$HOME/.local/bin" ]; then
+  chmod +x $HOME/.local/bin/*
+fi
 cd $WORKING_DIR
 
 ##############################

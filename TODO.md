@@ -1,5 +1,10 @@
 ToDo today:
+- Make "arch-setup" an executable in ~/.local/bin
+- Make flag(s) in my arch setup to only do *some* of the functionality ... e.g. --stow flag to not do the whole packages update ... ask chatgpt if that's a usual api or if it's more normal to specify the things we aren't doing... e.g. --nosync
+- CONFIGURE a shell fzf-based fuzzy finder that INSERTS THE CHOSEN FILE PATH directly into the shell prompt (or if not possible, copies it to the clipboard)... get chatgpt to help with this!!
+- Set the locale properly, currently I'm getting issues..
 - WORK OUT how to get vim integrations into neo tree so I can modify things WHILST I'm scrolling through the tree as well, ideally if poss..
+- Cannot uninstall bsdtar for some reason... uninstall it properly from my machine..
 - Find or make a quick and easy nvim shortcut for switching between buffers using hjkl keys and some other of the control keys for quick switch so I can quickly switch between multiple of them...
 - Find a way to make it that when you clikc enter on a neotree file you're selecting, it SHUTS neotree after it opens the new file... that's the default behaviour that I really want to be honest...
 - At some point soon, really spend some time setting up copilot.lua, and understanding how best to use the workflow. Watch videos and read some stuff online to read optimise how I use the workflow... for now I guess just use it like I used to use it on vscode, but update that for a more optimised flow soon enough..
@@ -10,6 +15,7 @@ ToDo today:
 - Instead of having to use the arrow keys to resize vim windows, remap them to control + alt + hjkl
 - In nvim, remap window resizing to sensible defaults, like control + alt + hjkl for sensible and quick window resizing of e.g. the terminal, windows I open in different places, etc etc!!!
 - Make functionality in nvim for some sort of easy sidebar to appear with an llm / chatgpt , IDEALLY with multiple tabs / conversations that I can have going on in tandem, and even more ideally associated with the current codebase that I'm using so that it 'remembers' the history of the chat for the session! and, similar to control + / to open the terminal, make it have obvious and easy to remember ways to open it??
+- Configure 'noice.nvim' to make bigger popup windows when it prints stuff to the console so that I can see the errors more easily!!!
 - Get rid of prompt when I quit zsh... every time it asks me if I want to close it which I don't want it to do!!
 - Use qutebrowser, make a shortcut to open the current page in chrome quickly (or actually maybe integrate everthing with firefox and set up the password manager I connected to with the firefox thing as well)... and then remap the chatgpt UI to open in that instead.. make super + F be firefox (it's mapped to something currently so change this back), and then make super + B be the browser (qutebrowser)
 - I think make switching between windows and with hjkl and also with numbers be super + shift... but then just remap the caps lock key to my functionality... for switching windows...

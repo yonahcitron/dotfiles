@@ -25,3 +25,5 @@ bsdtar
 node-js
 npm
 yazi
+p7zip
+jq

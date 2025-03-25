@@ -1,0 +1,63 @@
+#!/bin/sh
+# Script taken from nuchs/vim-hypr-nav on github.
+#
+# vim-hypr-nav - Use the same bindings to move focus between hyprland windows 
+# and vim splits. Requires the accompanying vim plugin and jq.
+
+dir="$1"
+
+case "$dir" in
+    u) ;;
+    r) ;;
+    d) ;;
+    l) ;;
+    *)
+        echo "USAGE: $0 u|r|d|l"
+        exit 1
+esac
+
+get_descendant_vim_pid() {
+    pid="$1"
+    terms="$2"
+
+    if grep -iqE '^g?(view|n?vim?x?)(diff)?$' "/proc/$pid/comm"; then
+        if embed_pid="$(pgrep --parent "$pid" --full 'nvim --embed')"; then
+            echo "$embed_pid"
+        else
+            echo "$pid"
+        fi
+
+        return 0
+    fi
+
+    for child in $(pgrep --runstates D,I,R,S --terminal "$terms" --parent "$pid"); do
+        if get_descendant_vim_pid "$child" "$terms"; then
+            # already echo'd PID in recursive call
+            return 0
+        fi
+    done
+
+    return 1
+}
+
+if focused_pid="$(hyprctl activewindow -j | jq -e '.pid')"; then
+    terms="$(find /dev/pts -type c -not -name ptmx | sed s#^/dev/## | tr '\n' ,)"
+    if vim_pid="$(get_descendant_vim_pid "$focused_pid" "$terms")"; then
+        servername_file="${XDG_RUNTIME_DIR:-/tmp}/vim-hypr-nav.$vim_pid.servername"
+        read -r program servername <"$servername_file"
+
+        if [ "$program" = vim ]; then
+            serverarg=--servername
+        elif [ "$program" = nvim ]; then
+            serverarg=--server
+        fi
+
+        if [ -n "$serverarg" ] && [ -n "$servername" ]; then
+            "$program" "$serverarg" "$servername" \
+                --remote-expr "VimHyprNav('$dir')" >/dev/null 2>&1 \
+                && exit 0
+        fi
+    fi
+fi
+
+hyprctl dispatch movefocus "$dir"
