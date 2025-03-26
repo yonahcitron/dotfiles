@@ -1,3 +1,12 @@
+# 1. Move this into /tools/bin and remove the .sh suffix.
+# 2. This should I mean I can execute it from anywhere using arch-setup.
+# 3. Eventually refactor this whole script into the 'df' cmdlet, and make it so that I can run it with 'df setup arch'... and then eventually if I wanna include other distros I can do like 'df setup ubuntu' etc... or if I wanna be more granular with specific device configs.
+#    - Say I have a home server with specific configurations, I can run `df setup arch home-server` ... and if I pass no args like `df setup arch`, it should check first my .local folder for configs (in dotfiles repo), then my hostname for which device I'm running it on, and if it can't find a matching device should ask me to pick one. There should be a 'default' for each OS which contains all the base settings, and anything device / setup specific will go in the specific dirs for that setup....
+#    - Once I've run the setup once, it should save in a .local folder in 'dotfiles' repo that stores the identity of the machine and any other identifiers... and then going forward I can just run `df sync`... however this should basically just be a shorthand for `df setup arch XXXX`... so `df sync` basically just looks for the appropriate pre-configured settings locally (if found), and passes them to `df setup`. If the args are not found it should search / prompt...
+#         - So actually I think it might be better if `df setup` requires ALL args to be passed, returning the possible options, but doesn't do anythign by default... the higher-level API will be `df setup` I think...
+
+# 4. Ensure hibernation is configured, and if not, configure it. Make an auto-script for this.
+
 # Import global variables.
 set -e
 source $HOME/repos/dotfiles/user_configs/bash/.bashrc
