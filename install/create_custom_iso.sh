@@ -32,18 +32,22 @@ live_root=$build_dir/airootfs
 mkdir -p $live_root/usr/local/bin
 
 # Make a simple install.sh script that says "Hello world from install.sh!"
-cat <<EOF >$live_root/usr/local/bin/install.sh
+cat <<EOF >$live_root/usr/local/bin/auto-install.sh
 #!/bin/bash
-echo "Hello world from install.sh!"
+echo "Hello world from auto-install.sh!"
 EOF
-chmod +x $live_root/usr/local/bin/install.sh
-echo "Created install.sh script in the live environment."
+chmod 755 $live_root/usr/local/bin/auto-install.sh
+echo "Created auto-install.sh script in the live environment."
 # TODO: reorganise this whole file better
 # TODO: Get the login terminal to automatically login to root
 # at startup, without prompting, and then run the install.sh
 # script ... better
 
+# TODO: ONCE I'VE TESTED THE SCRIPT IN THE LIVE ENVIRONMENT, BAKE the install script INTO INTO THE EXECUTABLE!!!
+#     Add a note in it explaining that I don't want to have to recompile this executable ever, so make it as minimal as possible to simply install actual arch on the physical device, and from there I can / should go through all the actual set up using scripts that are pulled from the git repo, to make software updates easier. This code is really like firmware that allows me to get hold of my setup from the internet.
+
 # Create a systemd service that runs once at startup
+# TODO: This service is failing at startup! Fix it.
 mkdir -p $live_root/etc/systemd/system
 cat <<EOF >$live_root/etc/systemd/system/auto-install.service
 [Unit]
@@ -59,6 +63,7 @@ RemainAfterExit=yes
 WantedBy=multi-user.target
 
 EOF
+chmod 755 $live_root/etc/systemd/system/auto-install.service
 echo "Created systemd setup script to run as a systemd service upon starting the live environment."
 # Create a systemd service that runs once at startup
 # The first param is what the *target* will be in the symlink. Symlinks are resolved dynamically so we must be in what the *target* system will understand..
