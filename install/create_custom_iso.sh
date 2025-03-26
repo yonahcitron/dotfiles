@@ -3,6 +3,8 @@
 # TODO: Make a feature to automatically install it to a device, asking in particular what device you want to install it to as part of the option.
 # TODO: See if there's a way to have both line numbers at the same time
 
+# TODO: VERY IMPORTANT:: I NEED TO MODIFY THIS SO IT CAN BE RUN FROM **BOTH** A SERIAL DEVICE AND ALSO A NORMAL TTY DEVICE!!! SO NEED TO NOT HARD-CODE TTYS0 BUT SELECT IT MORE DYNAMICALLY...
+
 set -e
 
 working_directory=$(pwd)
@@ -29,47 +31,30 @@ echo "Copied 'releng' configuration files to $build_dir."
 
 # airootfs represents the root of the live environment.
 live_root=$build_dir/airootfs
-mkdir -p $live_root/usr/local/bin
 
 # Make a simple install.sh script that says "Hello world from install.sh!"
-cat <<EOF >$live_root/usr/local/bin/auto-install.sh
+cat <<EOF >$live_root/root/custom-install.sh
 #!/bin/bash
-echo "Hello world from auto-install.sh!"
+echo "Hello world from custom-install.sh!"
 EOF
-chmod 755 $live_root/usr/local/bin/auto-install.sh
-echo "Created auto-install.sh script in the live environment."
+chmod 755 $live_root/usr/local/bin/custom-install.sh
+echo "Created custom-install.sh script in the live environment."
 # TODO: reorganise this whole file better
 # TODO: Get the login terminal to automatically login to root
 # at startup, without prompting, and then run the install.sh
 # script ... better
 
+# Create a .zprofile for root that runs the custom-install.sh script.
+cat <<EOF >$live_root/root/.zprofile
+#!/bin/bash
+/usr/local/bin/custom-install.sh
+EOF
+chmod 755 $live_root/root/.zprofile
+echo "Created .zprofile for root that runs custom-install.sh."
+
 # TODO: ONCE I'VE TESTED THE SCRIPT IN THE LIVE ENVIRONMENT, BAKE the install script INTO INTO THE EXECUTABLE!!!
 #     Add a note in it explaining that I don't want to have to recompile this executable ever, so make it as minimal as possible to simply install actual arch on the physical device, and from there I can / should go through all the actual set up using scripts that are pulled from the git repo, to make software updates easier. This code is really like firmware that allows me to get hold of my setup from the internet.
 
-# Create a systemd service that runs once at startup
-# TODO: This service is failing at startup! Fix it.
-mkdir -p $live_root/etc/systemd/system
-cat <<EOF >$live_root/etc/systemd/system/auto-install.service
-[Unit]
-Description=Run yonah's install script once at startup
-
-[Service]
-Type=oneshot
-ExecStart=/usr/local/bin/install.sh
-StandardOutput=journal+console
-RemainAfterExit=yes
-
-[Install]
-WantedBy=multi-user.target
-
-EOF
-chmod 755 $live_root/etc/systemd/system/auto-install.service
-echo "Created systemd setup script to run as a systemd service upon starting the live environment."
-# Create a systemd service that runs once at startup
-# The first param is what the *target* will be in the symlink. Symlinks are resolved dynamically so we must be in what the *target* system will understand..
-mkdir -p $live_root/etc/systemd/system/multi-user.target.wants
-ln -sf /etc/systemd/system/auto-install.service \
-  $live_root/etc/systemd/system/multi-user.target.wants/auto-install.service
 # Configure how EFI calls the kernel -
 # it should pass params to send all output to the serial console as well.
 boot_params_file=$build_dir/efiboot/loader/entries/01-archiso-x86_64-linux.conf
@@ -83,11 +68,22 @@ options  archisobasedir=%INSTALL_DIR% archisosearchuuid=%ARCHISO_UUID% console=t
 EOF
 echo "Configured the kernel to send all output to the serial console."
 
-# Make a serial getty for ttyS0
+# Make a serial getty for ttyS0 using the template service for getty@.service.
 mkdir -p $live_root/etc/systemd/system/getty.target.wants
 ln -sf /usr/lib/systemd/system/getty@.service \
   $live_root/etc/systemd/system/getty.target.wants/getty@ttyS0.service
 echo "Configured a serial getty for the login prompt on ttyS0."
+
+# Override the default behaviour of the getty service template to  make ttyS0 automatically login as root.
+mkdir -p "$live_root/etc/systemd/system/getty@ttyS0.service.d"
+cat <<EOF >"$live_root/etc/systemd/system/getty@ttyS0.service.d/autologin.conf"
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin root --noclear %I \$TERM
+EOF
+
+# Disable the systemd-resolved service as it causes issues with the live environment.
+ln -sf /dev/null "$live_root/etc/systemd/system/systemd-resolved.service"
 
 # Put the final generated ISO in the install directory.
 # custom_iso_name="yonah-custom-iso-$iso_name"
