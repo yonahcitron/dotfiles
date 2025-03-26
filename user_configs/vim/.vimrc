@@ -18,6 +18,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Resize windows with Ctrl + Alt + h/j/k/l
+nnoremap <C-M-h> :vertical resize -2<CR>
+nnoremap <C-M-l> :vertical resize +2<CR>
+nnoremap <C-M-j> :resize +2<CR>
+nnoremap <C-M-k> :resize -2<CR>
+
 " Store yanked text to the + (clipboard) register by default
 " Use the jasonccox/vim-wayland-clipboard plugin to automatically copy all text in the + register to the wl-clipboard.
 :set clipboard=unnamedplus
