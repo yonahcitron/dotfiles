@@ -74,7 +74,7 @@ ln -sf /usr/lib/systemd/system/getty@.service \
   $live_root/etc/systemd/system/getty.target.wants/getty@ttyS0.service
 echo "Configured a serial getty for the login prompt on ttyS0."
 
-# Override the default behaviour of the getty service template to  make ttyS0 automatically login as root.
+# Override the default behaviour of the getty service template to  make ttyS0 automatically login as root. tty1 does this already based on the releng profile that comes with archISO.
 mkdir -p "$live_root/etc/systemd/system/getty@ttyS0.service.d"
 cat <<EOF >"$live_root/etc/systemd/system/getty@ttyS0.service.d/autologin.conf"
 [Service]

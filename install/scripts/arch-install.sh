@@ -20,6 +20,12 @@
 # - Make it *automatically* boot into root without me having to type in 'root'
 # - Set the nameserver for internet, check if there's already internet (specify in the script that's so I can run it in qemu as well, where an ethernet connection is already set up by default...) and if not do a scan, print out the networks, prompt the user to type the networks name, use that value to connect to the network.
 
+set -e
+
+# I've set up two gettys to spawn at startup - tty1 and ttyS0.
+# Both will attempt to run this script, so ensure the user confirms
+# which script should be running by hitting enter.
+read -p "Hit enter to begin install according to Yonah's configurations..."
 loadkeys uk
 
 # Set the nameserver correctly for internet connection
