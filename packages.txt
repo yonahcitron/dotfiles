@@ -26,3 +26,4 @@ npm
 yazi
 jq
 archiso
+aerc
