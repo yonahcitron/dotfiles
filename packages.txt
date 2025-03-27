@@ -1,7 +1,6 @@
 gvim
 git
 zsh
-ohmyzsh
 neovim
 hyprland
 kitty
@@ -12,7 +11,6 @@ upower
 kmonad
 wl-clipboard
 brightnessctl
-todoist-appimage
 ltunify
 unzip
 fzf
@@ -21,9 +19,15 @@ speedtest
 qemu-base
 qemu-tools
 qemu-system-x86
-node-js
+edk2-ovmf
+nodejs
 npm
 yazi
 jq
 archiso
-aerc
+aerc-git
+bash-language-server
+pipewire
+pipewire-pulse
+wireplumber
+alsa-utils

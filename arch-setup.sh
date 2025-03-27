@@ -283,7 +283,9 @@ fi
 
 # Install all packages
 yay -Syyu --noconfirm
-yay -S --noconfirm --needed - <$PACKAGES_FILE
+xargs -a "$PACKAGES_FILE" yay -S --needed --noconfirm
+
+
 
 # TODO: Set up good system font etc. Currently I am downlaoding one from yay.
 #       Set up jetbrains mono for the terminal etc, and maybe something different for chrome?
@@ -323,3 +325,4 @@ sudo systemctl daemon-reload
 # TODO: Use conditional per-device logic here to start the correct services.
 # REMEMBER: When enabling new remappings, be sure to test them first just using the kmonad cli, and only THEN add them as a service to make sure they work! Will save me time in the long run.
 sudo systemctl enable --now kmonad@thinkpad-keyboard-remap.service
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
