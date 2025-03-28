@@ -25,9 +25,10 @@ npm
 yazi
 jq
 archiso
-aerc-git
+aerc
 bash-language-server
 pipewire
 pipewire-pulse
 wireplumber
 alsa-utils
+rsync
