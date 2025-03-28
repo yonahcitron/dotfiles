@@ -39,13 +39,8 @@ qemu-system-x86_64 \
   -m 2048 \
   -drive file=$disk_path,format=qcow2,if=virtio \
   -cdrom $iso_path \
-  -virtfs local,id=shared,path="$dotfiles/install/scripts",security_model=mapped,mount_tag=hostshare \
   -boot menu=on \
   -nographic
-
-# For dynamic file editing / debugging in the VM, before I bake the script into the ISO itself:
-# mkdir /mnt/hostshare
-# mount -t 9p -o trans=virtio,version=9p2000.L hostshare /mnt/hostshare
 
 # In my .nvimrc, see how I can enable line-wraparound by default...
 # Also, as a matter of urgency (next thing bc is actually useful), make
