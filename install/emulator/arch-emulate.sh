@@ -3,12 +3,12 @@
 #   - Just `qemu` alone does not have what I need.
 
 # Local paths
-emulator_dir="$dotfiles/install/emulator"
+iso_dir="$dotfiles/install/iso"
 
 # TODO: Change this logic to actually RUN the iso generation
 # process if doesn't exist...
-iso_name="archlinux-2025.03.25-x86_64.iso"
-iso_dir="$emulator_dir/.."
+# Change the name to not be date-dependent.
+iso_name="yonah-custom-archlinux-auto-installer-x86_64.iso"
 iso_path="$iso_dir/$iso_name"
 if [ ! -e "$iso_path" ]; then
   echo "No custom arch ISO found locally, aborting."
@@ -19,6 +19,7 @@ fi
 
 # Configure disk
 disk_name="arch-disk.img"
+emulator_dir="$dotfiles/install/emulator"
 disk_dir="$emulator_dir/disk"
 disk_path="$disk_dir/$disk_name"
 mkdir -p "$disk_dir"
@@ -49,19 +50,6 @@ else
   qemu-img create -f qcow2 "$disk_path" 20G
 fi
 
-# Configure disk.
-# TODO: Make option to delete / not delete the disk depending
-# on whether I want a fresh install.. pass this as an optional param... make make the flag --wipe-disk or smt
-disk_name="arch-disk.img"
-disk_dir="$emulator_dir/disk"
-disk_path="$disk_dir/$disk_name"
-if [ ! -e $disk_path ]; then
-  mkdir -p $disk_dir
-  qemu-img create -f qcow2 $disk_path 20G # Copy on write
-else
-  echo "Arch disk file found locally, loading existing."
-fi
-
 # Check if there's an existing nvram file
 nvram_path="$emulator_dir/nvram"
 nvram_name="OVFM_VARS.fd"
@@ -82,9 +70,9 @@ qemu-system-x86_64 \
   -machine q35 \
   -drive file=$disk_path,format=qcow2,if=virtio \
   -cdrom $iso_path \
-  -virtfs local,id=shared,path="$dotfiles/install/scripts",security_model=mapped,mount_tag=hostshare \
+  \
   -boot menu=on \
-  -nographic
+  -nographic #-virtfs local,id=shared,path="$dotfiles/install/scripts",security_model=mapped,mount_tag=hostshare \
 
 # For dynamic file editing / debugging in the VM, before I bake the script into the ISO itself:
 # mkdir /mnt/hostshare

@@ -33,6 +33,9 @@ mkdir -p $tmp_dir
 overlay_dir="$iso_dir/overlay"
 rsync -av $overlay_dir/ $build_dir/
 sudo mkarchiso -v -w "$tmp_dir" -o "$iso_dir" "$build_dir"
+
+# The below is now taken care of by the overlay.
+
 # TODO: Also change the iso name in the profiledef.sh file...
 #mv "$iso_dir/archlinux-x86_64.iso" "$iso_dir/yonah-installer-archlinux-x86_64.iso"
 #echo "Built ISO to: $iso_path"
