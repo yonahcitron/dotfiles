@@ -1,9 +1,9 @@
+#!/bin/bash
 # Add big-level headers with ### .. find a tool for this!
 # Echo out much more clearly what's going on in the script at each stage...
 # Ask user to confirm at every stage whether what they've inputted is correct
 
 # TODO: Simplify the stage with the partition writing!!
-#!/usr/bin/env bash
 set -e
 
 ##############################################

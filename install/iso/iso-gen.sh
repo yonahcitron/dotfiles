@@ -31,7 +31,7 @@ mkdir -p $tmp_dir
 
 # Overlay the custom files then build the ISO.
 overlay_dir="$iso_dir/overlay"
-rsync -av $overlay_dir/ $build_dir/
+sudo rsync -av $overlay_dir/ $build_dir/
 sudo mkarchiso -v -w "$tmp_dir" -o "$iso_dir" "$build_dir"
 
 # The below is now taken care of by the overlay.
