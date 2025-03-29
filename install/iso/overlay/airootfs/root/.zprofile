@@ -1,2 +1,1 @@
-#/bin/bash
-/root/.zprofile
+/root/arch-install.sh
