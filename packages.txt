@@ -32,3 +32,5 @@ pipewire-pulse
 wireplumber
 alsa-utils
 rsync
+hyprpaper
+archlinux-wallpaper
