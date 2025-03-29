@@ -137,9 +137,9 @@ pacstrap /mnt base linux linux-firmware iwd grub efibootmgr
 genfstab -U /mnt >>/mnt/etc/fstab
 
 # Setup things in the new environment
-cp ./arch-post-install.sh /mnt/root/
-chmod +x /mnt/root/arch-post-install.sh
-arch-chroot /mnt /root/arch-post-install.sh
+cp ./arch-chroot-install.sh /mnt/root/
+chmod +x /mnt/root/arch-chroot-install.sh
+arch-chroot /mnt /root/arch-chroot-install.sh
 
 # All done. Prompt to reboot.
 echo "Installation is complete. Press Enter to reboot..."
