@@ -1,4 +1,5 @@
 ToDo today:
+- Really clean up my files like arch.setup.sh , move where arch-setup goes (move it into an arch-specific folder, not root of dotfiles)... check everything runs properly, and make sure in the bootloader scripts 'yonah' has root privileges without needing to isntall password
 - In nvim practise relative pasting text with the same indentation using `[p` ... really cool trick!!
 - in the arch-chroot-install file it still prompts me for yonah's password... run the whole script again and get it so it doesn't prompt for the password...
 - Make it for each section of the iso install scripts that there's more interactivity as to whether you want to carry on or not... and that you don't have to click enter to make certain choices (like the arch-emulate script which disk formatting options.. you just hit the number and it does it striaght away..)

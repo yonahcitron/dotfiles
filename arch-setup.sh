@@ -254,12 +254,6 @@ else
   echo "Failed to change default shell."
 fi
 
-# Optional: Start zsh immediately
-if [[ "$SHELL" != "$ZSH_PATH" ]]; then
-  echo "Starting zsh..."
-  exec zsh
-fi
-
 ##############################
 ###### Install Configs #######
 ##############################
