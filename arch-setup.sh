@@ -258,22 +258,22 @@ fi
 ###### Install Configs #######
 ##############################
 
-WORKING_DIR=$(pwd)
-USER_ACCOUNT="yonah"
+working_dir=$(pwd)
+user_account="yonah"
 
 # Source .bashrc to bring in variables like $dotfiles
 source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 
-# Also symlink the todo.md for easy access
+# Symlink the arch-setup.sh script to the home directory for easy access
 source_setup="$dotfiles/arch-setup.sh"
-symlink_setup="/home/$USER_ACCOUNT/.arch-setup.sh"
+symlink_setup="/home/$user_account/.arch-setup.sh"
 if [ -L $symlink_setup ]; then
   echo "Symlink already exists: $symlink_setup"
-elif [ -e "/home/$user_account/.arch-setup.sh" ]; then
+elif [ -e $symlink_setup ]; then
   echo "a regular file or directory exists at the target location. not creating symlink."
 else
-  echo "Creating symlink: $symlink_todo -> $source_setup"
-  ln -s "$source_setup $symlink_todo"
+  echo "Creating symlink: $symlink_setup -> $source_setup"
+  ln -s "$source_setup $symlink_setup"
 fi
 
 if [ ! -L "/home/yonah/.bashrc" ]; then
@@ -283,7 +283,7 @@ fi
 
 # Also symlink the todo.md for easy access
 source_todo="$dotfiles/TODO.md"
-symlink_todo="/home/$USER_ACCOUNT/TODO.md"
+symlink_todo="/home/$user_account/TODO.md"
 if [ -L $symlink_todo ]; then
   echo "Symlink already exists: $symlink_todo"
 else
@@ -297,7 +297,7 @@ sudo pacman -S --noconfirm stow
 
 echo "Setting up Yonah's user configs."
 cd $dotfiles/user_configs
-stow --target /home/$USER_ACCOUNT */ # User configs.
+stow --target /home/$user_account */ # User configs.
 
 # Global configs.
 echo "Setting up Yonah's global configs."
@@ -317,7 +317,7 @@ stow --target $HOME/.local tools
 if [ -d "$HOME/.local/bin" ]; then
   chmod +x $HOME/.local/bin/*
 fi
-cd $WORKING_DIR
+cd $working_dir
 
 #############################
 #####  Systemd daemons  #####
