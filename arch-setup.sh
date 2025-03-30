@@ -272,8 +272,8 @@ if [ -L $symlink_setup ]; then
 elif [ -e "/home/$user_account/.arch-setup.sh" ]; then
   echo "a regular file or directory exists at the target location. not creating symlink."
 else
+  echo "Creating symlink: $symlink_todo -> $source_setup"
   ln -s "$source_setup $symlink_todo"
-  echo "Symlink created: $symlink_todo -> $source_setup"
 fi
 
 if [ ! -L "/home/yonah/.bashrc" ]; then
