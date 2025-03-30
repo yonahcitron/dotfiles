@@ -273,7 +273,7 @@ elif [ -e $symlink_setup ]; then
   echo "a regular file or directory exists at the target location. not creating symlink."
 else
   echo "Creating symlink: $symlink_setup -> $source_setup"
-  ln -s "$source_setup $symlink_setup"
+  ln -s "$source_setup" "$symlink_setup"
 fi
 
 if [ -e "/home/yonah/.bashrc" ] && [ ! -L "/home/yonah/.bashrc" ]; then
