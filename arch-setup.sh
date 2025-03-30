@@ -211,6 +211,9 @@ fi
 WORKING_DIR=$(pwd)
 USER_ACCOUNT="yonah"
 
+# Source .bashrc to bring in variables like $dotfiles
+source $HOME/repos/dotfiles/user_configs/bash/.bashrc
+
 # Also symlink the todo.md for easy access
 source_setup="$dotfiles/arch-setup.sh"
 symlink_setup="/home/$USER_ACCOUNT/.arch-setup.sh"
