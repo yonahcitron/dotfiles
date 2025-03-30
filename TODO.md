@@ -1,4 +1,6 @@
 ToDo today:
+- Run through everything again... reinstall the iso... get the wifi thing working... and really make sure everything works seamlessly! and then also refactor the code... all the testing I wanna do now, I can now do I on my laptop or my main computer natively, as once I've reached the arch-setup script successfully then we're good to go... 
+- Download my shell repos to onedrive asap... from my mac....
 - Really clean up my files like arch.setup.sh , move where arch-setup goes (move it into an arch-specific folder, not root of dotfiles)... check everything runs properly, and make sure in the bootloader scripts 'yonah' has root privileges without needing to isntall password
 - Clean up the final part of the arch setup script to do nothing when running in chroot... see the error when I run in on the live usb for more details.
 - Make a script `make-usb-iso.sh` which check if iso file and then asks if want to create one if not exists
