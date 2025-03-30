@@ -169,32 +169,38 @@ EOF
   sudo systemctl restart systemd-networkd
 fi
 
-# Check if WiFi is already connected
-if sudo iwctl station wlan0 show | grep -q "connected"; then
-  echo "[INFO] WiFi is already connected. Skipping WiFi setup."
+if ping -q -c 1 -W 1 1.1.1.1 >/dev/null; then
+
+  echo "Internet is connected"
 else
-  # Scan for WiFi networks
-  echo "[INFO] Scanning for available WiFi networks..."
-  sudo iwctl station wlan0 scan
-  sleep 2 # Give it time to scan
-
-  # Display available networks
-  echo "[INFO] Available networks:"
-  sudo iwctl station wlan0 get-networks
-
-  # Prompt user for WiFi details
-  read -p "Enter WiFi SSID: " SSID
-  read -s -p "Enter WiFi Password: " PASSWORD
-
-  # Connect to the WiFi network
-  echo "\n[INFO] Connecting to $SSID..."
-  sudo iwctl station wlan0 connect "$SSID" <<<"$PASSWORD"
-
-  # Check connection status
+  echo "No internet connection"
+  # Check if WiFi is already connected
   if sudo iwctl station wlan0 show | grep -q "connected"; then
-    echo "[SUCCESS] Successfully connected to $SSID!"
+    echo "[INFO] WiFi is already connected. Skipping WiFi setup."
   else
-    echo "[ERROR] Failed to connect. Check your SSID and password."
+    # Scan for WiFi networks
+    echo "[INFO] Scanning for available WiFi networks..."
+    sudo iwctl station wlan0 scan
+    sleep 2 # Give it time to scan
+
+    # Display available networks
+    echo "[INFO] Available networks:"
+    sudo iwctl station wlan0 get-networks
+
+    # Prompt user for WiFi details
+    read -p "Enter WiFi SSID: " SSID
+    read -s -p "Enter WiFi Password: " PASSWORD
+
+    # Connect to the WiFi network
+    echo "\n[INFO] Connecting to $SSID..."
+    sudo iwctl station wlan0 connect "$SSID" <<<"$PASSWORD"
+
+    # Check connection status
+    if sudo iwctl station wlan0 show | grep -q "connected"; then
+      echo "[SUCCESS] Successfully connected to $SSID!"
+    else
+      echo "[ERROR] Failed to connect. Check your SSID and password."
+    fi
   fi
 fi
 
@@ -284,8 +290,6 @@ fi
 # Install all packages
 yay -Syyu --noconfirm
 xargs -a "$PACKAGES_FILE" yay -S --needed --noconfirm
-
-
 
 # TODO: Set up good system font etc. Currently I am downlaoding one from yay.
 #       Set up jetbrains mono for the terminal etc, and maybe something different for chrome?

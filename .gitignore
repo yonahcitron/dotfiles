@@ -5,5 +5,7 @@ images/
 .cache/
 .build/
 .tmp/
+disk/
+nvram/
 *.iso
 *.img

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# TODO: INSTALL UEFI FIRMWARE AND THEN RUN QEMU WITH IT!!!
-
 # TODO: For the password section, make the formatting of the prompts
 # to the user more clear.
+#
+# TODO: Install git and then install the system during the setup phase here....
 set -e
 
 echo "=== Running post-install setup in installed environment ==="
@@ -41,9 +41,23 @@ EOF
 
 systemctl enable iwd
 
+# Setup sudo for user 'yonah'
+pacman -S --noconfirm sudo
+usermod -aG wheel yonah
+echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" >/etc/sudoers.d/99_wheel_nopasswd
+chmod 440 /etc/sudoers.d/99_wheel_nopasswd
+
+
+# Get my dotfiles from git and install my user apps and settings.
 pacman -S git
+mkdir /home/yonah/repos
+git clone https://github.com/yonahcitron/dotfiles.git /home/yonah/repos/dotfies
+# TODO: THIS path WILL CHANGE SOON
+su yonah
+bash /home/yonah/repos/dotfiles/arch-install.sh
 
 # Install GRUB to EFI
+su root
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 

@@ -1,5 +1,8 @@
 ToDo today:
+- In nvim practise relative pasting text with the same indentation using `[p` ... really cool trick!!
+- in the arch-chroot-install file it still prompts me for yonah's password... run the whole script again and get it so it doesn't prompt for the password...
 - Make it for each section of the iso install scripts that there's more interactivity as to whether you want to carry on or not... and that you don't have to click enter to make certain choices (like the arch-emulate script which disk formatting options.. you just hit the number and it does it striaght away..)
+- Make it so that my nvim settings apply for the root user as well (i.e. when running vim as sudo..)... look into this and apply it!!!
 - MY NVIM IS BEING VERYYYY UNRELIABLE AND BUGGY... FIX IT AS A PRIORITY!!!!!!!!!
 - Make the better formatting around "Hit enter to begin install .." like add some **** etc to make it more prominent, and a line break!! check it works on my current vm, then get it to work on the physical computer, then tweak the post-install setup... REMEMBER include as LITTLE AS POSSIBLE on the install in the iso... only what I NEED to do there... any isntall which can be done ont he machine itself post-setup I should MOVE THERE.... means it's configurable from everywhere, and no recompilation needed etc etc.. much better idea!!
 - Try alibaba's new model as well as google's...

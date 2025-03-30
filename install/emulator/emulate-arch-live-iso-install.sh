@@ -31,13 +31,10 @@ qemu-img create -f qcow2 "$disk_path" 20G
 # Check if there's an existing nvram file
 nvram_path="$emulator_dir/nvram"
 nvram_name="OVFM_VARS.fd"
-if [ ! -e "$nvram_path/$nvram_name" ]; then
-  echo "No NVRAM file found locally, copying from system."
-  mkdir -p "$nvram_path"
-  cp /usr/share/edk2/x64/OVMF_VARS.4m.fd "$nvram_path/$nvram_name"
-else
-  echo "NVRAM file found locally, loading existing."
-fi
+echo "Recreating new empty nvram file..."
+rm -f "$nvram_path/$nvram_name"
+mkdir -p "$nvram_path"
+cp /usr/share/edk2/x64/OVMF_VARS.4m.fd "$nvram_path/$nvram_name"
 
 qemu-system-x86_64 \
   -drive if=pflash,format=raw,readonly=on,file=/usr/share/edk2/x64/OVMF_CODE.4m.fd \
