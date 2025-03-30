@@ -276,8 +276,8 @@ else
   ln -s "$source_setup $symlink_setup"
 fi
 
-if [ ! -L "/home/yonah/.bashrc" ]; then
-  echo "The .bashrc file is NOT a symlink, and hence is an auto-generated config template. Deleting."
+if [ -e "/home/yonah/.bashrc" ] && [ ! -L "/home/yonah/.bashrc" ]; then
+  echo "The .bashrc file exists and is NOT a symlink. Deleting."
   rm /home/yonah/.bashrc
 fi
 
