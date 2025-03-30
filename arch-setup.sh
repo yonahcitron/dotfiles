@@ -205,6 +205,62 @@ else
 fi
 
 ##############################
+#### Install Local files #####
+##############################
+
+# Install arch and aur files.
+
+PACKAGES_FILE=$dotfiles/packages.txt # $dotfiles is defined in .bashrc
+echo "Ensuring all the following packages are installed:"
+cat $PACKAGES_FILE
+
+if ! command -v yay &>/dev/null; then
+  # Install yay to access AUR packages
+  sudo pacman -S --noconfirm --needed base-devel git
+  git clone https://aur.archlinux.org/yay-bin.git
+  cd yay-bin
+  makepkg -si
+  yay --version
+  cd ..
+  rm -rf yay-bin
+  echo "yay installed successfully!"
+else
+  echo "yay is already installed."
+fi
+
+# Install all packages
+yay -Syyu --noconfirm
+xargs -a "$PACKAGES_FILE" yay -S --needed --noconfirm
+
+# TODO: Set up good system font etc. Currently I am downlaoding one from yay.
+#       Set up jetbrains mono for the terminal etc, and maybe something different for chrome?
+#       Although anyways I think it by default has a different font, double-check on this though.
+# TODO: Maybe implement some keybinding (also maybe in hyprland.conf) to open a quick central command popup window to run single short quick commandd, rather than having to go to a whole terminal... e.g. 'power' just to see quick status of battery etc..
+
+# Get the full path of zsh
+ZSH_PATH=$(which zsh)
+
+# Change the default shell for the current user
+if [[ "$SHELL" != "$ZSH_PATH" ]]; then
+  echo "Changing default shell to zsh..."
+  sudo chsh -s "$ZSH_PATH" "$USER"
+fi
+
+echo "Confirming zsh is the default shell..."
+# Check if the change was successful
+if [[ "$(getent passwd "$USER" | cut -d: -f7)" == "$ZSH_PATH" ]]; then
+  echo "Confirmed zsh is the default shell."
+else
+  echo "Failed to change default shell."
+fi
+
+# Optional: Start zsh immediately
+if [[ "$SHELL" != "$ZSH_PATH" ]]; then
+  echo "Starting zsh..."
+  exec zsh
+fi
+
+##############################
 ###### Install Configs #######
 ##############################
 
@@ -268,62 +324,6 @@ if [ -d "$HOME/.local/bin" ]; then
   chmod +x $HOME/.local/bin/*
 fi
 cd $WORKING_DIR
-
-##############################
-#### Install Local files #####
-##############################
-
-# Install arch and aur files.
-
-PACKAGES_FILE=$dotfiles/packages.txt # $dotfiles is defined in .bashrc
-echo "Ensuring all the following packages are installed:"
-cat $PACKAGES_FILE
-
-if ! command -v yay &>/dev/null; then
-  # Install yay to access AUR packages
-  sudo pacman -S --noconfirm --needed base-devel git
-  git clone https://aur.archlinux.org/yay-bin.git
-  cd yay-bin
-  makepkg -si
-  yay --version
-  cd ..
-  rm -rf yay-bin
-  echo "yay installed successfully!"
-else
-  echo "yay is already installed."
-fi
-
-# Install all packages
-yay -Syyu --noconfirm
-xargs -a "$PACKAGES_FILE" yay -S --needed --noconfirm
-
-# TODO: Set up good system font etc. Currently I am downlaoding one from yay.
-#       Set up jetbrains mono for the terminal etc, and maybe something different for chrome?
-#       Although anyways I think it by default has a different font, double-check on this though.
-# TODO: Maybe implement some keybinding (also maybe in hyprland.conf) to open a quick central command popup window to run single short quick commandd, rather than having to go to a whole terminal... e.g. 'power' just to see quick status of battery etc..
-
-# Get the full path of zsh
-ZSH_PATH=$(which zsh)
-
-# Change the default shell for the current user
-if [[ "$SHELL" != "$ZSH_PATH" ]]; then
-  echo "Changing default shell to zsh..."
-  sudo chsh -s "$ZSH_PATH" "$USER"
-fi
-
-echo "Confirming zsh is the default shell..."
-# Check if the change was successful
-if [[ "$(getent passwd "$USER" | cut -d: -f7)" == "$ZSH_PATH" ]]; then
-  echo "Confirmed zsh is the default shell."
-else
-  echo "Failed to change default shell."
-fi
-
-# Optional: Start zsh immediately
-if [[ "$SHELL" != "$ZSH_PATH" ]]; then
-  echo "Starting zsh..."
-  exec zsh
-fi
 
 #############################
 #####  Systemd daemons  #####
