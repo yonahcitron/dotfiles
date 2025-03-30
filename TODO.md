@@ -6,6 +6,8 @@ ToDo today:
 - Make a script `make-usb-iso.sh` which check if iso file and then asks if want to create one if not exists
 - Make functionality such that any wifi that was connected to within the iso session is automatically saved within the actual installed iso at startup?? and then starts up automatically..
 - In nvim practise relative pasting text with the same indentation using `[p` ... really cool trick!!
+- Install one of my spare laptops as an arch server ... make a whole bunch of different variations for different use-cases... make me be able to connect and wake up the server hopefully from it being asleep...?? 
+     - Really make the list of dependencies separate as well (instead of just packages.txt).. have an arch folder with a global packages, and then have sub packages.txt for each separate distro... and then have df commands like df install global package_x and df install [] package y ... come up with a better word that means just for this particular machine and not for all arch versions I'm running.. maybe like df install local or machine or device or something
 - in the arch-chroot-install file it still prompts me for yonah's password... run the whole script again and get it so it doesn't prompt for the password...
 - Make it for each section of the iso install scripts that there's more interactivity as to whether you want to carry on or not... and that you don't have to click enter to make certain choices (like the arch-emulate script which disk formatting options.. you just hit the number and it does it striaght away..)
 - Make it so that my nvim settings apply for the root user as well (i.e. when running vim as sudo..)... look into this and apply it!!!
