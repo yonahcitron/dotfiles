@@ -16,28 +16,10 @@ set -e
 
 read -p "Hit Enter to begin install according to Yonah's configurations..."
 
-# Keyboard layout
-loadkeys uk
+# Doing 'loadkeys uk' messes up the keyboard layout when running the live environ through a serial console in qemu.
 
-# Set DNS in the live environment (so we can download packages)
-rm -f /etc/resolv.conf
-echo "nameserver 1.1.1.1" >/etc/resolv.conf
-
-# Check for internet connectivity
-if ping -c 1 google.com &>/dev/null; then
-  echo "Internet connection detected, skipping Wi-Fi connection."
-else
-  echo "No internet connection detected."
-  echo "Scanning for Wi-Fi networks on interface wlan0..."
-  iwctl station wlan0 scan
-  iwctl station wlan0 get-networks
-  read -p "Enter the SSID to connect to: " network_name
-  iwctl station wlan0 connect "$network_name"
-fi
-
-# Update packages in the live environment
-pacman-key --init
-pacman -Syu --noconfirm
+timedatectl set-ntp true
+timedatectl status
 
 echo ""
 echo "** Available disks **"
@@ -114,6 +96,30 @@ fi
 
 # Now that the disk is partitioned, we can proceed with the installation.
 
+
+# Set DNS in the live environment (so we can download packages)
+rm -f /etc/resolv.conf
+echo "nameserver 1.1.1.1" >/etc/resolv.conf
+
+# Check for internet connectivity
+if ping -c 1 google.com &>/dev/null; then
+  echo "Internet connection detected, skipping Wi-Fi connection."
+else
+  echo "No internet connection detected."
+  echo "Scanning for Wi-Fi networks on interface wlan0..."
+  iwctl station wlan0 scan
+  iwctl station wlan0 get-networks
+  read -p "Enter the SSID to connect to: " network_name
+  iwctl station wlan0 connect "$network_name"
+fi
+
+# Update packages in the live environment
+pacman-key --init
+pacman-key --populate archlinux
+# pacman-key --refresh-keys # Takes ages.
+echo "Updating package database..."
+pacman -Syu --noconfirm
+
 # Mount root
 mount "$root_partition" /mnt
 
@@ -132,9 +138,6 @@ fi
 
 # Pacstrap essential packages into new system
 pacstrap /mnt base linux linux-firmware iwd grub efibootmgr
-
-# Generate fstab
-genfstab -U /mnt >>/mnt/etc/fstab
 
 # Setup things in the new environment
 cp ./arch-chroot-install.sh /mnt/root/

@@ -6,3 +6,4 @@ images/
 .build/
 .tmp/
 *.iso
+*.img

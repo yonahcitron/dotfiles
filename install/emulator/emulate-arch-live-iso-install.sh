@@ -24,31 +24,9 @@ disk_dir="$emulator_dir/disk"
 disk_path="$disk_dir/$disk_name"
 mkdir -p "$disk_dir"
 
-if [ -e "$disk_path" ]; then
-  echo ""
-  echo "Disk image already exists: $disk_path"
-  echo "Choose an option:"
-  echo "1) Keep the existing disk (boot as-is)"
-  echo "2) Delete and recreate the disk (fresh install)"
-  read -rp "Enter your choice [1 or 2]: " disk_choice
-  case "$disk_choice" in
-  1)
-    echo "Keeping existing disk."
-    ;;
-  2)
-    echo "Deleting and recreating disk..."
-    rm -f "$disk_path"
-    qemu-img create -f qcow2 "$disk_path" 20G
-    ;;
-  *)
-    echo "Invalid choice. Aborting."
-    exit 1
-    ;;
-  esac
-else
-  echo "No disk image found. Creating a new one..."
-  qemu-img create -f qcow2 "$disk_path" 20G
-fi
+echo "Recreating new empty virtual disk..."
+rm -f "$disk_path"
+qemu-img create -f qcow2 "$disk_path" 20G
 
 # Check if there's an existing nvram file
 nvram_path="$emulator_dir/nvram"
@@ -70,9 +48,9 @@ qemu-system-x86_64 \
   -machine q35 \
   -drive file=$disk_path,format=qcow2,if=virtio \
   -cdrom $iso_path \
-  \
+  -virtfs local,id=shared,path="$dotfiles/install/iso/overlay/airootfs/root",security_model=mapped,mount_tag=hostshare \
   -boot menu=on \
-  -nographic #-virtfs local,id=shared,path="$dotfiles/install/scripts",security_model=mapped,mount_tag=hostshare \
+  -nographic
 
 # For dynamic file editing / debugging in the VM, before I bake the script into the ISO itself:
 # mkdir /mnt/hostshare

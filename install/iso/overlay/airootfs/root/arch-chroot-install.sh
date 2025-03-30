@@ -41,6 +41,8 @@ EOF
 
 systemctl enable iwd
 
+pacman -S git
+
 # Install GRUB to EFI
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
