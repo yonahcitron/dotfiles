@@ -1,5 +1,6 @@
 ToDo today:
 - Really clean up my files like arch.setup.sh , move where arch-setup goes (move it into an arch-specific folder, not root of dotfiles)... check everything runs properly, and make sure in the bootloader scripts 'yonah' has root privileges without needing to isntall password
+- Clean up the final part of the arch setup script to do nothing when running in chroot... see the error when I run in on the live usb for more details.
 - Make a script `make-usb-iso.sh` which check if iso file and then asks if want to create one if not exists
 - Make functionality such that any wifi that was connected to within the iso session is automatically saved within the actual installed iso at startup?? and then starts up automatically..
 - In nvim practise relative pasting text with the same indentation using `[p` ... really cool trick!!
