@@ -1,4 +1,5 @@
 ToDo today:
+- set up new keyboard on desktop asap..
 - with the `makepkg -si` line... it's causing me to have to confirm atm... see if there's a --noconfirm way to do this??
 - download old repos from mac and put on onedrive asap!!!
 - Whilst working on work stuff, IN MY HOME OFFICE... ACTUALLY DO THE WORK ON MY ARCH MACHINE!!!! ... all I need to do is setup up a connection to my work mac on ssh, and use nvim + tmux through there... also obvs have my laptop open on teams bc I can't access that through the cli... super cool!!!! DO THIS AS A PRIORITY... SET UP SSH ON MY LOCAL NETWORK TO MY WORK MACHINE... save this work configuration as well to my dotfiles... bc soon I wanna get my mac re-imaged ... (CAN DO THIS DURING THE HOLIDAYS...)
