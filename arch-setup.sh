@@ -318,7 +318,7 @@ mkdir -p $HOME/.local
 # Stow all folders within the tools directory.
 stow --target $HOME/.local tools
 if [ -d "$HOME/.local/bin" ]; then
-  chmod +x $HOME/.local/bin/*
+  sudo chmod +x $HOME/.local/bin/*
 fi
 cd $working_dir
 
