@@ -159,21 +159,21 @@ else
 
   # Add 'resume=UUID=' to GRUB_CMDLINE_LINUX_DEFAULT
   echo "Adding 'resume=UUID=$SWAP_UUID' to GRUB_CMDLINE_LINUX_DEFAULT..."
-  sed -i "s|\(GRUB_CMDLINE_LINUX_DEFAULT=\"[^\"]*\)|\1 resume=UUID=$SWAP_UUID|" /etc/default/grub
+  sudo sed -i "s|\(GRUB_CMDLINE_LINUX_DEFAULT=\"[^\"]*\)|\1 resume=UUID=$SWAP_UUID|" /etc/default/grub
 
   # Ensure 'resume' hook is present in /etc/mkinitcpio.conf
   if ! grep -q 'resume' /etc/mkinitcpio.conf; then
     echo "Adding 'resume' hook to /etc/mkinitcpio.conf..."
-    sed -i 's/\(^HOOKS=.*\)filesystems/\1resume filesystems/' /etc/mkinitcpio.conf
+    sudo sed -i 's/\(^HOOKS=.*\)filesystems/\1resume filesystems/' /etc/mkinitcpio.conf
   fi
 
   # Regenerate initramfs
   echo "Regenerating initramfs..."
-  mkinitcpio -P
+  sudo mkinitcpio -P
 
   # Update GRUB configuration
   echo "Updating GRUB config..."
-  grub-mkconfig -o /boot/grub/grub.cfg
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
 
   echo "Hibernation setup complete. Please reboot for changes to take effect."
 fi
