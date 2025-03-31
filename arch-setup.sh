@@ -138,13 +138,6 @@ check_installed() {
   return $?
 }
 
-# Check if iwd is installed
-if ! check_installed iwd; then
-  echo "[ERROR] 'iwd' is not installed. Please install it first using the live USB:"
-  echo "sudo pacman -S iwd"
-  exit 1
-fi
-
 # Ensure iwd and systemd-networkd are enabled and running
 for service in iwd systemd-networkd; do
   if ! systemctl is-active --quiet $service; then
@@ -214,6 +207,8 @@ PACKAGES_FILE=$dotfiles/packages.txt # $dotfiles is defined in .bashrc
 echo "Ensuring all the following packages are installed:"
 cat $PACKAGES_FILE
 
+# TODO: Install this in the chroot script!!
+# any prerequisites, I don't need to do every time!
 if ! command -v yay &>/dev/null; then
   # Install yay to access AUR packages
   previous_dir=$(pwd)
@@ -223,8 +218,9 @@ if ! command -v yay &>/dev/null; then
   mkdir -p /tmp/yay-bin
   git clone https://aur.archlinux.org/yay.git /tmp/yay-bin
   cd /tmp/yay-bin
-  makepkg -si
+  makepkg --noconfirm -si
   yay --version
+  sudo pacman -Rns --noconfirm $(pacman -Qdtq) # Remove unneeded dependencies after installation
   cd $previous_dir
   echo "yay installed successfully!"
 else
@@ -334,6 +330,10 @@ sudo systemctl daemon-reload
 sudo systemctl enable kmonad@thinkpad-keyboard-remap.service
 systemctl --user enable pipewire pipewire-pulse wireplumber
 
-# Start the services (won't work on live install but that's fine, will start at boot)
-sudo systemctl start kmonad@thinkpad-keyboard-remap.service
-systemctl --user start pipewire pipewire-pulse wireplumber
+if ! systemctl --quiet is-system-running; then
+  echo "In chroot — skipping service start"
+else
+  echo "Starting services..."
+  sudo systemctl start kmonad@thinkpad-keyboard-remap.service
+  systemctl --user start pipewire pipewire-pulse wireplumber
+fi

@@ -51,12 +51,20 @@ systemctl enable iwd
 # Get my dotfiles from git and install my user apps and settings.
 pacman --noconfirm -S git
 git clone https://github.com/yonahcitron/dotfiles.git /home/yonah/repos/dotfiles
-# TODO: THIS path WILL CHANGE SOON
-# Run the environment setup script for the user 'yonah'
-sudo -u yonah /home/yonah/repos/dotfiles/arch-setup.sh || true
 
 # Install GRUB to EFI
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
+
+# TODO: THIS path WILL CHANGE SOON
+# Run the environment setup script for the user 'yonah'
+sudo -u yonah /home/yonah/repos/dotfiles/arch-setup.sh || true
+
+# execute the above in an if block
+if sudo -u yonah /home/yonah/repos/dotfiles/arch-setup.sh; then
+  echo "Yonah's setup script executed successfully."
+else
+  echo "Yonah's setup script failed. Continuing with post-install setup.anyway, can fix the user-issues later."
+fi
 
 echo "=== Post-install setup complete ==="
