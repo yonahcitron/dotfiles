@@ -52,9 +52,13 @@ echo ""
 echo "** Detected partitions on $target_disk **"
 lsblk "$target_disk"
 
+#################################
+##### Formatting partitions #####
+#################################
+
 # Ask for root, EFI, and swap partitions by name only (e.g., sda3)
 echo ""
-read -rp "Enter the name of the ROOT partition (e.g. sda3): " root_name
+read -rp "Enter the name of the ROOT partition where the main disk will be stored (e.g. sda3): " root_name
 read -rp "Enter the name of the EFI partition (e.g. sda1) or press Enter to skip: " efi_name
 read -rp "Enter the name of the SWAP partition (e.g. sda2) or press Enter to skip: " swap_name
 
@@ -66,36 +70,69 @@ swap_partition=""
 [[ -n "$efi_name" ]] && efi_partition="/dev/$efi_name"
 [[ -n "$swap_name" ]] && swap_partition="/dev/$swap_name"
 
-# Format root partition
-while true; do
-  echo "Formatting $root_partition as ext4..."
-  mkfs.ext4 "$root_partition" && break
-  read -rp "Formatting failed. Try again? (y/N): " try_again
-  [[ "$try_again" =~ ^[Nn]$ ]] && break
-done
+# Confirm and format root partition
+read -rp "WARNING: Formatting $root_partition will erase all data on it. Do you want to reformat the root partition? (y/N): " confirm_root
+if [[ "$confirm_root" =~ ^[Yy]$ ]]; then
+  while true; do
+    echo "Formatting $root_partition as ext4..."
+    if mkfs.ext4 "$root_partition"; then
+      echo "Root partition formatted successfully."
+      break
+    else
+      read -rp "Formatting failed. Try again? (y/N): " try_again
+      [[ "$try_again" =~ ^[Nn]$ ]] && break
+    fi
+  done
+else
+  echo "Skipping formatting of root partition ($root_partition)."
+fi
 
-# Format EFI if provided
+# Confirm and format EFI partition if provided
 if [[ -n "$efi_partition" ]]; then
-  while true; do
-    echo "Formatting $efi_partition as FAT32..."
-    mkfs.fat -F32 "$efi_partition" && break
-    read -rp "Formatting failed. Try again? (y/N): " try_again
-    [[ "$try_again" =~ ^[Nn]$ ]] && break
-  done
+  read -rp "WARNING: Formatting $efi_partition will erase all data on it. Do you want to reformat the EFI partition? (y/N): " confirm_efi
+  if [[ "$confirm_efi" =~ ^[Yy]$ ]]; then
+    while true; do
+      echo "Formatting $efi_partition as FAT32..."
+      if mkfs.fat -F32 "$efi_partition"; then
+        echo "EFI partition formatted successfully."
+        break
+      else
+        read -rp "Formatting failed. Try again? (y/N): " try_again
+        [[ "$try_again" =~ ^[Nn]$ ]] && break
+      fi
+    done
+  else
+    echo "Skipping formatting of EFI partition ($efi_partition)."
+  fi
 fi
 
-# Format swap if provided
+# Confirm and format swap partition if provided
 if [[ -n "$swap_partition" ]]; then
-  while true; do
-    echo "Formatting $swap_partition as swap..."
-    mkswap "$swap_partition" && break
-    read -rp "Formatting failed. Try again? (y/N): " try_again
-    [[ "$try_again" =~ ^[Nn]$ ]] && break
-  done
+  read -rp "WARNING: Formatting $swap_partition will erase all data on it. Do you want to reformat the swap partition? (y/N): " confirm_swap
+  if [[ "$confirm_swap" =~ ^[Yy]$ ]]; then
+    while true; do
+      echo "Formatting $swap_partition as swap..."
+      if mkswap "$swap_partition"; then
+        echo "Swap partition formatted successfully."
+        break
+      else
+        read -rp "Formatting failed. Try again? (y/N): " try_again
+        [[ "$try_again" =~ ^[Nn]$ ]] && break
+      fi
+    done
+  else
+    echo "Skipping formatting of swap partition ($swap_partition)."
+  fi
 fi
 
-# Now that the disk is partitioned, we can proceed with the installation.
+echo "Disks configured. Root partition: $root_partition"
 
+#####################################
+##### Prerequisites for install #####
+#####################################
+
+echo ""
+echo "Setting"
 
 # Set DNS in the live environment (so we can download packages)
 rm -f /etc/resolv.conf
@@ -140,7 +177,9 @@ fi
 pacstrap /mnt base linux linux-firmware iwd grub efibootmgr
 
 # Setup things in the new environment
-cp ./arch-chroot-install.sh /mnt/root/
+cp ./arch-chroot-install.sh /mnt/root/ # Setup script
+mkdir -p /mnt/var/lib/iwd              # Wifi settings
+cp -r /var/lib/iwd/* /mnt/var/lib/iwd/
 chmod +x /mnt/root/arch-chroot-install.sh
 arch-chroot /mnt /root/arch-chroot-install.sh
 

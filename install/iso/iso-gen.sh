@@ -54,57 +54,6 @@ sudo mkarchiso -v -w "$tmp_dir" -o "$iso_dir" "$build_dir"
 # - auto-login for serial terminal (ttyS0)
 # - Maybe make the symlinks as well and set them up..
 
-## ============================================================
-## Inject install scripts into live environment ISO
-## ============================================================
-#for script in "$overlay_dir/root"/*; do
-#  cp "$script" "$live_root/root"
-#done
-#
-## ============================================================
-## Kernel boot options (enable serial console)
-## ============================================================
-## Place in boot config file to boot kernel with serial console
-#kernel_boot_params_path="efiboot/loader/entries/01-archiso-x86_64-linux.conf"
-#cp "$overlay_dir/$kernel_boot_params_path" "$build_dir/$kernel_boot_params_path"
-#echo "Added kernel boot options for serial console"
-#
-## ============================================================
-## Auto-login for serial terminal (ttyS0)
-## ============================================================
-#
-## Serial console login service override
-#serial_getty_service="$live_root/etc/systemd/system/getty.target.wants/getty@ttyS0.service"
-#serial_getty_override_dir="$live_root/etc/systemd/system/getty@ttyS0.service.d"
-#serial_getty_override_conf="$serial_getty_override_dir/autologin.conf"
-#
-#mkdir -p "$(dirname "$serial_getty_service")"
-#ln -sf /usr/lib/systemd/system/getty@.service "$serial_getty_service"
-#echo "Enabled serial getty at ttyS0"
-#
-#mkdir -p "$serial_getty_override_dir"
-#cat <<EOF >"$serial_getty_override_conf"
-#[Service]
-#ExecStart=
-#ExecStart=-/sbin/agetty --autologin root --noclear %I \$TERM
-#EOF
-#echo "Configured auto-login for ttyS0"
-
-# ============================================================
-# Disable systemd-resolved (fix for live env DNS issues)
-# ============================================================
-
-# ln -sf /dev/null "$live_root/etc/systemd/system/systemd-resolved.service"
-# echo "Disabled systemd-resolved in live environment"
-
-# ============================================================
-# Build the ISO
-# ============================================================
-
-# ============================================================
-# Cleanup
-# ============================================================
-
 # Optionally delete build artifacts (currently not removed automatically)
 # sudo rm -rf "$build_dir"
 # TODO: ONCE I'VE TESTED THE SCRIPT IN THE LIVE ENVIRONMENT, BAKE the install script INTO INTO THE EXECUTABLE!!!
