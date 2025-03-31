@@ -1,6 +1,8 @@
 ToDo today:
 - First thing tomorrow make a quick script to put the iso file onto the usb (partitioning the usb if not already - make it optional) and if creating a new partition only taking up as much space as is needed by the iso image... work it out dynamically in the script...
+- FIND OUT why in the emulated version when I run arch-setup.sh (don't need to reinstall the whole thing at all, just need to run the script...) I still get errors!! work out what they are (wihtout reinstalling the iso etc..) and fix them!!!
 - set up new keyboard on desktop asap..
+- On the install arch script, instead of prompting the user to enter the formatted partition names again, work them out automatically based on the mountpoint names that are printed with lsblk etc.. will save time..
 - Set up the good shortcuts I found for copilot chat... from the main repo... set them up properly this time...
 - Find a way to ignore files in certain folders within telescope so that it doesn't index binaries etc ... especially in my dotfiles repo it gets very slow... set this up!!
 - with the `makepkg -si` line... it's causing me to have to confirm atm... see if there's a --noconfirm way to do this??
