@@ -217,18 +217,12 @@ cat $PACKAGES_FILE
 if ! command -v yay &>/dev/null; then
   # Install yay to access AUR packages
   previous_dir=$(pwd)
-  echo "Installing yay..."
-  read -p "Press any key to continue..."
+  echo ""
+  echo "Installing yay to access AUR packages..."
   sudo pacman -S --noconfirm --needed base-devel git
-  echo "making yay directory..."
-  read -p "Press any key to continue..."
   mkdir -p /tmp/yay-bin
-  echo "cloning yay..."
-  read -p "Press any key to continue..."
   git clone https://aur.archlinux.org/yay.git /tmp/yay-bin
   cd /tmp/yay-bin
-  echo "building yay..."
-  read -p "Press any key to continue..."
   makepkg -si
   yay --version
   cd $previous_dir

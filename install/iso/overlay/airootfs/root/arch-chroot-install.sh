@@ -52,8 +52,7 @@ systemctl enable iwd
 pacman --noconfirm -S git
 git clone https://github.com/yonahcitron/dotfiles.git /home/yonah/repos/dotfiles
 # TODO: THIS path WILL CHANGE SOON
-# Run the setup script for the user 'yonah'
-echo "the current working directory is $(pwd)"
+# Run the environment setup script for the user 'yonah'
 sudo -u yonah /home/yonah/repos/dotfiles/arch-setup.sh
 
 # Install GRUB to EFI

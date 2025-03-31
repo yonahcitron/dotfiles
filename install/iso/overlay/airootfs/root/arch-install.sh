@@ -173,7 +173,7 @@ if [[ -n "$swap_partition" ]]; then
 fi
 
 # Pacstrap essential packages into new system
-#pacstrap /mnt base linux linux-firmware iwd grub efibootmgr
+pacstrap /mnt base linux linux-firmware iwd grub efibootmgr
 
 # Setup things in the new environment
 cp ./arch-chroot-install.sh /mnt/root/ # Setup script
