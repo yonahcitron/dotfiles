@@ -13,7 +13,6 @@ set -e
 # This script partitions (optionally), formats, and installs Arch on a selected disk,
 # using iwd for network configuration inside the new system.
 ##############################################
-
 read -p "Hit Enter to begin install according to Yonah's configurations..."
 
 # Doing 'loadkeys uk' messes up the keyboard layout when running the live environ through a serial console in qemu.
@@ -174,7 +173,7 @@ if [[ -n "$swap_partition" ]]; then
 fi
 
 # Pacstrap essential packages into new system
-pacstrap /mnt base linux linux-firmware iwd grub efibootmgr
+#pacstrap /mnt base linux linux-firmware iwd grub efibootmgr
 
 # Setup things in the new environment
 cp ./arch-chroot-install.sh /mnt/root/ # Setup script

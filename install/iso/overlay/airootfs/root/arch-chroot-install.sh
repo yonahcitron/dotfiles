@@ -22,11 +22,14 @@ read -rp "Enter hostname: " hostname
 echo "$hostname" >/etc/hostname
 
 # Root password
+echo ""
 echo "Setting password for root user..."
 passwd
 
 # Create user 'yonah' with sudo access
-useradd -m yonah
+echo ""
+echo "Creating user 'yonah' and adding to wheel group for sudo access..."
+id -u yonah &>/dev/null || useradd -m yonah # Will still succeed if user already exists
 echo "Set password for user 'yonah':"
 passwd yonah
 usermod -aG wheel yonah
@@ -47,11 +50,11 @@ systemctl enable iwd
 
 # Get my dotfiles from git and install my user apps and settings.
 pacman --noconfirm -S git
-mkdir /home/yonah/repos
 git clone https://github.com/yonahcitron/dotfiles.git /home/yonah/repos/dotfiles
 # TODO: THIS path WILL CHANGE SOON
 # Run the setup script for the user 'yonah'
-sudo -u yonah /home/yonah/repos/dotfiles/arch-install.sh
+echo "the current working directory is $(pwd)"
+sudo -u yonah /home/yonah/repos/dotfiles/arch-setup.sh
 
 # Install GRUB to EFI
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB

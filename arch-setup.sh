@@ -216,13 +216,22 @@ cat $PACKAGES_FILE
 
 if ! command -v yay &>/dev/null; then
   # Install yay to access AUR packages
+  previous_dir=$(pwd)
+  echo "Installing yay..."
+  read -p "Press any key to continue..."
   sudo pacman -S --noconfirm --needed base-devel git
-  git clone https://aur.archlinux.org/yay-bin.git
-  cd yay-bin
+  echo "making yay directory..."
+  read -p "Press any key to continue..."
+  mkdir -p /tmp/yay-bin
+  echo "cloning yay..."
+  read -p "Press any key to continue..."
+  git clone https://aur.archlinux.org/yay.git /tmp/yay-bin
+  cd /tmp/yay-bin
+  echo "building yay..."
+  read -p "Press any key to continue..."
   makepkg -si
   yay --version
-  cd ..
-  rm -rf yay-bin
+  cd $previous_dir
   echo "yay installed successfully!"
 else
   echo "yay is already installed."
@@ -266,7 +275,7 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 
 # Symlink the arch-setup.sh script to the home directory for easy access
 source_setup="$dotfiles/arch-setup.sh"
-symlink_setup="/home/$user_account/.arch-setup.sh"
+symlink_setup="$HOME/.arch-setup.sh"
 if [ -L $symlink_setup ]; then
   echo "Symlink already exists: $symlink_setup"
 elif [ -e $symlink_setup ]; then
@@ -276,14 +285,14 @@ else
   ln -s "$source_setup" "$symlink_setup"
 fi
 
-if [ -e "/home/yonah/.bashrc" ] && [ ! -L "/home/yonah/.bashrc" ]; then
+if [ -e "$HOME/.bashrc" ] && [ ! -L "$HOME/.bashrc" ]; then
   echo "The .bashrc file exists and is NOT a symlink. Deleting."
-  rm /home/yonah/.bashrc
+  rm $HOME/.bashrc
 fi
 
 # Also symlink the todo.md for easy access
 source_todo="$dotfiles/TODO.md"
-symlink_todo="/home/$user_account/TODO.md"
+symlink_todo="$HOME/TODO.md"
 if [ -L $symlink_todo ]; then
   echo "Symlink already exists: $symlink_todo"
 else
@@ -297,7 +306,7 @@ sudo pacman -S --noconfirm stow
 
 echo "Setting up Yonah's user configs."
 cd $dotfiles/user_configs
-stow --target /home/$user_account */ # User configs.
+stow --target $HOME */ # User configs.
 
 # Global configs.
 echo "Setting up Yonah's global configs."
