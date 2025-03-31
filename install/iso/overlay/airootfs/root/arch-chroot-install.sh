@@ -53,7 +53,7 @@ pacman --noconfirm -S git
 git clone https://github.com/yonahcitron/dotfiles.git /home/yonah/repos/dotfiles
 # TODO: THIS path WILL CHANGE SOON
 # Run the environment setup script for the user 'yonah'
-sudo -u yonah /home/yonah/repos/dotfiles/arch-setup.sh
+sudo -u yonah /home/yonah/repos/dotfiles/arch-setup.sh || true
 
 # Install GRUB to EFI
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB

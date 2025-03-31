@@ -176,11 +176,15 @@ fi
 pacstrap /mnt base linux linux-firmware iwd grub efibootmgr
 
 # Setup things in the new environment
-cp ./arch-chroot-install.sh /mnt/root/ # Setup script
-mkdir -p /mnt/var/lib/iwd              # Wifi settings
+mkdir -p /mnt/var/lib/iwd # Wifi settings
 cp -r /var/lib/iwd/* /mnt/var/lib/iwd/
+
+# TODO: AFTER , change this to /root/arch-chroot-install.sh -> /mnt/root
+cp tmp/hostshare/arch-chroot-install.sh /mnt/root/ # Setup script
 chmod +x /mnt/root/arch-chroot-install.sh
 arch-chroot /mnt /root/arch-chroot-install.sh
+
+# TODO: Delete the arch-chroot-install.sh script after running it.
 
 # All done. Prompt to reboot.
 echo "Installation is complete. Press Enter to reboot..."
