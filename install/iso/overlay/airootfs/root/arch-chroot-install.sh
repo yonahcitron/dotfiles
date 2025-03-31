@@ -22,7 +22,7 @@ read -rp "Enter hostname: " hostname
 echo "$hostname" >/etc/hostname
 
 # Root password
-echo "Set root password:"
+echo "Setting password for root user..."
 passwd
 
 # Create user 'yonah' with sudo access
@@ -48,7 +48,7 @@ systemctl enable iwd
 # Get my dotfiles from git and install my user apps and settings.
 pacman --noconfirm -S git
 mkdir /home/yonah/repos
-git clone https://github.com/yonahcitron/dotfiles.git /home/yonah/repos/dotfies
+git clone https://github.com/yonahcitron/dotfiles.git /home/yonah/repos/dotfiles
 # TODO: THIS path WILL CHANGE SOON
 # Run the setup script for the user 'yonah'
 sudo -u yonah /home/yonah/repos/dotfiles/arch-install.sh
