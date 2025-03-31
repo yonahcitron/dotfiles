@@ -132,6 +132,54 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc
 
 # remove all the extraneous things here and just make it bullet points!!
 
+########################################
+####  Set up system-wide configs #######
+########################################
+
+# Hibernation setup
+
+if [ -n "$DISABLE_HIBERNATION_SETUP" ] || grep -q 'resume=' /etc/default/grub; then
+  echo "Skipping hibernation setup (disabled or already configured)."
+else
+  # List available partitions and prompt user to select the swap partition
+  echo "Listing all partitions and their FSTYPE..."
+  lsblk -o NAME,TYPE,SIZE,FSTYPE,UUID,MOUNTPOINT
+  echo
+  read -rp "Enter the device name for the swap partition (e.g. sda2, nvme0n1p2, etc.): " SWAP_PART
+
+  # Construct full device path (assuming /dev prefix)
+  DEVICE_PATH="/dev/${SWAP_PART}"
+
+  # Get UUID of the chosen swap partition
+  if ! blkid "$DEVICE_PATH" &>/dev/null; then
+    echo "Error: Invalid partition specified or partition not found."
+    exit 1
+  fi
+  SWAP_UUID=$(blkid -s UUID -o value "$DEVICE_PATH")
+
+  # Add 'resume=UUID=' to GRUB_CMDLINE_LINUX_DEFAULT
+  echo "Adding 'resume=UUID=$SWAP_UUID' to GRUB_CMDLINE_LINUX_DEFAULT..."
+  sed -i "s|\(GRUB_CMDLINE_LINUX_DEFAULT=\"[^\"]*\)|\1 resume=UUID=$SWAP_UUID|" /etc/default/grub
+
+  # Ensure 'resume' hook is present in /etc/mkinitcpio.conf
+  if ! grep -q 'resume' /etc/mkinitcpio.conf; then
+    echo "Adding 'resume' hook to /etc/mkinitcpio.conf..."
+    sed -i 's/\(^HOOKS=.*\)filesystems/\1resume filesystems/' /etc/mkinitcpio.conf
+  fi
+
+  # Regenerate initramfs
+  echo "Regenerating initramfs..."
+  mkinitcpio -P
+
+  # Update GRUB configuration
+  echo "Updating GRUB config..."
+  grub-mkconfig -o /boot/grub/grub.cfg
+
+  echo "Hibernation setup complete. Please reboot for changes to take effect."
+fi
+
+# Wifi setup
+
 # Function to check if a package is installed
 check_installed() {
   pacman -Q $1 &>/dev/null
