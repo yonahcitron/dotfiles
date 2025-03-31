@@ -179,7 +179,7 @@ pacstrap /mnt base linux linux-firmware iwd grub efibootmgr
 mkdir -p /mnt/var/lib/iwd # Wifi settings
 cp -r /var/lib/iwd/* /mnt/var/lib/iwd/
 
-cp root/arch-chroot-install.sh /mnt/root/ # Setup script
+cp /root/arch-chroot-install.sh /mnt/root/ # Setup script
 chmod +x /mnt/root/arch-chroot-install.sh
 arch-chroot /mnt /root/arch-chroot-install.sh
 
