@@ -1,6 +1,7 @@
 ToDo today:
 - IMPLEMENT 'account switcher' on my mac as well (and myabe also on my personal machine) so I can easily switch between two different account on different machines..
 	- Also set up the windows laptop well, to use wsl as the default shell, do any remaps, etc etc...
+        - Set distro specific paths as well, based on setup, in my basrc and stuff... think about how best to do this, but make it highly configurable... that would be super useful indeed!
         - Especially add zsh, and all my configs to my wsl machine that I install on my windows laptop ... for now just use ubuntu at work... this will be good, just add a ubuntu extra distro to my df with all my setups for wsl... could even call it ubunut_wsl??
 - In general, when I wanna use copilot on a personal project via my shell subscription, I can add my shell github account as a contributor, log in using that, and then just continue contributing using that account.. e.g. what I'm doing at the moment to update these dotfiles using my shell account!!!
 - GET MY MAC RE-IMAGED AT WORK!!! need to do this quickly so I can use it again...
