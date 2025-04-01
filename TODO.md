@@ -1,5 +1,6 @@
 ToDo today:
 - IMPLEMENT 'account switcher' on my mac as well (and myabe also on my personal machine) so I can easily switch between two different account on different machines..
+	- REALLY MAKE THE COMMANDS GOOD FOR WSL, and make zsh look pretty / the same as it does on my other machines... also make shortcuts etc to useful places... for now just put these in the .bashrc, but soon soon do it properly...
 	- Also set up the windows laptop well, to use wsl as the default shell, do any remaps, etc etc...
         - Set distro specific paths as well, based on setup, in my basrc and stuff... think about how best to do this, but make it highly configurable... that would be super useful indeed!
         - Especially add zsh, and all my configs to my wsl machine that I install on my windows laptop ... for now just use ubuntu at work... this will be good, just add a ubuntu extra distro to my df with all my setups for wsl... could even call it ubunut_wsl??
