@@ -1,5 +1,7 @@
 ToDo today:
+- GET MY MAC RE-IMAGED AT WORK!!! need to do this quickly so I can use it again...
 - First thing tomorrow make a quick script to put the iso file onto the usb (partitioning the usb if not already - make it optional) and if creating a new partition only taking up as much space as is needed by the iso image... work it out dynamically in the script...
+-
 - FIND OUT why in the emulated version when I run arch-setup.sh (don't need to reinstall the whole thing at all, just need to run the script...) I still get errors!! work out what they are (wihtout reinstalling the iso etc..) and fix them!!!
 - set up new keyboard on desktop asap..
 - On the install arch script, instead of prompting the user to enter the formatted partition names again, work them out automatically based on the mountpoint names that are printed with lsblk etc.. will save time..
