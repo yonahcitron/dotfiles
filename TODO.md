@@ -1,4 +1,7 @@
 ToDo today:
+- why is tmux so useful??
+	- Bc it allows you to have a cross-platform operating environment whatever OS I'm on... so if I'm using tmux on wsl, arch, or macos, I can integrate the same commands for most of my workflow, and going forwards it shouldn't matter what platform I'm working on, I should be able to keep a very similar environment across all OS's, which is great!
+	- WATCH  bunch of of vids asap on all the tmux functionalities, and how to use them well...
 - Think the best way to use copilot whilst coding is to NOT have the 'grey' recommendations, and then tab to continue, but rather to find a way in nvim to generate a suggestion when I want... I know when I want copilot to continue inline, so I should just be able to press a button to see suggestions when I want it... it should not 'pre-prompt' it before I want it, as I KNOW when I want it and can use my discretion for this...
 - depending on what's ergonomic, maybe actually swap BOTH slashes with the shift keys... they're smaller, but they're more ergonomic to reach... consider this!!! obvs do the caps-lock remapping when I have time!!
 - IMPLEMENT 'account switcher' on my mac as well (and myabe also on my personal machine) so I can easily switch between two different account on different machines..
