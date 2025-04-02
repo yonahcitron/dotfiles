@@ -1,1 +1,3 @@
 - Read up again on depth-first traversal.
+- Read up on langchain, use it for things.
+     - Read up on langgraph as well, and see how well-integrated the two are.
