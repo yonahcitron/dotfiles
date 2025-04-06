@@ -126,8 +126,6 @@ PACKAGES_FILE=$dotfiles/setup/platforms/arch/arch-packages.txt # $dotfiles is de
 echo "Ensuring all the following packages are installed:"
 cat $PACKAGES_FILE
 
-# TODO: Install this in the chroot script!!
-# any prerequisites, I don't need to do every time!
 if ! command -v yay &>/dev/null; then
   # Install yay to access AUR packages
   previous_dir=$(pwd)
