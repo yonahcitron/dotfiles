@@ -1,4 +1,4 @@
-
+- TAKE OUT THE PART OF THE SETUP SCRIPTS THAT DEAL WITH THE INSTALL OF CONFIGS ... MAKE LIKE A POSIX SECTION....
 # TODO: Ensure that I install the VIM-ONLY plugins as a part of my arch-setup script.. basically just want the one ... that does vim-wayland stuff!!
 # TODO: Ensure that I install and load the uinput kernel module every time.
 # TODO: I think replace logid with kmonad as it's easier and more reliable.
