@@ -1,4 +1,24 @@
 ToDo today:
+# Get harpoon on nvim and practising getting them... 
+# TODO: Make a little dotfiles cmdlet so I don't need to always be in the in the dotfiles folder to do things... with commands like dotfiles update (which does add, prints changes, commits, and pushes), dotfiles apply, dotfiles status, dotfiles unapply (or find a better word from chatgpt), dotfiles install (which does an update of AUR / pacman, downloads the package locally, and then appends it to the packages file so that it will be downloaded to all machines.) Also maybe add a command like 'dotfiles todo add -m "Some thing that I want to do"'... and that command simply appends (>>) the message onto the end of the TODO.md there...  Currently most of the todos are in the readme, and in various other files (grep all the files to find where they all are)... but consolidate them eventually into the TODO.md which stores all this stuff..
+# TODO: Also remember to implement the startup logic on my machine (I've specified it I think in tododist or maybe one of my readmes) that checks for dotfiles updates etc in github and syncs between them. Read the docs I wrote there for details
+#     Whenever I do updates to configs, download new files
+
+# TODO: Set up good system font etc. Currently I am downlaoding one from yay.
+#       Set up jetbrains mono for the terminal etc, and maybe something different for chrome?
+#       Although anyways I think it by default has a different font, double-check on this though.
+# TODO: Maybe implement some keybinding (also maybe in hyprland.conf) to open a quick central command popup window to run single short quick commandd, rather than having to go to a whole terminal... e.g. 'power' just to see quick status of battery etc..
+# TODO: In general, in nvim, find a good way to make 'section headers' (maybe using some sort of autosyntax, to generate the above style uusing ### (the same as in hypr.conf)... and then find a good way to list them and navigate to them quickly in nvim...
+      - So basically make a function in nvim like :Header "name of header" that will automatically create the headers..
+#- Also make a way to do search using / in an case-insensitive way (although not by default... also make a way to do a add-commit-push git workflow with some automated message... for now could jsut be 'trivial change'... but in the future could use chatgpt for this or something... or copilot.. ?? look around what exists online
+
+# also set up git email and username so I don't have to configure it first time... for privacy, like the guy online said... don't actually give my REAL email, find the github anonymous email or whatever it's called... (look this up online!)
+#	- Also potentially start giving workspace numbers fixed names... like "1: Chrome", "2: Tmux", "5: Whatsapp", etc etc... make them also print on the top right as well as the number!! so that I get a sense of WHERE I am in the workspace manager and what each workspace should be used for...
+#		This will also help teach me that if I'm opening too many tabs in a workspace not designed for that, I should create an ADDITIONAL workspace rather than trying to crowd one workspace with just that!!!!
+#
+
+#- Also make a thing that WHENEVER the super key in hyprland is held down, it automatically shows (in the top right) the workspace number! this would be very convenient..
+- Also make configuring the default fonts for system, for hyprland, etc , part of the setup
 - why is tmux so useful??
 	- Bc it allows you to have a cross-platform operating environment whatever OS I'm on... so if I'm using tmux on wsl, arch, or macos, I can integrate the same commands for most of my workflow, and going forwards it shouldn't matter what platform I'm working on, I should be able to keep a very similar environment across all OS's, which is great!
 	- WATCH  bunch of of vids asap on all the tmux functionalities, and how to use them well...
@@ -8,6 +28,8 @@ ToDo today:
 - Remove the relative line-numbers from vim! I don't actually use them that much, and if I want to do relative jumps I can just eyeball it. Absolute numbers are more useful! Change my settings.
 - Add all the tmux things from typecraft's 3 videos... tell Ronen?? I have reminders in todoist as well?...
 - At some point consider:: using (some) of the function buttons on my arch desktop to open apps in certain windows... 
+- In the initial install script:  also set up git email and username so I don't have to configure it first time... for privacy, like the guy online said... don't actually give my REAL email, find the github anonymous email or whatever it's called... (look this up online!)
+#
 - Remap the function key on my laptop to open an emoji selector... or another key.. or make some shortcuts maybe?? or I can select the emoji I want with vim keybindings when I open it...
 - Start using '+' bullet points for sub-bullets... and maybe * for prominent bullets in md??..
 - Think the best way to use copilot whilst coding is to NOT have the 'grey' recommendations, and then tab to continue, but rather to find a way in nvim to generate a suggestion when I want... I know when I want copilot to continue inline, so I should just be able to press a button to see suggestions when I want it... it should not 'pre-prompt' it before I want it, as I KNOW when I want it and can use my discretion for this...
