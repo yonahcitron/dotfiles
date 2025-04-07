@@ -15,9 +15,13 @@ fi
 if [ -d "$HOME/.oh-my-zsh" ]; then
     export ZSH="$HOME/.oh-my-zsh"
 
+# TODO: At some point go through this, workout how the folder resolution actually works with powerlevel10k, and make this all more streamlined without the multiple checks.
 elif [ -d "/usr/share/oh-my-zsh" ]; then
     export ZSH="/usr/share/oh-my-zsh"
-    # Link so that zsh can find it
+    if [ ! -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]; then
+        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k 
+    fi
+    # Link powerlevel10k so that zsh can find it
     if [ ! -L "/usr/share/oh-my-zsh/custom/themes/powerlevel10k" ]; then
         sudo ln -s /usr/share/zsh-theme-powerlevel10k /usr/share/oh-my-zsh/custom/themes/powerlevel10k
     fi
