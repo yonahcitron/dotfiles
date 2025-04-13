@@ -6,6 +6,12 @@ export SUDO_EDITOR=vim
 export EDITOR=nvim
 export dotfiles="$HOME/repos/dotfiles"
 
+if [[ "$(uname)" == "Linux" ]]; then
+  source /etc/os-release
+  export DISTRO=$ID
+fi
+    
+
 #############################################
 # ALIASES
 #############################################

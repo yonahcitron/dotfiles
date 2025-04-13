@@ -11,24 +11,27 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Won't be in home dir if installed using yay. 
-if [ -d "$HOME/.oh-my-zsh" ]; then
-    export ZSH="$HOME/.oh-my-zsh"
 
-# TODO: At some point go through this, workout how the folder resolution actually works with powerlevel10k, and make this all more streamlined without the multiple checks.
-elif [ -d "/usr/share/oh-my-zsh" ]; then
+# TODO: Consider having separate .zshrc files for different distros. Use a single .zshrc as an entrypoint, and delegate to the distro-specific .zshrc. Put universal config in .zshrc.common.
+# Can then neaten up this conditional logic to do one distro-specific check, and the beginning, and load distro-specific config from a separate file for each distro (but load all the shared code from a single common file ofc to prevent duplication...)
+# $DISTRO is set in the .bashrc file. $ZSH is used by scripts in the oh-my-zsh framework.
+if [[ $DISTRO == "arch" ]]; then
     export ZSH="/usr/share/oh-my-zsh"
-    if [ ! -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]; then
-        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k 
-    fi
-    # Link powerlevel10k so that zsh can find it
-    if [ ! -L "/usr/share/oh-my-zsh/custom/themes/powerlevel10k" ]; then
+    # Powerlevel10k should already be installed through yay.
+    if [ ! -L "$ZSH/custom/themes/powerlevel10k" ]; then
         sudo ln -s /usr/share/zsh-theme-powerlevel10k /usr/share/oh-my-zsh/custom/themes/powerlevel10k
     fi
-
-else
-    echo "Warning: Oh My Zsh not found! Install it manually."
+elif [[ $DISTRO == "ubuntu" ]]; then
+    # oh-my-zsh and powerlevel10k are not available in the default Ubuntu repositories.
+    export ZSH="$HOME/.oh-my-zsh"
+    if [ ! -d $ZSH ]; then
+      git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git $ZSH
+    fi
+    if [ ! -d $ZSH/custom/themes/powerlevel10k ]; then
+      git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH/custom/themes/powerlevel10k 
+    fi
 fi
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
