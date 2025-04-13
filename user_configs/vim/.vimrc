@@ -1,5 +1,4 @@
 set number
-set relativenumber
 
 
 " Remap key to enter Normal Mode.

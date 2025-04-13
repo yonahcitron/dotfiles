@@ -1,6 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
-vim.wo.relativenumber = true
+vim.wo.relativenumber = false
 vim.opt.wrap = true
 
 -- Resize windows with Ctrl + Alt + h/j/k/l
