@@ -3,6 +3,7 @@ ToDo today:
 	- In the .zprofile, or whatever runs at first login, I should do a git status check for the dotfiles repo.. if there's an update, it should prompt to press enter to pull updates and apply changes..
 - In terms of how platform specific stuff should work... in each platform specific script, i.e. the install 'setup' script (make across all platforms) and the .zshrc etc scripts, I shold check for the folder of my dotfiles location with the $DISTRO path for what I'm using... if it's not present it should raise an error... it should do the same for device specific config (by checking the hostname), except not raise an error if these aren't found, just don't apply any device-specific stuff.. 
 - Think about the pros and cons of using just the tty's when I don't want to load the whole hyprland shtick... find the keybaord shortcuts with my current setup to swtich between them...
+- sort out my font situation with the correct nerdfonts etc set up correctly..
 - Make a switch when I'm starting hyprland from the cli to start it in complete dark mode, with a black background or something any any other settings, for when I want this..
 - stop my fuzzy file search indexing all files including binaries etc as wayyy too slow..
 - In my terminal oh-my-zsh setup, if it detects that the running console is a tty with limited glyph support, it should remove the glyphs from the bar rather than fail to render them...
