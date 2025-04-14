@@ -16,8 +16,9 @@ fi
 #############################################
 # ALIASES
 #############################################
+# Convenience aliases for common commands.
 alias vi="nvim"
-
+alias lg="lazygit"
 
 alias dotfiles="cd $dotfiles && ls"
 # Quick navigation of the 'df' cmdlet.

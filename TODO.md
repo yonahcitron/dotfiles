@@ -3,9 +3,10 @@ ToDo today:
 	- ASAP MAKE number variables in my hyprland.conf of each of the common apps I use, and then give them workspaces that are well aligned in terms of scrolling between them (so terminal is workspace 1, nvim in terminal is 2 (make this a specific scripts), browser is three, chatgpt is 4, etc etc...) ... and really make everything seamless!!!
 	- Make all the shortcuts to open programs on my computer within easy reach of both fingers.. maybe just use the fingers on my left hand?? might actually make it ergonomic and nicer....
 	- Maybe make a script to hide and show a chatgpt instance on the given workspace that I'm on (open it if it's not already, just minimise it if it is)... make it tiling to begin with and change this if I want... I may want to change the setup of how I use this but even if and when I do, say I start using chat in a different window, KEEP the script for future reference because chances are I'll wanna implement a similar thing at some point anyways..
+	- See if there's a shortcut in hyprland to get the last focussed workspace... if so use that in the auto-toggle logic... else might avhe to store this state as a file or something when navigating between the two... or actually, better, an environment variable or something... bc that would be quicker I assume.. than reading a file every time..
 
 
-
+- PRACTISE: Using the 'lg' alias instead of lazygit every time!!!! also make a single command to do lazygit for dotfiles...
 - I THINK ADAPT MY CURRENT SYSTEM... rather than switching with super + shift + numbers to different workspaces, have LETTERS that will always take me to a new workspace and open the app if it's not open... so for example, super + W will always take me to a desktop with whatsapp on it (called whatsapp or whatever)... some apps can share desktops, like email and whatsapp (?? maybe, or maybe just use the terminal)...
 - !!!!IMPORTANT!!!!!! MAKE SEPARATE .BASHRC'S and probably .zshrc's for platform specific things which will go into the platform-specific dotfiles folders that I already have and source wherever there are relevant bashrc's etc for that platform... move some of the stuff out of my general bashrc to the platform specific ones... e.g. the 'upower' error that I'm getting for non-arch distros!!!
 - AS A PRIORITY GET TO GRIPS WITH THE API OF USING THE NVIM COPILOT CHAT WITH THE SHORTCUTS
