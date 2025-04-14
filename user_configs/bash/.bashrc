@@ -16,6 +16,9 @@ fi
 #############################################
 # ALIASES
 #############################################
+alias vi="nvim"
+
+
 alias dotfiles="cd $dotfiles && ls"
 # Quick navigation of the 'df' cmdlet.
 alias setup="df setup"
