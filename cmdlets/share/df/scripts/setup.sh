@@ -1,3 +1,4 @@
+#!/bin/bash
 # set -euo pipefail # TODO: Debug why there is an unbound local variable error here with set -u.
 set -eo pipefail
 
@@ -6,12 +7,18 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc # This works even after th
 : "${dotfiles:?Environment variable 'dotfiles' must be set.}"
 : "${DISTRO:?Environment variable 'DISTRO' must be set.}"
 
+# Source .bashrc if exists.
+if [ -e "$HOME/.bashrc" ]; then
+  source "$HOME/.bashrc"
+fi
+
 ###################################
 ########## Init scripts ###########
 ###################################
 
 # Run any platform-specific initialization scripts.
-platform_dir="$dotfiles/setup/platforms/$DISTRO"
+setup_dir="$HOME/.local/share/df/setup"
+platform_dir="$setup_dir/platforms/$DISTRO"
 platform_init_script="$platform_dir/$DISTRO-init.sh"
 if [ -e "$platform_init_script" ]; then
   echo "Running init script for $DISTRO: $platform_init_script"

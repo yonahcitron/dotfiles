@@ -117,7 +117,8 @@ fi
 
 # Install arch and aur files.
 # TODO: Make  section here to install device-specific packages, similar to how it's done in the main script.
-PACKAGES_FILE=$dotfiles/setup/platforms/arch/arch-packages.txt # $dotfiles is defined in .bashrc
+# Also derive variables like packages file from variables taken from the calling script (more global), and just mention that they're global variables..
+PACKAGES_FILE=$HOME/.local/share/df/setup/platforms/arch/arch-packages.txt # $dotfiles is defined in .bashrc
 echo "Ensuring all the following packages are installed:"
 cat $PACKAGES_FILE
 

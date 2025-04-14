@@ -1,2 +1,45 @@
-Make this be a python file that points to share which contains the actual scripts...
-- No need to have the .py extension as it's just an executable entrypoint...
+#!/usr/bin/env python3
+
+import argparse
+import os
+import subprocess
+import sys
+
+
+home_dir = os.path.expanduser("~")
+df_scripts_dir = os.path.join(home_dir, ".local", "share", "df", "scripts")
+
+def run_script(script_path):
+    try:
+        subprocess.run([script_path], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error: Script failed with exit code {e.returncode}")
+        sys.exit(e.returncode)
+    except FileNotFoundError:
+        print(f"Error: Script not found: {script_path}")
+        sys.exit(1)
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="CLI frontend for dotfiles setup and management"
+    )
+
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    # Setup command
+    setup_parser = subparsers.add_parser("setup", help="Run common setup script")
+
+    args = parser.parse_args()
+
+    if args.command == "setup":
+        dotfiles = os.environ.get("dotfiles")
+        if not dotfiles:
+            print("Error: 'dotfiles' environment variable is not set.")
+            sys.exit(1)
+        # TODO: Make path more uniform by placing all of this in
+        # .local/share/
+        script_path = os.path.join(df_scripts_dir, "setup.sh")
+        run_script(script_path)
+
+if __name__ == "__main__":
+    main()

@@ -16,14 +16,15 @@ fi
 #############################################
 # ALIASES
 #############################################
-
-# Quick dotfiles navigation.
-alias dotfiles="cd $dotfiles"
+alias dotfiles="cd $dotfiles && ls"
+# Quick navigation of the 'df' cmdlet.
+alias setup="df setup"
 
 # Quickly edit the todo. # TODO: Eventually move this into the `df` cmdlet.
-alias todo="vim $dotfiles/TODO.md"
+#alias todo="vim $dotfiles/TODO.md"
 
 # To check power on my thinkpad.
+# TODO: Move this into the platform specific section of the init code.
 alias power="upower -i $(upower -e | grep battery) | awk '/percentage/ {print $2}'"
 # To change the brightness quickly.
 # TODO: Make this into a function at somepoint so I can just go `b 20` and not need to include the % sign at the end.
