@@ -1,39 +1,33 @@
-# Import global variables.
 # set -euo pipefail # TODO: Debug why there is an unbound local variable error here with set -u.
 set -eo pipefail
+
+# Import global variables.
 source $HOME/repos/dotfiles/user_configs/bash/.bashrc # This works even after the first install, when my bashrc has not been sourced on startup.
 : "${dotfiles:?Environment variable 'dotfiles' must be set.}"
+: "${DISTRO:?Environment variable 'DISTRO' must be set.}"
 
-##############################
-####### Applications #########
-##############################
+###################################
+########## Init scripts ###########
+###################################
 
-PACKAGES_FILE="$dotfiles/setup/platforms/ubuntu/ubuntu-packages.txt"
-echo "Ensuring all the following packages are installed:"
-cat "$PACKAGES_FILE"
-
-# Update package index
-echo "[INFO] Updating package index..."
-sudo apt update
-
-# Install listed packages
-echo "[INFO] Installing packages from $PACKAGES_FILE..."
-xargs -a "$PACKAGES_FILE" sudo apt install -y
-
-# Get the full path of zsh
-ZSH_PATH=$(which zsh)
-
-# Change the default shell for the current user
-if [[ "$SHELL" != "$ZSH_PATH" ]]; then
-  echo "Changing default shell to zsh..."
-  sudo chsh -s "$ZSH_PATH" "$USER"
+# Run any platform-specific initialization scripts.
+platform_dir="$dotfiles/setup/platforms/$DISTRO"
+platform_init_script="$platform_dir/$DISTRO-init.sh"
+if [ -e "$platform_init_script" ]; then
+  echo "Running init script for $DISTRO: $platform_init_script"
+  source "$platform_init_script"
+else
+  echo "No init script found for $DISTRO: $platform_init_script"
 fi
 
-echo "Confirming zsh is the default shell..."
-if [[ "$(getent passwd "$USER" | cut -d: -f7)" == "$ZSH_PATH" ]]; then
-  echo "Confirmed zsh is the default shell."
+# Run any device-specific initialization scripts, identified by the hostname.
+hostname=$(uname -n)
+device_init_script="$platform_dir/devices/$hostname/$hostname-init.sh"
+if [ -e "$device_init_script" ]; then
+  echo "Running init script for $hostname: $device_init_script"
+  source "$device_init_script"
 else
-  echo "Failed to change default shell."
+  echo "No init script found for $hostname: $device_init_script"
 fi
 
 ###################################
@@ -41,13 +35,13 @@ fi
 ###################################
 
 working_dir=$(pwd)
-user_account="yonah"
 local_bin="$HOME/.local/bin"
 mkdir -p $local_bin # This folder is added to the PATH in the .bashrc file.
 sudo chmod +x $local_bin/*
 
 # Symlink the setup script to the local bin directory.
-source_setup="$dotfiles/setup/platforms/arch/arch-setup.sh"
+# TODO: Change this to be part of the 'df' application. For quick one-word commands like this, I can just set aliases from that.
+source_setup="$dotfiles/setup/all-platforms-setup.sh"
 symlink_setup="$local_bin/setup"
 if [ -L $symlink_setup ]; then
   echo "Setup symlink already exists at: $symlink_setup. Skipping."
@@ -82,3 +76,25 @@ sudo stow --target /etc */
 cd $working_dir
 
 #############################
+
+#########################################
+########## Post-setup scripts ###########
+#########################################
+
+# Run any platform-specific postscripts.
+platform_postscript="$platform_dir/$DISTRO-postscript.sh"
+if [ -e "$platform_postscript" ]; then
+  echo "Running postscript for $DISTRO: $platform_postscript"
+  source "$platform_postscript"
+else
+  echo "No postscript found for $DISTRO: $platform_postscript"
+fi
+
+# Run any device-specific postscripts, identified by the hostname.
+device_postscript="$platform_dir/devices/$hostname/$hostname-postscript.sh"
+if [ -e "$device_postscript" ]; then
+  echo "Running postscript for $hostname: $device_postscript"
+  source "$device_postscript"
+else
+  echo "No postscript found for $hostname: $device_postscript"
+fi

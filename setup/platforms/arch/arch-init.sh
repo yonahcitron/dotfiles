@@ -1,12 +1,7 @@
-# Import global variables.
-# set -euo pipefail # TODO: Debug why there is an unbound local variable error here with set -u.
-set -eo pipefail
-source $HOME/repos/dotfiles/user_configs/bash/.bashrc # This works even after the first install, when my bashrc has not been sourced on startup.
-: "${dotfiles:?Environment variable 'dotfiles' must be set.}"
-
 ########################################
 ##############   System   ##############
 ########################################
+# TODO: At some point, maybe move some of this to device-specific scripts.
 
 # **Hibernation**
 if [ -n "$DISABLE_HIBERNATION_SETUP" ] || grep -q 'resume=' /etc/default/grub; then
@@ -121,7 +116,7 @@ fi
 ##############################
 
 # Install arch and aur files.
-
+# TODO: Make  section here to install device-specific packages, similar to how it's done in the main script.
 PACKAGES_FILE=$dotfiles/setup/platforms/arch/arch-packages.txt # $dotfiles is defined in .bashrc
 echo "Ensuring all the following packages are installed:"
 cat $PACKAGES_FILE
@@ -144,8 +139,7 @@ else
   echo "yay is already installed."
 fi
 
-# Install all packages
-yay -Syyu --noconfirm
+# Install all packages - syncing with package dbs already done from before.
 xargs -a "$PACKAGES_FILE" yay -S --needed --noconfirm
 
 # Get the full path of zsh
@@ -163,69 +157,4 @@ if [[ "$(getent passwd "$USER" | cut -d: -f7)" == "$ZSH_PATH" ]]; then
   echo "Confirmed zsh is the default shell."
 else
   echo "Failed to change default shell."
-fi
-
-###################################
-########## User Configs ###########
-###################################
-
-working_dir=$(pwd)
-user_account="yonah"
-local_bin="$HOME/.local/bin"
-mkdir -p $local_bin # This folder is added to the PATH in the .bashrc file.
-sudo chmod +x $local_bin/*
-
-# Symlink the setup script to the local bin directory.
-source_setup="$dotfiles/setup/platforms/arch/arch-setup.sh"
-symlink_setup="$local_bin/setup"
-if [ -L $symlink_setup ]; then
-  echo "Setup symlink already exists at: $symlink_setup. Skipping."
-elif [ -e $symlink_setup ]; then
-  echo "A non-symlink file already exists at $symlink_setup. Skipping."
-else
-  echo "Creating symlink: $symlink_setup -> $source_setup"
-  ln -s "$source_setup" "$symlink_setup"
-fi
-
-if [ -e "$HOME/.bashrc" ] && [ ! -L "$HOME/.bashrc" ]; then
-  echo "The .bashrc file exists and is NOT a symlink. Deleting."
-  rm $HOME/.bashrc
-fi
-
-# TODO: In order to get the intended functionality of treating each of the subfolders of the stow dir as a module, and reacreate each of their substructures within the target dirs, rather than just dumping them in the target dir directly, the cd approach was working best. Look into whether it could work with specifying the dir, it wasn't last time I tried.
-
-cd $dotfiles
-sudo pacman -S --noconfirm stow
-
-echo "Setting up Yonah's user configs."
-cd $dotfiles/user_configs
-stow --target $HOME */ # User configs.
-
-# Global configs.
-echo "Setting up Yonah's global configs."
-cd $dotfiles/global_configs
-# Stowing as root should give root ownership of the symlinks.
-# The files they link to should be user-owned, to not interfere with git.
-sudo stow --target /etc */
-
-cd $working_dir
-
-#############################
-#####  Systemd daemons  #####
-#############################
-
-sudo systemctl daemon-reload
-
-# Using a template service to enable multiple kmonad services for each device.
-# TODO: Use conditional per-device logic here to start the correct services.
-# REMEMBER: When enabling new remappings, be sure to test them first just using the kmonad cli, and only THEN add them as a service to make sure they work! Will save me time in the long run.
-sudo systemctl enable kmonad@thinkpad-keyboard-remap.service
-systemctl --user enable pipewire pipewire-pulse wireplumber
-
-if ! systemctl --quiet is-system-running; then
-  echo "In chroot — skipping service start"
-else
-  echo "Starting services..."
-  sudo systemctl start kmonad@thinkpad-keyboard-remap.service
-  systemctl --user start pipewire pipewire-pulse wireplumber
 fi
