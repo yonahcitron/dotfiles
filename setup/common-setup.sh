@@ -34,24 +34,6 @@ fi
 ########## User Configs ###########
 ###################################
 
-working_dir=$(pwd)
-local_bin="$HOME/.local/bin"
-mkdir -p $local_bin # This folder is added to the PATH in the .bashrc file.
-sudo chmod +x $local_bin/*
-
-# Symlink the setup script to the local bin directory.
-# TODO: Change this to be part of the 'df' application. For quick one-word commands like this, I can just set aliases from that.
-source_setup="$dotfiles/setup/all-platforms-setup.sh"
-symlink_setup="$local_bin/setup"
-if [ -L $symlink_setup ]; then
-  echo "Setup symlink already exists at: $symlink_setup. Skipping."
-elif [ -e $symlink_setup ]; then
-  echo "A non-symlink file already exists at $symlink_setup. Skipping."
-else
-  echo "Creating symlink: $symlink_setup -> $source_setup"
-  ln -s "$source_setup" "$symlink_setup"
-fi
-
 if [ -e "$HOME/.bashrc" ] && [ ! -L "$HOME/.bashrc" ]; then
   echo "The .bashrc file exists and is NOT a symlink. Deleting."
   rm $HOME/.bashrc
@@ -72,6 +54,11 @@ cd $dotfiles/global_configs
 # Stowing as root should give root ownership of the symlinks.
 # The files they link to should be user-owned, to not interfere with git.
 sudo stow --target /etc */
+
+# Executable cmdlets.
+cd $dotfiles
+stow --target $HOME/.local cmdlets/ # Stow cmdlet folder itself as a package so that its subfolders are placed exactly.
+sudo chmod +x $local_bin/*
 
 cd $working_dir
 
