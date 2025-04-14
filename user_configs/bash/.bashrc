@@ -6,11 +6,12 @@ export SUDO_EDITOR=vim
 export EDITOR=nvim
 export dotfiles="$HOME/repos/dotfiles"
 
-if [[ "$(uname)" == "Linux" ]]; then
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   source /etc/os-release
   export DISTRO=$ID
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  export DISTRO="mac"
 fi
-    
 
 #############################################
 # ALIASES
