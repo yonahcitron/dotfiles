@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# generic_toggle.sh – switches to a workspace if a matching window exists,
+# otherwise runs a command in that workspace.
+
+set -euo pipefail
+
+# Usage: generic_toggle.sh <workspace_id> <title_regex> <launch_command>
+if [[ $# -lt 3 ]]; then
+  echo "Usage: $0 <workspace_id> <title_regex> <launch_command>" >&2
+  exit 1
+fi
+
+WS_ID="$1"
+REGEX="$2"
+shift 2
+CMD="$*"
+
+if hyprctl clients -j | jq -e --argjson ws "$WS_ID" --arg re "$REGEX" \
+  '.[] | select(.workspace.id == $ws and (.title | test($re)))' >/dev/null; then
+  hyprctl dispatch workspace "$WS_ID"
+else
+  hyprctl dispatch workspace "$WS_ID"
+  setsid $CMD >/dev/null 2>&1 &
+fi

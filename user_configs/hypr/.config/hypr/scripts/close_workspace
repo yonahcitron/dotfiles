@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Get the ID of the active workspace
+WS_ID=$(hyprctl activeworkspace -j | jq '.id')
+
+# Retrieve and close all window addresses on the active workspace
+hyprctl clients -j | jq -r --argjson ws "$WS_ID" \
+  'map(select(.workspace.id == $ws)) | .[].address' | while read -r addr; do
+  hyprctl dispatch closewindow address:"$addr"
+done
+
+# Small delay to ensure state updates - can get rid of this probably if want it to feel snappier, kinda unnecessary...
+sleep 0.1
+
+# Find the highest-numbered open workspace (excluding the one just closed)
+NEXT_WS=$(hyprctl workspaces -j |
+  jq --argjson ws "$WS_ID" '.[]
+      | select(.id != $ws) 
+      | .id' |
+  sort -n |
+  tail -n 1)
+
+# Fallback to workspace 1 if no other workspaces are open
+if [[ -z "$NEXT_WS" ]]; then
+  NEXT_WS=1
+fi
+
+# Switch to the selected workspace
+hyprctl dispatch workspace "$NEXT_WS"
