@@ -35,3 +35,4 @@ rsync
 hyprpaper
 archlinux-wallpaper
 nerd-fonts-jetbrains-mono
+fd
