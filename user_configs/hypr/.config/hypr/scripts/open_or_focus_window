@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-# generic_toggle.sh – switches to a workspace if a matching window exists,
+# Switches to a workspace if a matching window exists,
 # otherwise runs a command in that workspace.
 
 set -euo pipefail
 
-# Usage: generic_toggle.sh <workspace_id> <title_regex> <launch_command>
 if [[ $# -lt 3 ]]; then
   echo "Usage: $0 <workspace_id> <title_regex> <launch_command>" >&2
   exit 1
