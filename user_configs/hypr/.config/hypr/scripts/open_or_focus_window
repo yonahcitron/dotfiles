@@ -15,9 +15,9 @@ shift 2
 CMD="$*"
 
 if hyprctl clients -j | jq -e --argjson ws "$WS_ID" --arg re "$REGEX" \
-  '.[] | select(.workspace.id == $ws and (.title | test($re)))' >/dev/null; then
+  '.[] | select(.workspace.id == $ws and (.initialTitle | test($re)))' >/dev/null; then
   hyprctl dispatch workspace "$WS_ID"
 else
-  hyprctl dispatch workspace "$WS_ID"
-  setsid $CMD >/dev/null 2>&1 &
+  # Otherwise spawn it directly on that workspace (Hyprland handles both spawn‑and‑focus atomically)
+  hyprctl dispatch exec "[workspace $WS_ID] $CMD"
 fi
