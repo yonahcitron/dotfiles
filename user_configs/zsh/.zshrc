@@ -139,3 +139,16 @@ bindkey -M viins 'jk' vi-cmd-mode
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+y() {
+  local tmpfile="$(mktemp)"
+  command yazi --cwd-file="$tmpfile" "$@"
+  if [[ -f "$tmpfile" ]]; then
+    local newdir
+    newdir="$(<"$tmpfile")"
+    rm -f "$tmpfile"
+    if [[ -d "$newdir" ]]; then
+      cd "$newdir"
+    fi
+  fi
+}
