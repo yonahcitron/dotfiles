@@ -8,6 +8,7 @@ fi
 # Source .bashrc to import all settings
 [[ -f ~/.bashrc ]] && source ~/.bashrc
 
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -152,3 +153,19 @@ y() {
     fi
   fi
 }
+
+
+# Make vi‑mode changes and stay silent during startup
+function _cursor_by_keymap {
+  case $KEYMAP in
+    vicmd) print -n '\e[2 q' ;;           # steady block in normal mode
+    viins|main) print -n '\e[6 q' ;;      # steady beam in insert/others
+  esac
+}
+# Attach without clobbering P10k widgets
+autoload -Uz add-zle-hook-widget
+add-zle-hook-widget keymap-select _cursor_by_keymap
+add-zle-hook-widget line-init     _cursor_by_keymap
+
+# Ensure beam while a command runs
+preexec() { print -n '\e[6 q' }
