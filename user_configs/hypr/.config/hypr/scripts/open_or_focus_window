@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# Switches to a workspace if a matching window exists,
-# otherwise runs a command in that workspace.
-
 set -euo pipefail
 
 if [[ $# -lt 3 ]]; then
@@ -14,10 +11,12 @@ REGEX="$2"
 shift 2
 CMD="$*"
 
-if hyprctl clients -j | jq -e --argjson ws "$WS_ID" --arg re "$REGEX" \
-  '.[] | select(.workspace.id == $ws and (.initialTitle | test($re)))' >/dev/null; then
-  hyprctl dispatch workspace "$WS_ID"
-else
-  # Otherwise spawn it directly on that workspace (Hyprland handles both spawn‑and‑focus atomically)
-  hyprctl dispatch exec "[workspace $WS_ID] $CMD"
+# Move focus to the target workspace
+hyprctl dispatch workspace "$WS_ID"
+
+# Launch if no matching window already exists
+if ! hyprctl clients -j | jq -e --argjson ws "$WS_ID" --arg re "$REGEX" \
+       '.[] | select(.workspace.id == $ws and (.initialTitle | test($re)))' >/dev/null; then
+  hyprctl dispatch exec "$CMD"
 fi
+
