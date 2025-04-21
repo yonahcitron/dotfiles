@@ -1,4 +1,5 @@
 ToDo today:
+- Make todoist non blurry! find out how asap...
 - TOMORROW: read the chatgpt answer (research mode) for remapping caps lock etc... and implement!!!
 - Make in my hyprland.conf and bash and things like this in general suggestions for variables come up automatically.. currently variable suggestions aren't coming up!!! but in order to do this I need to sort out my copilot remapping which it would interfere with.. I've detailed it elsewhere but basically I want to be able to with good keybinding go through suggestions WHEN I WANT... so that they don't pop up automatically coz that's annoying..
 - Find a good dictation - to -typing software for arch (my setup), and make a keybinding to one of the f-keys to be able to quickly enable typing from voice... and toggle to disable again ofc..
