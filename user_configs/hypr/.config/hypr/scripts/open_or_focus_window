@@ -2,21 +2,36 @@
 set -euo pipefail
 
 if [[ $# -lt 3 ]]; then
-  echo "Usage: $0 <workspace_id> <title_regex> <launch_command>" >&2
+  echo "Usage: $0 <workspace_id> <initial_class_regex> <launch_command>" >&2
   exit 1
 fi
 
-WS_ID="$1"
+INIT_CLS="$1"
 REGEX="$2"
 shift 2
 CMD="$*"
 
-# Move focus to the target workspace
-hyprctl dispatch workspace "$WS_ID"
+# TODO:
+# 1. Remove the workspace number from the function... rather make window rules to define where things go...
+# 2. I think make the thing that is matched the CLASS rather than the title... so I can modify it where necessary..
+#    document this as well in the calling script...
 
-# Launch if no matching window already exists
-if ! hyprctl clients -j | jq -e --argjson ws "$WS_ID" --arg re "$REGEX" \
-       '.[] | select(.workspace.id == $ws and (.initialTitle | test($re)))' >/dev/null; then
-  hyprctl dispatch exec "$CMD"
+# Move focus to the target workspace
+hyprctl dispatch workspace "$INIT_CLS"
+
+# Launch if no matching window already exists.
+if ! hyprctl clients -j | jq -e --argjson ws "$INIT_CLS" --arg re "$REGEX" '.[] | select(.workspace.id == $ws and (.initialClass | test($re)))' >/dev/null; then
+  hyprctl dispatch exec "[workspace $INIT_CLS silent] $CMD" # TODO: See if I need the workspace here given that the window rules should be doing this for me...
 fi
 
+# Focus the matching window
+ADDR=$(hyprctl clients -j | jq -r --argjson ws "$INIT_CLS" --arg re "$REGEX" \
+  '.[] | select(.workspace.id == $ws and (.initialClass // "" | test($re))) | .address' |
+  head -n1)
+
+echo "The adddr is $ADDR"
+
+if [[ -n "$ADDR" ]]; then
+  hyprctl dispatch focuswindow "address:$ADDR"
+  echo "Focused window with address: $ADDR"
+fi
