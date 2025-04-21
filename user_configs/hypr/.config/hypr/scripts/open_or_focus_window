@@ -1,37 +1,37 @@
-#!/usr/bin/env bash
-set -euo pipefail
-
+#!/bin/bash
+# NOTE:
+# 1. For context, the hyprland dispatcher has no reliable way of signalling whether a window has been successfully loaded.
+# Ideally, we'd be able to execute command on a window in a blocking way to ensure it's fully loaded. However, due to the architecture of hyprland, this isn't possible. Nor is it possible to get the window's pid from the dispatch command and poll for it to be the loaded.
+#  However, there does exist a list of created windows (chronologically) which can be used to work out which was created most recently, as seen in the below logic.
+# 2. Workspace rules to 'snap' windows to a workspace cannot be used here, as they only apply at creation if the tags are already present. In this case, we add the tags *after* the window has been created (there's no other easy way to do this), so we must also apply the window rules in this script rather that as hyprland windowrulev2's.
+# Args:
 if [[ $# -lt 3 ]]; then
-  echo "Usage: $0 <workspace_id> <initial_class_regex> <launch_command>" >&2
+  echo "Usage: $0 <tag_name> <workspace_num> <launch_command>" >&2
   exit 1
 fi
-
-INIT_CLS="$1"
-REGEX="$2"
+tag="$1"
+workspace="$2"
 shift 2
-CMD="$*"
+cmd="$*"
 
-# TODO:
-# 1. Remove the workspace number from the function... rather make window rules to define where things go...
-# 2. I think make the thing that is matched the CLASS rather than the title... so I can modify it where necessary..
-#    document this as well in the calling script...
+# Launch fresh window if one with the matching tag doesn't exist.
+if ! hyprctl clients -j | jq -e --arg re "$tag" '.[] | select((.tags // []) | index($re))' >/dev/null; then
 
-# Move focus to the target workspace
-hyprctl dispatch workspace "$INIT_CLS"
+  most_recent_addr=$(hyprctl clients -j | jq -r '.[-1].address')
+  hyprctl dispatch exec "[tile;workspace $workspace silent] $cmd" # ➊ launch the window
+  for i in {1..100}; do                                           # Poll until the window has launched.
+    sleep 0.1
+    addr=$(hyprctl clients -j | jq -r '.[-1].address')
+    if [[ "$addr" != "$most_recent_addr" ]]; then
+      break
+    fi
+  done
 
-# Launch if no matching window already exists.
-if ! hyprctl clients -j | jq -e --argjson ws "$INIT_CLS" --arg re "$REGEX" '.[] | select(.workspace.id == $ws and (.initialClass | test($re)))' >/dev/null; then
-  hyprctl dispatch exec "[workspace $INIT_CLS silent] $CMD" # TODO: See if I need the workspace here given that the window rules should be doing this for me...
-fi
+  hyprctl dispatch focuswindow "address:$addr"  # ➊ focus the new window
+  hyprctl dispatch movetoworkspace "$workspace" # ➋ move the window to the workspace
+  hyprctl dispatch tagwindow +$tag              # ➌ tag the same window
 
-# Focus the matching window
-ADDR=$(hyprctl clients -j | jq -r --argjson ws "$INIT_CLS" --arg re "$REGEX" \
-  '.[] | select(.workspace.id == $ws and (.initialClass // "" | test($re))) | .address' |
-  head -n1)
-
-echo "The adddr is $ADDR"
-
-if [[ -n "$ADDR" ]]; then
-  hyprctl dispatch focuswindow "address:$ADDR"
-  echo "Focused window with address: $ADDR"
+else # If a window with the matching tag exists, focus on it.
+  addr=$(hyprctl clients -j | jq -r --arg re "$tag" '.[] | select((.tags // []) | index($re)) | .address')
+  hyprctl dispatch focuswindow "address:$addr"
 fi
