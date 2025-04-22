@@ -18,14 +18,15 @@ MAPPINGS:
 
   # Right‑side modifier rotation
   - KEY: KEY_RIGHTALT
-    TAP:  KEY_RIGHTMETA
-    HOLD: KEY_RIGHTMETA
-  - KEY: KEY_SYSRQ          # Print‑Screen / SysRq key
     TAP:  KEY_RIGHTCTRL
     HOLD: KEY_RIGHTCTRL
+  - KEY: KEY_SYSRQ          # Print‑Screen / SysRq key
+    TAP:  KEY_RIGHTMETA
+    HOLD: KEY_RIGHTMETA
   - KEY: KEY_RIGHTCTRL
     TAP:  KEY_RIGHTALT
     HOLD: KEY_RIGHTALT
+
 
 
 
