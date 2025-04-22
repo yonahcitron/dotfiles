@@ -1,0 +1,8 @@
+# /etc/interception/udevmon.d/thinkpad-l580.yaml
+- JOB: "intercept -g $DEVNODE \
+        | dual-function-keys -c /etc/interception/dual-function-keys/thinkpad-l580.yaml \
+        | uinput -d $DEVNODE"
+  DEVICE:
+    # Confirm the exact name with:  libinput list-devices
+    NAME: "AT Translated Set 2 keyboard"
+
