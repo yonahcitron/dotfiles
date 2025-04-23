@@ -1,6 +1,6 @@
 # /etc/interception/dual-function-keys/thinkpad-l580.yaml
 TIMING:
-  TAP_MILLISEC: 200   # threshold for distinguishing tap vs hold
+  TAP_MILLISEC: 100   # threshold for distinguishing tap vs hold
 
 MAPPINGS:
   # Caps Lock → Esc (tap) / Left Meta (hold)
@@ -10,7 +10,7 @@ MAPPINGS:
 
   - KEY: KEY_ESC
     TAP: KEY_CAPSLOCK
-    HOLD: KEY_ESC    
+    HOLD: KEY_CAPSLOCK    
   # Left‑side modifier rotation
   - KEY: KEY_LEFTCTRL
     TAP:  KEY_LEFTALT
