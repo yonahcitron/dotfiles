@@ -1,0 +1,8 @@
+TIMING:
+  TAP_MILLISEC: 180        # tap threshold; tweak if you like
+
+MAPPINGS:
+  - KEY: BTN_MIDDLE        # the button we watch
+    TAP: BTN_LEFT          # fire on short press
+    HOLD: BTN_MIDDLE       # keep default on hold
+

@@ -1,4 +1,5 @@
 ToDo today:
+- work out why it is that when there is just ONE chatgpt window, hitting just enter counts as return, but when there are two, it must be META + return??
 - Get remapping my keys ... get all the volume keys working, make the 'delete' be cut in wayland, and the insert be paste?
     - Make screenshot button at some point maybe? the f7 key potentially...
     - make the todo add command for df because actually I use this all the time and it's super useful... make it do a git pull of just the todo file, then append the line, then add just that, then send an automated commit of it.. then put... like "Added to TODO.md: "
