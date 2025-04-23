@@ -146,6 +146,11 @@ bindkey -M viins 'jk' vi-cmd-mode
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
     git clone --depth=1 https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
+# According to the repo, downloading catpuccin with tpm has some issues with name conflicts, so best to install manually, not through tpm.
+if [ ! -d "$HOME/.config/tmux/plugins/catppuccin" ]; then
+    mkdir -p $HOME/.config/tmux/plugins/catppuccin
+    git clone -b v2.1.3 https://github.com/catppuccin/tmux.git $HOME/.config/tmux/plugins/catppuccin/tmux
+fi
 
 # Setup terminal-based file manager.
 y() {
