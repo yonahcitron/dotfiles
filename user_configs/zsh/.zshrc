@@ -16,6 +16,7 @@ fi
 # TODO: Consider having separate .zshrc files for different distros. Use a single .zshrc as an entrypoint, and delegate to the distro-specific .zshrc. Put universal config in .zshrc.common.
 # Can then neaten up this conditional logic to do one distro-specific check, and the beginning, and load distro-specific config from a separate file for each distro (but load all the shared code from a single common file ofc to prevent duplication...)
 # $DISTRO is set in the .bashrc file. $ZSH is used by scripts in the oh-my-zsh framework.
+# TODO: SIMPLIFY THIS!! Leave a comment explaining how you can use the DISTRO env var where necessary, but in this case, just uninstall the package from the AUR and download on both platform s the same way, using the git clone (i.e. the same way as is currently being done in ubuntu...)
 if [[ $DISTRO == "arch" ]]; then
     export ZSH="/usr/share/oh-my-zsh"
     # Powerlevel10k should already be installed through yay.
@@ -141,6 +142,12 @@ bindkey -M viins 'jk' vi-cmd-mode
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Download the tmux package manager.
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    git clone --depth=1 https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+fi
+
+# Setup terminal-based file manager.
 y() {
   local tmpfile="$(mktemp)"
   command yazi --cwd-file="$tmpfile" "$@"
