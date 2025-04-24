@@ -1,14 +1,18 @@
 ToDo today:
 - TODO ON FLIGHT:
-  - Find out why window rename isn't working on tmux - fix it to get it working and then give the windows names.. call them  "home", "nvim", "dotfiles", "todo"... and then watch some vids on resurrecting them etc
+  - save all the windows as a permanent tmux resurrect to this specific session...
   - rather than having mainmod + number default to switching between hyprland workspaces, have the number correspond to opening specific windows on tmux, resurrecting them to their defaults... keep mainmod + space for the main 0 "home" window
   - fix the cpu and battery indicator issues... get a wifi indicator on my tmux setup...
   - when I open kitty for some reason an error thing comes up in a separate window... fix that
   - install vim tmux integrations so that I can switch between windows within vim (whilst in tmux itself)...
   - validate whether the device and os-specific zshrc stuff is working correctly?
+  - Have window *4* on my default tmux session be "obsidian" or something... maybe also have the obsidian app itself, and then try out both for a while and see which one I prefer?... maybe just call the whole session "me" or "me-pad" or something like that ??
   - I think maybe make the caps lock be control, and swap the control and super keys at the bottom... think about whether it's more ergonomic??
     - I think this makes more sense as the control key will be universally useful across different OS's for my muscle memory... whilst the super key is less so... also, I think I use the super key more, and using my thumb rather than my pinky is more ergonomic and will hurt my pinky less!
-
+    - Rather than making a 'df todo' command or something, just keep the 'todo' in the current session on window three (with a shortcut to it ofc)... and then work out the nvim git commands... and make a shortcut specifically for the todo file to add, give an auto commit with the message, and then push (and pull first just that file to validate...)
+    - make the shortcuts for the tmux windows be ... 'restore XXX session' (with a name)... and only do that conditionally if not already loaded... and then load window XX...
+ 
+- Make part of the initial startup script(s) that it installed onedrive and github, checks whether each of them are logged in, and, if they're not, prompts you to log in from the terminal (e.g. `gh auth login` and the equivalent for onedrive)..
 - practise quickly moving quickly between open buffers in vim... if there are none I think map to shift + hjkl
 - SORT OUT THE .TMUX.CONF ... IN THE STATUS BAR AT THE TOP... MAYBE JUST DOWNLOAD EVERYTHING THROUGH TPM AND SEE IF IT WORKS?? OTHERWISE TRY THE MANUAL DOWNLOAD ROUTE... MAKE THE CPU FUNCTIONALITY AND ALSO THE BATTERY FUNCTIONALITY WORK COZ IT WILL LOOK NICER
 - Make a separate hyprland space (mainmod + T) which just opens a kitty terminal workspace... can use this for general system / ad hoc commands, and if I want a terminal outside of tmux..
