@@ -1,10 +1,14 @@
 ToDo today:
 - TODO ON FLIGHT:
-  - Find out why window rename isn't working on tmux
+  - Find out why window rename isn't working on tmux - fix it to get it working and then give the windows names.. call them  "home", "nvim", "dotfiles", "todo"... and then watch some vids on resurrecting them etc
+  - rather than having mainmod + number default to switching between hyprland workspaces, have the number correspond to opening specific windows on tmux, resurrecting them to their defaults... keep mainmod + space for the main 0 "home" window
   - fix the cpu and battery indicator issues... get a wifi indicator on my tmux setup...
   - when I open kitty for some reason an error thing comes up in a separate window... fix that
   - install vim tmux integrations so that I can switch between windows within vim (whilst in tmux itself)...
+  - validate whether the device and os-specific zshrc stuff is working correctly?
 
+
+- practise quickly moving quickly between open buffers in vim... if there are none I think map to shift + hjkl
 - SORT OUT THE .TMUX.CONF ... IN THE STATUS BAR AT THE TOP... MAYBE JUST DOWNLOAD EVERYTHING THROUGH TPM AND SEE IF IT WORKS?? OTHERWISE TRY THE MANUAL DOWNLOAD ROUTE... MAKE THE CPU FUNCTIONALITY AND ALSO THE BATTERY FUNCTIONALITY WORK COZ IT WILL LOOK NICER
 - Make a separate hyprland space (mainmod + T) which just opens a kitty terminal workspace... can use this for general system / ad hoc commands, and if I want a terminal outside of tmux..
 - Remap the fn + sleep button to hibernate, and confirm that pressing the power button translates into a safe power off... check this in the system settings and stuff and then use that for power off...

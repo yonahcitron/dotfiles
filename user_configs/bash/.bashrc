@@ -27,13 +27,8 @@ alias setup="df setup"
 # Quickly edit the todo. # TODO: Eventually move this into the `df` cmdlet.
 #alias todo="vim $dotfiles/TODO.md"
 
-# To check power on my thinkpad.
-# TODO: Move this into the platform specific section of the init code.
-alias power="upower -i $(upower -e | grep battery) | awk '/percentage/ {print $2}'"
-# To change the brightness quickly.
-# TODO: Make this into a function at somepoint so I can just go `b 20` and not need to include the % sign at the end.
-alias b="brightnessctl set"
 alias sd="sudo shutdown -h now"
+
 #############################################
 # FUNCTIONS
 #############################################
@@ -57,3 +52,22 @@ launch() {
     exit
   fi
 }
+
+#############################################
+# DEVICE- AND PLATFORM-SPECIFIC CODE
+#############################################
+
+# Run any platform-specific .bashrc scripts.
+setup_dir="$HOME/.local/share/df/setup"
+platform_dir="$setup_dir/platforms/$DISTRO"
+platform_bashrc_script="$platform_dir/$DISTRO.bashrc"
+if [ -e "$platform_bashrc_script" ]; then
+  source "$platform_bashrc_script"
+fi
+
+# Run any device-specific .bashrc scripts, identified by the hostname.
+hostname=$(uname -n)
+device_bash_script="$platform_dir/devices/$hostname/$hostname.bashrc"
+if [ -e "$device_bash_script" ]; then
+  source "$device_bash_script"
+fi
