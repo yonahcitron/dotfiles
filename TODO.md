@@ -6,7 +6,7 @@ ToDo today:
   - when I open kitty for some reason an error thing comes up in a separate window... fix that
   - install vim tmux integrations so that I can switch between windows within vim (whilst in tmux itself)...
   - validate whether the device and os-specific zshrc stuff is working correctly?
-
+  - I think maybe make the caps lock be control, and swap the control and super keys at the bottom... think about whether it's more ergonomic??
 
 - practise quickly moving quickly between open buffers in vim... if there are none I think map to shift + hjkl
 - SORT OUT THE .TMUX.CONF ... IN THE STATUS BAR AT THE TOP... MAYBE JUST DOWNLOAD EVERYTHING THROUGH TPM AND SEE IF IT WORKS?? OTHERWISE TRY THE MANUAL DOWNLOAD ROUTE... MAKE THE CPU FUNCTIONALITY AND ALSO THE BATTERY FUNCTIONALITY WORK COZ IT WILL LOOK NICER
@@ -348,3 +348,5 @@ ToDo today:
 - Make a command "df config XXXX" e.g. "df config hypr".... make a mapping file between a given name, and the config file used to config them... if one doesn't exist, it should prompt you to ask if you wanna create a new mapping... e.g. if you type "df config tmux" and you haven't yet mapped a config file to tmux, it should prompt you to ask if you want to provide a path to the file it should map to.. to store these, keep a json file in the $dotfiles root called .config_shortcuts.json or something ...
 
 - Doubt it's possible but see if there's a way to disable chatpt completions once you've inserted a comment like # ... so that it isn't suggesting annoying comments... or at least reject a suggestion once it gives one to clear the screen and make it easier to read/think...
+
+- Use the built-in neovim terminal mainly when I want to do something that requires looking at the code at the same time... otherwise basically use a dedicated terminal where possible!!
