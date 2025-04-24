@@ -7,6 +7,7 @@ ToDo today:
   - install vim tmux integrations so that I can switch between windows within vim (whilst in tmux itself)...
   - validate whether the device and os-specific zshrc stuff is working correctly?
   - I think maybe make the caps lock be control, and swap the control and super keys at the bottom... think about whether it's more ergonomic??
+    - I think this makes more sense as the control key will be universally useful across different OS's for my muscle memory... whilst the super key is less so... also, I think I use the super key more, and using my thumb rather than my pinky is more ergonomic and will hurt my pinky less!
 
 - practise quickly moving quickly between open buffers in vim... if there are none I think map to shift + hjkl
 - SORT OUT THE .TMUX.CONF ... IN THE STATUS BAR AT THE TOP... MAYBE JUST DOWNLOAD EVERYTHING THROUGH TPM AND SEE IF IT WORKS?? OTHERWISE TRY THE MANUAL DOWNLOAD ROUTE... MAKE THE CPU FUNCTIONALITY AND ALSO THE BATTERY FUNCTIONALITY WORK COZ IT WILL LOOK NICER
