@@ -57,7 +57,7 @@ qemu-system-x86_64 \
   -machine q35 \
   -drive file=$disk_path,format=qcow2,if=virtio \
   -cdrom $iso_path \
-  -virtfs local,id=shared,path="$dotfiles/install/iso/overlay/airootfs/root",security_model=mapped,mount_tag=hostshare \
+  -virtfs local,id=shared,path="$dotfiles/arch-installer/iso/overlay/airootfs/root",security_model=mapped,mount_tag=hostshare \
   -boot order=d \
   -nographic
 
