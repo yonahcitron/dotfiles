@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Usage: ./create_usb_iso.sh /path/to/file.iso
+# Usage: sudo ./create_usb_iso.sh /path/to/file.iso
 #
 # This script:
 # 1. Takes the path to an ISO file.
@@ -11,6 +11,9 @@
 #
 # NOTE: This script requires root privileges, parted, lsblk, and dd.
 #       USE AT YOUR OWN RISK. You could lose data if used incorrectly.
+
+# TODO: In future, I'd like to do this just to a paritition:
+#  In future, can set up my bootable arch iso onto a partition of the usb rather than the whole thing.. but that requires manual installations etc... for now just put it on the whole usb for simplicity...
 
 # Exit on errors or undefined variables
 set -euo pipefail
@@ -31,38 +34,6 @@ function list_usb_devices() {
   # Filter out only removable disks (TYPE="disk" and ROTA="1" often indicates a USB, but not always)
   # Adjust as needed if you have a different system layout
   lsblk -p -o NAME,SIZE,TYPE,MODEL | grep -w "disk" || true
-}
-
-function partition_device() {
-  local device="$1"
-  local size_in_mb="$2"
-  echo ""
-  echo "You have selected: $device"
-  echo "This will destroy any data on the device!"
-  echo ""
-  confirm_or_exit
-
-  echo "Partitioning $device..."
-  # Create a new partition table
-  parted -s "$device" mklabel msdos
-
-  # Compute the partition start and end
-  # For example, start after 1MiB and end after size_in_mb + 10MiB
-  # to give some overhead
-  local start="1MiB"
-  local end="$((size_in_mb + 10))MiB"
-
-  # Create a primary partition
-  parted -s "$device" mkpart primary "$start" "$end"
-  parted -s "$device" set 1 boot on
-
-  # We assume partition #1 as the destination
-  partition="${device}1"
-  echo "Created partition: $partition"
-
-  # Optional: create a filesystem. Usually you'd do dd directly to the partition
-  # for a bootable ISO, but if you just want to store an ISO file, uncomment this:
-  # mkfs.ext4 "$partition"
 }
 
 # --- Main Script ---
@@ -99,32 +70,33 @@ iso_size_mb=$(((iso_size_bytes + 1024 * 1024 - 1) / (1024 * 1024)))
 
 echo "ISO size: $iso_size_mb MB"
 
-echo "Do you want to create a new partition on a USB device? (y/n)"
-read -r create_partition
-
-if [[ "$create_partition" == "y" ]]; then
-  echo ""
-  list_usb_devices
-  echo ""
-  echo -n "Enter the device path (e.g. /dev/sdb): "
+echo ""
+list_usb_devices
+while :; do
+  echo -n "Enter the device path to copy the ISO to (e.g. /dev/sdb): "
   read -r device_path
-  echo "The selected device path is $device_path"
-  echo ""
+  if [ -b "$device_path" ]; then
+    echo "The selected device path is $device_path"
+    echo ""
+    break
+  else
+    echo "Error: '$device_path' is not a valid block device. Please try again."
+  fi
+done
 
-  partition_device "$device_path" "$iso_size_mb"
-else
-  echo "Please enter the existing partition path (e.g. /dev/sdb1) to copy the ISO to:"
-  read -r partition
-fi
+# calculate block count
+iso_bytes=$(stat -c '%s' "$ISO_PATH")
+bs_bytes=$((4 * 1024 * 1024)) # block size in bytes for arithmetic
+blocks=$(((iso_bytes + bs_bytes - 1) / bs_bytes))
 
-echo "Ready to write $ISO_PATH to $partition. This will overwrite data on $partition."
-confirm_or_exit
-
-echo "Writing ISO to $partition via dd..."
-dd if="$ISO_PATH" of="$partition" bs=4M status=progress oflag=sync
-
-echo "Syncing changes..."
+echo "dd if=$ISO_PATH of=$device_path bs=$bs_bytes count=$blocks status=progress oflag=sync"
+dd if="$ISO_PATH" \
+  of="$device_path" \
+  bs=$bs_bytes \
+  count=$blocks \
+  status=progress \
+  oflag=sync
 sync
 
-echo "Operation complete. ISO written to $partition."
+echo "Operation complete. ISO written to device $device_path"
 exit 0

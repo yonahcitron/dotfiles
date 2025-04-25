@@ -47,7 +47,6 @@ qemu-system-x86_64 \
   -m 2048 \
   -machine q35 \
   -drive file=$disk_path,format=qcow2,if=virtio \
-  -virtfs local,id=shared,path="$dotfiles/arch-installer/iso/overlay/airootfs/root",security_model=mapped,mount_tag=hostshare \
   -boot order=dc
 
 # For dynamic file editing / debugging in the VM, before I bake the script into the ISO itself:

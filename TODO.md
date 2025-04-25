@@ -1,6 +1,6 @@
 ToDo today:
 
-
+- CHANGE the primary boot order BACK on my thinkcenter for quicker boot times!!!
 - Use my existing interception tools setup to make the home row keys into home-row-mod keys for meta, ctrl, etc... look online for the best setups for these keys.. eventually I can go into doing layers and stuff... but for now just keep it how it is... I can maybe use kmonad for those layers that I'll eventually want... can simply use kmonad for the keyboard, and maybe interception tools for the mouse funcitonality...
 - Use tmux-continuum to save environment variables in tmux resurrect sessions?
 - Maybe use vim -obsession to get back vim state? And also maybe save any buffers or whatever automatically? all of this seems like useful stuff in general to be honest...
@@ -41,6 +41,11 @@ ToDo today:
 - FIND A WAY TO MAKE HYPRLAND ONLY PUT A BORDER ON WINDOW WHEN THERE IS MORE THAN ONE WINDOW IN THE WORKSPACE... OTHERWISE IT LOOKS BETTER TO HAVE NO BORDER... E.G. TMUX PANES AND STUFF ARE CLEARER.... do this soon as it should be preettyyyy easy and will make a good difference to the feel!!!!!!!!!!
 - Get a better hyprpaper background?
 - When I get home, set up ssh on my mac and then make a tmux SESSION that will contain that connection and everything contained within it...
+
+
+
+- In future, can set up my bootable arch iso onto a partition of the usb rather than the whole thing.. but that requires manual installations etc... for now just put it on the whole usb for simplicity...
+
 - Remember, on my main computer desktop with the screens (only active when it detect the correct hostname), make the logic: mainmod + shift opens or moves a window to the centre screen... any window already in the centre screen gets moved to its default non-centre location.... opening an app with just the mainmod key checks first whether there's anything in the centre screen... if not, it opens it there (maybe make this a function)... if there is something already there, it opens it in its usual location... if two apps are in the same position in the non-centre screen, one simply covers the other... you can show the one which is hidden by simply clicking its shortcut again.. this is because I want every app to have a defined place that it rests in the two side-screens..
 - In chrome, practise using control + number to select tabs, rather than clicking on them or using control + tab... simpler, quicker, and more ergonomic...
 - Simplify some of my setup to be cross platform... like some of the plugins in my .bashrc or whatever that are done differently between arch and ubuntu... do them both the manual way, downloading using the direct github clone and setup, rather than by the individual package managers, to simplify cross-platform installation...
