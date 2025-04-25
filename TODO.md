@@ -57,6 +57,9 @@ ToDo today:
 - When I get home, set up ssh on my mac and then make a tmux SESSION that will contain that connection and everything contained within it...
 
 
+- Sometimes I think on my laptop I actually just prefer using the plain tty for simplicity etc... practise doing this, can use tmux in it etc...
+- every now and again do 'tmux list-sessions' just to see if there are any running in the background that I don't want.. and if there are, find out why there are!!
+
 
 - In future, can set up my bootable arch iso onto a partition of the usb rather than the whole thing.. but that requires manual installations etc... for now just put it on the whole usb for simplicity...
 
