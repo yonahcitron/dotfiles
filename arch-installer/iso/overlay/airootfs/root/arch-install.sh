@@ -154,7 +154,9 @@ pacman-key --init
 pacman-key --populate archlinux
 # pacman-key --refresh-keys # Takes ages.
 echo "Updating package database..."
-pacman -Syu --noconfirm
+# Only refresh keyring; skip a full update to preserve RAM
+# I was getting errors when I did a full pacman -Syu bc not enough ram on the live ISO.
+pacman -Sy --needed --noconfirm archlinux-keyring
 
 # Mount root
 mount "$root_partition" /mnt
