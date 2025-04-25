@@ -11,7 +11,7 @@ ToDo today:
 	- Do all dev work locally on my arch machine that I'm ssh'ing into my windows laptop with... whenever I want to actually do something, like through the databricks UI that requires it... can just transfer the file by ssh (assume that' spossible) and leave it open on my main laptop
 	- When I'm not using my windows machine directly (but ssh'ing into it) then leave teams up so I can see what messages if any I'm getting
 - Make PART of the 'setup' script to be checking whether the dotfiles repo is up to date, and pulling it / updating it if it's not, so it always gets the latest version! that would be cool!
-
+- On windows, on my work laptop (through wsl), make it auto-start ubuntu when I enter the default terminal window..
 
 - CHANGE the primary boot order BACK on my thinkcenter for quicker boot times!!!
 - On the install iso script, make reformatting the EFI partition OPT-IN to prevent people accidentally overwriting it when they didn't plan to... add this back to the script, as I often reuse an existing EFI partition (like on my thinkcentre, and don't want to accidentally overwrite it)... and then write it back onto my existing usb....
