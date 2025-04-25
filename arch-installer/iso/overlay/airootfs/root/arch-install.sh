@@ -61,12 +61,18 @@ read -rp "Enter the name of the ROOT partition where the main disk will be store
 read -rp "Enter the name of the EFI partition (e.g. sda1) or press Enter to skip: " efi_name
 read -rp "Enter the name of the SWAP partition (e.g. sda2) or press Enter to skip: " swap_name
 
-# Construct full paths
+while [[ -z "$root_name" ]]; do
+  read -rp "Enter the name of the root partition (e.g. sda3): " root_name
+done
 root_partition="/dev/$root_name"
-efi_partition=""
-swap_partition=""
 
-[[ -n "$efi_name" ]] && efi_partition="/dev/$efi_name"
+while [[ -z "$efi_name" ]]; do
+  read -rp "Enter the name of the EFI partition (e.g. sda1): " efi_name
+done
+efi_partition="/dev/$efi_name"
+
+# Construct swap partition if present
+swap_partition=""
 [[ -n "$swap_name" ]] && swap_partition="/dev/$swap_name"
 
 # Confirm and format root partition
