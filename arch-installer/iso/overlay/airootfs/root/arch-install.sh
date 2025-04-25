@@ -57,8 +57,6 @@ lsblk "$target_disk"
 
 # Ask for root, EFI, and swap partitions by name only (e.g., sda3)
 echo ""
-read -rp "Enter the name of the ROOT partition where the main disk will be stored (e.g. sda3): " root_name
-read -rp "Enter the name of the EFI partition (e.g. sda1) or press Enter to skip: " efi_name
 read -rp "Enter the name of the SWAP partition (e.g. sda2) or press Enter to skip: " swap_name
 
 while [[ -z "$root_name" ]]; do

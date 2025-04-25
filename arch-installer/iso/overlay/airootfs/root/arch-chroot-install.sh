@@ -56,10 +56,6 @@ git clone https://github.com/yonahcitron/dotfiles.git /home/yonah/repos/dotfiles
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# TODO: THIS path WILL CHANGE SOON
-# Run the environment setup script for the user 'yonah'
-sudo -u yonah /home/yonah/repos/dotfiles/arch-setup.sh || true
-
 # execute the above in an if block
 if sudo -u yonah /home/yonah/repos/dotfiles/cmdlets/share/df/scripts/setup.sh; then
   echo "Yonah's setup script executed successfully."

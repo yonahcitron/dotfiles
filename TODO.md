@@ -1,9 +1,17 @@
 ToDo today:
 
+- on work laptop make it start teams again on startup..
+- For some reason the ubuntu.basrc and arch.bashrc don't have anything in them.. this is a bug... at least one should have the power thing etc..
+- For each platform etc, I should make an e.g. arch.env or ubuntu.env ... the bashrc's themselves should then source these, rather than hardcoding them in the rc itself... this makes it easier to source them in other scripts, such as the setup script etc..
+- Each of the higher-up paths should set environment variables for the higher scripts... e.g. DF-SETUP, DF-SETUP-ARCH, etc etc... and they should rely on each of these... ... ACTUALLY NOT FOR THE ENV VARIABLES... AS THE BASHRC IS SOURCED BEFORE ANYTHING ELSE AND CONTAINS ONLY GLOBAL ENVIRONMENT VARIABLES
 - Update the ubuntu script.. make it work... make it pull everything like the install path into environment variables using the .zshrc custom for each repo... this is where it should get the specific stuff from ... fix everything from all over the repos for this...
 - make sure my shell is properly updated in ubuntu..
 - get a good generalist frontend for downloading all the packages with -r in ubutntu that will have apt-get, apt, etc etc
 - First thing's first update the install usb, and make sure the wifi is working FROM THE GET-GO ON MY DESKTOP SETUP!!!;wq
+- Make my setup script(s) raise an error if the necessary environment variables aren't set... for DF scripts... validate this once at the beginning...
+
+
+- DO make the tree in nvim adapt to size based on what's on it... I usually close it after I'm done with it anyways..
 
 - fix where the setup script is expected in the dotfiles... 
 - sort out the dubious ownership thing in git.... set up accounts by default...
@@ -58,7 +66,6 @@ ToDo today:
 
 
 - Sometimes I think on my laptop I actually just prefer using the plain tty for simplicity etc... practise doing this, can use tmux in it etc...
-- every now and again do 'tmux list-sessions' just to see if there are any running in the background that I don't want.. and if there are, find out why there are!!
 
 
 - In future, can set up my bootable arch iso onto a partition of the usb rather than the whole thing.. but that requires manual installations etc... for now just put it on the whole usb for simplicity...

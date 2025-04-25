@@ -2,17 +2,16 @@
 ####### Applications #########
 ##############################
 
-PACKAGES_FILE="$dotfiles/cmdlets/share/df/setup/platforms/ubuntu/ubuntu-packages.txt"
 echo "Ensuring all the following packages are installed:"
-cat "$PACKAGES_FILE"
+cat "$DF_PLATFORM_PACKAGES"
 
 # Update package index
 echo "[INFO] Updating package index..."
 sudo apt update
 
 # Install listed packages
-echo "[INFO] Installing packages from $PACKAGES_FILE..."
-xargs -a "$PACKAGES_FILE" sudo apt install -y
+echo "[INFO] Installing packages from $DF_PLATFORM_PACKAGES..."
+xargs -a "$DF_PLATFORM_PACKAGES" sudo apt install -y
 
 # Get the full path of zsh
 ZSH_PATH=$(which zsh)
@@ -29,5 +28,3 @@ if [[ "$(getent passwd "$USER" | cut -d: -f7)" == "$ZSH_PATH" ]]; then
 else
   echo "Failed to change default shell."
 fi
-
-sudo apt install -y stow
