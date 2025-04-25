@@ -114,8 +114,6 @@ fi
 ##############################
 ####### Applications #########
 ##############################
-sudo pacman -S --noconfirm stow
-
 # Install arch and aur files.
 echo "Ensuring all the following packages are installed:"
 cat $DF_PLATFORM_PACKAGES
