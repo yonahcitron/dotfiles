@@ -13,6 +13,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export DISTRO="mac"
 fi
 
+export HOSTNAME=$(uname -n)
+
 #############################################
 # ALIASES
 #############################################
@@ -58,16 +60,23 @@ launch() {
 #############################################
 
 # Run any platform-specific .bashrc scripts.
-setup_dir="$HOME/.local/share/df/setup"
-platform_dir="$setup_dir/platforms/$DISTRO"
-platform_bashrc_script="$platform_dir/$DISTRO.bashrc"
-if [ -e "$platform_bashrc_script" ]; then
-  source "$platform_bashrc_script"
+
+export DF_SETUP_DIR="$dotfiles/cmdlets/share/df/setup"
+export DF_PLATFORM_DIR="$DF_SETUP_DIR/platforms/$DISTRO"
+export DF_PLATFORM_PACKAGES="$DF_PLATFORM_DIR/$DISTRO-packages.txt"
+export DF_PLATFORM_INIT_SCRIPT="$DF_PLATFORM_DIR/$DISTRO-init.sh"
+export DF_PLATFORM_POSTSCRIPT="$DF_PLATFORM_DIR/$DISTRO-postscript.sh"
+df_platform_bashrc="$DF_PLATFORM_DIR/$DISTRO.bashrc"
+
+if [ -e "$df_platform_bashrc" ]; then
+  source "$df_platform_bashrc"
 fi
 
 # Run any device-specific .bashrc scripts, identified by the hostname.
-hostname=$(uname -n)
-device_bash_script="$platform_dir/devices/$hostname/$hostname.bashrc"
-if [ -e "$device_bash_script" ]; then
-  source "$device_bash_script"
+# TODO: Do this for device specific things as well!!!!
+HOSTNAME=$(uname -n)
+DF_DEVICE_DIR="$DF_PLATFORM_DIR/devices/$HOSTNAME/$HOSTNAME.bashrc"
+df_device_bashrc="$DF_DEVICE_DIR/$HOSTNAME.bashrc"
+if [ -e "$df_device_bashrc" ]; then
+  source "$df_device_bashrc"
 fi

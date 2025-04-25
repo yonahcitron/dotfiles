@@ -117,11 +117,8 @@ fi
 sudo pacman -S --noconfirm stow
 
 # Install arch and aur files.
-# TODO: Make  section here to install device-specific packages, similar to how it's done in the main script.
-# Also derive variables like packages file from variables taken from the calling script (more global), and just mention that they're global variables..
-PACKAGES_FILE=$HOME/.local/share/df/setup/platforms/arch/arch-packages.txt # $dotfiles is defined in .bashrc
 echo "Ensuring all the following packages are installed:"
-cat $PACKAGES_FILE
+cat $DF_PLATFORM_PACKAGES
 
 if ! command -v yay &>/dev/null; then
   # Install yay to access AUR packages
@@ -142,7 +139,7 @@ else
 fi
 
 # Install all packages - syncing with package dbs already done from before.
-xargs -a "$PACKAGES_FILE" yay -S --needed --noconfirm
+xargs -a "$DF_PLATFORM_PACKAGES" yay -S --needed --noconfirm
 
 # Get the full path of zsh
 ZSH_PATH=$(which zsh)

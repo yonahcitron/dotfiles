@@ -2,39 +2,32 @@
 # set -euo pipefail # TODO: Debug why there is an unbound local variable error here with set -u.
 set -eo pipefail
 
-# Import global variables.
+# Import global variables. Find many of the below in the .bashrc, as well as the device-specific bashrc's that are sourced from there.
 source $HOME/repos/dotfiles/user_configs/bash/.bashrc # This works even after the first install, when my bashrc has not been sourced on startup.
 : "${dotfiles:?Environment variable 'dotfiles' must be set.}"
 : "${DISTRO:?Environment variable 'DISTRO' must be set.}"
 
-# Source .bashrc if exists.
-if [ -e "$HOME/.bashrc" ]; then
-  source "$HOME/.bashrc"
-fi
-
 ###################################
 ########## Init scripts ###########
 ###################################
-setup_dir="$HOME/repos/dotfiles/cmdlets/share/df/setup"
+DF_SETUP_DIR="$HOME/repos/dotfiles/cmdlets/share/df/setup"
 
 # Run any platform-specific initialization scripts.
-platform_dir="$setup_dir/platforms/$DISTRO"
-platform_init_script="$platform_dir/$DISTRO-init.sh"
-if [ -e "$platform_init_script" ]; then
-  echo "Running init script for $DISTRO: $platform_init_script"
-  source "$platform_init_script"
+if [ -e "$DF_PLATFORM_INIT_SCRIPT" ]; then
+  echo "Running init script for $DISTRO: $DF_PLATFORM_INIT_SCRIPT"
+  source "$DF_PLATFORM_INIT_SCRIPT"
 else
-  echo "No init script found for $DISTRO: $platform_init_script"
+  echo "No init script found for $DISTRO: $DF_PLATFORM_INIT_SCRIPT"
 fi
 
 # Run any device-specific initialization scripts, identified by the hostname.
-hostname=$(uname -n)
-device_init_script="$platform_dir/devices/$hostname/$hostname-init.sh"
-if [ -e "$device_init_script" ]; then
-  echo "Running init script for $hostname: $device_init_script"
-  source "$device_init_script"
+# ALSO MAKE THE DEVICE INIT SCRIPT LOCATION GLOBAL IN THE BASHRC
+df_device_init_script="$DF_DEVICE_DIR/$HOSTNAME-init.sh"
+if [ -e "$df_device_init_script" ]; then
+  echo "Running init script for $HOSTNAME: $df_device_init_script"
+  source "$df_device_init_script"
 else
-  echo "No init script found for $hostname: $device_init_script"
+  echo "No init script found for $HOSTNAME: $df_device_init_script"
 fi
 
 ###################################
@@ -75,19 +68,19 @@ cd $working_dir
 #########################################
 
 # Run any platform-specific postscripts.
-platform_postscript="$platform_dir/$DISTRO-postscript.sh"
-if [ -e "$platform_postscript" ]; then
-  echo "Running postscript for $DISTRO: $platform_postscript"
-  source "$platform_postscript"
+if [ -e "$DF_PLATFORM_POSTSCRIPT" ]; then
+  echo "Running postscript for $DISTRO: $DF_PLATFORM_POSTSCRIPT"
+  source "$DF_PLATFORM_POSTSCRIPT"
 else
-  echo "No postscript found for $DISTRO: $platform_postscript"
+  echo "No postscript found for $DISTRO: $DF_PLATFORM_POSTSCRIPT"
 fi
 
+# TODO: Use the same pattern as above and ADD these to the bashrc as global variables rather than trying to define them here...
 # Run any device-specific postscripts, identified by the hostname.
-device_postscript="$platform_dir/devices/$hostname/$hostname-postscript.sh"
+device_postscript="$DF_PLATFORM_DIR/devices/$HOSTNAME/$HOSTNAME-postscript.sh"
 if [ -e "$device_postscript" ]; then
-  echo "Running postscript for $hostname: $device_postscript"
+  echo "Running postscript for $HOSTNAME: $device_postscript"
   source "$device_postscript"
 else
-  echo "No postscript found for $hostname: $device_postscript"
+  echo "No postscript found for $HOSTNAME: $device_postscript"
 fi
