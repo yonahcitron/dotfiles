@@ -36,9 +36,10 @@ function list_usb_devices() {
 function partition_device() {
   local device="$1"
   local size_in_mb="$2"
-
+  echo ""
   echo "You have selected: $device"
   echo "This will destroy any data on the device!"
+  echo ""
   confirm_or_exit
 
   echo "Partitioning $device..."
@@ -56,15 +57,12 @@ function partition_device() {
   parted -s "$device" set 1 boot on
 
   # We assume partition #1 as the destination
-  local partition="${device}1"
+  partition="${device}1"
   echo "Created partition: $partition"
 
   # Optional: create a filesystem. Usually you'd do dd directly to the partition
   # for a bootable ISO, but if you just want to store an ISO file, uncomment this:
   # mkfs.ext4 "$partition"
-
-  # Return the partition name for the caller
-  echo "$partition"
 }
 
 # --- Main Script ---
@@ -105,25 +103,28 @@ echo "Do you want to create a new partition on a USB device? (y/n)"
 read -r create_partition
 
 if [[ "$create_partition" == "y" ]]; then
+  echo ""
   list_usb_devices
+  echo ""
   echo -n "Enter the device path (e.g. /dev/sdb): "
   read -r device_path
+  echo "The selected device path is $device_path"
+  echo ""
 
-  partition_path=$(partition_device "$device_path" "$iso_size_mb")
-  echo "Partition created at: $partition_path"
+  partition_device "$device_path" "$iso_size_mb"
 else
   echo "Please enter the existing partition path (e.g. /dev/sdb1) to copy the ISO to:"
-  read -r partition_path
+  read -r partition
 fi
 
-echo "Ready to write $ISO_PATH to $partition_path. This will overwrite data on $partition_path."
+echo "Ready to write $ISO_PATH to $partition. This will overwrite data on $partition."
 confirm_or_exit
 
-echo "Writing ISO to $partition_path via dd..."
-dd if="$ISO_PATH" of="$partition_path" bs=4M status=progress oflag=sync
+echo "Writing ISO to $partition via dd..."
+dd if="$ISO_PATH" of="$partition" bs=4M status=progress oflag=sync
 
 echo "Syncing changes..."
 sync
 
-echo "Operation complete. ISO written to $partition_path."
+echo "Operation complete. ISO written to $partition."
 exit 0
