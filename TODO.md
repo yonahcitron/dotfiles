@@ -1,5 +1,13 @@
 ToDo today:
 
+- To do after shabbat:
+    - In my ubuntu setup, the zsh setup in the ubuntu-init.sh is not working so I commented it out... fix this section and uncomment...
+    - There are also other things not working when I run setup in ubuntu... fix them and get it working too...
+    - Reinstall everything on the main desktop, ensuring the scripts, especially the setup scripts, are called correctly and in-order.
+    - Only once I have ascertained that, then I can quickly and easily debug if and why the wifi is not working / not being preserved on the installed system. Write any fixes in to the script.
+    - Make sure that the final system is working on the basics from a fresh install... then I can class it as "done"...
+    - Make sure that on the final script on the iso that calls the setup... or in general when setup is called... all env vars are exported (might need to source the setup script when I call it??) ... like into this..
+
 - on work laptop make it start teams again on startup..
 - For some reason the ubuntu.basrc and arch.bashrc don't have anything in them.. this is a bug... at least one should have the power thing etc..
 - For each platform etc, I should make an e.g. arch.env or ubuntu.env ... the bashrc's themselves should then source these, rather than hardcoding them in the rc itself... this makes it easier to source them in other scripts, such as the setup script etc..
@@ -10,6 +18,7 @@ ToDo today:
 - First thing's first update the install usb, and make sure the wifi is working FROM THE GET-GO ON MY DESKTOP SETUP!!!;wq
 - Make my setup script(s) raise an error if the necessary environment variables aren't set... for DF scripts... validate this once at the beginning...
 
+- Especially for when I'm using all monitors, make a keyboard shortcut for in my hypr config for the second monitor... something like M or something acccessible.... remember to make sure that all windows go to a default location by default... currently it's not even working in my laptop with one screen as the position of the chatgpts depend on when they were opened... fix this...
 
 - DO make the tree in nvim adapt to size based on what's on it... I usually close it after I'm done with it anyways..
 
