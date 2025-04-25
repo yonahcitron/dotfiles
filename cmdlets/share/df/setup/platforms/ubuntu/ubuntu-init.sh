@@ -2,7 +2,7 @@
 ####### Applications #########
 ##############################
 
-PACKAGES_FILE="$dotfiles/setup/platforms/ubuntu/ubuntu-packages.txt"
+PACKAGES_FILE="$dotfiles/cmdlets/share/df/setup/platforms/ubuntu/ubuntu-packages.txt"
 echo "Ensuring all the following packages are installed:"
 cat "$PACKAGES_FILE"
 
@@ -29,3 +29,5 @@ if [[ "$(getent passwd "$USER" | cut -d: -f7)" == "$ZSH_PATH" ]]; then
 else
   echo "Failed to change default shell."
 fi
+
+sudo apt install -y stow

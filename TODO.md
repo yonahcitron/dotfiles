@@ -1,5 +1,8 @@
 ToDo today:
 
+- Update the ubuntu script.. make it work... make it pull everything like the install path into environment variables using the .zshrc custom for each repo... this is where it should get the specific stuff from ... fix everything from all over the repos for this...
+- make sure my shell is properly updated in ubuntu..
+- get a good generalist frontend for downloading all the packages with -r in ubutntu that will have apt-get, apt, etc etc
 - First thing's first update the install usb, and make sure the wifi is working FROM THE GET-GO ON MY DESKTOP SETUP!!!;wq
 
 - fix where the setup script is expected in the dotfiles... 

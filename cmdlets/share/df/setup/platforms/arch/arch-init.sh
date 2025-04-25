@@ -114,6 +114,7 @@ fi
 ##############################
 ####### Applications #########
 ##############################
+sudo pacman -S --noconfirm stow
 
 # Install arch and aur files.
 # TODO: Make  section here to install device-specific packages, similar to how it's done in the main script.

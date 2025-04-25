@@ -15,9 +15,9 @@ fi
 ###################################
 ########## Init scripts ###########
 ###################################
+setup_dir="$HOME/repos/dotfiles/cmdlets/share/df/setup"
 
 # Run any platform-specific initialization scripts.
-setup_dir="$HOME/.local/share/df/setup"
 platform_dir="$setup_dir/platforms/$DISTRO"
 platform_init_script="$platform_dir/$DISTRO-init.sh"
 if [ -e "$platform_init_script" ]; then
@@ -49,7 +49,6 @@ fi
 # TODO: In order to get the intended functionality of treating each of the subfolders of the stow dir as a module, and reacreate each of their substructures within the target dirs, rather than just dumping them in the target dir directly, the cd approach was working best. Look into whether it could work with specifying the dir, it wasn't last time I tried.
 
 cd $dotfiles
-sudo pacman -S --noconfirm stow
 
 echo "Setting up Yonah's user configs."
 cd $dotfiles/user_configs
