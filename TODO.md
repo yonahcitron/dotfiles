@@ -1,5 +1,8 @@
 ToDo today:
 
+
+- For some reason the ubuntu.basrc and arch.bashrc don't have anything in them.. this is a bug... at least one should have the power thing etc..
+- For each platform etc, I should make an e.g. arch.env or ubuntu.env ... the bashrc's themselves should then source these, rather than hardcoding them in the rc itself... this makes it easier to source them in other scripts, such as the setup script etc..
 - Update the ubuntu script.. make it work... make it pull everything like the install path into environment variables using the .zshrc custom for each repo... this is where it should get the specific stuff from ... fix everything from all over the repos for this...
 - make sure my shell is properly updated in ubuntu..
 - get a good generalist frontend for downloading all the packages with -r in ubutntu that will have apt-get, apt, etc etc
