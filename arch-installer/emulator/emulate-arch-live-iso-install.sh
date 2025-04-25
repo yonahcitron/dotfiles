@@ -3,7 +3,7 @@
 #   - Just `qemu` alone does not have what I need.
 
 # Local paths
-iso_dir="$dotfiles/install/iso"
+iso_dir="$dotfiles/arch-installer/iso"
 
 # TODO: Change this logic to actually RUN the iso generation
 # process if doesn't exist...
@@ -21,7 +21,7 @@ fi
 ## Qemu Paths ######
 ####################
 
-emulator_dir="$dotfiles/install/emulator"
+emulator_dir="$dotfiles/arch-installer/emulator"
 
 disk_name="arch-disk.img"
 disk_dir="$emulator_dir/disk"
