@@ -67,6 +67,10 @@ done
 root_partition="/dev/$root_name"
 
 while [[ -z "$efi_name" ]]; do
+  echo ""
+  echo "Available EFI (vfat) partitions:"
+  lsblk -p -o NAME,FSTYPE,SIZE,MOUNTPOINT | grep -i vfat || echo "  (none found)"
+  echo ""
   read -rp "Enter the name of the EFI partition (e.g. sda1): " efi_name
 done
 efi_partition="/dev/$efi_name"
@@ -94,6 +98,7 @@ fi
 
 # Confirm and format EFI partition if provided
 if [[ -n "$efi_partition" ]]; then
+  echo "Only format the EFI partition if not re-using an existing one."
   read -rp "WARNING: Formatting $efi_partition will erase all data on it. Do you want to reformat the EFI partition? (y/N): " confirm_efi
   if [[ "$confirm_efi" =~ ^[Yy]$ ]]; then
     while true; do

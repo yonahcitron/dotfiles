@@ -13,7 +13,7 @@ set -e
 
 # Working directories
 working_directory=$(pwd)
-install_dir="$dotfiles/install"
+install_dir="$dotfiles/arch-installer"
 emulator_dir="$install_dir/emulator"
 iso_dir="$install_dir/iso"
 
