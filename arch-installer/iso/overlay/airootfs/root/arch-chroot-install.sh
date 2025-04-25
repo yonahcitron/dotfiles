@@ -61,7 +61,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 sudo -u yonah /home/yonah/repos/dotfiles/arch-setup.sh || true
 
 # execute the above in an if block
-if sudo -u yonah /home/yonah/repos/dotfiles/arch-setup.sh; then
+if sudo -u yonah /home/yonah/repos/dotfiles/cmdlets/share/df/scripts/setup.sh; then
   echo "Yonah's setup script executed successfully."
 else
   echo "Yonah's setup script failed. Continuing with post-install setup.anyway, can fix the user-issues later."
