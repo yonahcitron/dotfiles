@@ -5,6 +5,8 @@ ToDo today:
 - get a good generalist frontend for downloading all the packages with -r in ubutntu that will have apt-get, apt, etc etc
 - First thing's first update the install usb, and make sure the wifi is working FROM THE GET-GO ON MY DESKTOP SETUP!!!;wq
 
+- DO make the tree in nvim adapt to size based on what's on it... I usually close it after I'm done with it anyways..
+
 - fix where the setup script is expected in the dotfiles... 
 - sort out the dubious ownership thing in git.... set up accounts by default...
 - Use my windows machine at home... have it set to 'always on' when I'm at home, and start the local ssh server when it's connected to my local network so that I can ssh into it when it's on...
@@ -58,7 +60,6 @@ ToDo today:
 
 
 - Sometimes I think on my laptop I actually just prefer using the plain tty for simplicity etc... practise doing this, can use tmux in it etc...
-- every now and again do 'tmux list-sessions' just to see if there are any running in the background that I don't want.. and if there are, find out why there are!!
 
 
 - In future, can set up my bootable arch iso onto a partition of the usb rather than the whole thing.. but that requires manual installations etc... for now just put it on the whole usb for simplicity...
