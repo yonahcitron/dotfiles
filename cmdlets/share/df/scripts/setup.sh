@@ -55,7 +55,7 @@ sudo stow --target /etc */
 # Executable cmdlets.
 cd $dotfiles
 stow --target $HOME/.local cmdlets/ # Stow cmdlet folder itself as a package so that its subfolders are placed exactly.
-sudo chmod +x $local_bin/*
+sudo chmod +x $HOME/.local/bin/*
 
 cd $working_dir
 
