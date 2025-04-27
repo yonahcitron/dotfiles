@@ -1,5 +1,7 @@
 ToDo today:
 
+- In my ubuntu setup, also install todo to the HOME folder for easy access?
+
 - To do after shabbat:
     - In my ubuntu setup, the zsh setup in the ubuntu-init.sh is not working so I commented it out... fix this section and uncomment...
     - There are also other things not working when I run setup in ubuntu... fix them and get it working too...

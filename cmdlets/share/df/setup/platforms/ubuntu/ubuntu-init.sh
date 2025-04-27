@@ -14,6 +14,20 @@ echo "[INFO] Installing packages from $DF_PLATFORM_PACKAGES..."
 xargs -a "$DF_PLATFORM_PACKAGES" sudo apt install -y
 echo "Installed all packages for $DISTRO"
 
+# Install programs not easily available through apt
+
+if [ ! -e /usr/local/bin/lazygit ]; then
+  echo "Lazygit not installed. Installing with curl."
+  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+  tar xf lazygit.tar.gz lazygit
+  sudo install lazygit -D -t /usr/local/bin/
+fi
+
+##############################
+####### Shell setup ##########
+##############################
+
 # Get the full path of zsh
 ZSH_PATH=$(which zsh)
 
