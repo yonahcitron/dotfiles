@@ -8,6 +8,8 @@ ToDo today:
     - Make sure that the final system is working on the basics from a fresh install... then I can class it as "done"...
     - Make sure that on the final script on the iso that calls the setup... or in general when setup is called... all env vars are exported (might need to source the setup script when I call it??) ... like into this..
 
+- As my current setup for my laptop, before I get a new keyboard, use the miroku system until such time as I can get a new keyboard... use the left alt and right alt as enter and backspace respectively, and, when held, make them layer keys...
+
 - on work laptop make it start teams again on startup..
 - For some reason the ubuntu.basrc and arch.bashrc don't have anything in them.. this is a bug... at least one should have the power thing etc..
 - For each platform etc, I should make an e.g. arch.env or ubuntu.env ... the bashrc's themselves should then source these, rather than hardcoding them in the rc itself... this makes it easier to source them in other scripts, such as the setup script etc..
