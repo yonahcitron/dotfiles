@@ -8,6 +8,8 @@ source $HOME/repos/dotfiles/user_configs/bash/.bashrc # This works even after th
 : "${dotfiles:?Environment variable 'dotfiles' must be set.}"
 : "${DISTRO:?Environment variable 'DISTRO' must be set.}"
 
+working_dir=$(pwd)
+
 ###################################
 ########## Init scripts ###########
 ###################################
@@ -39,8 +41,6 @@ fi
 
 # TODO: In order to get the intended functionality of treating each of the subfolders of the stow dir as a module, and reacreate each of their substructures within the target dirs, rather than just dumping them in the target dir directly, the cd approach was working best. Look into whether it could work with specifying the dir, it wasn't last time I tried.
 
-cd $dotfiles
-
 echo "Setting up Yonah's user configs."
 cd $dotfiles/user_configs
 stow --target $HOME */ # User configs.
@@ -54,6 +54,7 @@ sudo stow --target /etc */
 
 # Executable cmdlets.
 cd $dotfiles
+mkdir -p $HOME/.local
 stow --target $HOME/.local cmdlets/ # Stow cmdlet folder itself as a package so that its subfolders are placed exactly.
 sudo chmod +x $HOME/.local/bin/*
 

@@ -8,6 +8,9 @@ ToDo today:
      - Get rid of interception tools from my setup... and make kmonad start instead with the right daemon... put this in my arch-config..
      - switch alt and gui keys on the home - row - mods... j
 
+
+- Change it so that the new kmonad script starts at startup..
+
 - for now just practise USING HOME ROW MODS ... soon upgrade and also practise using thumb keys for backspace, enter, etc... and holding them for the correct layer keys... optimise this according to the best corne keyboard setup (also get a corne keyboard!!)
 
 - also practise using this setup on my laptop as well as the ergonomic logitech keyboard that I have as I feel it will actually be better for this... and can use its two space-bars for different things maybe??
