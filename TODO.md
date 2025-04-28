@@ -14,6 +14,8 @@ ToDo today:
 
 - make kmonad's typing non-actiavtion of home row mods happen with caps lock as welll ... currently it's not working!!
 
+- for doing the iso installation, maybe make selecting each of the partitions etc be from a 'number' rather than having to type it myself manaully... also, currently I have to type the swap partition twice... stop this!
+
 - Change it so that the new kmonad script starts at startup..
 
 - for now just practise USING HOME ROW MODS ... soon upgrade and also practise using thumb keys for backspace, enter, etc... and holding them for the correct layer keys... optimise this according to the best corne keyboard setup (also get a corne keyboard!!)
