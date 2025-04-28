@@ -15,9 +15,10 @@ else
 
   # construct full device path (assuming /dev prefix)
   device_path="/dev/${swap_part}"
+  echo "The path to the swap partition is: $device_path"
 
   # get uuid of the chosen swap partition
-  if ! blkid "$device_path" &>/dev/null; then
+  if ! blkid "$device_path" >/dev/null 2>&1; then
     echo "error: invalid partition specified or partition not found."
     exit 1
   fi
