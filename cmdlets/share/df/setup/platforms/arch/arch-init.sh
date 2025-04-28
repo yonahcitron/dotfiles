@@ -4,27 +4,27 @@
 # TODO: At some point, maybe move some of this to device-specific scripts.
 
 # **Hibernation**
-if [ -n "$DISABLE_HIBERNATION_SETUP" ] || grep -q 'resume=' /etc/default/grub; then
-  echo "Skipping hibernation setup (disabled or already configured)."
+if [ -n "$disable_hibernation_setup" ] || grep -q 'resume=' /etc/default/grub; then
+  echo "skipping hibernation setup (disabled or already configured)."
 else
-  # List available partitions and prompt user to select the swap partition
-  echo "Listing all partitions and their FSTYPE..."
-  lsblk -o NAME,TYPE,SIZE,FSTYPE,UUID,MOUNTPOINT
+  # list available partitions and prompt user to select the swap partition
+  echo "listing all partitions and their fstype..."
+  lsblk -o name,type,size,fstype,uuid,mountpoint
   echo
-  read -rp "Enter the device name for the swap partition (e.g. sda2, nvme0n1p2, etc.): " SWAP_PART
+  read -rp "enter the device name for the swap partition (e.g. sda2, nvme0n1p2, etc.): " swap_part
 
-  # Construct full device path (assuming /dev prefix)
-  DEVICE_PATH="/dev/${SWAP_PART}"
+  # construct full device path (assuming /dev prefix)
+  device_path="/dev/${swap_part}"
 
-  # Get UUID of the chosen swap partition
-  if ! blkid "$DEVICE_PATH" &>/dev/null; then
-    echo "Error: Invalid partition specified or partition not found."
+  # get uuid of the chosen swap partition
+  if ! blkid "$device_path" &>/dev/null; then
+    echo "error: invalid partition specified or partition not found."
     exit 1
   fi
-  SWAP_UUID=$(blkid -s UUID -o value "$DEVICE_PATH")
+  swap_uuid=$(blkid -s uuid -o value "$device_path")
 
-  # Add 'resume=UUID=' to GRUB_CMDLINE_LINUX_DEFAULT
-  echo "Adding 'resume=UUID=$SWAP_UUID' to GRUB_CMDLINE_LINUX_DEFAULT..."
+  # add 'resume=uuid=' to grub_cmdline_linux_default
+  echo "adding 'resume=uuid=$swap_uuid' to grub_cmdline_linux_default..."
   sudo sed -i "s|\(GRUB_CMDLINE_LINUX_DEFAULT=\"[^\"]*\)|\1 resume=UUID=$SWAP_UUID|" /etc/default/grub
 
   # Ensure 'resume' hook is present in /etc/mkinitcpio.conf

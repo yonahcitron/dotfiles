@@ -11,6 +11,7 @@ ToDo today:
 - for now just practise USING HOME ROW MODS ... soon upgrade and also practise using thumb keys for backspace, enter, etc... and holding them for the correct layer keys... optimise this according to the best corne keyboard setup (also get a corne keyboard!!)
 
 - also practise using this setup on my laptop as well as the ergonomic logitech keyboard that I have as I feel it will actually be better for this... and can use its two space-bars for different things maybe??
+- the main thing to practise for now is ESPECIALLY practising the shift key and using my index finger rather than the shift keys... this is particularly useful and important, and is something I should definitely practise when I can!!!!
 
 - AFTER LUNCH COMMIT EVERYTHING RELEVANT, CLEANN IT UP, MAKE IT PART OF MY WORKFLOW, AND IN GENERAL JUST START OPTIMISING AND ACTUALLY PRACTISING AND USING THE LAYOUT... THINK IT'S A REALLY GOOD THING TO BE HONEST...
 
