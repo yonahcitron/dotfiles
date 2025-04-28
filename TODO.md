@@ -17,6 +17,7 @@ ToDo today:
 - the main thing to practise for now is ESPECIALLY practising the shift key and using my index finger rather than the shift keys... this is particularly useful and important, and is something I should definitely practise when I can!!!!
 
 - AFTER LUNCH COMMIT EVERYTHING RELEVANT, CLEANN IT UP, MAKE IT PART OF MY WORKFLOW, AND IN GENERAL JUST START OPTIMISING AND ACTUALLY PRACTISING AND USING THE LAYOUT... THINK IT'S A REALLY GOOD THING TO BE HONEST...
+- in the iso script, make the wifi NOT fail if you get the password or username wrong.. make it a loop!!
 
 
 - Make a clear shortcut to move a window to another workspace in hyprland... and find out why I get weird functionality with tmux when I open multiple windows etc... sometimes the restore fails... be sure I can recreate it programtically.. without having to rely on previous state... have a default setup that it opens every time.... only recreate named sessions... delete all the other ones / do not restore them if they're numbered!!
