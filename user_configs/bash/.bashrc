@@ -73,9 +73,6 @@ if [ -e "$df_platform_bashrc" ]; then
   source "$df_platform_bashrc"
 fi
 
-# Run any device-specific .bashrc scripts, identified by the hostname.
-# TODO: Do this for device specific things as well!!!!
-HOSTNAME=$(uname -n)
 DF_DEVICE_DIR="$DF_PLATFORM_DIR/devices/$HOSTNAME/$HOSTNAME.bashrc"
 df_device_bashrc="$DF_DEVICE_DIR/$HOSTNAME.bashrc"
 if [ -e "$df_device_bashrc" ]; then

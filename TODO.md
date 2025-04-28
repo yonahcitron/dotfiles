@@ -10,6 +10,10 @@ ToDo today:
 
 - in my iso installer script, it should set a global variable hostname or something... the script should then ONLY check manually for the hostname, if that variable is not already set... if it is, it should use that env var.. this allows us to 'simulate' a hostname of another machine when installing in chroot.. this is useful... so when it asks me to set the hostname, basically, do this!! save it... or rather maybe read in the hostname from etc/hostname itself??
 
+- TAKE THE USER SERVICES I'M ACTIVAting in the arch postscript, and activate them instead in the .zprofile... make platform-specific .zprofiles as well, and start the services from that script in the arch one, to start user-services automatically... check with chatgpt that this won't be too slow as well... check whether I should do a check to see whether they're enabled first, or whether it's idempotent... presumably it's the latter...
+
+- make kmonad's typing non-actiavtion of home row mods happen with caps lock as welll ... currently it's not working!!
+
 - Change it so that the new kmonad script starts at startup..
 
 - for now just practise USING HOME ROW MODS ... soon upgrade and also practise using thumb keys for backspace, enter, etc... and holding them for the correct layer keys... optimise this according to the best corne keyboard setup (also get a corne keyboard!!)
