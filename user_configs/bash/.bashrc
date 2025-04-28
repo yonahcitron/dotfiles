@@ -13,7 +13,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   export DISTRO="mac"
 fi
 
-export HOSTNAME=$(uname -n)
+# This method returns the hostname of the target system even when in chroot - this is what I want for my setup scripts.
+export HOSTNAME=$(</etc/hostname)
 
 #############################################
 # ALIASES

@@ -8,6 +8,7 @@ ToDo today:
      - Get rid of interception tools from my setup... and make kmonad start instead with the right daemon... put this in my arch-config..
      - switch alt and gui keys on the home - row - mods... j
 
+- in my iso installer script, it should set a global variable hostname or something... the script should then ONLY check manually for the hostname, if that variable is not already set... if it is, it should use that env var.. this allows us to 'simulate' a hostname of another machine when installing in chroot.. this is useful... so when it asks me to set the hostname, basically, do this!! save it... or rather maybe read in the hostname from etc/hostname itself??
 
 - Change it so that the new kmonad script starts at startup..
 

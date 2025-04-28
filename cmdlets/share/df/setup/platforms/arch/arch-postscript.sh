@@ -2,15 +2,19 @@
 #####  Systemd daemons  #####
 #############################
 
-sudo systemctl daemon-reload
+global_services="iwd systemd-networkd udevmon.service"
+user_services="pipewire pipewire-pulse wireplumber"
 
-sudo systemctl enable udevmon.service
-systemctl --user enable pipewire pipewire-pulse wireplumber
+# Enable necessary systemd services on every startup.
+sudo systemctl enable $global_services
+systemctl --user enable $user_services
 
-if ! systemctl --quiet is-system-running; then
-  echo "In chroot — skipping service start"
+# Actually start the service daemons if for live system.
+if systemd-detect-virt --quiet --chroot; then
+  echo "In chroot — skipping service start. Services will start on reboot."
 else
-  echo "Starting services..."
-  sudo systemctl start udevmon.service
-  systemctl --user start pipewire pipewire-pulse wireplumber
+  echo "Starting systemd services..."
+  sudo systemctl daemon-reload
+  sudo systemctl start $global_services
+  systemctl --user start $user_services
 fi
