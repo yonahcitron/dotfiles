@@ -9,6 +9,7 @@ google-chrome
 oh-my-zsh-git
 zsh-theme-powerlevel10k-git
 upower
+kmonad
 interception-tools
 interception-dual-function-keys
 wl-clipboard
