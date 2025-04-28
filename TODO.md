@@ -1,5 +1,16 @@
 ToDo today:
 
+- add some documentation for what I've done with kmonad and the name of the system i'm using..
+     - add the environment variables i used and the command i added
+     - add that i'm implementing it in software using kmonad which is good, but will be faster and less laggy when i get the hardware keyboard equivalent
+     - add that i change hold-tap-next-release 200 .... all of them globally in the file to hold-tap 200 and that prevented my issues with accidental home-row-mods ... not exactly sure how that's working but can always ask chatgpt...
+     - by default the miryoku with the settings swaps semicolon and quote... i switched that back... im ðđŋħẻder gonna learn the symbol layer anyways, so don;t need to change things like this...
+     - Get rid of interception tools from my setup... and make kmonad start instead with the right daemon... put this in my arch-config..
+
+- AFTER LUNCH COMMIT EVERYTHING RELEVANT, CLEANN IT UP, MAKE IT PART OF MY WORKFLOW, AND IN GENERAL JUST START OPTIMISING AND ACTUALLY PRACTISING AND USING THE LAYOUT... THINK IT'S A REALLY GOOD THING TO BE HONEST...
+
+
+- Make a clear shortcut to move a window to another workspace in hyprland... and find out why I get weird functionality with tmux when I open multiple windows etc... sometimes the restore fails... be sure I can recreate it programtically.. without having to rely on previous state... have a default setup that it opens every time.... only recreate named sessions... delete all the other ones / do not restore them if they're numbered!!
 - In my ubuntu setup, also install todo to the HOME folder for easy access?
 - put my keyboard keymappings in kmonad, and set up in windows and linux to run automatically at startup...
      - put my trackpoint remapping as a separate process for just the trackpoint using interception tools... see if I can get that to work! then on that machine I'll have two separate processes running...
