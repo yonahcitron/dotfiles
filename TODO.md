@@ -6,6 +6,11 @@ ToDo today:
      - add that i change hold-tap-next-release 200 .... all of them globally in the file to hold-tap 200 and that prevented my issues with accidental home-row-mods ... not exactly sure how that's working but can always ask chatgpt...
      - by default the miryoku with the settings swaps semicolon and quote... i switched that back... im ðđŋħẻder gonna learn the symbol layer anyways, so don;t need to change things like this...
      - Get rid of interception tools from my setup... and make kmonad start instead with the right daemon... put this in my arch-config..
+     - switch alt and gui keys on the home - row - mods... j
+
+- for now just practise USING HOME ROW MODS ... soon upgrade and also practise using thumb keys for backspace, enter, etc... and holding them for the correct layer keys... optimise this according to the best corne keyboard setup (also get a corne keyboard!!)
+
+- also practise using this setup on my laptop as well as the ergonomic logitech keyboard that I have as I feel it will actually be better for this... and can use its two space-bars for different things maybe??
 
 - AFTER LUNCH COMMIT EVERYTHING RELEVANT, CLEANN IT UP, MAKE IT PART OF MY WORKFLOW, AND IN GENERAL JUST START OPTIMISING AND ACTUALLY PRACTISING AND USING THE LAYOUT... THINK IT'S A REALLY GOOD THING TO BE HONEST...
 
