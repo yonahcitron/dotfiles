@@ -1,5 +1,7 @@
 ToDo today:
 
+- set up the custom zprofiles...
+
 - add some documentation for what I've done with kmonad and the name of the system i'm using..
      - add the environment variables i used and the command i added
      - add that i'm implementing it in software using kmonad which is good, but will be faster and less laggy when i get the hardware keyboard equivalent
@@ -7,6 +9,7 @@ ToDo today:
      - by default the miryoku with the settings swaps semicolon and quote... i switched that back... im ðđŋħẻder gonna learn the symbol layer anyways, so don;t need to change things like this...
      - Get rid of interception tools from my setup... and make kmonad start instead with the right daemon... put this in my arch-config..
      - switch alt and gui keys on the home - row - mods... j
+     - as a starting point for practise, target home row mods and thumb enter and backspace and tab buttons for each device on each system..
 
 
 - have kmonad also monitoring my input logitech keyboard on my my thinkpad so that I can use my shortcuts for that as well...

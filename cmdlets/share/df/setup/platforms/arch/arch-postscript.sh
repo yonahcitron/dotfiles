@@ -2,7 +2,7 @@
 #####  Systemd daemons  #####
 #############################
 
-global_services="iwd systemd-networkd udevmon.service"
+global_services="iwd systemd-networkd systemd-resolved udevmon.service"
 user_services="pipewire pipewire-pulse wireplumber"
 
 # Enable necessary systemd services on every startup.
