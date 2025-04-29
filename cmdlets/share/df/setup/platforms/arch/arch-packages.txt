@@ -1,6 +1,7 @@
 stow
 gvim
 git
+github-cli
 zsh
 tmux
 neovim

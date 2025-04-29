@@ -53,9 +53,11 @@ cd $dotfiles/global_configs
 sudo stow --target /etc */
 
 # Executable cmdlets.
-cd $dotfiles
-mkdir -p $HOME/.local
-stow --target $HOME/.local cmdlets/ # Stow cmdlet folder itself as a package so that its subfolders are placed exactly.
+cd $dotfiles/cmdlets
+mkdir -p $HOME/.local/share
+mkdir -p $HOME/.local/bin
+stow --target $HOME/.local/share share
+stow --target $HOME/.local/bin bin
 sudo chmod +x $HOME/.local/bin/*
 
 cd $working_dir

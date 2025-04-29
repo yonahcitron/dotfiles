@@ -1,8 +1,14 @@
 ToDo today:
 
-- the dotfiles repo that I download on the iso setup is cloned as root... need to give ownership of it from root to 'yonah', and all the files it owns... to prevent pulling issues etc...
+- the dotfiles repo that I download on the iso setup is cloned as root... need to give ownership of it from root to 'yonah', and all the files it owns... to prevent pulling issues etc... this is an important step to fix methinks...
+
+- make an obsidian vault asap... and in it have a section for projects... in the section for projects add one for soldering, mention that good video that I watched on getting started with soldering (started late april 2025 so i can find it in my search history)... and get hold of all the things he recommends such as the mat, the cleaner for the soldering iron, etc etc... 
 
 - automate the background loading an installing to my desktop as well... currently there is no background by default!!!! get this automated!!!
+
+- the WHOLE of ~/.local/share is currently being cloned, leading to things in my github dotfiles that I DON'T WANT to be there... sort this out..
+
+- find out why, out the box, on my thinkcentre, the tmux bar doesn't have all the fancy stuff that it usually has, as well as all the extensions? pretty sure they should load by default, but they seems not to be??
 
 - move the tmux installation scripts FROM my .zshrc I think it's currently in, to my zprofile... only need it once...
 
