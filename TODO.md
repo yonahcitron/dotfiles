@@ -4,6 +4,8 @@ ToDo today:
 
 - automate the background loading an installing to my desktop as well... currently there is no background by default!!!! get this automated!!!
 
+- move the tmux installation scripts FROM my .zshrc I think it's currently in, to my zprofile... only need it once...
+
 - set up the custom zprofiles..
 
 - add some documentation for what I've done with kmonad and the name of the system i'm using..
