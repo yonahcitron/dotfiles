@@ -1,8 +1,13 @@
 ToDo today:
 
+- find out how to get kmonad to start correctly on each device... and set up the startups on each device to be correct precisely for that device... maybe do a 'sed' or something with some placehodler... search the internet and ask chatgpt for some advice...
+
 - the dotfiles repo that I download on the iso setup is cloned as root... need to give ownership of it from root to 'yonah', and all the files it owns... to prevent pulling issues etc... this is an important step to fix methinks...
 
-- make an obsidian vault asap... and in it have a section for projects... in the section for projects add one for soldering, mention that good video that I watched on getting started with soldering (started late april 2025 so i can find it in my search history)... and get hold of all the things he recommends such as the mat, the cleaner for the soldering iron, etc etc... 
+- make an obsidian vault asap... and in it have a section for hardware projects... with folder strcutre like projects/hardware... in the section for hardware projects add one for soldering, mention that good video that I watched on getting started with soldering (started late april 2025 so i can find it in my search history)... and get hold of all the things he recommends such as the mat, the cleaner for the soldering iron, etc etc...  and then as well as the ben-eater computer
+
+
+- one of the things I've realised is that I've put too much DETAIL in todoist... todoist shouldb e kept for real achievable tasks... details-based tasks should be kept in my obsidian vault... maybe just get the app to keep it simple for syncing with my phone? could be quite useful ... might just be worth paying for it to be honest...
 
 - automate the background loading an installing to my desktop as well... currently there is no background by default!!!! get this automated!!!
 
@@ -17,6 +22,8 @@ ToDo today:
 - practise using tmux copy mode, to copy and paste from the terminal output using just the keyboard... is very cool tbh...
 
 
+- ASAP REMOVE THE HOLDING LAYER TRIGGER FUNCTIONALITY FROM KEYS LIKE CAPS LOCK and backspace... THIS IS CURRENTLY STOPPING ME FROM BEING able to hold down the backspace to be able to delete lots of words and is kinda annoying! get rid of it for this reason... also the more I type the more I'll learn what's actually important in a keybaord and whta's not
+
 - add some documentation for what I've done with kmonad and the name of the system i'm using..
      - add the environment variables i used and the command i added
      - add that i'm implementing it in software using kmonad which is good, but will be faster and less laggy when i get the hardware keyboard equivalent
@@ -26,6 +33,14 @@ ToDo today:
      - switch alt and gui keys on the home - row - mods... j
      - as a starting point for practise, target home row mods and thumb enter and backspace and tab buttons for each device on each system..
 
+
+
+- THINK of a more MODULAR way to sort out my kmonad files... e.g. the thinkcentre keychron and the built in thinkpad things are all the same except for the device number, there's definitely NO POINT having two separate files just for that... speak to chatgpt 03 and find the most elegant solution to this...
+
+
+-- also asap find a way to remap the left and right innermost thumb keys to being backspace on the right and enter on the left (not quite the same as normal miryoku, reversed, but I think I'll prefer it so wanna try it first)
+
+-- also practise hitting the keys less hard... this is a big reason why my fingers hurt so much after a long typing session - i really dont need to be hitting the keyboard keys are hard as I am...
 
 - In terms of what to do for now on my 'normal' non-thumb-cluster keyboards, I think the answer is to still have the layers available for when I want them, except on my ergo keyboard with a single keyboard, rather than two, I can not have two separate hold functions for the inner thumb buttons... I'll have to simply shift up one of the functions... not such a bad idea anyway, and start with just the layer (practise) that I get when holding down the relevant layer of the keyboard of course!!
 
