@@ -8,6 +8,9 @@ ToDo today:
      - Get rid of interception tools from my setup... and make kmonad start instead with the right daemon... put this in my arch-config..
      - switch alt and gui keys on the home - row - mods... j
 
+
+- have kmonad also monitoring my input logitech keyboard on my my thinkpad so that I can use my shortcuts for that as well...
+
 - in my iso installer script, it should set a global variable hostname or something... the script should then ONLY check manually for the hostname, if that variable is not already set... if it is, it should use that env var.. this allows us to 'simulate' a hostname of another machine when installing in chroot.. this is useful... so when it asks me to set the hostname, basically, do this!! save it... or rather maybe read in the hostname from etc/hostname itself??
 
 - TAKE THE USER SERVICES I'M ACTIVAting in the arch postscript, and activate them instead in the .zprofile... make platform-specific .zprofiles as well, and start the services from that script in the arch one, to start user-services automatically... check with chatgpt that this won't be too slow as well... check whether I should do a check to see whether they're enabled first, or whether it's idempotent... presumably it's the latter...

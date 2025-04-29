@@ -9,7 +9,7 @@ user_services="pipewire pipewire-pulse wireplumber"
 sudo systemctl enable $global_services
 
 # Actually start the service daemons if for live system.
-if systemd-detect-virt --quiet --chroot; then
+if sudo systemd-detect-virt --quiet --chroot; then
   echo "In chroot — skipping service start. Services will start on reboot."
 else
   # TODO: In future put this in the .zprofile...
