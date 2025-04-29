@@ -2,6 +2,7 @@ stow
 gvim
 git
 zsh
+tmux
 neovim
 hyprland
 kitty
