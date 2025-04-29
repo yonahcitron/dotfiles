@@ -2,7 +2,7 @@
 #####  Systemd daemons  #####
 #############################
 
-global_services="iwd systemd-networkd systemd-resolved udevmon.service"
+global_services="iwd systemd-networkd systemd-resolved kmonad"
 user_services="pipewire pipewire-pulse wireplumber"
 
 # Enable necessary systemd services on every startup.
@@ -14,7 +14,7 @@ if sudo systemd-detect-virt --quiet --chroot; then
 else
   # TODO: In future put this in the .zprofile...
   systemctl --user enable $user_services
-  echo "Starting systemd services..."
+  echo "Starting systemd services: $global_services"
   sudo systemctl daemon-reload
   sudo systemctl start $global_services
   systemctl --user start $user_services

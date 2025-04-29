@@ -27,6 +27,8 @@ ToDo today:
      - as a starting point for practise, target home row mods and thumb enter and backspace and tab buttons for each device on each system..
 
 
+- In terms of what to do for now on my 'normal' non-thumb-cluster keyboards, I think the answer is to still have the layers available for when I want them, except on my ergo keyboard with a single keyboard, rather than two, I can not have two separate hold functions for the inner thumb buttons... I'll have to simply shift up one of the functions... not such a bad idea anyway, and start with just the layer (practise) that I get when holding down the relevant layer of the keyboard of course!!
+
 - have kmonad also monitoring my input logitech keyboard on my my thinkpad so that I can use my shortcuts for that as well...
 
 - in my iso installer script, it should set a global variable hostname or something... the script should then ONLY check manually for the hostname, if that variable is not already set... if it is, it should use that env var.. this allows us to 'simulate' a hostname of another machine when installing in chroot.. this is useful... so when it asks me to set the hostname, basically, do this!! save it... or rather maybe read in the hostname from etc/hostname itself??
