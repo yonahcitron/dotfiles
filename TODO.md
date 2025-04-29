@@ -2,6 +2,8 @@ ToDo today:
 
 - the dotfiles repo that I download on the iso setup is cloned as root... need to give ownership of it from root to 'yonah', and all the files it owns... to prevent pulling issues etc...
 
+- automate the background loading an installing to my desktop as well... currently there is no background by default!!!! get this automated!!!
+
 - set up the custom zprofiles..
 
 - add some documentation for what I've done with kmonad and the name of the system i'm using..
