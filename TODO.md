@@ -14,6 +14,9 @@ ToDo today:
 
 - set up the custom zprofiles..
 
+- practise using tmux copy mode, to copy and paste from the terminal output using just the keyboard... is very cool tbh...
+
+
 - add some documentation for what I've done with kmonad and the name of the system i'm using..
      - add the environment variables i used and the command i added
      - add that i'm implementing it in software using kmonad which is good, but will be faster and less laggy when i get the hardware keyboard equivalent
