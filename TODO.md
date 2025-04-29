@@ -1,6 +1,8 @@
 ToDo today:
 
-- set up the custom zprofiles...
+- the dotfiles repo that I download on the iso setup is cloned as root... need to give ownership of it from root to 'yonah', and all the files it owns... to prevent pulling issues etc...
+
+- set up the custom zprofiles..
 
 - add some documentation for what I've done with kmonad and the name of the system i'm using..
      - add the environment variables i used and the command i added
