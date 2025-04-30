@@ -4,6 +4,12 @@ ToDo today:
 
 - the dotfiles repo that I download on the iso setup is cloned as root... need to give ownership of it from root to 'yonah', and all the files it owns... to prevent pulling issues etc... this is an important step to fix methinks...
 
+- instead of using bootmarks through the ui like chrome, have some system of storing links/ bookmarks in obsidian...
+look up the best way to do this, but in general for each domain e.g. work have place(s) for bookmarks... google aroudn this and ask chatgpt..
+
+
+- install yazi on my ubuntu.. make a separate ubuntu script for installing packages... called 'manual_software_installs.sh' or something similar (ask chatgpt), and call that script in the ubuntu_init to keep everything modular... that seems like the best way of doing it...
+
 - make an obsidian vault asap... and in it have a section for hardware projects... with folder strcutre like projects/hardware... in the section for hardware projects add one for soldering, mention that good video that I watched on getting started with soldering (started late april 2025 so i can find it in my search history)... and get hold of all the things he recommends such as the mat, the cleaner for the soldering iron, etc etc...  and then as well as the ben-eater computer
 
 

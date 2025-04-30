@@ -2,3 +2,4 @@ stow
 neovim
 gh
 zsh
+gcc
