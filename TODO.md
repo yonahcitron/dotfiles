@@ -25,6 +25,9 @@ look up the best way to do this, but in general for each domain e.g. work have p
 - make an obsidian vault asap... and in it have a section for hardware projects... with folder strcutre like projects/hardware... in the section for hardware projects add one for soldering, mention that good video that I watched on getting started with soldering (started late april 2025 so i can find it in my search history)... and get hold of all the things he recommends such as the mat, the cleaner for the soldering iron, etc etc...  and then as well as the ben-eater computer
 
 
+- REALLY practise reading through academic paper using some sort of screen reader or something at the same time... to help me focus on what I'm reading!!!
+
+
 - one of the things I've realised is that I've put too much DETAIL in todoist... todoist shouldb e kept for real achievable tasks... details-based tasks should be kept in my obsidian vault... maybe just get the app to keep it simple for syncing with my phone? could be quite useful ... might just be worth paying for it to be honest...
 
 - automate the background loading an installing to my desktop as well... currently there is no background by default!!!! get this automated!!!
