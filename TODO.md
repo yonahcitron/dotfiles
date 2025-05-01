@@ -12,12 +12,20 @@ ToDo today:
 - sort out the problem of the dotfiles not being installed right... it being installed in sudo...
 
 
+- ADD a DEVICE-LEVEL .ZPROFILE script that starts the kmonad service THAT'S CORRECT FOR THAT PARTICULAR DEVICE... so I can have a few different scripts, and use the .zprofile to start only those scripts that are necessary...
+
+
+- on my hyprland desktop setup, have separate shortcuts to bring a specific app fully onto the central screen, versus bring it to the left side of the central screen, versus bring it to the right of the central screen... whenever one gets replaced in the central screen, in any position... send it back to its default side position if it's open...
+
 - make the default width of neotree wider.. .make it adjust automatically... i can always just close it if it's too wide...
 
 - ASAP make a vim / nvim function / command / something that saves the document you're working on, and commits JUST IT to git at the same time... can make a custom commit message for each document based on its name.... all docs named e.g. "todo" will have a similar message need for the commit, doesn't really matter where it is in the file structure to be honest.. it should also also be able to show a user error saying there have been merge conflict back to the user, if the git cli raises that error when attempting to a push as it may...
 	- MAKE THE COMMAND SOMETHING LIKE `:git-sync' or ':gs' to just add and commit this file... this will be a good shorthand methinks!!!
 
 - the nvim that i download through apt is not as recent as it should be.. hence, I'm getting an error when I start it on ubuntu... therefore, delete it from my ubuntu packages, and instead, install it through the manual install script that I'm going to put for my ubuntu installs... have a whole file of the different things I'm installing... and explain for this particular install that the reason I'm not using the apt package manager is because the version it has as latest is not sufficiently recent for several of the plugins that I want to use... hence I need to download it manually!!!
+
+
+- with the .zprofile's, as well as the other scripts per device, the teardown scripts and even the init scripts are starting to look a little redundant.. maybe just MOVE the init script stuff into the platfrom / device dependent zprofile, make sure it has checks (which shouldb e very quick, jsut checking paths to make sure things don't run when they don't have to)... and if I'm happy that that does everything I need, remove them... maybe in the future could add back a platform-specific 'postscript'... but if I'm not using any at the moment and the other scripts are fine, it seems like it might be a little redundant!!!!!!! just confusing which one to use, and code ends up in different places!!!!
 
 
 - download my recovery codes for github and keep them in my onedrive.. make sure my password for my onedrive is secure... and for my google... and in general do a password securing across all my devices...
@@ -41,7 +49,7 @@ look up the best way to do this, but in general for each domain e.g. work have p
 
 - when i clear up my git reop from big files, definitely get rid of the lazygit ones... they were a mistake from when I tried to install them on ubuntu and accidentally ended up committing them... remove!!!!!!!
 
-
+- find the shortcut in nvim / download the plugin that lets me put any time of bracket around particular variables, following vim syntax!!
 
 - install yazi on my ubuntu.. make a separate ubuntu script for installing packages... called 'manual_software_installs.sh' or something similar (ask chatgpt), and call that script in the ubuntu_init to keep everything modular... that seems like the best way of doing it...
 
