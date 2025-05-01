@@ -5,24 +5,24 @@
 echo "Ensuring all the following packages are installed:"
 cat "$DF_PLATFORM_PACKAGES"
 
-# Update package index
+# Update package index.
 echo "[INFO] Updating package index..."
 sudo apt update
 
-# Install listed packages
-echo "[INFO] Installing packages from $DF_PLATFORM_PACKAGES..."
+# Install listed packages.
+echo "[INFO] Installing .deb packages from $DF_PLATFORM_PACKAGES..."
 xargs -a "$DF_PLATFORM_PACKAGES" sudo apt install -y
-echo "Installed all packages for $DISTRO"
+echo "Installed all .deb packages for $DISTRO"
 
-# Install programs not easily available through apt
-
-if [ ! -e /usr/local/bin/lazygit ]; then
-  echo "Lazygit not installed. Installing with curl."
-  LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
-  curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-  tar xf lazygit.tar.gz lazygit
-  sudo install lazygit -D -t /usr/local/bin/
+# Install programs not available through apt using linux-homebrew.
+if ! command -v brew >/dev/null 2>&1; then # Install brew if not present
+    echo "[INFO] Brew package manager not detected on system. Installing..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+echo "[INFO} Installing brew packages..."
+xargs brew install < $DF_BREW_PACKAGES
+echo "[INFO} Brew packages successfully installed!"
 
 ##############################
 ####### Shell setup ##########
@@ -33,6 +33,7 @@ ZSH_PATH=$(which zsh)
 
 if [ -z $ZSH_PATH ]; then
     echo "Zsh is not installed. Please add zsh to the package install list and run the setup script again."
+    exit 0
 fi
 
 # Change the default shell for the current user

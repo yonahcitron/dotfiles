@@ -1,11 +1,30 @@
 ToDo today:
 
+
+- In the setup script, source the .zprofile or somethign at the end... make sure everything is getting sourced basically!!
+
+- read about it, but basically I dont want any pipefails in setup scripts because that will stop the shell starting if there is an issue... which is not good ofc!!! do a search for these across the whole repo to check...
+
+- look at the best cross-platform package managers... is nix good? or maybe brew?? see what works best... how does this compare to snapp.... read up on it...
+
+- Get my bluetooth mouse with dongle working on the desktop.. install just for that...
+
+- sort out the problem of the dotfiles not being installed right... it being installed in sudo...
+
+
+- make the default width of neotree wider.. .make it adjust automatically... i can always just close it if it's too wide...
+
 - ASAP make a vim / nvim function / command / something that saves the document you're working on, and commits JUST IT to git at the same time... can make a custom commit message for each document based on its name.... all docs named e.g. "todo" will have a similar message need for the commit, doesn't really matter where it is in the file structure to be honest.. it should also also be able to show a user error saying there have been merge conflict back to the user, if the git cli raises that error when attempting to a push as it may...
 	- MAKE THE COMMAND SOMETHING LIKE `:git-sync' or ':gs' to just add and commit this file... this will be a good shorthand methinks!!!
 
 - the nvim that i download through apt is not as recent as it should be.. hence, I'm getting an error when I start it on ubuntu... therefore, delete it from my ubuntu packages, and instead, install it through the manual install script that I'm going to put for my ubuntu installs... have a whole file of the different things I'm installing... and explain for this particular install that the reason I'm not using the apt package manager is because the version it has as latest is not sufficiently recent for several of the plugins that I want to use... hence I need to download it manually!!!
 
+
+- download my recovery codes for github and keep them in my onedrive.. make sure my password for my onedrive is secure... and for my google... and in general do a password securing across all my devices...
+
 - At some point go through my dotfiles repo, and ask chatgpt / search the internet for the proper and best ways to search through the entire log and find the biggest files etc throughout all the commits and all branches... assuming that most of these will be a mistake, find out how to remove those files from the git repository to keep it small... once done this, validate by listing the biggest files again and make sure none are unnecessary... before doing this, make sure to save the whole repo locally in a separate copy in case I make a mistake...
+
+- practise doing cd + .....    multiple dots, rather than cd ../../.. etc 
 
 - currently, in the ubuntu section of the platform section of the dotfiles, the lazygit executable itself has been saved... I don't think this was intentional... double check, and remove it, assuming it wasn't...
 
@@ -28,6 +47,8 @@ look up the best way to do this, but in general for each domain e.g. work have p
 
 - REALLY practise reading through academic paper using some sort of screen reader or something at the same time... to help me focus on what I'm reading!!!
 
+
+- possibly rename "cmdlets" to somethign more descriptive of the install ... and then just install each of the things I wanna install separetly to the right folders.. I think this is more descriptive and useful tbh...
 
 - one of the things I've realised is that I've put too much DETAIL in todoist... todoist shouldb e kept for real achievable tasks... details-based tasks should be kept in my obsidian vault... maybe just get the app to keep it simple for syncing with my phone? could be quite useful ... might just be worth paying for it to be honest...
 

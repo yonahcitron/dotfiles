@@ -1,5 +1,5 @@
 stow
-neovim
 gh
 zsh
 gcc
+build-essential

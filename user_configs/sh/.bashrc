@@ -1,0 +1,58 @@
+# set -euo pipefail # TODO: Debug why there is an unbound local variable error here with set -u. Should help me debug better.
+
+# Import the global variables used throughout this script and others.
+source $HOME/repos/dotfiles/user_configs/sh/.env.sh # This should run out-the-box even on a clean install. The 'dotfiles' repo is installed already by the arch-ISO installation script.
+
+#############################################
+# ALIASES
+#############################################
+
+# Convenience aliases for common commands.
+alias vi="nvim"
+alias lg="lazygit"
+
+alias dotfiles="cd $dotfiles && ls"
+# Quick navigation of the 'df' cmdlet.
+alias setup="df setup"
+
+# Quickly edit the todo. # TODO: Eventually move this into the `df` cmdlet.
+#alias todo="vim $dotfiles/TODO.md"
+
+alias sd="sudo shutdown -h now"
+
+#############################################
+# FUNCTIONS
+#############################################
+
+launch() {
+  if [ $# -eq 0 ]; then
+    echo "Usage: launch <command> [args...]"
+    return 1
+  fi
+
+  if ! command -v "$1" >/dev/null 2>&1; then
+    echo "Error: '$1' is not a valid command."
+    return 2
+  fi
+
+  nohup "$@" >/dev/null 2>&1 &
+  disown
+
+  # Only call exit if we're in an interactive shell inside a terminal window
+  if [[ $- == *i* ]]; then
+    exit
+  fi
+}
+
+#############################################
+# DEVICE- AND PLATFORM-SPECIFIC CODE
+#############################################
+
+# Source specific .bashrc's
+if [ -e "$DF_PLATFORM_BASHRC" ]; then
+  source "$DF_PLATFORM_BASHRC"
+fi
+
+if [ -e "$DF_DEVICE_BASHRC" ]; then
+  source "$DF_DEVICE_BASHRC"
+fi

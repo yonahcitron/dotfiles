@@ -2,13 +2,10 @@
 # set -euo pipefail # TODO: Debug why there is an unbound local variable error here with set -u.
 set -eo pipefail
 
-# Import global variables used below from the .bashrc.
-# This in turn also sources device-specific .bashrc's.
-source $HOME/repos/dotfiles/user_configs/bash/.bashrc # This works even after the first install, when my bashrc has not been sourced on startup.
-: "${dotfiles:?Environment variable 'dotfiles' must be set.}"
-: "${DISTRO:?Environment variable 'DISTRO' must be set.}"
+# Import the global variables used throughout this script and others.
+source /home/yonah/repos/dotfiles/user_configs/sh/.bashrc # This should run out-the-box even on a clean install. The 'dotfiles' repo is installed already by the arch-ISO installation script. 
 
-working_dir=$(pwd)
+# TODO: THINK AT SOME POITN WHETHER I WANT TO CALL THE .ZSHRC ETC HERE... BECAUSE CURRENTLY THEY'RE NOT GETTING SET UP!!
 
 ###################################
 ########## Init scripts ###########
@@ -35,11 +32,14 @@ echo "Successfully ran init script."
 ###################################
 
 if [ -e "$HOME/.bashrc" ] && [ ! -L "$HOME/.bashrc" ]; then
-  echo "The .bashrc file exists and is NOT a symlink. Deleting."
+  echo "A .bashrc file exists in the home repo that NOT a symlink to my own .bashrc. Deleting it."
   rm $HOME/.bashrc
 fi
 
-# TODO: In order to get the intended functionality of treating each of the subfolders of the stow dir as a module, and reacreate each of their substructures within the target dirs, rather than just dumping them in the target dir directly, the cd approach was working best. Look into whether it could work with specifying the dir, it wasn't last time I tried.
+# TODO: In order to get the intended functionality of treating each of the subfolders of the stow dir as a module, and reacreate each of their substructures within the target dirs, rather than just dumping them in the target dir directly, the cd approach was working best. For better readability, look into whether it could work with specifying the dir, it wasn't last time I tried.
+
+# TODO: Symlink the .env.sh file to my home dir for better traceability.
+working_dir=$(pwd)
 
 echo "Setting up Yonah's user configs."
 cd $dotfiles/user_configs
@@ -61,8 +61,6 @@ stow --target $HOME/.local/bin bin
 sudo chmod +x $HOME/.local/bin/*
 
 cd $working_dir
-
-#############################
 
 #########################################
 ########## Post-setup scripts ###########
