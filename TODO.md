@@ -25,6 +25,8 @@ ToDo today:
 - the nvim that i download through apt is not as recent as it should be.. hence, I'm getting an error when I start it on ubuntu... therefore, delete it from my ubuntu packages, and instead, install it through the manual install script that I'm going to put for my ubuntu installs... have a whole file of the different things I'm installing... and explain for this particular install that the reason I'm not using the apt package manager is because the version it has as latest is not sufficiently recent for several of the plugins that I want to use... hence I need to download it manually!!!
 
 
+- install the package and check it's running as a user-level daemon or whatever it should be to allow me to use my logitech mouse and keyboard without bluetooth to my desktop!!! i had it working before, just find out the name and ensure I set it up... automate it if possible, otherwise just do it manually...
+
 - with the .zprofile's, as well as the other scripts per device, the teardown scripts and even the init scripts are starting to look a little redundant.. maybe just MOVE the init script stuff into the platfrom / device dependent zprofile, make sure it has checks (which shouldb e very quick, jsut checking paths to make sure things don't run when they don't have to)... and if I'm happy that that does everything I need, remove them... maybe in the future could add back a platform-specific 'postscript'... but if I'm not using any at the moment and the other scripts are fine, it seems like it might be a little redundant!!!!!!! just confusing which one to use, and code ends up in different places!!!!
 
 
