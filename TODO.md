@@ -39,6 +39,9 @@ ToDo today:
 - instead of using bootmarks through the ui like chrome, have some system of storing links/ bookmarks in obsidian...
 look up the best way to do this, but in general for each domain e.g. work have place(s) for bookmarks... google aroudn this and ask chatgpt..
 
+- when i clear up my git reop from big files, definitely get rid of the lazygit ones... they were a mistake from when I tried to install them on ubuntu and accidentally ended up committing them... remove!!!!!!!
+
+
 
 - install yazi on my ubuntu.. make a separate ubuntu script for installing packages... called 'manual_software_installs.sh' or something similar (ask chatgpt), and call that script in the ubuntu_init to keep everything modular... that seems like the best way of doing it...
 

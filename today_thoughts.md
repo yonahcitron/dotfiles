@@ -1,3 +1,6 @@
+MIGRATE ALL OF THIS TO OBSIDIAN ASAP!!!!
+
+
 
 - return to the heilige torah... but realise that hashem sent all this stuff for a reason... so return better, stronger, with love, not with fear, with confidence in it being right and in people's ability to choose correctly... and in it fitting in with the world... and being a beautiful things... and not a thing of superiority or fear... just of truth and love... and how the torah is such a gift.. really focus on this...
 
