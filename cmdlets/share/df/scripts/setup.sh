@@ -1,11 +1,5 @@
-#!/bin/bash
-# set -euo pipefail # TODO: Debug why there is an unbound local variable error here with set -u.
-set -eo pipefail
-
 # Import the global variables used throughout this script and others.
-source /home/yonah/repos/dotfiles/user_configs/sh/.bashrc # This should run out-the-box even on a clean install. The 'dotfiles' repo is installed already by the arch-ISO installation script. 
-
-# TODO: THINK AT SOME POITN WHETHER I WANT TO CALL THE .ZSHRC ETC HERE... BECAUSE CURRENTLY THEY'RE NOT GETTING SET UP!!
+source /home/yonah/repos/dotfiles/user_configs/sh/.bashrc # This should run out-the-box even on a clean install. The 'dotfiles' repo is installed already by the arch-ISO installation script.
 
 ###################################
 ########## Init scripts ###########
@@ -66,7 +60,7 @@ cd $working_dir
 ########## Post-setup scripts ###########
 #########################################
 
-# Run any platform-specific postscripts.
+# Run any platform-specific setup postscripts.
 if [ -e "$DF_PLATFORM_POSTSCRIPT" ]; then
   echo "Running postscript for $DISTRO: $DF_PLATFORM_POSTSCRIPT"
   source "$DF_PLATFORM_POSTSCRIPT"
@@ -80,4 +74,13 @@ if [ -e "$DF_DEVICE_POSTSCRIPT" ]; then
   source "$DF_DEVICE_POSTSCRIPT"
 else
   echo "No postscript found for $HOSTNAME: $DF_DEVICE_POSTSCRIPT"
+fi
+
+# Finally, when updating system (and therefore already using zsh),
+# rerun .zsh setup scripts to ensure any changes apply.
+ZSH_PATH=$(which zsh)
+if [[ "$SHELL" == "$ZSH_PATH" ]]; then
+  echo "[INFO] Already running in zsh, sourcing zsh setup scripts to refresh environment.."
+  source $DF_BASE_ZPROFILE
+  source $DF_BASE_ZSHRC
 fi

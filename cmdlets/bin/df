@@ -26,9 +26,6 @@ def main():
 
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    # Setup command
-    setup_parser = subparsers.add_parser("setup", help="Run common setup script")
-
     # Lazygit command - can be either 'lazygit' or 'lg'
     lazygit_parser = subparsers.add_parser("lazygit", aliases=["lg"], help="Run lazygit command")
 
@@ -37,10 +34,7 @@ def main():
     # TODO: Simplify this asap to simply search for the name of the args.command in the folder, and execute that script!!! will make the logic super straightforward and modular etc...
 
 
-    if args.command == "setup":
-        script_path = os.path.join(df_scripts_dir, "setup.sh")
-        run_script(script_path)
-    elif args.command in ["lazygit", "lg"]:
+    if args.command in ["lazygit", "lg"]:
         script_path = os.path.join(df_scripts_dir, "lazygit.sh")
         run_script(script_path)
 if __name__ == "__main__":

@@ -13,7 +13,7 @@ alias lg="lazygit"
 
 alias dotfiles="cd $dotfiles && ls"
 # Quick navigation of the 'df' cmdlet.
-alias setup="df setup"
+alias setup="source $dotfiles/cmdlets/share/df/scripts/setup.sh" # Can't be with the 'df' cmdlet, as want to be able to source new env vars into interactive shell. Can only do this with an alias, can't inherit variables from another non-shell process.
 
 # Quickly edit the todo. # TODO: Eventually move this into the `df` cmdlet.
 #alias todo="vim $dotfiles/TODO.md"
