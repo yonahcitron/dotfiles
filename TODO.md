@@ -1,5 +1,7 @@
 ToDo today:
 
+- go through ALL of my todoist tasks asap esp the inbox, reorganise, sort them out... should be easy to do !!
+
 - SOON ALSO MAKE A CMDLET, LIKE DF, for my vault.... with similar commands like bieng able to commit everything and stuff... in general would be useful to have an interface for that!! call it 'vlt' or something simple like that... or even 'vt'...
 
 - switch round the home row mods such that my pinkies aren't doing main mod / gui... my ring finger should be...
