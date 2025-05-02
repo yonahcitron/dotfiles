@@ -1,6 +1,16 @@
 ToDo today:
 
+- check my imperial email, and once my obsidian discount is approved, get obsidian sync!
+     - also set up the git backup as a secondary layer
+     - also make sure the images and stuff go into a separate folder, and add that to git ignore...
+     - also add the .git folder to the obsidian sync thing
+     - then add the images and multimedia folder to onedrive as well...
+
 - remove the holding down bindings to backspace etc... so that I can hold things down and have quick deletions... I don't use them anyway!!!
+
+
+- at some point, instead of swapping things around in my vim configurations etc, maybe HARD-CODE IT INTO THE KEYBOARD at the kmonad or eventually even firmware level, to swap ; and :, and then to make j + k send out an escape character... this will let my vim keybindings work universally, also in like obsidian for example...
+    - remember this is because a lot of things are NOT supported in obsidian that I might otherwise want!!!! like custom vim keybindings.. best approach for now I think it to fix it at the higher level!!!
 
 - add the fzf and compression dependency to my ubuntu setup that will make nvim work properly...
 
