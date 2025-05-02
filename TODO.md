@@ -1,5 +1,7 @@
 ToDo today:
 
+- remove the holding down bindings to backspace etc... so that I can hold things down and have quick deletions... I don't use them anyway!!!
+
 - add the fzf and compression dependency to my ubuntu setup that will make nvim work properly...
 
 - In the setup script, source the .zprofile or somethign at the end... make sure everything is getting sourced basically!!
@@ -12,6 +14,7 @@ ToDo today:
 
 - when i go to the todo tab in hyprland using the shortcut, make it open todo if it's not already open there.. sometimes I like closing it to refresh the buffer especially after doing a git pull, I shouldn't have to add it every time...
 
+- as default downloads in the arch iso, download my dotfiles folder and my vault...
 
 - sort out the problem of the dotfiles not being installed right... it being installed in sudo...
 

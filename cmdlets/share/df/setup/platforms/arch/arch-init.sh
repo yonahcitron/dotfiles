@@ -119,6 +119,7 @@ fi
 echo "Ensuring all the following packages are installed:"
 cat $DF_PLATFORM_PACKAGES
 
+# Do this in .zprofile
 if ! command -v yay &>/dev/null; then
   # Install yay to access AUR packages
   previous_dir=$(pwd)
