@@ -1,5 +1,6 @@
 ToDo today:
 
+- add the fzf and compression dependency to my ubuntu setup that will make nvim work properly...
 
 - In the setup script, source the .zprofile or somethign at the end... make sure everything is getting sourced basically!!
 
