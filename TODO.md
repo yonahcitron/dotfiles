@@ -11,6 +11,7 @@ ToDo today:
 
 - sort out the problem of the dotfiles not being installed right... it being installed in sudo...
 
+- get my obsidian repo in the right format.. and also make sure that I work out how to use obsidian best in vim....
 
 - make the default width of neotree wider.. .make it adjust automatically... i can always just close it if it's too wide...
 
@@ -66,6 +67,8 @@ look up the best way to do this, but in general for each domain e.g. work have p
 - set up the custom zprofiles..
 
 - practise using tmux copy mode, to copy and paste from the terminal output using just the keyboard... is very cool tbh...
+
+- arch is supported in wsl! next time I have a fresh windows install, on a work machine or anything, just use that!
 
 
 - ASAP REMOVE THE HOLDING LAYER TRIGGER FUNCTIONALITY FROM KEYS LIKE CAPS LOCK and backspace... THIS IS CURRENTLY STOPPING ME FROM BEING able to hold down the backspace to be able to delete lots of words and is kinda annoying! get rid of it for this reason... also the more I type the more I'll learn what's actually important in a keybaord and whta's not
