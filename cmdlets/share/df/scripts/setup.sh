@@ -36,18 +36,18 @@ fi
 working_dir=$(pwd)
 
 echo "Setting up Yonah's user configs."
-cd $dotfiles/user_configs
+cd $DOTFILES/user_configs
 stow --target $HOME */ # User configs.
 
 # Global configs.
 echo "Setting up Yonah's global configs."
-cd $dotfiles/global_configs
+cd $DOTFILES/global_configs
 # Stowing as root should give root ownership of the symlinks.
 # The files they link to should be user-owned, to not interfere with git.
 sudo stow --target /etc */
 
 # Executable cmdlets.
-cd $dotfiles/cmdlets
+cd $DOTFILES/cmdlets
 mkdir -p $HOME/.local/share
 mkdir -p $HOME/.local/bin
 stow --target $HOME/.local/share share

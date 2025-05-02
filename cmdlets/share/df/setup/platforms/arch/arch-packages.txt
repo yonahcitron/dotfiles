@@ -21,6 +21,7 @@ brightnessctl
 ltunify
 unzip
 fzf
+ripgrep
 lazygit
 speedtest
 qemu-base

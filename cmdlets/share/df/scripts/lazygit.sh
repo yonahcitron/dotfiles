@@ -1,2 +1,2 @@
 #!/bin/bash
-lazygit -p $dotfiles
+lazygit -p $DOTFILES

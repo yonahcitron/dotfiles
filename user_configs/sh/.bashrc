@@ -11,12 +11,12 @@ source $HOME/repos/dotfiles/user_configs/sh/.env.sh # This should run out-the-bo
 alias vi="nvim"
 alias lg="lazygit"
 
-alias dotfiles="cd $dotfiles && ls"
+alias dotfiles="cd $DOTFILES && ls"
 # Quick navigation of the 'df' cmdlet.
-alias setup="source $dotfiles/cmdlets/share/df/scripts/setup.sh" # Can't be with the 'df' cmdlet, as want to be able to source new env vars into interactive shell. Can only do this with an alias, can't inherit variables from another non-shell process.
+alias setup="source $DOTFILES/cmdlets/share/df/scripts/setup.sh" # Can't be with the 'df' cmdlet, as want to be able to source new env vars into interactive shell. Can only do this with an alias, can't inherit variables from another non-shell process.
 
 # Quickly edit the todo. # TODO: Eventually move this into the `df` cmdlet.
-#alias todo="vim $dotfiles/TODO.md"
+#alias todo="vim $DOTFILES/TODO.md"
 
 alias sd="sudo shutdown -h now"
 

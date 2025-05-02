@@ -28,7 +28,7 @@
 #		  should it run the startup script to ensure that each computer is up-to-date with the other.
 # TODO: Make a "dotfiles-sync" bash function that allows me to update them to git from anywhere.
 #		- This is useful because I'll be editing many of the dotfiles via their symlinks, which are not in their
-#		  native git folder. This function allows me to access it globally (also maybe make a global $dotfiles variable
+#		  native git folder. This function allows me to access it globally (also maybe make a global $DOTFILES variable
 #		  at startup in bash). Maybe can also deal with syncing issues, but make sure that I can handle conflicts
 #		  manually if needs be.
 # TODO: Move the location of arch-setup.sh BACK to just the dotfiles root (i.e. so it's not stowed).
