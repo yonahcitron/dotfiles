@@ -1,5 +1,9 @@
 ToDo today:
 
+- SOON ALSO MAKE A CMDLET, LIKE DF, for my vault.... with similar commands like bieng able to commit everything and stuff... in general would be useful to have an interface for that!! call it 'vlt' or something simple like that... or even 'vt'...
+
+- switch round the home row mods such that my pinkies aren't doing main mod / gui... my ring finger should be...
+
 - check my imperial email, and once my obsidian discount is approved, get obsidian sync!
      - also set up the git backup as a secondary layer
      - also make sure the images and stuff go into a separate folder, and add that to git ignore...
