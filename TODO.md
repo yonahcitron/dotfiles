@@ -4,6 +4,9 @@ ToDo today:
 
 - SOON ALSO MAKE A CMDLET, LIKE DF, for my vault.... with similar commands like bieng able to commit everything and stuff... in general would be useful to have an interface for that!! call it 'vlt' or something simple like that... or even 'vt'...
 
+- sort out where my user-service starter scripts go... currently, they seem to fire every time I open a new shell, that seems like overkill... make it so that they only fire when I run a 'setup'... so take them out of the zprofile, and put them specifically into the postscripts of each of the machines
+
+
 - switch round the home row mods such that my pinkies aren't doing main mod / gui... my ring finger should be...
 
 - check my imperial email, and once my obsidian discount is approved, get obsidian sync!
