@@ -29,7 +29,7 @@ q w e r t y u i o p
 (tap-hold 200 a alt) (tap-hold 200 s met) (tap-hold 200 d ctl) (tap-hold 200 f sft) g h
 (tap-hold 200 j sft) (tap-hold 200 k ctl) (tap-hold 200 l met) (tap-hold 200 ; alt) '
 (tap-hold 200 z ralt) (tap-hold 200 x ralt) c v b n m , (tap-hold 200 . ralt) (tap-hold 200 / ralt)
-                XX spc XX lalt ralt del tab bspc XX XX esc ent
+                XX spc XX lalt ralt del tab ent XX XX esc bspc
 )
 
 ;; ─────────────────────────────────────────────────────────────────────────────
@@ -40,7 +40,7 @@ q w e r t y u i o p
 (tap-hold 200 a alt) (tap-hold 200 s met) (tap-hold 200 d ctl) (tap-hold 200 f sft) g h
 (tap-hold 200 j sft) (tap-hold 200 k ctl) (tap-hold 200 l met) (tap-hold 200 ; alt) '
 (tap-hold 200 z ralt) (tap-hold 200 x ralt) c v b n m , (tap-hold 200 . ralt) (tap-hold 200 / ralt)
-                XX spc XX lalt ralt del tab bspc XX XX esc ent
+                XX spc XX lalt ralt del tab ent XX XX esc bspc
 )
 
 ;; ─────────────────────────────────────────────────────────────────────────────
@@ -50,7 +50,7 @@ q w e r t y u i o p
 q w e r t y u i o p
 a s d f g h j k l ; '
 z x c v b n m , . /
-                XX spc XX lalt ralt del tab bspc XX XX esc ent
+                XX spc XX lalt ralt del tab ent XX XX esc bspc
 )
 
 ;; Maybe another time implement the layers, based on the template file.

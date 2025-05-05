@@ -80,7 +80,7 @@ fi
 # rerun .zsh setup scripts to ensure any changes apply.
 ZSH_PATH=$(which zsh)
 if [[ "$SHELL" == "$ZSH_PATH" ]]; then
-  echo "[INFO] Already running in zsh, sourcing zsh setup scripts to refresh environment.."
+  echo "[INFO] Already running in zsh, sourcing zsh setup scripts to refresh environment."
   source $DF_BASE_ZPROFILE
   source $DF_BASE_ZSHRC
 fi
