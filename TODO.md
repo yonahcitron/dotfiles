@@ -5,6 +5,10 @@ ToDo today:
 
 - go through ALL of my todoist tasks asap esp the inbox, reorganise, sort them out... should be easy to do !!
 
+- make the hyprland trackpad sensitivity on my thinkpad higher again, since now I tend to use just my thumbs and tapping on the trackpad for navigating the gui... I want to be able to do more with my fingers!
+
+- find a way / chrome extension to get tab numbers on chrome tabs so I can more quickly see which ones I'm switching to...
+
 - SOON ALSO MAKE A CMDLET, LIKE DF, for my vault.... with similar commands like bieng able to commit everything and stuff... in general would be useful to have an interface for that!! call it 'vlt' or something simple like that... or even 'vt'...
 
 - sort out where my user-service starter scripts go... currently, they seem to fire every time I open a new shell, that seems like overkill... make it so that they only fire when I run a 'setup'... so take them out of the zprofile, and put them specifically into the postscripts of each of the machines
@@ -582,3 +586,6 @@ look up the best way to do this, but in general for each domain e.g. work have p
 
 - Get into ergonomic split and ortholinearkeyboards...
    - Eventually get into the really small ones that just have thumb layer keys and home row mod keys ... can even practise getting into this first by using my normal laptop keys as home row modifiers and using the other things for somethign else..
+
+- potentially for use with tv??... whilst using the other laptop as a linux device? sounds like a good idea to me...
+https://www.amazon.co.uk/Controller-Logitech-Keyboard-Trackball-Multimedia/dp/B0CT92SLLW?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ADG7ML0RBF414
