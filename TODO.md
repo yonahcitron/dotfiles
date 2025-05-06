@@ -1,5 +1,8 @@
 ToDo today:
 
+- ASAP MAKE IT SO THAT I CAN SSH INTO MY WORK LAPTOP... WILL BE SUPER CONVENIENT AND USEFUL!!!!
+
+
 - maybe rename cmdlets to something better like 'tools'... or brainstorm some sort of name with chatgpt?
 
 - make a little cmdlet to update the state of my tmux resurrect?
