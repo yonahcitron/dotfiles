@@ -1,11 +1,10 @@
-# Run systemctl to ensure the right services are enabled at every login; the commands are idempotent.
 # This is particularly important for enabling user-level services after a fresh install from my custom arch-ISO installer.
 
 ###################################
-##### Ensure Systemd Daemons  #####
+##### Ensure Installed Daemons  #####
 ###################################
 
-global_services=("iwd" "systemd-networkd" "systemd-resolved")
+global_services=("iwd") # Critical services are started in arch-init. Enable ones that are only installed.
 user_services=("pipewire" "pipewire-pulse" "wireplumber")
 
 # Enable necessary systemd services on every startup, and when setting up for the first time in my custom arch-ISO chroot.
