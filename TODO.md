@@ -2,6 +2,9 @@ ToDo today:
 
 - ASAP MAKE IT SO THAT I CAN SSH INTO MY WORK LAPTOP... WILL BE SUPER CONVENIENT AND USEFUL!!!!
 
+- make it so that in hyprland, the different bindings for different tmux windows perform the tmux command (make a shortcut for it or a variable in hyprland) ... but then find a way to make them open to a particular window... to focus the one I want..
+    - also find the best keybindings for the 5 windows or so, and if they clash with existing ones, try find a way to replace the existing ones as I think the tmux windows will be very common / important ones...
+
 
 - maybe rename cmdlets to something better like 'tools'... or brainstorm some sort of name with chatgpt?
 
