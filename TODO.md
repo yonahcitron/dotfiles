@@ -1,5 +1,21 @@
 ToDo today:
 
+- change back asap the neotree to wider and auto-adjust width...
+
+- find out why in nvim links show up so badly ... e.g. in !priority in my work section of my vault...
+
+- asap make a vim shortcut to add a line above and below without actually moving the cursor there... look up online and with gpt what the existing approaches people use are, and see if I like any of them...
+    - Also make shortcuts to delete the following word with a single shortcut, or delete the previous word with a single shortcut that I press multiple times. Ask chatgpt to search for some good existing workflow for this.
+
+
+- In my nvim config, make it so that tab converts to *4* spaces exactly.
+
+
+- make auto open of obsidian when I hit the shortcut to open the vault... maybe make auto-save specifically when I'm in my vaults for example... because for those I do want it to save automatically... and make it do automatic commits just in my vault whenever I make changes, say like every 5 minutes or something...
+
+- find out if there are actually any advantages to emac... it seems like there nothing you can do there that you can't do with neovim + tmux ???
+    - Basically it seems like emacs is too inefficient.. I can get everything done better, more quickly, and more simply with nvim.
+
 - consolidate all the files properly for my thinkpad... so that I make them all super neat, and look super nice etc...
      - when I can be bothered, then I can practise adding symbol keys one-by-one...
 
