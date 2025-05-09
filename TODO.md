@@ -15,6 +15,17 @@ ToDo today:
 
 - find out if there are actually any advantages to emac... it seems like there nothing you can do there that you can't do with neovim + tmux ???
     - Basically it seems like emacs is too inefficient.. I can get everything done better, more quickly, and more simply with nvim.
+- ASAP MAKE IT SO THAT I CAN SSH INTO MY WORK LAPTOP... WILL BE SUPER CONVENIENT AND USEFUL!!!!
+
+- make it so that in hyprland, the different bindings for different tmux windows perform the tmux command (make a shortcut for it or a variable in hyprland) ... but then find a way to make them open to a particular window... to focus the one I want..
+    - also find the best keybindings for the 5 windows or so, and if they clash with existing ones, try find a way to replace the existing ones as I think the tmux windows will be very common / important ones...
+
+
+- maybe rename cmdlets to something better like 'tools'... or brainstorm some sort of name with chatgpt?
+
+- make a little cmdlet to update the state of my tmux resurrect?
+
+- in chatgpt, to get rid of the sidebar if it pops up, I actually don't need to control + shift + s, can just press esc a few times....
 
 - consolidate all the files properly for my thinkpad... so that I make them all super neat, and look super nice etc...
      - when I can be bothered, then I can practise adding symbol keys one-by-one...
@@ -561,14 +572,6 @@ look up the best way to do this, but in general for each domain e.g. work have p
 - Make it when that I switch between workspaces in hyprland, a little thing appears in the TOP-RIGHT corner showing which workspace I'm now in.
 	- Also make some nice little shortcut for navigating BETWEEN workspaces... like super + shift + hjkl.
 - Find a way to perform actions with selected text in vim (in visual mode). Make a shortcut at somepoint to quickly copy selected text to the clipboard.
-- There are lots of things I current DON'T like about my nvim setup that stops me using it I think.
-	- I arguable prefer the font on normal vim.
-	- Make the text wraparound.
-	- Find all the (visual) things I don't like an improve them asap!
-- Zsh not working by default as startup shell on my computer from startup script.. find out why not..
-- I THINK ... switch super + c and super + q .... make opening the terminal be super + T, and make quitting a window be super + Q ... seems more sensible to me!!
-- thinkpad  still seems not have to have all fonts. Download some better fonts and set them to the system default.
-- Set up kmonad for some other things on my keyboard, e.g. the mouse button... press once for clicking, hold to scroll as currently...
 - Set up some function keys that I think would be useful for copy paste... maybe some volume functionality as well...
 - Store all my systemd files in my dotfiles repo as well?? see if that works and if it will automatically detect them and start them on a new machine?? maybe also add at the end of my arch-setup.sh that if it's the first time doing these things I should probably do a restart of the computer... ALSO CURRENTLY in my kmonad file in /etc/systemd/system/kmonad.service ... it's hard-coded to my username as 'yac'... I need to CHANGE both pc and laptop to have the same username (yonah), and differentiate them by their hostnames :: 'thinkpad' vs 'thinkcentre'
 - Remap the capslock to esc for once and capslock for twice (and maybe control for hold??)
@@ -600,10 +603,6 @@ look up the best way to do this, but in general for each domain e.g. work have p
 
 - Make a SEPARATE PARTITION FOR MY HOME/YONAH FOLDER(S) AND COPY JUST THEM TO MY ONEDRIVE... this way also I can quickly re-install the linux system and run my whole script etc without having to worry about files being persisted etc... Will make life easier methinks and is good practise!!!
 
-- Make a section of my arch-install.sh script for checking if some of my vim packages are installed... and if not, installing them... e.g.vim wayland keyboard
-
-- MAKE THE THINK BUTTON RED THING ON MY THINKPAD LESS SENSITIVE!!! cURRENTLY IT's superrrr sensitive, which is a bit much and makes it hard to scroll and move the mouse around effectively without overshooting... definitely a way to configure this better :))
-
 - find out why when I do the super + control to either side of my keyboard, and try to switch between workspaces, it doesn't work!!! fix this..
 - Look into mason-lspconfig.nvim .... and look into how dependency management works in pacman... I was getting an error bc I didn't have unzip installed... this should be an auto-installed dependency surely? or maybe this is more of the lazy.nvim thing (actually yeah I think it is..)... find out how this should be included in the install script or whatever, or how the error can be clearer and then speak to them about it and see what they can can do!!
 - CONFIGURE HYPRLAND to have super + c be copy (NOT close -remove that from the config), and super + v be paste!!!!
@@ -613,7 +612,6 @@ look up the best way to do this, but in general for each domain e.g. work have p
 
 - at some point try out a few different machine in qemu ... some for the apple 2, early dos computers, see what they were like!! is kinda cool to be able to do that!!
 
-- practise PASTING over text in vim (without having to delete it first and adding it to the null register...) .... the way to do this is by first visually selecting what I want to paste over, and then pasting it..
 
 - Make a command "df config XXXX" e.g. "df config hypr".... make a mapping file between a given name, and the config file used to config them... if one doesn't exist, it should prompt you to ask if you wanna create a new mapping... e.g. if you type "df config tmux" and you haven't yet mapped a config file to tmux, it should prompt you to ask if you want to provide a path to the file it should map to.. to store these, keep a json file in the $dotfiles root called .config_shortcuts.json or something ...
 
@@ -621,9 +619,6 @@ look up the best way to do this, but in general for each domain e.g. work have p
 
 - Use the built-in neovim terminal mainly when I want to do something that requires looking at the code at the same time... otherwise basically use a dedicated terminal where possible!!
 
-
-- Get into ergonomic split and ortholinearkeyboards...
-   - Eventually get into the really small ones that just have thumb layer keys and home row mod keys ... can even practise getting into this first by using my normal laptop keys as home row modifiers and using the other things for somethign else..
 
 - potentially for use with tv??... whilst using the other laptop as a linux device? sounds like a good idea to me...
 https://www.amazon.co.uk/Controller-Logitech-Keyboard-Trackball-Multimedia/dp/B0CT92SLLW?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ADG7ML0RBF414

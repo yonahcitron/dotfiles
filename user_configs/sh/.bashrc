@@ -45,6 +45,16 @@ launch() {
   fi
 }
 
+# Stop zombie sessions accumulating in tmux. Just open one named session by default.
+tmux() {
+  # if no arguments, or just `attach`, attach-or-create "primary"
+  if [ $# -eq 0 ] || { [ $# -eq 1 ] && [ "$1" = "attach" ]; }; then
+    command tmux new-session -A -s mission-control
+  else
+    # forward everything else to the real tmux
+    command tmux "$@"
+  fi
+}
 #############################################
 # DEVICE- AND PLATFORM-SPECIFIC CODE
 #############################################

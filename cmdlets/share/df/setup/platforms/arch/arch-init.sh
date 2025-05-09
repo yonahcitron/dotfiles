@@ -3,6 +3,20 @@
 ########################################
 # TODO: At some point, maybe move some of this to device-specific scripts.
 
+critical_global_services=("iwd" "systemd-networkd" "systemd-resolved")
+# Enable necessary systemd services on every startup, and when setting up for the first time in my custom arch-ISO chroot.
+sudo systemctl enable $critical_global_services
+# Actually start the service daemons if for live system.
+if sudo systemd-detect-virt --quiet --chroot; then
+  echo "[WARNING] In chroot — enabling global service, but not starting them. Services will start on reboot."
+else
+  echo "[INFO] Starting global systemd services: ${critical_global_services[@]}"
+  sudo systemctl daemon-reload
+  for service in "${critical_global_services[@]}"; do
+    sudo systemctl enable --now $critical_global_services
+  done
+fi
+
 # **Hibernation**
 if [ -n "$disable_hibernation_setup" ] || grep -q 'resume=' /etc/default/grub; then
   echo "skipping hibernation setup (disabled or already configured)."
