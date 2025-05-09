@@ -1,5 +1,15 @@
 ToDo today:
 
+
+- I've realised the best way to do my tabs in tmux is to have each tab SIMPLY FOR A DIR!! not have a separate one for todo... each dir should be open in vim, and I can do any commands I want there, opening terminal(s) with a different window where relevant... but fundementally each tab should just be a working directly.. if I want to edit the todo for example, simply switch to that tmux tab and open the todo buffer from there... should not be it's own tab, that's less efficient...
+
+  - pretty much all the time when I'm in a tab, I should not leave vim, just save, and commit using lazygit WITHIN vim if relevant... if I wanna do other cli stuff, can open that up to the side!!!!!!!!
+
+- think about, in my arch setup, how to have default tabs in the browser, and switch between them / move tabs to other windows with the keyboard (given that windows should be in fixed positions in my workspace...)... it will likely involve switching to a better, more configurable browser, like the vim-based one, at some point... it will take some time though!!
+
+
+
+
 - change back asap the neotree to wider and auto-adjust width...
 
 - find out why in nvim links show up so badly ... e.g. in !priority in my work section of my vault...
