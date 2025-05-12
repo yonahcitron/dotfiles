@@ -2,4 +2,5 @@ stow
 gh
 zsh
 gcc
+unzip
 build-essential

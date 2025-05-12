@@ -133,7 +133,10 @@ fi
 echo "Ensuring all the following packages are installed:"
 cat $DF_PLATFORM_PACKAGES
 
-# Do this in .zprofile
+# Ensure system and package databases are up-to-date.
+sudo pacman -Syu
+
+# Do this in .zprofile? Maybe not, have a think about the best architecture.
 if ! command -v yay &>/dev/null; then
   # Install yay to access AUR packages
   previous_dir=$(pwd)
