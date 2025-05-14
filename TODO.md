@@ -1,6 +1,7 @@
 ToDo today:
 
-
+- on my work laptop terminal emulator, make a profile to open and start ubuntu by default..
+- when there are dotfiles updates detected in user startup, e.g. .zprofile, it should ask (like oh-my-zsh) whether you want to install updates (with a Y/n prompt...)
 - try sort out the screen issues
 
 - maybe at SOME POINT spend ages trying to get displaylink to run properly on arch... I've got a chatgpt conversation around it... but it will certainly be a whole process and not easy.. so only do it when I have the time / effort for it, and wanna commit all of that to getting it to work!!!
