@@ -10,14 +10,14 @@ export EDITOR=nvim
 export DOTFILES="$HOME/repos/dotfiles"
 export VAULT="$HOME/repos/vault"
 
-# This method returns the hostname of the target system even when in chroot - this is what I want for my setup scripts.
-export HOSTNAME=$(</etc/hostname)
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   source /etc/os-release
   export DISTRO=$ID
+  export HOSTNAME=$(</etc/hostname) # This method returns the hostname of the target system even when in chroot - this is what I want for my setup scripts.
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   export DISTRO="mac"
+  export HOSTNAME=$(hostname)
 fi
 
 # Dotfiles config dirs

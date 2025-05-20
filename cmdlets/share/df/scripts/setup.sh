@@ -1,5 +1,5 @@
 # Import the global variables used throughout this script and others.
-source /home/yonah/repos/dotfiles/user_configs/sh/.bashrc # This should run out-the-box even on a clean install. The 'dotfiles' repo is installed already by the arch-ISO installation script.
+source $HOME/repos/dotfiles/user_configs/sh/.bashrc # This should run out-the-box even on a clean install. The 'dotfiles' repo is installed already by the arch-ISO installation script.
 
 ###################################
 ########## Init scripts ###########
@@ -10,6 +10,7 @@ if [ -e "$DF_PLATFORM_INIT_SCRIPT" ]; then
   source "$DF_PLATFORM_INIT_SCRIPT"
 else
   echo "No init script found for $DISTRO: $DF_PLATFORM_INIT_SCRIPT"
+  exit 0
 fi
 
 # Run any device-specific initialization scripts, identified by the hostname.

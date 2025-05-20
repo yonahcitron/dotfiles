@@ -1,9 +1,21 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+# oh-my-zsh and powerlevel10k are not available in the default Ubuntu repositories. Even though it's available on arch etc, install manually on all distros for consistency.
+export ZSH="$HOME/.oh-my-zsh"
+if [ ! -d $ZSH ]; then
+    git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git $ZSH
+fi
+if [ ! -d $ZSH/custom/themes/powerlevel10k ]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH/custom/themes/powerlevel10k 
+fi
+
+
 
 # Source .bashrc to import all settings and global variables used throughout this script and others (e.g. $DISTRO etc)
 [[ -f ~/.bashrc ]] && source ~/.bashrc
@@ -11,23 +23,6 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# TODO: Put this into distro-specific .zshrc's... This should also be where the installs happen for all the programs...
-if [[ $DISTRO == "arch" ]]; then
-    export ZSH="/usr/share/oh-my-zsh"
-    # Powerlevel10k should already be installed through yay.
-    if [ ! -L "$ZSH/custom/themes/powerlevel10k" ]; then
-        sudo ln -s /usr/share/zsh-theme-powerlevel10k /usr/share/oh-my-zsh/custom/themes/powerlevel10k
-    fi
-elif [[ $DISTRO == "ubuntu" ]]; then
-    # oh-my-zsh and powerlevel10k are not available in the default Ubuntu repositories.
-    export ZSH="$HOME/.oh-my-zsh"
-    if [ ! -d $ZSH ]; then
-      git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git $ZSH
-    fi
-    if [ ! -d $ZSH/custom/themes/powerlevel10k ]; then
-      git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH/custom/themes/powerlevel10k 
-    fi
-fi
 
 
 # Set name of the theme to load --- if set to "random", it will
