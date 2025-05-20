@@ -1,5 +1,7 @@
 ToDo today:
 
+- I MIGHT BE ABLE TO ACCESS THE REPO DIRECTLY WITH THE DATABRICKS CLI... GIVE THIS A TRY AND SEE IF IT WORKS ON MY COMPUTER LATER WHEN i GET HOME!!!!
+
 - TRY TO FIX THE PIP3 SSL ISSUES ON MY UBUNTU CLUSTER... then install the databricks cli and set it all up....
 
 - find out on my ubuntu setup why control + the tmux window number is not working!!!
