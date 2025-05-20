@@ -1,6 +1,8 @@
 ToDo today:
 
 
+- FIND OUT IF THERE ARE ANY AGENTIC cli systems as good as the agentic stuff with chatgpt??? would be interesting to find out...
+
 - make some better system of managing my brew installs in a more modular way, so I can e.g. install chrome on mac but not on ubuntu...
 
 - work out why my zsh and yazi themes are looking so weriddd on my mac??? like weird colour scheme and faint?? either way, sort it out!!
