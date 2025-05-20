@@ -4,3 +4,4 @@ yazi
 lazygit
 gh
 fzf
+tmux

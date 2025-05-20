@@ -1,6 +1,10 @@
 ToDo today:
 
 
+- set up the remote access to my mac via ssh, and then set it up via the commandline thing for databricks...
+
+- basls not installing by mason in my nvim on my mac... find out why!!!!
+
 - FIND OUT IF THERE ARE ANY AGENTIC cli systems as good as the agentic stuff with chatgpt??? would be interesting to find out...
 
 - make some better system of managing my brew installs in a more modular way, so I can e.g. install chrome on mac but not on ubuntu...
