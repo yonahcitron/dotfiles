@@ -1,6 +1,10 @@
 ToDo today:
 
+- TRY TO FIX THE PIP3 SSL ISSUES ON MY UBUNTU CLUSTER... then install the databricks cli and set it all up....
+
+- find out on my ubuntu setup why control + the tmux window number is not working!!!
 - on my work laptop terminal emulator, make a profile to open and start ubuntu by default..
+    - It should also open tmux by default...
 - when there are dotfiles updates detected in user startup, e.g. .zprofile, it should ask (like oh-my-zsh) whether you want to install updates (with a Y/n prompt...)
 - try sort out the screen issues
 
