@@ -1,6 +1,6 @@
 ToDo today:
 
-
+- after tmux session restore, some of the terminal have weird text before them... fix that... also get rid of the 'todo' tab from tmux... I don't really want that anymore...
 - set up the remote access to my mac via ssh, and then set it up via the commandline thing for databricks...
 
 - basls not installing by mason in my nvim on my mac... find out why!!!!
