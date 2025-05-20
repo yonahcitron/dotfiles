@@ -10,7 +10,6 @@ export EDITOR=nvim
 export DOTFILES="$HOME/repos/dotfiles"
 export VAULT="$HOME/repos/vault"
 
-
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   source /etc/os-release
   export DISTRO=$ID
@@ -46,4 +45,6 @@ export DF_DEVICE_PACKAGES="$DF_DEVICE_DIR/$HOSTNAME-packages.txt"
 export DF_DEVICE_INIT_SCRIPT="$DF_DEVICE_DIR/$HOSTNAME-init.sh"
 export DF_DEVICE_POSTSCRIPT="$DF_DEVICE_DIR/$HOSTNAME-postscript.sh"
 
-export DF_BREW_PACKAGES="$DF_SETUP_DIR/brew-packages.txt" # Used for MacOS and Ubuntu.K
+# Used for just MacOS and Ubuntu.
+export DF_BREW_PACKAGES="$DF_SETUP_DIR/brew-packages.txt"
+export DF_PLATFORM_BREW_PACKAGES="$DF_PLATFORM_DIR/$DISTRO-brew-packages.txt"

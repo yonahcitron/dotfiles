@@ -2,3 +2,5 @@ stow
 neovim
 yazi
 lazygit
+gh
+fzf

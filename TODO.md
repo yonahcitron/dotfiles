@@ -1,5 +1,10 @@
 ToDo today:
 
+
+- make some better system of managing my brew installs in a more modular way, so I can e.g. install chrome on mac but not on ubuntu...
+
+- work out why my zsh and yazi themes are looking so weriddd on my mac??? like weird colour scheme and faint?? either way, sort it out!!
+
 - I MIGHT BE ABLE TO ACCESS THE REPO DIRECTLY WITH THE DATABRICKS CLI... GIVE THIS A TRY AND SEE IF IT WORKS ON MY COMPUTER LATER WHEN i GET HOME!!!!
 
 - TRY TO FIX THE PIP3 SSL ISSUES ON MY UBUNTU CLUSTER... then install the databricks cli and set it all up....
