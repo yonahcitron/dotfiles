@@ -1,4 +1,3 @@
 databricks
-dbx
 visual-studio-code --cask
 
