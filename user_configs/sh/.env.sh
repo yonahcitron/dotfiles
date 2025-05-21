@@ -48,3 +48,4 @@ export DF_DEVICE_POSTSCRIPT="$DF_DEVICE_DIR/$HOSTNAME-postscript.sh"
 # Used for just MacOS and Ubuntu.
 export DF_BREW_PACKAGES="$DF_SETUP_DIR/brew-packages.txt"
 export DF_PLATFORM_BREW_PACKAGES="$DF_PLATFORM_DIR/$DISTRO-brew-packages.txt"
+export DF_DEVICE_BREW_PACKAGES="$DF_DEVICE_DIR/$HOSTNAME-brew-packages.txt"

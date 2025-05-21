@@ -1,5 +1,16 @@
 ToDo today:
 
+- change colour theme in yazi to be clearer on macos
+
+- see if there's a way to make obsidian vim copy into the clipboard
+
+- on my mac:
+- Make it so you don’t have to enter your sudo password every time….
+- Update the system clock automatically… sudo sntp -sS [time.apple.com](http://time.apple.com)
+- Make the automatic no need for sudo apply by editing /private/etc/sudoers.d  
+
+- make the starting directories for the tmux saved sessions be correct... make them open to my home directory rather than just the linux directory?
+
 - after tmux session restore, some of the terminal have weird text before them... fix that... also get rid of the 'todo' tab from tmux... I don't really want that anymore...
 - set up the remote access to my mac via ssh, and then set it up via the commandline thing for databricks...
 

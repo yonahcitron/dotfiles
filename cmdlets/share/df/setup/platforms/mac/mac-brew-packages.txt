@@ -1,2 +1,3 @@
 google-chrome
 obsidian
+iterm2

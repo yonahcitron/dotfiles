@@ -9,9 +9,7 @@ if ! command -v brew >/dev/null 2>&1; then # Install brew if not present
 fi
 
 echo "[INFO} Installing brew packages..."
-# Global packages (also installed on ubuntu)
-xargs brew install <$DF_BREW_PACKAGES
-# MacOS specific packages
+xargs brew install <$DF_BREW_PACKAGES # Packages also on ubuntu
 xargs brew install <$DF_PLATFORM_BREW_PACKAGES
 echo "[INFO} Brew packages successfully installed!"
 
