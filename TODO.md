@@ -1,6 +1,10 @@
 ToDo today:
 
 
+- also optimise the copy-paste functionality across the hyprland by finding some good keybindings for them, and sticking with them...
+
+- on my home desk setup, set up my keybdingins, set up all the screen logic that I want to work... set up everything!!!!!!
+
 - I'll need a more modular hyprland.conf for different setups... don't want to just have different files as then some common things won't be shared over, this gives me more control... so therefore I need to look up how to make it more modular and work from there...
 
 - I think remove the "work" tab from my tmux (as well as the todo) - tabs should only be for folders that I use relaly often I think. Make a completely separate terminal session for the work stuff - in another kitty window that I can open in hyprland - and then just ssh into it and run tmux there... that is the better way I think...
