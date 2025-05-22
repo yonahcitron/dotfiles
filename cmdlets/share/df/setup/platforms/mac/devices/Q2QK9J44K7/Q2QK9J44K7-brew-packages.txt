@@ -1,3 +1,4 @@
+node
 databricks
-visual-studio-code --cask
+visual-studio-code
 

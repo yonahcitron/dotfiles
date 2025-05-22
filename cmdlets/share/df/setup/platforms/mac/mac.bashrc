@@ -1,3 +1,6 @@
+# Get the terminal working properly on kitty when I ssh into my mac.
+export TERM=xterm-256color
+
 # Env vars to get the Homebrew-Linux package manager working properly.
 export HOMEBREW_PREFIX="/opt/homebrew";
 export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar";
