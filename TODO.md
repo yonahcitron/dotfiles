@@ -1,5 +1,25 @@
 ToDo today:
+
+- use sessions.nvim to automatically save all buffers whenever I switch workspaces and then close them... also to preserve which files are open in different sessions so that when you go back to them next time they restore!!!! 
+- make the workspaces show a preview or somethign nicer when I'm fuzzy finding them?? like maybe show a little image or something for each of them, look into this!!!!
+
+- make it that whenever I start nvim , it automaticaly runs leader-f-w to ask me what workspace I want to open to!!!!!!!
+
+- make custom lua scripts when I open and close workspaces...
+- make it so that when I open one workspace, all the files etc in the other workspaces are no longer shown in context and it doesn't get in the way of the neotree finder.. so all the files are kept separately...
+
 - make the mistake of chainging my terminal on mac so that when I drag things it messages things up ... maybe just uninstall iterm2 and all it ssettings... this should fix it...
+
+- find a way to automate adding certain workspaces (the ones I have on my mac) to all my arch machines / to my arch setup in general... there should be an easy way of doing this with workspaces.lua .... just figure it out and add it to my configuration files so it auto-applies on every computer I install it on!!!!! just so it adds some by default... I can still add others on other ones for specific projects.. make sure I also get the repos I want a lot like vault etc...
+
+- find a simple plugin to make it easy using the leader key to just go to a single file (in this case make it the todo.md file)... make that its own workspace basically??
+
+- FOR NOW (to see how I like it)... make it a hook that when I open a workspace, it automatically opens neo tree so I can see where I can in the workspace!!!!
+- Find an easy and nice way to SHOW the workspace name I'm working in in nvim within one of the status bar, probably the one below at the bottom so I can quickly and visually see where I am etc...
+
+
+
+- simplify tmux now I use nvim... just have a session I connect to for work and another for anotehr computer...
 
 - also optimise the copy-paste functionality across the hyprland by finding some good keybindings for them, and sticking with them...
 
