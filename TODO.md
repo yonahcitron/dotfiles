@@ -1,5 +1,10 @@
 ToDo today:
 
+
+- I think remove the "work" tab from my tmux (as well as the todo) - tabs should only be for folders that I use relaly often I think. Make a completely separate terminal session for the work stuff - in another kitty window that I can open in hyprland - and then just ssh into it and run tmux there... that is the better way I think...
+
+- change the kitty terminal and tmux terminal color setttings to only apply in the right settings... move these settings to the right folder... so that they don't apply on macos and make my terminal apps look weird? also true with the cursor settings...
+
 - change colour theme in yazi to be clearer on macos
 
 - see if there's a way to make obsidian vim copy into the clipboard
