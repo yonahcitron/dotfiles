@@ -1,5 +1,5 @@
 ToDo today:
-
+- make the mistake of chainging my terminal on mac so that when I drag things it messages things up ... maybe just uninstall iterm2 and all it ssettings... this should fix it...
 
 - I'll need a more modular hyprland.conf for different setups... don't want to just have different files as then some common things won't be shared over, this gives me more control... so therefore I need to look up how to make it more modular and work from there...
 

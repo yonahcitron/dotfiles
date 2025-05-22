@@ -8,8 +8,5 @@ return {
         hide_gitignored = false, -- ✅ Show gitignored files
       },
     },
-    window = {
-      width = 25,
-    },
   },
 }
