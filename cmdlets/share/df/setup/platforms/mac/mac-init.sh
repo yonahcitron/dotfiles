@@ -13,4 +13,7 @@ xargs brew install <$DF_BREW_PACKAGES # Packages also on ubuntu
 xargs brew install <$DF_PLATFORM_BREW_PACKAGES
 echo "[INFO} Brew packages successfully installed!"
 
+dockutil --remove all --section apps --no-restart
+dockutil --remove all --section others --no-restart
+killall Dock
 # NOTE: Zsh is the default shell out the box for MacOS.
