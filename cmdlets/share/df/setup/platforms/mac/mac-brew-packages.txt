@@ -5,4 +5,5 @@ obsidian
 iterm2
 whatsapp
 chatgpt
+font-jetbrains-mono-nerd-font
 bentobox
