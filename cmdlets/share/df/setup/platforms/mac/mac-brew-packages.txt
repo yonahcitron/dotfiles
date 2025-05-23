@@ -5,3 +5,4 @@ obsidian
 iterm2
 whatsapp
 chatgpt
+bentobox

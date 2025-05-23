@@ -1,5 +1,9 @@
 ToDo today:
 
+- really practise using yazi + fzf + zoxide... they both seem really useful and really cool...
+
+- set up yazi more properly in the terminal ... as well as in vim... with zoxide, fzf, ripgrep ... look into ripgrep in particular and see how it does it!
+
 - use sessions.nvim to automatically save all buffers whenever I switch workspaces and then close them... also to preserve which files are open in different sessions so that when you go back to them next time they restore!!!! 
 - make the workspaces show a preview or somethign nicer when I'm fuzzy finding them?? like maybe show a little image or something for each of them, look into this!!!!
 
