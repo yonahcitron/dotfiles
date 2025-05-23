@@ -11,7 +11,7 @@ source $HOME/repos/dotfiles/user_configs/sh/.env.sh # This should run out-the-bo
 alias vi="nvim"
 alias lg="lazygit"
 alias dfs="cd $DOTFILES && ls"
-alias vault="cd $VAULT && ls"
+alias vlt="cd $VAULT && ls"
 
 # Quick navigation of the 'df' cmdlet.
 alias setup="source $DOTFILES/cmdlets/share/df/scripts/setup.sh" # Can't be with the 'df' cmdlet, as want to be able to source new env vars into interactive shell. Can only do this with an alias, can't inherit variables from another non-shell process.
