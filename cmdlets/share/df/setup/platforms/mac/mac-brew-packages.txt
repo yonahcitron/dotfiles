@@ -7,3 +7,4 @@ whatsapp
 chatgpt
 font-jetbrains-mono-nerd-font
 bentobox
+fd
