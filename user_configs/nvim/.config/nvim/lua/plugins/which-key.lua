@@ -3,7 +3,17 @@
 return {
   "folke/which-key.nvim",
   opts = function(_, opts)
-    -- add a group label for <leader>o
-    opts.defaults["<leader>o"] = { name = "Open File" }
+    -- make sure spec is an array
+    opts.spec = opts.spec or {}
+
+    -- 1) add the top-level group for <leader>o
+    table.insert(opts.spec, { "<leader>o", group = "Open File" })
+
+    -- 2) add your actual mapping under that prefix
+    table.insert(opts.spec, {
+      "<leader>ot",
+      "<cmd>edit ~/repos/vault/todo.md<CR>",
+      desc = "Todo",
+    })
   end,
 }

@@ -3,12 +3,6 @@
 -- Add any additional keymaps here
 --
 
--- ####### Quick File Access #######
--- open obsidian vault’s todo.md with <leader>ot
-vim.keymap.set("n", "<leader>t", function()
-  vim.cmd.edit(vim.fn.expand("~/.config/nvim/path/to/your/vault/todo.md"))
-end, { desc = "Open Obsidian Vault's todo.md" })
-
 -- Remap key to enter Normal Mode
 
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true, silent = true })
