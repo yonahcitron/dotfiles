@@ -44,3 +44,6 @@ require("lazy").setup({
     },
   },
 })
+-- Stops vim automatically cd'ing to the project root, even when I don't want it to.
+-- I set the cwd manually with workspaces.nvim, and I want the cwd to follow that.
+vim.g.root_spec = { "cwd" }
