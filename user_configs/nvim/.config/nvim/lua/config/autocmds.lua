@@ -36,16 +36,15 @@ vim.api.nvim_create_autocmd("BufWritePost", {
               .. absolute_local_path
               .. '" '
               .. "--format AUTO --overwrite"
-            vim.notify("The cmd is" .. cmd)
             local result = vim.system({ "bash", "-lc", cmd }, { pty = true }):wait()
             if result.code ~= 0 then
               vim.notify(
-                string.format("Databricks file upload failed with exit code %d:\n%s", result.code, result.stderr),
+                string.format("❌ Databricks sync failed for file: " .. args.file),
+                string.format("Exit code %d:\n%s", result.code, result.stderr),
                 vim.log.levels.ERROR
               )
             else
-              vim.notify("The result is: " .. result.stdout)
-              vim.notify("File " .. args.file .. " successfully synced to databricks.")
+              vim.notify("✅ Databricks sync success for file: " .. args.file)
               vim.notify("Sync path: " .. absolute_local_path .. "-->" .. remote_path)
             end
             return

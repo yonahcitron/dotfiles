@@ -13,7 +13,7 @@ return {
     table.insert(opts.spec, {
       "<leader>ot",
       "<cmd>edit ~/repos/vault/todo.md<CR>",
-      desc = "Todo",
+      desc = "Main todo.md in Obsidian Vault",
     })
   end,
 }
