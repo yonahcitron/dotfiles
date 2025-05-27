@@ -13,8 +13,28 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
+badd +2 ~/repos/vault/todo.md
+badd +5 user_configs/nvim/.config/nvim/lua/config/keymaps.lua
+badd +11 ~/.vimrc
 argglobal
 %argdel
+edit ~/.vimrc
+argglobal
+balt user_configs/nvim/.config/nvim/lua/config/keymaps.lua
+setlocal foldmethod=expr
+setlocal foldexpr=v:lua.require'lazyvim.util'.ui.foldexpr()
+setlocal foldmarker={{{,}}}
+setlocal foldignore=#
+setlocal foldlevel=99
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldenable
+let s:l = 11 - ((10 * winheight(0) + 35) / 70)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 11
+normal! 012|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
