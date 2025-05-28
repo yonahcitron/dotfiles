@@ -17,13 +17,13 @@ badd +1 ~/repos/vault/todo.md
 badd +11 mac-brew-packages.txt
 badd +16 mac-init.sh
 badd +2 mac.bashrc
-badd +2 devices/Q2QK9J44K7/Q2QK9J44K7-init.sh
-badd +2 devices/Q2QK9J44K7/Q2QK9J44K7.zprofile
+badd +3 devices/Q2QK9J44K7/Q2QK9J44K7-init.sh
+badd +1 devices/Q2QK9J44K7/Q2QK9J44K7.zprofile
 argglobal
 %argdel
-edit ~/repos/vault/todo.md
+edit devices/Q2QK9J44K7/Q2QK9J44K7-init.sh
 argglobal
-balt mac-brew-packages.txt
+balt devices/Q2QK9J44K7/Q2QK9J44K7.zprofile
 setlocal foldmethod=expr
 setlocal foldexpr=v:lua.require'lazyvim.util'.ui.foldexpr()
 setlocal foldmarker={{{,}}}
@@ -32,12 +32,12 @@ setlocal foldlevel=99
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldenable
-let s:l = 1 - ((0 * winheight(0) + 35) / 70)
+let s:l = 3 - ((2 * winheight(0) + 22) / 44)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 3
+normal! 04|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -51,7 +51,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :
