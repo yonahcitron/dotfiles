@@ -25,3 +25,6 @@ nnoremap <C-M-k> :resize -2<CR>
 " Store yanked text to the + (clipboard) register by default
 " Use the jasonccox/vim-wayland-clipboard plugin to automatically copy all text in the + register to the wl-clipboard.
 :set clipboard=unnamedplus
+
+" Get into terminal normal but just by pressing escape
+tnoremap <Esc> <C-\><C-n>

@@ -1,6 +1,9 @@
 # Get the terminal working properly on kitty when I ssh into my mac.
 export TERM=xterm-256color
 
+# Add the default python executable to the system path, to access Python CLI executables like jupytext.
+export PATH="/Users/Yonah.Citron/Library/Python/3.9/bin":$PATH
+
 # Env vars to get the Homebrew-Linux package manager working properly.
 export HOMEBREW_PREFIX="/opt/homebrew";
 export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar";

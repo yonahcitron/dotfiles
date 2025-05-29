@@ -9,3 +9,4 @@ font-jetbrains-mono-nerd-font
 bentobox
 fd
 logi-options-plus
+pyenv
