@@ -22,6 +22,14 @@ alias setup="source $DOTFILES/cmdlets/share/df/scripts/setup.sh" # Can't be with
 alias sd="sudo shutdown -h now"
 
 #############################################
+# Python versioning
+#############################################
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
+#############################################
 # FUNCTIONS
 #############################################
 
