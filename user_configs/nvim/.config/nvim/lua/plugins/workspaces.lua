@@ -22,7 +22,12 @@ return {
       open_pre = {
         -- final-save & stop autosave for the workspace you’re leaving
         "SessionsStop", -- saves and stops recording for the current session. In sessions.lua config file, it's also configured to save the session in the cwd upon leaving nvim.
-        "silent %bdelete", -- wipe all buffers so the UI is clean - no '!', so prompts you whether to save any unsaved buffers before leaving
+        function()
+          -- Delete all buffers except any terminal buffers
+          vim.cmd([[
+            silent! bufdo if &buftype !=# 'terminal' | bdelete | endif
+          ]])
+        end,
       },
     },
   },
