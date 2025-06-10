@@ -24,6 +24,7 @@ alias sd="sudo shutdown -h now"
 #############################################
 # Python versioning
 #############################################
+# TODO: Make a thing here that removes /usr/bin/python if it's a normal file, i.e. system python, and makes it a symlink to /home/yonah/.pyenv/shims/python... do that in the global...
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"

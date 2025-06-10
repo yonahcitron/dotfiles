@@ -1,7 +1,7 @@
 ########################################
 ##############   System   ##############
 ########################################
-# TODO: At some point, maybe move some of this to device-specific scripts.
+# TODO: At some point, move some of this to device-specific scripts.
 
 critical_global_services=("iwd" "systemd-networkd" "systemd-resolved")
 # Enable necessary systemd services on every startup, and when setting up for the first time in my custom arch-ISO chroot.
