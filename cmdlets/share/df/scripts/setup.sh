@@ -25,10 +25,20 @@ echo "Successfully ran init script."
 ###################################
 ########## User Configs ###########
 ###################################
-
+# Stop the stow failing if files already exist there!
 if [ -e "$HOME/.bashrc" ] && [ ! -L "$HOME/.bashrc" ]; then
   echo "A .bashrc file exists in the home repo that NOT a symlink to my own .bashrc. Deleting it."
   rm $HOME/.bashrc
+fi
+
+if [ -e "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
+  echo "A .zshrc file exists in the home repo that NOT a symlink to my own .zshrc. Deleting it."
+  rm $HOME/.zshrc
+fi
+
+if [ -e "$HOME/.zprofile" ] && [ ! -L "$HOME/.zprofile" ]; then
+  echo "A .zprofile file exists in the home repo that NOT a symlink to my own .zprofile. Deleting it."
+  rm $HOME/.zprofile
 fi
 
 # TODO: In order to get the intended functionality of treating each of the subfolders of the stow dir as a module, and reacreate each of their substructures within the target dirs, rather than just dumping them in the target dir directly, the cd approach was working best. For better readability, look into whether it could work with specifying the dir, it wasn't last time I tried.
