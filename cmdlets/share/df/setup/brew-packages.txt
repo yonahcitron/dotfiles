@@ -5,3 +5,4 @@ lazygit
 gh
 fzf
 tmux
+todoist

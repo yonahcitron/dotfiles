@@ -24,6 +24,9 @@ echo "[INFO} Installing brew packages..."
 xargs brew install <$DF_BREW_PACKAGES
 echo "[INFO} Brew packages successfully installed!"
 
+######### Other Applications ###########
+brew tap d99kris/nchat
+brew install nchat
 # Install pyenv
 curl -fsSL https://pyenv.run | bash
 
