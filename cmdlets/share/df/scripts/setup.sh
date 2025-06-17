@@ -89,11 +89,17 @@ fi
 
 # Finally, when updating system (and therefore already using zsh),
 # rerun .zsh setup scripts to ensure any changes apply.
-ZSH_PATH=$(which zsh)
-if [[ "$SHELL" == "$ZSH_PATH" ]]; then
+# Check if the ZSH_VERSION variable is set and not empty.
+# This is the most reliable way to know if you're in zsh.
+if [[ -n "$ZSH_VERSION" ]]; then
   echo "[INFO] Already running in zsh, sourcing zsh setup scripts to refresh environment."
-  source $DF_BASE_ZPROFILE
-  source $DF_BASE_ZSHRC
-else # If running the script for the first time, and zsh isn't installed, launch into zsh upon completing the script
-  zsh
+  source "$DF_BASE_ZPROFILE" # It's good practice to quote variables
+  source "$DF_BASE_ZSHRC"
+else # If not in zsh, launch it.
+  # You might want to add a check here to ensure zsh is actually installed
+  if command -v zsh &>/dev/null; then
+    zsh
+  else
+    echo "[ERROR] zsh is not installed."
+  fi
 fi
