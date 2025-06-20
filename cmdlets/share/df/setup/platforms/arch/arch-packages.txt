@@ -34,7 +34,6 @@ npm
 yazi
 jq
 archiso
-aerc
 bash-language-server
 pipewire
 pipewire-pulse
