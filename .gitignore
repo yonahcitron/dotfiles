@@ -1,5 +1,5 @@
 .DS_Store
-.nvim_workspace/
+.nvim-workspace/
 .local/
 # ISO images
 images/
