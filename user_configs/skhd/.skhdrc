@@ -5,10 +5,10 @@
 # --- TUIs ---
 
 # cmd - space : Focus or open tmux in kitty, in the terminal window
-cmd - space : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:term"
+cmd - return : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:term"
 
 # cmd - return : Focus or open tmux in kitty, in the neovim window
-cmd - return : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:nvim"
+cmd - space : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:nvim"
 
 # cmd - w : Focus or open tmux in kitty, in the whatsapp window
 cmd - w : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:whatsapp"

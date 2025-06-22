@@ -54,3 +54,6 @@ for app_name in "${required_chrome_apps[@]}"; do
     print "To change which programs triggers this warning, edit the file in /Users/Yonah.Citron/repos/dotfiles/cmdlets/share/df/setup/platforms/mac/mac-postscript.sh"
   fi
 done
+
+# Remove animations to speed up transitions between windows etc when using yabai
+defaults write com.apple.universalaccess reduceMotion -bool true
