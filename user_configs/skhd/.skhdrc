@@ -10,8 +10,14 @@ cmd - space : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux att
 # cmd - return : Focus or open tmux in kitty, in the neovim window
 cmd - return : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:nvim"
 
-# cmd - return : Focus or open tmux in kitty, in the whatsapp window
+# cmd - w : Focus or open tmux in kitty, in the whatsapp window
 cmd - w : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:whatsapp"
+
+# cmd - e : Focus or open tmux in kitty, in the email window
+cmd - e : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:email"
+
+
+# --- Dedicated Apps ---
 
 # cmd - ; : Focus or open Google Chrome in Space 2
 cmd - i : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Google Chrome'" # 'internet'
