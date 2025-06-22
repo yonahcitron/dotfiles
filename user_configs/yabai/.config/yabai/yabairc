@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––#
+# Global Settings
+#––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––#
+
+# Set the default layout to "float".
+# This makes all windows float by default, like standard macOS.
+# Your fullscreen script will still work perfectly.
+yabai -m config layout float
+
+#––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––#
+# Rules
+#
+# You can add rules here to automatically manage specific windows.
+# e.g., Make the "System Settings" app always float.
+# yabai -m rule --add app="^System Settings$" manage=off
+#––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––#
+
+echo "yabai config loaded"

@@ -1,0 +1,40 @@
+#================================================================================
+# § App Launcher Keybindings (Focus or Open)
+#================================================================================
+
+# --- TUIs ---
+
+# cmd - space : Focus or open tmux in kitty, in the terminal window
+cmd - space : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:term"
+
+# cmd - return : Focus or open tmux in kitty, in the neovim window
+cmd - return : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:nvim"
+
+# cmd - return : Focus or open tmux in kitty, in the whatsapp window
+cmd - w : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:whatsapp"
+
+# cmd - ; : Focus or open Google Chrome in Space 2
+cmd - i : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Google Chrome'" # 'internet'
+
+# cmd - t : Focus or open Todoist in Space 4
+cmd - t : ~/.config/skhd/scripts/focus_or_open.sh "Todoist" "open -a 'Todoist'"
+
+# cmd - ; : Focus or open a generic kitty window in Space 5
+# This is a duplicate of the Chrome binding above. You may want to change the key.
+# For example, to use 'cmd + shift + ;' you would write 'cmd + shift - ;'
+#cmd + shift - ; : ~/.config/skhd/scripts/focus_or_open.sh "kitty" 5 "open -a 'kitty'"
+
+# cmd - n : Focus or open Obsidian in Space 6
+cmd - n : ~/.config/skhd/scripts/focus_or_open.sh "Obsidian" "open -a 'Obsidian'"
+
+# cmd - y : Focus or open YouTube (as a Chrome web app) in Space 7
+cmd - y : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Google Chrome' --args --app='https://youtube.com'"
+
+# cmd - m : Focus or open Youtube Music (as a Chrome web app) in Space 8
+cmd - m : ~/.config/skhd/scripts/focus_or_open.sh "YouTube Music" "open -a 'YouTube Music'"
+
+# cmd - d : Focus or open Google Calendar ("Diary") in Space 9
+cmd - d : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Google Chrome' --args --app='https://calendar.google.com'"
+
+# cmd - o : Focus or open Gemini (as a Chrome web app) in Space 10
+cmd - o : ~/.config/skhd/scripts/focus_or_open.sh "Gemini" "open -a 'Gemini'"
