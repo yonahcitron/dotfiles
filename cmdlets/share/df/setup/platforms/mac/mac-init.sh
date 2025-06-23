@@ -15,6 +15,10 @@ xargs brew install <$DF_PLATFORM_BREW_PACKAGES
 echo "[INFO} Brew packages successfully installed!"
 
 # MacOS settings
+
+# Remove animations to speed up transitions between windows etc when using yabai
+defaults write com.apple.universalaccess reduceMotion -bool true
+defaults write com.apple.dock expose-animation-duration -int 0
 dockutil --remove all --section apps --no-restart
 dockutil --remove all --section others --no-restart
 killall Dock
