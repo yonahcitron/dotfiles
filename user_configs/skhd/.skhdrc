@@ -22,21 +22,17 @@ cmd - e : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach 
 # cmd - ; : Focus or open Google Chrome in Space 2
 cmd - i : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Google Chrome'" # 'internet'
 
-# cmd - t : Focus or open Todoist in Space 4
-cmd - t : ~/.config/skhd/scripts/focus_or_open.sh "Todoist" "open -a 'Todoist'"
+# cmd - 0 : Focus or open Todoist
+# Not command-t, since on mac I need that for tabs on chrome!
+cmd - 0 : ~/.config/skhd/scripts/focus_or_open.sh "Todoist" "open -a 'Todoist'"
 
-# cmd - ; : Focus or open a generic kitty window in Space 5
-# This is a duplicate of the Chrome binding above. You may want to change the key.
-# For example, to use 'cmd + shift + ;' you would write 'cmd + shift - ;'
-#cmd + shift - ; : ~/.config/skhd/scripts/focus_or_open.sh "kitty" 5 "open -a 'kitty'"
-
-# cmd - n : Focus or open Obsidian in Space 6
+# cmd - n : Focus or open Obsidian
 cmd - n : ~/.config/skhd/scripts/focus_or_open.sh "Obsidian" "open -a 'Obsidian'"
 
-# cmd - y : Focus or open YouTube (as a Chrome web app) in Space 7
+# cmd - y : Focus or open YouTube (as a Chrome web app)
 cmd - y : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Google Chrome' --args --app='https://youtube.com'"
 
-# cmd - m : Focus or open Youtube Music (as a Chrome web app) in Space 8
+# cmd - m : Focus or open Youtube Music (as a Chrome web app)
 cmd - m : ~/.config/skhd/scripts/focus_or_open.sh "YouTube Music" "open -a 'YouTube Music'"
 
 # cmd - d : Focus or open Google Calendar ("Diary") in Space 9
@@ -44,3 +40,11 @@ cmd - d : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Goog
 
 # cmd - o : Focus or open Gemini (as a Chrome web app) in Space 10
 cmd - o : ~/.config/skhd/scripts/focus_or_open.sh "Gemini" "open -a 'Gemini'"
+
+# --- Work Apps ---
+
+# cmd - k : Focus or open Azure DevOps ("kanban")
+cmd - k : ~/.config/skhd/scripts/focus_or_open.sh "DevOps" "open -a 'DevOps'"
+
+# cmd - 1 : Focus or open Teams
+cmd - 1 : ~/.config/skhd/scripts/focus_or_open.sh "Microsoft Teams" "open -a 'Microsoft Teams'"
