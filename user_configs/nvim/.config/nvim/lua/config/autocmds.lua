@@ -9,7 +9,7 @@ local json = vim.json
 -- TODO: Make a notification to say that databrick sync is on for a given workspace. Do this in the workspace file, by checking for databricks, and then if the relveant configuration files are found, printing it at startup in the same box. Only if in the databricks workspace, print that it's off if in the right workspace.
 -- Databricks sync integration: automatically upload files in a marked databricks sub-folder upon write.
 -- TODO: Get chatgpt to explain the folder structure here - difference between sync dir, env dir (above it - which databricks env), and the databricks dir.
---       The config only contains info on the remote folder into which the entire local folder will be synced. The includes the folder containing the .nvim-workspace/.databrick-sync file.
+--       The config only contains info on the remote folder into which the entire local folder will be synced. The includes the folder containing the .nvim/.databrick-sync file.
 --       The folder structure is "databricks" (top level) -> "env folder" (which environment) -> "sync folder" (the folder corresponding to the a folder in databricks - local and remote relative paths should match from here)
 local databricks_root = "/Users/Yonah.Citron/Library/CloudStorage/OneDrive-Shell/databricks"
 
@@ -20,10 +20,10 @@ vim.api.nvim_create_autocmd("BufWritePost", {
       return
     end
 
-    -- Walk up until we hit the workspace root (folder that contains .nvim-workspace)
+    -- Walk up until we hit the workspace root (folder that contains .nvim)
     local dir = fn.fnamemodify(abs_path, ":h")
     while dir ~= databricks_root do
-      local workspace_dir = dir .. "/.nvim-workspace"
+      local workspace_dir = dir .. "/.nvim"
       if fn.isdirectory(workspace_dir) == 1 then
         local env_dir = fn.fnamemodify(dir, ":h")
         local sync_file = workspace_dir .. "/.databricks-sync"

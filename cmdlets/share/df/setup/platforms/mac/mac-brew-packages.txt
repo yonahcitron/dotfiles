@@ -4,9 +4,13 @@ google-chrome
 obsidian
 kitty
 whatsapp
-chatgpt
 font-jetbrains-mono-nerd-font
 bentobox
 fd
 logi-options-plus
 pyenv
+koekeishiya/formulae/yabai
+koekeishiya/formulae/skhd
+jq
+ripgrep
+

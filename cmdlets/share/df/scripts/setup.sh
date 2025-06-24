@@ -25,10 +25,20 @@ echo "Successfully ran init script."
 ###################################
 ########## User Configs ###########
 ###################################
-
+# Stop the stow failing if files already exist there!
 if [ -e "$HOME/.bashrc" ] && [ ! -L "$HOME/.bashrc" ]; then
   echo "A .bashrc file exists in the home repo that NOT a symlink to my own .bashrc. Deleting it."
   rm $HOME/.bashrc
+fi
+
+if [ -e "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
+  echo "A .zshrc file exists in the home repo that NOT a symlink to my own .zshrc. Deleting it."
+  rm $HOME/.zshrc
+fi
+
+if [ -e "$HOME/.zprofile" ] && [ ! -L "$HOME/.zprofile" ]; then
+  echo "A .zprofile file exists in the home repo that NOT a symlink to my own .zprofile. Deleting it."
+  rm $HOME/.zprofile
 fi
 
 # TODO: In order to get the intended functionality of treating each of the subfolders of the stow dir as a module, and reacreate each of their substructures within the target dirs, rather than just dumping them in the target dir directly, the cd approach was working best. For better readability, look into whether it could work with specifying the dir, it wasn't last time I tried.
@@ -79,9 +89,17 @@ fi
 
 # Finally, when updating system (and therefore already using zsh),
 # rerun .zsh setup scripts to ensure any changes apply.
-ZSH_PATH=$(which zsh)
-if [[ "$SHELL" == "$ZSH_PATH" ]]; then
+# Check if the ZSH_VERSION variable is set and not empty.
+# This is the most reliable way to know if you're in zsh.
+if [[ -n "$ZSH_VERSION" ]]; then
   echo "[INFO] Already running in zsh, sourcing zsh setup scripts to refresh environment."
-  source $DF_BASE_ZPROFILE
-  source $DF_BASE_ZSHRC
+  source "$DF_BASE_ZPROFILE" # It's good practice to quote variables
+  source "$DF_BASE_ZSHRC"
+else # If not in zsh, launch it.
+  # You might want to add a check here to ensure zsh is actually installed
+  if command -v zsh &>/dev/null; then
+    zsh
+  else
+    echo "[ERROR] zsh is not installed."
+  fi
 fi

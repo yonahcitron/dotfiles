@@ -7,7 +7,7 @@ return {
       open = {
         -- 1. Use workspace marker file to devide whether to enable auto-save or not
         function(name, path)
-          local marker = path .. "/.nvim-workspace/.autosave"
+          local marker = path .. "/.nvim/.autosave"
           if vim.fn.filereadable(marker) == 1 then
             autosave.on()
             vim.notify("workspace:" .. name .. "\n" .. "autosave:" .. "enabled")

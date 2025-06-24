@@ -7,8 +7,9 @@ export PATH="$HOME/.local/bin:$PATH"
 export SUDO_EDITOR=vim
 export EDITOR=nvim
 # TODO: Change this everywhere to upper-case
-export DOTFILES="$HOME/repos/dotfiles"
-export VAULT="$HOME/repos/vault"
+export REPOS="$HOME/repos"
+export DOTFILES="$REPOS/dotfiles"
+export VAULT="$REPOS/vault"
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   source /etc/os-release
