@@ -12,4 +12,5 @@ pyenv
 koekeishiya/formulae/yabai
 koekeishiya/formulae/skhd
 jq
+ripgrep
 
