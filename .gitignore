@@ -9,3 +9,5 @@ disk/
 nvram/
 *.iso
 *.img
+# The 'last' symlink is the pointer that tmux resurrect uses to work out which file to load from
+user_configs/tmux/.local/share/tmux/resurrect/last

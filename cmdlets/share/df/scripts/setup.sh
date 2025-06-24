@@ -66,13 +66,14 @@ stow --target $HOME/.local/bin bin
 sudo chmod +x $HOME/.local/bin/*
 
 # In order to make tmux-resurrect work across both mac and linux, I need to manually set the 'last' symlink in the script, as there is a different file for each os. These files do not support manual expansion logic, so this pointer is the only way to do it, outside the repo.
-tmux_resurrect_folder=$DOTFILES/user_configs/tmux/.local/share/tmux/resurrect/
+tmux_resurrect_folder="$DOTFILES/user_configs/tmux/.local/share/tmux/resurrect"
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   tmux_resurrect_filename="tmux_resurrect_linux.txt"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   tmux_resurrect_filename="tmux_resurrect_mac_os.txt"
 fi
-ln -sf 
+# The 'last' symlink is the pointer that tmux resurrect uses to work out which file to load from
+ln -sf "$tmux_resurrect_folder/$tmux_resurrect_filename" "$tmux_resurrect_folder/last"
 
 # Reset the pwd
 cd $working_dir
