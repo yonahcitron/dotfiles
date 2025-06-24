@@ -1,7 +1,10 @@
 #================================================================================
 # § App Launcher Keybindings (Focus or Open)
 #================================================================================
-
+# NOTE: For punctuation, skhd codes must be used (not the same as ascii).
+#       Try running skhd -o in the terminal to observe the keycode for a key.
+#       https://github.com/koekeishiya/skhd/issues/306
+# Soon, map comma and full-stop to something.
 # --- TUIs ---
 
 # cmd - space : Focus or open tmux in kitty, in the terminal window
@@ -16,8 +19,8 @@ cmd - w : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-ses
 # cmd - e : Focus or open tmux in kitty, in the email window
 cmd - e : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:email"
 
-# cmd - l ("todo List"): Focus or open vault/todo.md in nvim in kitty
-cmd - l : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:todo"
+# cmd - ' ("todo List"): Focus or open vault/todo.md in nvim in kitty
+cmd - 0x27 : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:todo"
 
 
 # --- Dedicated Apps ---
