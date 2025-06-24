@@ -6,20 +6,20 @@
 # 2. Workspace rules to 'snap' windows to a workspace cannot be used here, as they only apply at creation if the tags are already present. In this case, we add the tags *after* the window has been created (there's no other easy way to do this), so we must also apply the window rules in this script rather that as hyprland windowrulev2's.
 # Args:
 if [[ $# -lt 3 ]]; then
-  echo "Usage: $0 <tag_name> <workspace_num> <launch_command>" >&2
+  echo "Usage: $0 <tag_name> <workspace_num> <unopened_launch_command> <opened_but_unfocused_launch_command>" >&2
   exit 1
 fi
 tag="$1"
 workspace="$2"
-shift 2
-cmd="$*"
+unopened_cmd="$3"
+unfocussed_cmd="$4"
 
 # Launch fresh window if one with the matching tag doesn't exist.
 if ! hyprctl clients -j | jq -e --arg re "$tag" '.[] | select((.tags // []) | index($re))' >/dev/null; then
 
   most_recent_addr=$(hyprctl clients -j | jq -r '.[-1].address')
-  hyprctl dispatch exec "[tile;workspace $workspace silent] $cmd" # ➊ launch the window
-  for i in {1..100}; do                                           # Poll until the window has launched.
+  hyprctl dispatch exec "[tile;workspace $workspace silent] $unopened_cmd" # ➊ launch the window
+  for i in {1..100}; do                                                    # Poll until the window has launched.
     sleep 0.1
     addr=$(hyprctl clients -j | jq -r '.[-1].address')
     if [[ "$addr" != "$most_recent_addr" ]]; then
@@ -34,4 +34,7 @@ if ! hyprctl clients -j | jq -e --arg re "$tag" '.[] | select((.tags // []) | in
 else # If a window with the matching tag exists, focus on it.
   addr=$(hyprctl clients -j | jq -r --arg re "$tag" '.[] | select((.tags // []) | index($re)) | .address')
   hyprctl dispatch focuswindow "address:$addr"
+  if [ -n "$unfocussed_cmd" ]; then
+    eval "$unfocussed_cmd"
+  fi
 fi

@@ -25,7 +25,7 @@ alt - 0x27 : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-
 
 # --- Dedicated Apps ---
 
-# alt - ; : Focus or open Google Chrome in Space 2
+# alt - i : Focus or open Google Chrome in Space 2
 alt - i : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Google Chrome'" # 'internet'
 
 # alt - d : Focus or open Todoist ("toDo")
