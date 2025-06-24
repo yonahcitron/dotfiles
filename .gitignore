@@ -1,6 +1,5 @@
 .DS_Store
 .nvim/
-.local/
 # ISO images
 images/
 .cache/
