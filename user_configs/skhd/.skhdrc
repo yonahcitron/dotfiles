@@ -5,16 +5,19 @@
 # --- TUIs ---
 
 # cmd - space : Focus or open tmux in kitty, in the terminal window
-cmd - return : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:term"
+cmd - return : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:term"
 
 # cmd - return : Focus or open tmux in kitty, in the neovim window
-cmd - space : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:nvim"
+cmd - space : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:nvim"
 
 # cmd - w : Focus or open tmux in kitty, in the whatsapp window
-cmd - w : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:whatsapp"
+cmd - w : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:whatsapp"
 
 # cmd - e : Focus or open tmux in kitty, in the email window
-cmd - e : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach -t mission-control" "tmux select-window -t mission-control:email"
+cmd - e : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:email"
+
+# cmd - l ("todo List"): Focus or open vault/todo.md in nvim in kitty
+cmd - l : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:todo"
 
 
 # --- Dedicated Apps ---
@@ -22,9 +25,9 @@ cmd - e : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux attach 
 # cmd - ; : Focus or open Google Chrome in Space 2
 cmd - i : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Google Chrome'" # 'internet'
 
-# cmd - 0 : Focus or open Todoist
+# cmd - d : Focus or open Todoist ("toDo")
 # Not command-t, since on mac I need that for tabs on chrome!
-cmd - 0 : ~/.config/skhd/scripts/focus_or_open.sh "Todoist" "open -a 'Todoist'"
+cmd - d : ~/.config/skhd/scripts/focus_or_open.sh "Todoist" "open -a 'Todoist'"
 
 # cmd - n : Focus or open Obsidian
 cmd - n : ~/.config/skhd/scripts/focus_or_open.sh "Obsidian" "open -a 'Obsidian'"
@@ -35,16 +38,18 @@ cmd - y : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Goog
 # cmd - m : Focus or open Youtube Music (as a Chrome web app)
 cmd - m : ~/.config/skhd/scripts/focus_or_open.sh "YouTube Music" "open -a 'YouTube Music'"
 
-# cmd - d : Focus or open Google Calendar ("Diary") in Space 9
-cmd - d : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Google Chrome' --args --app='https://calendar.google.com'"
+# cmd - r : Focus or open Google Calendar ("routine")
+cmd - r : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Google Chrome' --args --app='https://calendar.google.com'"
 
 # cmd - o : Focus or open Gemini (as a Chrome web app) in Space 10
 cmd - o : ~/.config/skhd/scripts/focus_or_open.sh "Gemini" "open -a 'Gemini'"
 
 # --- Work Apps ---
+# Work app shortcuts should use numbers.
 
-# cmd - k : Focus or open Azure DevOps ("kanban")
-cmd - k : ~/.config/skhd/scripts/focus_or_open.sh "DevOps" "open -a 'DevOps'"
+# cmd - 0 : Focus or open Teams
+cmd - 0 : ~/.config/skhd/scripts/focus_or_open.sh "Microsoft Teams" "open -a 'Microsoft Teams'"
 
-# cmd - 1 : Focus or open Teams
-cmd - 1 : ~/.config/skhd/scripts/focus_or_open.sh "Microsoft Teams" "open -a 'Microsoft Teams'"
+# cmd - 1 : Focus or open Azure DevOps
+cmd - 1 : ~/.config/skhd/scripts/focus_or_open.sh "DevOps" "open -a 'DevOps'"
+
