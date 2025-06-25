@@ -1,14 +1,16 @@
 pane	mission-control	0	1	:*	0	Yonah.Citron@Q2QK9J44K7:~	:/Users/Yonah.Citron	1	zsh	:
-pane	mission-control	0	1	:*	1	Yonah.Citron@Q2QK9J44K7:/	:/	0	zsh	:
-pane	mission-control	0	1	:*	2	Yonah.Citron@Q2QK9J44K7:/	:/	0	zsh	:
-pane	mission-control	0	1	:*	3	Yonah.Citron@Q2QK9J44K7:/	:/	0	zsh	:
+pane	mission-control	0	1	:*	1	Yonah.Citron@Q2QK9J44K7:/	:/Users/Yonah.Citron 0	zsh	:
+pane	mission-control	0	1	:*	2	Yonah.Citron@Q2QK9J44K7:/	:/Users/Yonah.Citron 0	zsh	:
+pane	mission-control	0	1	:*	3	Yonah.Citron@Q2QK9J44K7:/	:/Users/Yonah.citron	0	zsh	:
 pane	mission-control	1	0	:	0	nvim	:/Users/Yonah.Citron	1	nvim	:nvim
 pane	mission-control	2	0	:-	0	gh codespace ssh -R yonahcitron/experiments -- -t bash -l -c "nchat"	:/Users/Yonah.Citron	1	gh	:gh codespace ssh -R yonahcitron/experiments -- -t bash -l -c nchat
 pane	mission-control	3	0	:	0	Yonah.Citron@Q2QK9J44K7:~	:/Users/Yonah.Citron	1	zsh	:
 pane	mission-control	4	0	:	0	nvim /Users/Yonah.Citron/repos/vault/todo.md	:/Users/Yonah.Citron	1	nvim	:nvim /Users/Yonah.Citron/repos/vault/todo.md
+pane	mission-control	5	0	:-	0	nvim ~/repos/vault/!today.md	:/	1	nvim	:nvim /Users/Yonah.Citron/repos/vault/today.md
 window	mission-control	0	:term	1	:*	5196,144x54,0,0{72x54,0,0[72x27,0,0,4,72x26,0,28,11],71x54,73,0[71x27,73,0,9,71x26,73,28,10]}	off
 window	mission-control	1	:nvim	0	:	bf82,144x54,0,0,5	off
 window	mission-control	2	:whatsapp	0	:-	bf83,144x54,0,0,6	off
 window	mission-control	3	:email	0	:	bf84,144x54,0,0,7	off
 window	mission-control	4	:todo	0	:	bf85,144x54,0,0,8	off
+window	mission-control	5	:today	0	:-	61d0,172x55,0,0,11	off
 state	mission-control	

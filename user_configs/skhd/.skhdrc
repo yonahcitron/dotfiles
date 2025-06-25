@@ -19,9 +19,11 @@ alt - w : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-ses
 # alt - e : Focus or open tmux in kitty, in the email window
 alt - e : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:email"
 
-# alt - ' ("todo List"): Focus or open vault/todo.md in nvim in kitty
+# alt - ' : Focus or open vault/todo.md in nvim in kitty
 alt - 0x27 : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:todo"
 
+# alt - , : Focus or open vault/!today.md in nvim in kitty
+alt - 0x2B : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:today"
 
 # --- Dedicated Apps ---
 
