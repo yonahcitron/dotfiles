@@ -19,8 +19,8 @@ alt - w : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-ses
 # alt - e : Focus or open tmux in kitty, in the email window
 alt - e : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:email"
 
-# alt - ' : Focus or open vault/todo.md in nvim in kitty
-alt - 0x27 : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:todo"
+# alt - o : Focus or open vault/todo.md in nvim in kitty
+alt - o : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:todo"
 
 # alt - / : Focus or open vault/!today.md in nvim in kitty
 alt - 0x2C : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:today"
@@ -45,9 +45,6 @@ alt - m : ~/.config/skhd/scripts/focus_or_open.sh "YouTube Music" "open -a 'YouT
 
 # alt - r : Focus or open Google Calendar ("routine")
 alt - r : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Google Chrome' --args --app='https://calendar.google.com'"
-
-# alt - o : Focus or open Gemini (as a Chrome web app) in Space 10
-alt - o : ~/.config/skhd/scripts/focus_or_open.sh "Gemini" "open -a 'Gemini'"
 
 # --- Work Apps ---
 # Work app shortcuts should use numbers.
