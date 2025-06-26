@@ -45,3 +45,4 @@ archlinux-wallpaper
 nerd-fonts-jetbrains-mono
 fd
 pyenv
+node

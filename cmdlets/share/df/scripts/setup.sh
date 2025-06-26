@@ -79,6 +79,11 @@ ln -sf "$tmux_resurrect_folder/$tmux_resurrect_filename" "$tmux_resurrect_folder
 cd $working_dir
 
 #########################################
+########## Install global npm ###########
+#########################################
+cat npm $DF_NPM_PACKAGES | xargs npm install
+
+#########################################
 ########## Post-setup scripts ###########
 #########################################
 

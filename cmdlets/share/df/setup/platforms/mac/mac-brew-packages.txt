@@ -3,7 +3,6 @@ displaylink
 google-chrome
 obsidian
 kitty
-whatsapp
 font-jetbrains-mono-nerd-font
 bentobox
 fd
@@ -13,4 +12,4 @@ koekeishiya/formulae/yabai
 koekeishiya/formulae/skhd
 jq
 ripgrep
-
+node
