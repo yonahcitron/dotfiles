@@ -82,7 +82,7 @@ cd $working_dir
 ########## Install global npm ###########
 #########################################
 echo "Instaling global npm apps"
-cat $DF_NPM_PACKAGES | xargs npm install
+cat $DF_NPM_PACKAGES | xargs npm install -g
 echo "Completed installation of npm apps"
 
 #########################################
