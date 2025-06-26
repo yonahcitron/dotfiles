@@ -81,7 +81,7 @@ cd $working_dir
 #########################################
 ########## Install global npm ###########
 #########################################
-cat npm $DF_NPM_PACKAGES | xargs npm install
+cat $DF_NPM_PACKAGES | xargs npm install
 
 #########################################
 ########## Post-setup scripts ###########
