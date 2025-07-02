@@ -25,8 +25,8 @@ alt - o : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-ses
 # alt - / : Focus or open vault/!today.md in nvim in kitty
 alt - 0x2C : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:today"
 
-# alt - ' : Focus or open gemini-cli in nvim in kitty
-alt - 0x27 : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:gemini"
+# alt - ' : Focus or open gemini-cli
+alt - 0x27 : ~/.config/skhd/scripts/focus_or_open.sh "Gemini" "open -a 'Gemini'"
 
 # --- Dedicated Apps ---
 
@@ -58,3 +58,8 @@ alt - 0 : ~/.config/skhd/scripts/focus_or_open.sh "Microsoft Teams" "open -a 'Mi
 # alt - 1 : Focus or open Azure DevOps
 alt - 1 : ~/.config/skhd/scripts/focus_or_open.sh "DevOps" "open -a 'DevOps'"
 
+# alt - 2 : Focus or open Excel
+alt - 2 : ~/.config/skhd/scripts/focus_or_open.sh "Microsoft Excel" "open -a 'Microsoft Excel'"
+
+# alt - 3 : Focus or open Excel
+alt - 3 : ~/.config/skhd/scripts/focus_or_open.sh "Microsoft PowerPoint" "open -a 'Microsoft PowerPoint'"

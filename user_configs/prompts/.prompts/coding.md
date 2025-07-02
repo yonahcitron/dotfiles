@@ -11,3 +11,11 @@
 - If you are not sure about something, please ask me for clarification.
 - If I ask you to do something, you should perform the task I gave you.
     - However, based on the context of our discussion and your general knowledge and software knowledge, if you think I doing something in an improper way, or you think there could be a significantly better way to do something than what I've asked for, you mention this at the end, after giving the answer to my question.
+
+# Dev Environment
+- I use neovim as my IDE, using the LazyVim configurations on top of the lazy.nvim package manager.
+
+# Code Style Guidelines
+
+# About Me
+- My name is Yonah Citron
