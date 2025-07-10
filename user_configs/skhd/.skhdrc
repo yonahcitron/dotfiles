@@ -61,5 +61,11 @@ alt - 1 : ~/.config/skhd/scripts/focus_or_open.sh "DevOps" "open -a 'DevOps'"
 # alt - 2 : Focus or open Excel
 alt - 2 : ~/.config/skhd/scripts/focus_or_open.sh "Microsoft Excel" "open -a 'Microsoft Excel'"
 
-# alt - 3 : Focus or open Excel
+# alt - 3 : Focus or open PowerPoint
 alt - 3 : ~/.config/skhd/scripts/focus_or_open.sh "Microsoft PowerPoint" "open -a 'Microsoft PowerPoint'"
+
+# alt - 4 : Focus or open Word
+alt - 4 : ~/.config/skhd/scripts/focus_or_open.sh "Microsoft Word" "open -a 'Microsoft Word'"
+
+# alt - 5 : Focus or open VScode 
+alt - 5 : ~/.config/skhd/scripts/focus_or_open.sh "Visual Studio Code" "open -a 'Visual Studio Code'"

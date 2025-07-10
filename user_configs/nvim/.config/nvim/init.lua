@@ -2,6 +2,8 @@ require("config.lazy") -- loading this file bootstraps lazy.nvim, LazyVim and my
 vim.wo.relativenumber = false
 vim.opt.wrap = true
 
+vim.g.python3_host_prod = "/Users/Yonah.Citron/.pyenv/shims/python"
+
 -- Get into terminal normal mode just by hitting esc
 vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
 

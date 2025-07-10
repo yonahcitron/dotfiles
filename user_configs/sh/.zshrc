@@ -180,3 +180,6 @@ fi
 if [ -e "$DF_DEVICE_ZSHRC" ]; then
     source "$DF_DEVICE_ZSHRC"
 fi
+
+# opencode
+export PATH=/Users/Yonah.Citron/.opencode/bin:$PATH

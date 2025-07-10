@@ -17,7 +17,7 @@ return {
             python = {
               command = { "ipython", "--simple-prompt", "--no-autoindent" },
               format = common.bracketed_paste, -- Default is "bracketed_paste_python". See https://github.com/Vigemus/iron.nvim/issues/378
-              block_dividers = { "# %%", "#%%" },
+              block_dividers = { "# %%", "#%%", "# COMMAND ----------" },
             },
           },
           repl_filetype = function(_, ft)
