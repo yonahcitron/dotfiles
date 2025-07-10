@@ -28,7 +28,12 @@ echo "[INFO} Brew packages successfully installed!"
 brew tap d99kris/nchat
 brew install nchat
 # Install pyenv
-curl -fsSL https://pyenv.run | bash
+if ! command -v pyenv >/dev/null 2>&1; then
+  curl -fsSL https://pyenv.run | bash
+fi
+
+# Always have the latest version of python
+pyenv install $(pyenv install --list | grep -E '^\s*3\.[0-9]+\.[0-9]+$' | tail -1 | tr -d ' ') && pyenv global $(pyenv versions --bare | grep -E '^3\.' | tail -1)
 
 ##############################
 ####### Shell setup ##########

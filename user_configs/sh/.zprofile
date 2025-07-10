@@ -19,6 +19,11 @@
 # fi
 # 
 
+# Set up system paths for pyenv in non-interactive shells (see .zshrc for interactive setup)
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
 #############################################
 # DEVICE- AND PLATFORM-SPECIFIC CODE
 #############################################
