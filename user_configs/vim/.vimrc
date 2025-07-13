@@ -7,8 +7,8 @@ inoremap kj <Esc>
 
 " Swap `:` and `;` keys to make entering Command Mode easier.
 "	Also swaps command to repeat the last 'f', 't', 'F' & 'T' command.
-nnoremap ; :
-nnoremap : ;
+" nnoremap ; :
+" nnoremap : ;
 
 " Saner default to navigate windows with Ctrl + h/j/k/l
 nnoremap <C-h> <C-w>h
