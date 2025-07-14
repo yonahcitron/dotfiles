@@ -1,4 +1,7 @@
-MOVE ALL THE ENV VARS IN HERE, SOURCE THEM IN THE .ZPROFILE AS WELL AND CONFIRM IT COMES FIRST...
+from databricks.sdk import WorkspaceClient
 
+w = WorkspaceClient()
+d = w.dbutils.fs.ls('/')
 
-    i..e.
+for f in d:
+  print(f.path)

@@ -8,11 +8,12 @@ source $HOME/repos/dotfiles/user_configs/sh/.env.sh # This should run out-the-bo
 #############################################
 
 # Convenience aliases for common commands.
-alias vi="nvim"
+
 alias lg="lazygit"
 alias dfs="cd $DOTFILES && ls"
 alias vlt="cd $VAULT && ls"
 alias repos="cd $REPOS && ls"
+alias vi="nvim"
 
 # Quick navigation of the 'df' cmdlet.
 alias setup="source $DOTFILES/cmdlets/share/df/scripts/setup.sh" # Can't be with the 'df' cmdlet, as want to be able to source new env vars into interactive shell. Can only do this with an alias, can't inherit variables from another non-shell process.
@@ -21,15 +22,6 @@ alias setup="source $DOTFILES/cmdlets/share/df/scripts/setup.sh" # Can't be with
 #alias todo="vim $DOTFILES/TODO.md"
 
 alias sd="sudo shutdown -h now"
-
-#############################################
-# Python versioning
-#############################################
-# TODO: Make a thing here that removes /usr/bin/python if it's a normal file, i.e. system python, and makes it a symlink to /home/yonah/.pyenv/shims/python... do that in the global...
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
 
 #############################################
 # FUNCTIONS
