@@ -16,8 +16,8 @@ alt - space : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new
 # alt - w : Focus or open tmux in kitty, in the whatsapp window
 alt - w : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:whatsapp"
 
-# alt - e : Focus or open tmux in kitty, in the email window
-alt - e : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:email"
+# alt - n : Focus or open vault in kitty, in the vault window
+alt - e : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:vault"
 
 # alt - o : Focus or open vault/todo.md in nvim in kitty
 alt - o : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:todo"
@@ -36,9 +36,6 @@ alt - i : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Goog
 # alt - d : Focus or open Todoist ("toDo")
 # Not command-t, since on mac I need that for tabs on chrome!
 alt - d : ~/.config/skhd/scripts/focus_or_open.sh "Todoist" "open -a 'Todoist'"
-
-# alt - n : Focus or open Obsidian
-alt - n : ~/.config/skhd/scripts/focus_or_open.sh "Obsidian" "open -a 'Obsidian'"
 
 # alt - y : Focus or open YouTube (as a Chrome web app)
 alt - y : ~/.config/skhd/scripts/focus_or_open.sh "Google Chrome" "open -a 'Google Chrome' --args --app='https://youtube.com'"
