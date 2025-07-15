@@ -17,7 +17,7 @@ alt - space : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new
 alt - w : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:whatsapp"
 
 # alt - n : Focus or open vault in kitty, in the vault window
-alt - e : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:vault"
+alt - v : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:vault"
 
 # alt - o : Focus or open vault/todo.md in nvim in kitty
 alt - o : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:todo"

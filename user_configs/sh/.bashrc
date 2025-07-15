@@ -13,6 +13,7 @@ alias lg="lazygit"
 alias dfs="cd $DOTFILES && ls"
 alias vlt="cd $VAULT && ls"
 alias repos="cd $REPOS && ls"
+alias home="cd $HOME"
 alias vi="nvim"
 
 # Quick navigation of the 'df' cmdlet.

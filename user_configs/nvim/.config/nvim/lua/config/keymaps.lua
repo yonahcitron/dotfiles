@@ -50,25 +50,6 @@ vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", {
 -- Expand 'cc' into 'CodeCompanion' in the command line
 vim.cmd([[cab cc CodeCompanion]])
 
-vim.keymap.set("n", "<Leader>rr", function()
-  require("nvim-python-repl").send_statement_definition()
-end, { desc = "Send semantic unit to REPL" })
-vim.keymap.set("v", "<Leader>rr", function()
-  require("nvim-python-repl").send_visual_to_repl()
-end, { desc = "Send visual selection to REPL" })
-vim.keymap.set("n", "<Leader>rb", function()
-  require("nvim-python-repl").send_buffer_to_repl()
-end, { desc = "Send entire buffer to REPL" })
-vim.keymap.set("n", "<Leader>rt", function()
-  require("nvim-python-repl").toggle_execute()
-end, { desc = "Automatically execute command in REPL after sent" })
-vim.keymap.set("n", "<Leader>rs", function()
-  require("nvim-python-repl").toggle_vertical()
-end, { desc = "Create REPL in vertical or horizontal split" })
-vim.keymap.set("n", "<Leader>rw", function()
-  require("nvim-python-repl").open_repl()
-end, { desc = "Opens the REPL in a window split" })
-
 -- Swap `:` and `;` keys to make entering Command Mode easier
 -- Also swaps command to repeat the last 'f', 't', 'F' & 'T' command.
 -- vim.api.nvim_set_keymap("n", ";", ":", { noremap = true })
