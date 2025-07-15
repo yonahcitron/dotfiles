@@ -1,9 +1,6 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
-vim.keymap.del("n", ",")
-vim.keymap.del("v", ",")
-vim.g.maplocalleader = ","
 -- Remap key to enter Normal Mode
 
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true, silent = true })

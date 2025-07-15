@@ -1,16 +1,18 @@
 return {
-  { "catppuccin/nvim" },
-  lazy = false,
-  name = "catppuccin",
-
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
-  },
+  -- {
+  --   "catppuccin/nvim",
+  --   lazy = false,
+  --   name = "catppuccin",
+  -- },
+  --
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "catppuccin",
+  --   },
+  -- },
   {
     "folke/tokyonight.nvim",
-    enabled = false,
-  }
+    enabled = true,
+  },
 }
