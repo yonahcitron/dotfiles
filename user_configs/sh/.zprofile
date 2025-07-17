@@ -36,3 +36,15 @@ fi
 if [ -e "$DF_DEVICE_ZPROFILE" ]; then
   source "$DF_DEVICE_ZPROFILE"
 fi
+
+############################################################
+# BITWARDEN CLI SESSION CHECK
+############################################################
+# Check Bitwarden's status
+bw_status=$(bw status 2>/dev/null | jq -r .status)
+
+if [[ "$bw_status" == "unauthenticated" ]]; then
+    # Case 1: User is not logged in. Print a direct error.
+    RED=$(tput setaf 1); BOLD=$(tput bold); NC=$(tput sgr0)
+    echo "${BOLD}${RED}ATTENTION: Bitwarden is not logged in. Run 'bw login'.${NC}"
+fi
