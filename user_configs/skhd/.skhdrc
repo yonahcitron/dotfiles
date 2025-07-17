@@ -22,11 +22,11 @@ alt - v : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-ses
 # alt - o : Focus or open vault/todo.md in nvim in kitty
 alt - o : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:todo"
 
-# alt - / : Focus or open vault/!today.md in nvim in kitty
-alt - 0x2C : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:today"
+# alt - ' : Focus or open vault/!today.md in nvim in kitty
+alt - 0x27 : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:today"
 
-# alt - ' : Focus or open gemini-cli
-alt - 0x27 : ~/.config/skhd/scripts/focus_or_open.sh "Gemini" "open -a 'Gemini'"
+# alt - / : Focus or open gemini
+alt - 0x2C  : ~/.config/skhd/scripts/focus_or_open.sh "Gemini" "open -a 'Gemini'"
 
 # --- Dedicated Apps ---
 

@@ -53,8 +53,8 @@ export DF_PLATFORM_BREW_PACKAGES="$DF_PLATFORM_DIR/$DISTRO-brew-packages.txt"
 export DF_DEVICE_BREW_PACKAGES="$DF_DEVICE_DIR/$HOSTNAME-brew-packages.txt"
 
 # To allow aider cli to connect to Github Copilot
-export OPENAI_API_KEY=$(cat ~/.secrets/opencode/github_token.txt)
-export OPENAI_API_BASE=https://api.githubcopilot.com
+# export OPENAI_API_KEY=$(cat ~/.secrets/opencode/github_token.txt)
+# export OPENAI_API_BASE=https://api.githubcopilot.com
 
 # To allow opencode cli to connect to Github Copilot
-export GITHUB_TOKEN=$(cat ~/.secrets/opencode/github_token.txt)
+# export GITHUB_TOKEN=$(cat ~/.secrets/opencode/github_token.txt)

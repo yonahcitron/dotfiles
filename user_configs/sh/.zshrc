@@ -187,3 +187,7 @@ export PATH=/Users/Yonah.Citron/.opencode/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+
+
+# fastfetch # See my todo in my vault for my plan to make this even cooler, by having a different thing in each of my tmux terminal grids at startup... but can implement that later.... make sure that it doesn't run both is the only thing, shouldn't be calling fast-fetch twice!!
+

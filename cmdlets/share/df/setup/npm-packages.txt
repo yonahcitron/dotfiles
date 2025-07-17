@@ -1,1 +1,2 @@
 @google/gemini-cli@latest
+@bitwarden/cli

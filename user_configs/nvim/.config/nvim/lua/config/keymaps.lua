@@ -16,11 +16,23 @@ vim.keymap.set("n", "<C-k>", "<Cmd>TmuxNavigateUp<CR>", { silent = true })
 vim.keymap.set("n", "<C-l>", "<Cmd>TmuxNavigateRight<CR>", { silent = true })
 vim.keymap.set("n", "<C-\\>", "<Cmd>TmuxNavigatePrevious<CR>", { silent = true })
 
+-- Shortcut to resize windows horizontally
+local resize_step = 8 -- The number of columns to resize by each time
+vim.keymap.set("n", "<C-A-l>", function()
+  vim.cmd("vertical resize +" .. resize_step)
+end, { desc = "Increase window width" })
+vim.keymap.set("n", "<C-A-h>", function()
+  vim.cmd("vertical resize -" .. resize_step)
+end, { desc = "Decrease window width" })
+
 -- Toggle LSP diagnostic warnings to stop it cluttering
 vim.keymap.set("n", "<leader>dw", function() -- "diagnostic warnings"
   local enable_status = vim.diagnostic.is_enabled()
   vim.diagnostic.enable(not enable_status)
 end, { noremap = true, silent = true, desc = "Toggle LSP virtual text" })
+
+-- TODO: Move all these plugin-specific stuff into those plugins' own respective plugin config files, within the setup function...
+--        I think this file should be for global / neovim related keymaps...
 
 -- Zenmode
 vim.keymap.set("n", "<Leader>z", "<cmd>ZenMode<cr>", {

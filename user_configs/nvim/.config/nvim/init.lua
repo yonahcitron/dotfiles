@@ -1,7 +1,8 @@
-vim.g.maplocalleader = "," -- This NEEDS to be loaded BEFORE lazy.
-
+-- vim.g.maplocalleader = "," -- This NEEDS to be loaded BEFORE lazy.
 require("config.lazy") -- loading this file bootstraps lazy.nvim, LazyVim and my plugins they manage
 -- vim.wo.relativenumber = false -- This would have to be loaded later on to work... I think tokyonight is what triggers it on again
+
+vim.opt.termguicolors = true
 vim.opt.wrap = true
 
 vim.g.python3_host_prod = "/Users/Yonah.Citron/.pyenv/shims/python"

@@ -13,3 +13,4 @@ koekeishiya/formulae/skhd
 jq
 ripgrep
 node
+fastfetch
