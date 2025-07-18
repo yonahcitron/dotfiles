@@ -3,7 +3,7 @@
 #############################################
 # GLOBAL VARIABLES
 #############################################
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export SUDO_EDITOR=vim
 export EDITOR=nvim
 # TODO: Change this everywhere to upper-case
@@ -21,7 +21,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 # Dotfiles config dirs
-export DF_SETUP_DIR="$DOTFILES/cmdlets/share/df/setup"
+export DF_SETUP_DIR="$DOTFILES/tooling/tools/df/setup"
 export DF_PLATFORM_DIR="$DF_SETUP_DIR/platforms/$DISTRO"
 export DF_DEVICE_DIR="$DF_PLATFORM_DIR/devices/$HOSTNAME"
 

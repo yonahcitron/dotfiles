@@ -58,12 +58,12 @@ cd $DOTFILES/global_configs
 sudo stow --target /etc */
 
 # Executable cmdlets.
-cd $DOTFILES/cmdlets
-mkdir -p $HOME/.local/share
-mkdir -p $HOME/.local/bin
-stow --target $HOME/.local/share share
-stow --target $HOME/.local/bin bin
-sudo chmod +x $HOME/.local/bin/*
+cd $DOTFILES/tooling
+mkdir -p $HOME/bin
+mkdir -p $HOME/tools
+stow --target $HOME/bin bin
+stow --target $HOME/tools tools
+sudo chmod +x $HOME/bin/*
 
 # In order to make tmux-resurrect work across both mac and linux, I need to manually set the 'last' symlink in the script, as there is a different file for each os. These files do not support manual expansion logic, so this pointer is the only way to do it, outside the repo.
 tmux_resurrect_folder="$DOTFILES/user_configs/tmux/.local/share/tmux/resurrect"

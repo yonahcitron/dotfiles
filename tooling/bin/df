@@ -7,7 +7,7 @@ import sys
 
 
 home_dir = os.path.expanduser("~")
-df_scripts_dir = os.path.join(home_dir, "repos", "dotfiles", "cmdlets", "share", "df", "scripts")
+df_scripts_dir = os.path.join(home_dir, "repos", "dotfiles", "tooling", "tools", "df", "scripts")
 
 def run_script(script_path):
     try:
