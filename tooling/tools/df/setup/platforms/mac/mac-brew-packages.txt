@@ -8,6 +8,7 @@ bentobox
 fd
 logi-options-plus
 pyenv
+pyenv-virtualenv
 koekeishiya/formulae/yabai
 koekeishiya/formulae/skhd
 jq

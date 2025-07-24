@@ -15,7 +15,14 @@ alias vlt="cd $VAULT && ls"
 alias repos="cd $REPOS && ls"
 alias home="cd $HOME"
 alias vi="nvim"
+alias pyenv-init='export PYENV_ROOT="$HOME/.pyenv" && [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH" && eval "$(pyenv init - zsh)" && "$(pyenv virtualenv-init -)"'
 
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+
+# eval "$(pyenv init - zsh)"
+# Set up pyenv-virtualenv
+# eval "$(pyenv virtualenv-init -)"
 # Quickly edit the todo. # TODO: Eventually move this into the `df` cmdlet.
 #alias todo="vim $DOTFILES/TODO.md"
 

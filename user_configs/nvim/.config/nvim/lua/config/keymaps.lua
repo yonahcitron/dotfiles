@@ -26,13 +26,22 @@ vim.keymap.set("n", "<C-A-h>", function()
 end, { desc = "Decrease window width" })
 
 -- Toggle LSP diagnostic warnings to stop it cluttering
-vim.keymap.set("n", "<leader>dw", function() -- "diagnostic warnings"
-  local enable_status = vim.diagnostic.is_enabled()
-  vim.diagnostic.enable(not enable_status)
-end, { noremap = true, silent = true, desc = "Toggle LSP virtual text" })
+-- vim.keymap.set("n", "<leader>dw", function() -- "diagnostic warnings"
+--   local enable_status = vim.diagnostic.is_enabled()
+--   vim.diagnostic.enable(not enable_status)
+-- end, { noremap = true, silent = true, desc = "Toggle LSP virtual text" })
 
 -- TODO: Move all these plugin-specific stuff into those plugins' own respective plugin config files, within the setup function...
 --        I think this file should be for global / neovim related keymaps...
+
+-- App-specfic keymaps
+-- TODO: Move these soon to their respective plugin config files!!
+
+-- Grug-Far
+-- TODO: Double check this doesn't already exist within the default plugin! Seems weird if it doesn't!
+vim.keymap.set("n", "<leader>sf", function() -- "search file"
+  require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
+end, { desc = "grug-far: Search just current file" })
 
 -- Zenmode
 vim.keymap.set("n", "<Leader>z", "<cmd>ZenMode<cr>", {

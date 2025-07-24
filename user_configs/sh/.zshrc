@@ -180,14 +180,16 @@ if [ -e "$DF_DEVICE_ZSHRC" ]; then
     source "$DF_DEVICE_ZSHRC"
 fi
 
-# opencode
-export PATH=/Users/Yonah.Citron/.opencode/bin:$PATH
-
+# NOTE: For now I think the best way of doing this is by initializing pyenv when I want it, rather than having it as a global? See if this works, otherwise I can always put it back in the .zshrc.
 # Set up system paths for pyenv in interactive shells (see .zprofile for non-interactive setup)
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init - zsh)"
+# Set up pyenv-virtualenv
+# eval "$(pyenv virtualenv-init -)"
 
 
 # fastfetch # See my todo in my vault for my plan to make this even cooler, by having a different thing in each of my tmux terminal grids at startup... but can implement that later.... make sure that it doesn't run both is the only thing, shouldn't be calling fast-fetch twice!!
 
+# Set up the ghcs command
+eval "$(gh copilot alias -- zsh)"

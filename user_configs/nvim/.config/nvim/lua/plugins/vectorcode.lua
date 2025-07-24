@@ -1,0 +1,43 @@
+return {}
+-- return {
+--   "olimorris/codecompanion.nvim",
+--   cmd = {
+--     "CodeCompanion",
+--     "CodeCompanionActions",
+--     "CodeCompanionChat",
+--     "CodeCompanionCmd",
+--   },
+--   dependencies = {
+--     "nvim-lua/plenary.nvim",
+--     "nvim-treesitter/nvim-treesitter",
+--     "Davidyz/VectorCode",
+--   },
+--   opts = {
+--
+--     extensions = {
+--       vectorcode = {
+--         opts = {
+--           tool_group = {
+--             enabled = true,
+--             extras = {},
+--             collapse = false, -- whether the individual tools should be shown in the chat
+--           },
+--           tool_opts = {
+--             ls = {},
+--             vectorise = {},
+--             query = {
+--               max_num = { chunk = -1, document = -1 },
+--               default_num = { chunk = 50, document = 10 },
+--               no_duplicate = true,
+--               chunk_mode = false,
+--               summarise = {
+--                 adapter = true,
+--                 query_augmented = true,
+--               },
+--             },
+--           },
+--         },
+--       },
+--     },
+--   },
+-- }
