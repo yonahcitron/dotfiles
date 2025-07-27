@@ -82,12 +82,17 @@ cd $working_dir
 ########## Install global npm ###########
 #########################################
 echo "Instaling global npm apps"
-cat $DF_NPM_PACKAGES | xargs npm install -g
+cat $DF_NPM_PACKAGES | xargs sudo npm install -g
 echo "Completed installation of npm apps"
 
 #########################################
 ########## Post-setup scripts ###########
 #########################################
+
+# Run universal postscript
+echo "Running universal postscript for all platforms..."
+source "$DF_COMMON_POSTSCRIPT"
+
 
 # Run any platform-specific setup postscripts.
 if [ -e "$DF_PLATFORM_POSTSCRIPT" ]; then
