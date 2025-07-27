@@ -39,6 +39,7 @@ export DF_PLATFORM_ZSHRC="$DF_PLATFORM_DIR/$DISTRO.zshrc"
 export DF_DEVICE_ZSHRC="$DF_DEVICE_DIR/$HOSTNAME.zshrc"
 
 # Setup and installation scripts.
+export DF_COMMON_POSTSCRIPT="$DF_SETUP_DIR/common-postscript.sh"
 export DF_NPM_PACKAGES="$DF_SETUP_DIR/npm-packages.txt"
 export DF_PLATFORM_PACKAGES="$DF_PLATFORM_DIR/$DISTRO-packages.txt"
 export DF_PLATFORM_INIT_SCRIPT="$DF_PLATFORM_DIR/$DISTRO-init.sh"

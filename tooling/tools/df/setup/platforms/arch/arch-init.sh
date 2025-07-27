@@ -174,6 +174,3 @@ if [[ "$(getent passwd "$USER" | cut -d: -f7)" == "$ZSH_PATH" ]]; then
 else
   echo "Failed to change default shell."
 fi
-
-# Always have the latest version of python
-pyenv install $(pyenv install --list | grep -E '^\s*3\.[0-9]+\.[0-9]+$' | tail -1 | tr -d ' ') && pyenv global $(pyenv versions --bare | grep -E '^3\.' | tail -1)

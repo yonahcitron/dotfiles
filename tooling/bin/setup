@@ -1,3 +1,4 @@
+set -e
 # Import the global variables used throughout this script and others.
 source $HOME/repos/dotfiles/user_configs/sh/.bashrc # This should run out-the-box even on a clean install. The 'dotfiles' repo is installed already by the arch-ISO installation script.
 
