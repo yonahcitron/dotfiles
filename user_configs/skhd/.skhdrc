@@ -7,23 +7,41 @@
 # Soon, map comma and full-stop to something.
 # --- TUIs ---
 
-# alt - space : Focus or open tmux in kitty, in the terminal window
-alt - return : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:term"
+# alt - return : Switch to terminal session in main kitty
+alt - return : ~/.config/skhd/scripts/tmux_session_manager.sh "terminal" "" "$HOME"
 
-# alt - return : Focus or open tmux in kitty, in the neovim window
-alt - space : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:nvim"
+# alt - space : Switch to editor session in main kitty  
+alt - space : ~/.config/skhd/scripts/tmux_session_manager.sh "editor" "nvim" "$HOME"
 
-# alt - w : Focus or open tmux in kitty, in the whatsapp window
-alt - w : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:whatsapp"
+# alt - w : Switch to whatsapp session in main kitty
+alt - w : ~/.config/skhd/scripts/tmux_session_manager.sh "whatsapp" "" "$HOME"
 
-# alt - n : Focus or open vault in kitty, in the vault window
-alt - v : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:vault"
+# alt - v : Switch to vault session in main kitty
+alt - v : ~/.config/skhd/scripts/tmux_session_manager.sh "vault" "nvim ." "/Users/Yonah.Citron/repos/vault"
 
-# alt - o : Focus or open vault/todo.md in nvim in kitty
-alt - o : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:todo"
+# alt - o : Switch to todo session in main kitty
+alt - o : ~/.config/skhd/scripts/tmux_session_manager.sh "todo" "nvim todo.md" "/Users/Yonah.Citron/repos/vault"
 
-# alt - ' : Focus or open vault/!today.md in nvim in kitty
-alt - 0x27 : ~/.config/skhd/scripts/focus_or_open.sh "kitty" "kitty -e tmux new-session -A -s mission-control" "tmux select-window -t mission-control:today"
+# alt - ' : Switch to today session in main kitty
+alt - 0x27 : ~/.config/skhd/scripts/tmux_session_manager.sh "today" "nvim today.md" "/Users/Yonah.Citron/repos/vault"
+
+# ctrl + alt - return : Open/focus terminal session in standalone kitty
+ctrl + alt - return : ~/.config/skhd/scripts/tmux_session_manager.sh "terminal" "" "$HOME" "standalone"
+
+# ctrl + alt - space : Open/focus editor session in standalone kitty
+ctrl + alt - space : ~/.config/skhd/scripts/tmux_session_manager.sh "editor" "nvim" "$HOME" "standalone"
+
+# ctrl + alt - w : Open/focus whatsapp session in standalone kitty
+ctrl + alt - w : ~/.config/skhd/scripts/tmux_session_manager.sh "whatsapp" "" "$HOME" "standalone"
+
+# ctrl + alt - v : Open/focus vault session in standalone kitty
+ctrl + alt - v : ~/.config/skhd/scripts/tmux_session_manager.sh "vault" "nvim ." "/Users/Yonah.Citron/repos/vault" "standalone"
+
+# ctrl + alt - o : Open/focus todo session in standalone kitty
+ctrl + alt - o : ~/.config/skhd/scripts/tmux_session_manager.sh "todo" "nvim todo.md" "/Users/Yonah.Citron/repos/vault" "standalone"
+
+# ctrl + alt - ' : Open/focus today session in standalone kitty
+ctrl + alt - 0x27 : ~/.config/skhd/scripts/tmux_session_manager.sh "today" "nvim today.md" "/Users/Yonah.Citron/repos/vault" "standalone"
 
 # alt - / : Focus or open gemini
 alt - 0x2C  : ~/.config/skhd/scripts/focus_or_open.sh "Gemini" "open -a 'Gemini'"

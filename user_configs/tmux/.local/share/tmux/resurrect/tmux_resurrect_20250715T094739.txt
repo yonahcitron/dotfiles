@@ -1,0 +1,14 @@
+pane	mission-control	0	0	:	0	Yonah.Citron@Q2QK9J44K7:~	:/Users/Yonah.Citron	1	zsh	:
+pane	mission-control	0	0	:	1	Yonah.Citron@Q2QK9J44K7:~	:/Users/Yonah.Citron	0	zsh	:
+pane	mission-control	0	0	:	2	Yonah.Citron@Q2QK9J44K7:~	:/Users/Yonah.Citron	0	zsh	:
+pane	mission-control	0	0	:	3	Yonah.Citron@Q2QK9J44K7:~	:/Users/Yonah.Citron	0	zsh	:
+pane	mission-control	1	1	:*	0	nvim	:/Users/Yonah.Citron/repos/dotfiles/user_configs/nvim/.config/nvim/lua/plugins	1	nvim	:nvim
+pane	mission-control	2	0	:	0	nvim /Users/Yonah.Citron/repos/vault/	:/Users/Yonah.Citron/repos/vault	1	nvim	:nvim /Users/Yonah.Citron/repos/vault/
+pane	mission-control	3	0	:-	0	nvim /Users/Yonah.Citron/repos/vault/todo.md	:/Users/Yonah.Citron	1	nvim	:nvim /Users/Yonah.Citron/repos/vault/todo.md
+pane	mission-control	4	0	:	0	nvim /Users/Yonah.Citron/repos/vault/today.md	:/	1	nvim	:nvim /Users/Yonah.Citron/repos/vault/today.md
+window	mission-control	0	:term	0	:	a5eb,172x54,0,0{86x54,0,0[86x27,0,0,1,86x26,0,28,2],85x54,87,0[85x27,87,0,3,85x26,87,28,4]}	off
+window	mission-control	1	:nvim	1	:*	bf42,172x54,0,0,5	off
+window	mission-control	2	:vault	0	:	bf43,172x54,0,0,6	off
+window	mission-control	3	:todo	0	:-	bf44,172x54,0,0,7	off
+window	mission-control	4	:today	0	:	bf45,172x54,0,0,8	off
+state	mission-control	
