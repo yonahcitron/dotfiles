@@ -1,15 +1,40 @@
 -- Currently I've turned diff OFF for the inline assistnat... maybe turn it back on at some point to see if I like that...?
+
+-- Adopt some more of the keybindings etc from here: https://github.com/lucobellic/nvim-config/blob/main/lua/plugins/codecompanion/codecompanion.lua
+
 return {
   "olimorris/codecompanion.nvim",
   cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionCmd" },
   enabled = true,
   init = function()
     vim.cmd([[cab cc CodeCompanion]])
-    require("custom.spinner"):init()
+    -- require("custom.spinner"):init()
   end,
+  keys = {
+    { "<leader>aa", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" }, desc = "Code Companion: Toggle chat" },
+    { "<leader>ae", ":CodeCompanionChat Add<cr>", mode = { "v" }, desc = "Code Companion Add" },
+    { "<leader>ax", ":CodeCompanionActions<cr>", mode = { "n", "v" }, desc = "Code Companion Actions" }, -- "execute"
+    { "<leader>an", ":CodeCompanionChat<cr>", mode = { "n", "v" }, desc = "Code Companion Chat" },
+    { "<leader>ad", ":CodeCompanion /doc<cr>", mode = { "v" }, desc = "Code Companion Documentation" },
+    { "<leader>af", ":CodeCompanion /fix<cr>", mode = { "v" }, desc = "Code Companion Fix" },
+    { "<leader>ag", ":CodeCompanion /scommit<cr>", mode = { "n", "v" }, desc = "Code Companion Commit" },
+    { "<leader>ai", ":CodeCompanion<cr>", mode = { "n", "v" }, desc = "Code Companion Inline Prompt" },
+    { "<leader>al", ":CodeCompanion /lsp<cr>", mode = { "n", "v" }, desc = "Code Companion LSP" },
+    { "<leader>ap", ":CodeCompanion /pr<cr>", mode = { "n" }, desc = "Code Companion PR" },
+    { "<leader>ar", ":CodeCompanion /optimize<cr>", mode = { "v" }, desc = "Code Companion Refactor" },
+    { "<leader>as", ":CodeCompanion /spell<cr>", mode = { "n", "v" }, desc = "Code Companion Spell" },
+    { "<leader>at", ":CodeCompanion /tests<cr>", mode = { "v" }, desc = "Code Companion Generate Test" },
+    {
+      "<leader>at",
+      ":CodeCompanion #{explain terminal error}<cr>",
+      mode = { "n" },
+      desc = "Code Companion Explain Terminal Error",
+    },
+  },
   dependencies = {
     "j-hui/fidget.nvim", -- Display status
     "ravitemer/codecompanion-history.nvim",
+    "franco-ruggeri/codecompanion-spinner.nvim",
     { "echasnovski/mini.pick", config = true },
     {
       "Davidyz/VectorCode", -- Index and search code in your repositories
@@ -59,6 +84,7 @@ return {
     },
 
     extensions = {
+      spinner = {},
       vectorcode = {
         opts = {
           tool_group = {

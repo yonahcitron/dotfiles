@@ -50,26 +50,26 @@ vim.keymap.set("n", "<Leader>z", "<cmd>ZenMode<cr>", {
   desc = "Toggle Zen Mode",
 })
 
--- CodeCompanion
-vim.keymap.set({ "n", "v" }, "<Leader>cd", "<cmd>CodeCompanionActions<cr>", { -- "Codecompanion Do"
-  noremap = true,
-  silent = true,
-  desc = "Code Companion: Show actions",
-})
-
-vim.keymap.set({ "n", "v" }, "<Leader>a", "<cmd>CodeCompanionChat Toggle<cr>", {
-  noremap = true,
-  silent = true,
-  desc = "Code Companion: Toggle chat",
-})
-
-vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", {
-  noremap = true,
-  silent = true,
-  desc = "Code Companion: Add to chat",
-})
--- Expand 'cc' into 'CodeCompanion' in the command line
-vim.cmd([[cab cc CodeCompanion]])
+-- -- CodeCompanion
+-- vim.keymap.set({ "n", "v" }, "<Leader>cd", "<cmd>CodeCompanionActions<cr>", { -- "Codecompanion Do"
+--   noremap = true,
+--   silent = true,
+--   desc = "Code Companion: Show actions",
+-- })
+--
+-- vim.keymap.set({ "n", "v" }, "<Leader>a", "<cmd>CodeCompanionChat Toggle<cr>", {
+--   noremap = true,
+--   silent = true,
+--   desc = "Code Companion: Toggle chat",
+-- })
+--
+-- vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", {
+--   noremap = true,
+--   silent = true,
+--   desc = "Code Companion: Add to chat",
+-- })
+-- -- Expand 'cc' into 'CodeCompanion' in the command line
+-- vim.cmd([[cab cc CodeCompanion]])
 
 -- Swap `:` and `;` keys to make entering Command Mode easier
 -- Also swaps command to repeat the last 'f', 't', 'F' & 'T' command.

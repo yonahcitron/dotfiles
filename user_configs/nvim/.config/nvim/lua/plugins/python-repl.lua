@@ -37,8 +37,8 @@ return {
       vim.cmd("normal! G")
       -- Send visual selection to REPL
       require("nvim-python-repl").send_visual_to_repl()
-      -- Exit visual mode
-      vim.cmd("normal! <Esc>")
+      -- Exit visual mode properly
+      vim.cmd("normal! \\<Esc>")
     end, { desc = "Databricks notebook: send all, minus header" })
 
     vim.keymap.set("n", "<Leader>rc", function() -- 'run cell'
@@ -72,7 +72,9 @@ return {
 
       -- Send visual selection to REPL
       require("nvim-python-repl").send_visual_to_repl()
-      vim.cmd("normal! <Esc>")
+      -- Exit visual mode properly and restore cursor position
+      vim.cmd("normal! \\<Esc>")
+      vim.api.nvim_win_set_cursor(0, cursor)
     end, { desc = "Send section between # COMMAND ---------- markers to REPL" })
   end,
 
@@ -109,7 +111,8 @@ return {
 
     -- Send visual selection to REPL
     require("nvim-python-repl").send_visual_to_repl()
-    vim.cmd("normal! <Esc>")
+    -- Exit visual mode properly
+    vim.cmd("normal! \\<Esc>")
 
     -- Move cursor to line after next marker (if exists)
     if next_marker and next_marker < #lines then
