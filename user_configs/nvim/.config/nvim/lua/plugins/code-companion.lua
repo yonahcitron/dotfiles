@@ -49,11 +49,101 @@ return {
     require("codecompanion").setup(opts)
     require("custom.extmarks").setup() -- With time, change this and the spinner.lua to a file structure more similar to this:       require('plugins.codecompanion.utils.extmarks').setup()
   end,
-
   opts = { -- Settings to pass to the setup() function
+    system_prompt = function(opts)
+      local language = opts.language or "English"
+      return string.format(
+        [[You are an AI programming assistant named "CodeCompanion". You are currently plugged into the Neovim text editor on a user's machine.
 
-    opts = { -- Global options for the plugin
-      log_level = "TRACE",
+Your core tasks include:
+- Answering general programming questions.
+- Explaining how the code in a Neovim buffer works.
+- Reviewing the selected code from a Neovim buffer.
+- Generating unit tests for the selected code.
+- Proposing fixes for problems in the selected code.
+- Scaffolding code for a new workspace.
+- Finding relevant code to the user's query.
+- Proposing fixes for test failures.
+- Answering questions about Neovim.
+- Running tools.
+
+You must:
+- Follow the user's requirements carefully and to the letter.
+- Use the context and attachments the user provides.
+- Keep your answers short and impersonal, especially if the user's context is outside your core tasks.
+- Minimize additional prose unless clarification is needed.
+- Use Markdown formatting in your answers.
+- Include the programming language name at the start of each Markdown code block.
+- Do not include line numbers in code blocks.
+- Avoid wrapping the whole response in triple backticks.
+- Only return code that's directly relevant to the task at hand. You may omit code that isn't necessary for the solution.
+- Avoid using H1, H2 or H3 headers in your responses as these are reserved for the user.
+- Use actual line breaks in your responses; only use "\n" when you want a literal backslash followed by 'n'.
+- All non-code text responses must be written in the %s language indicated.
+- Multiple, different tools can be called as part of the same response.
+
+When given a task:
+1. Think step-by-step and, unless the user requests otherwise or the task is very simple, describe your plan in detailed pseudocode.
+2. Output the final code in a single code block, ensuring that only relevant code is included.
+3. End your response with a short suggestion for the next user turn that directly supports continuing the conversation.
+4. Provide exactly one complete reply per conversation turn.
+5. If necessary, execute multiple tools in a single turn.
+
+Basic toolsets you can use:
+ - `@{vectorcode_toolbox}`: A toolset for searching and indexing code in your repositories.
+ - `@{mcp__neovim}`: A toolset for interacting with Neovim, such as reading files, inserting edits, and running commands.
+]],
+        language
+      )
+    end,
+
+    prompt_library = {
+      ["workspace_context"] = {
+        strategy = "chat",
+        description = "Discover the structure of the current workspace, and use this to search for files and context",
+        opts = {
+          short_name = "c", -- 'context'
+          index = 10,
+          is_default = true,
+          is_slash_cmd = true,
+          user_prompt = true,
+          auto_submit = false,
+          ignore_system_prompt = false,
+        },
+        prompts = {
+          {
+            role = "user",
+            content = function(context)
+              return [[
+############## Workspace Context Discovery ###############
+THIS is the strategy you *must use* in order to answer any question I have about the repo.
+When I say 'repo' here, we can assume I mean the current working directory.
+
+STAGE A - REPO LAYOUT DISCOVERY (skip if already done)
+1. Understand the repo size to ascertain what tools to use, so you don't get too much context returned. Use the `find . | wc -l` cli command to get the number of files and folders in the repo. If this gives a number >100, then repeat the 'find' command but with the maxdepth command varied until you get a number <100.
+2. Use this information to take action to understand the repo structure in more detail. Using the relevant depth of the find command, list the directory structure. 
+3. Read any obvious high-level files that might be useful, like a README.md or similar.
+
+
+STAGE B - SPECIFIC QUERY ON THE REPO
+1. Use the existing outline of repo structure above. Use this opportunity to explore any files and folders from that overview that might be useful, as well as using commands like the 'find files' commands etc for greater discovery, and grep etc if you think it might be useful.
+2. Read any useful files obtained from the previous file search / discovery, as well as any obviously useful files for context like READMEs etc.
+3. If the repo is large or the files to read are not obvious or there is any other ambiguity about having missed information - use @{vectorcode_toolbox} on the whole repo, specially the command to vectorise the whole repo, then once that's done perform a vector search on the output to get more information.
+##########################################################
+]]
+              -- STAGE C (optional) - QUERIES ON EXTERNAL REPOS / DEPENDENCIES
+              -- At another date can maybe use that local tool I was describing. Otherwise can use the  github code search api as well! Encourage it to use that!!
+            end,
+          },
+
+          -- {
+          --   role = "user",
+          --   content = function(context)
+          --     return [[You have access to @{vectorcode_toolbox}. Hi there!]]
+          --   end,
+          -- },
+        },
+      },
     },
 
     adapters = {
@@ -78,6 +168,10 @@ return {
           opts = {
             auto_submit_errors = true,
             auto_submit_success = true,
+            default_tools = {
+              "web_search",
+              "mcp__neovim",
+            },
           },
         },
       },
@@ -209,6 +303,10 @@ return {
           },
         },
       },
+    },
+
+    opts = {
+      log_level = "TRACE",
     },
   },
 }
